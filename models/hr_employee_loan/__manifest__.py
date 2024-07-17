@@ -4,7 +4,7 @@
 
 {
     'name' : 'Employee Loan Management',
-    'version' : '6.6.10',
+    'version' : '6.6.11',
     'category': 'Human Resources/Employees',
     'depends' : ['account', 'hr', 'hr_contract'
                  # 'hr_payroll'
