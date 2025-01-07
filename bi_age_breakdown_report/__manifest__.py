@@ -3,7 +3,7 @@
 
 {
     'name': 'Stock Age Breakdown Report Odoo App',
-    'version': '15.0.0.0',
+    'version': '15.0', #chandged from 15.0.0.0
     'category': 'Warehouse',
     'license': 'OPL-1',
     'summary': 'Print Inventory Age Report Inventory Breakdown Report inventory aging report stock aging report warehouse aging report product Stock aging report Inventory age stock report stock card stock ageing report stock expiry report aging stock report ageing stock',
