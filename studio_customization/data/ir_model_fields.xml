@@ -45379,36 +45379,6 @@ for record in self: record['x_x_studio_main_project_2_sale_order_line_count'] = 
     <field name="ttype">many2one</field>
     <field name="currency_field" eval="False" />
   </record>
-  <record id="studio_customization.new_related_field_co_bc1704f6-ad02-4fc4-9f64-045de2074995" model="ir.model.fields" context="{'studio': True}">
-    <field name="complete_name" eval="False" />
-    <field name="compute" eval="False" />
-    <field name="copied" eval="False" />
-    <field name="depends" eval="False" />
-    <field name="domain">[]</field>
-    <field name="field_description">Tariff Code</field>
-    <field name="groups" eval="[(6, 0, [])]" />
-    <field name="help" eval="False" />
-    <field name="index" eval="False" />
-    <field name="model">x_consignment_line</field>
-    <field name="model_id" ref="studio_customization.consignment_line_9f5bb979-172f-407d-8454-834e0cf510d6" />
-    <field name="name">x_studio_tariff_code</field>
-    <field name="on_delete">set null</field>
-    <field name="readonly" eval="True" />
-    <field name="related">x_studio_product_id.x_studio_tariff_code</field>
-    <field name="relation">x_tariffmaster</field>
-    <field name="relation_field" eval="False" />
-    <field name="relation_table" eval="False" />
-    <field name="required" eval="False" />
-    <field name="selectable" eval="True" />
-    <field name="selection" eval="False" />
-    <field name="size" eval="False" />
-    <field name="state">manual</field>
-    <field name="store" eval="False" />
-    <field name="tracking" eval="False" />
-    <field name="translate" eval="False" />
-    <field name="ttype">many2one</field>
-    <field name="currency_field" eval="False" />
-  </record>
   <record id="studio_customization.new_text_purchase_or_bc2f25cc-062d-4cdb-a0a2-aace7be5858b" model="ir.model.fields" context="{'studio': True}">
     <field name="complete_name" eval="False" />
     <field name="compute" eval="False" />
@@ -68970,6 +68940,36 @@ for record in self: record['x_x_studio_subcontracting_so_purchase_order_count'] 
     <field name="size" eval="False" />
     <field name="state">manual</field>
     <field name="store" eval="True" />
+    <field name="tracking" eval="False" />
+    <field name="translate" eval="False" />
+    <field name="ttype">many2one</field>
+    <field name="currency_field" eval="False" />
+  </record>
+  <record id="studio_customization.new_related_field_co_bc1704f6-ad02-4fc4-9f64-045de2074995" model="ir.model.fields" context="{'studio': True}">
+    <field name="complete_name" eval="False" />
+    <field name="compute" eval="False" />
+    <field name="copied" eval="False" />
+    <field name="depends" eval="False" />
+    <field name="domain">[]</field>
+    <field name="field_description">Tariff Code</field>
+    <field name="groups" eval="[(6, 0, [])]" />
+    <field name="help" eval="False" />
+    <field name="index" eval="False" />
+    <field name="model">x_consignment_line</field>
+    <field name="model_id" ref="studio_customization.consignment_line_9f5bb979-172f-407d-8454-834e0cf510d6" />
+    <field name="name">x_studio_tariff_code</field>
+    <field name="on_delete">set null</field>
+    <field name="readonly" eval="True" />
+    <field name="related">x_studio_product_id.x_studio_tariff_code</field>
+    <field name="relation">x_tariffmaster</field>
+    <field name="relation_field" eval="False" />
+    <field name="relation_table" eval="False" />
+    <field name="required" eval="False" />
+    <field name="selectable" eval="True" />
+    <field name="selection" eval="False" />
+    <field name="size" eval="False" />
+    <field name="state">manual</field>
+    <field name="store" eval="False" />
     <field name="tracking" eval="False" />
     <field name="translate" eval="False" />
     <field name="ttype">many2one</field>
