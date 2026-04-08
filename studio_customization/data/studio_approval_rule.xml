@@ -1,0 +1,826 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.engineering_change_o_3a039fdf-d152-4702-8e8d-7e58e274262d" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="mrp_plm.model_mrp_eco"/>
+    <field name="method">approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Engineering Change Order (ECO)/approve (User types / Internal User) (65)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.engineering_change_o_e9cdb5e3-c3cd-4d46-9d06-3db9370e5e6d" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="mrp_plm.model_mrp_eco"/>
+    <field name="method">action_apply</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Engineering Change Order (ECO)/action_apply (User types / Internal User) (66)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.helpdesk_ticket_reve_aae3b63f-f182-4d2f-bbdf-e2451f8b01ba" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+    <field name="method" eval="False"/>
+    <field name="name">Helpdesk Ticket/Reverse Transfer (User types / Internal User) (30)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.journal_entry_sls_cr_9ef9bab8-8276-48ad-86e9-6e2088ac327b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_credit_note_ap_ee96b839-2a01-48d8-9116-c110a15beb4e"/>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="method" eval="False"/>
+    <field name="name">Journal Entry/SLS - Credit Note Approval (Sales / Credit Note Approver) (25)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.journal_entry_sls_ov_83902933-499e-444b-a7bc-298ee5c072bf" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_credit_note_ap_ee96b839-2a01-48d8-9116-c110a15beb4e"/>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="method" eval="False"/>
+    <field name="name">Journal Entry/SLS - Overdue Approval (Sales / Credit Note Approver) (24)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.maintenance_request__18f59b94-9f8b-4732-8791-16df96edab01" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="maintenance.model_maintenance_request"/>
+    <field name="method">archive_equipment_request</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Maintenance Request/archive_equipment_request (User types / Internal User) (83)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_act_3e325e80-83be-48d3-92f0-a4d7f81e1cd6" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="mrp.group_mrp_manager"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">action_generate_serial</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/action_generate_serial (Manufacturing / Administrator) (100)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_act_d4ead3d9-c396-48ad-8810-c8bbf6386256" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="stock.group_stock_manager"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">action_product_forecast_report</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/action_product_forecast_report (Inventory / Jin - Administrator) (101)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_2304db2a-8640-43a3-b1c6-0e72a4fc92c9" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_247_448d6b2c"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_unbuild</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_unbuild (Manufacturing / Jin - Manufacturing -  MO Full Writes with Unbuild) (91)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_9f8eeb6d-6e9f-4cce-8f56-2628803ee743" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_unplan</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_unplan (User types / Internal User) (1)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_a19fde78-d885-4b78-8426-8218a58cc86f" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_247_448d6b2c"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_scrap</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_scrap (Manufacturing / Jin - Manufacturing -  MO Full Writes with Unbuild) (92)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_e0206f49-8628-4262-a9bb-7ffd9a50d71c" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_mark_done</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_mark_done (User types / Internal User) (4)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_ef65a245-8cc1-4487-bd8e-1d31a3a10e50" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_mark_done</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_mark_done (User types / Internal User) (3)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_fc343eda-7127-48a2-83c8-2b9dce70d06b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="mrp.group_mrp_manager"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_mark_done</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_mark_done (Manufacturing / Administrator) (5)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.production_order_but_fe755bcd-ff70-4d59-b987-8a4a2765ec32" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="method">button_mark_done</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Production Order/button_mark_done (User types / Internal User) (2)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_038a5d19-7465-4c6a-acab-ee40d11c76c1" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (PO Approval - 10,000 &lt; Amount) (13)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">['&amp;', ['amount_total', '&gt;', 10000], ['amount_total', '&lt;=', 20000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_09851580-892f-4550-8a41-09fb037ac1e2" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (User types / Internal User) (73)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_1f384f6a-1280-4c54-91b5-3f4d58ffb432" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="purchase.group_purchase_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (Purchase / User) (67)</field>
+    <field name="message">All Users.</field>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain">[['amount_total', '=', 0]]</field>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_1f8bf3b1-b99f-4db0-bcdc-40d34a5263c9" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (User types / Internal User) (52)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_2eda3cb1-10aa-4b1d-88fb-53d1384d4176" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_erp_manager"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_cancel</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_cancel (Administration / Access Rights) (87)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_3a42b128-fce2-4f25-9387-7ffcc408298b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (User types / Internal User) (53)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_46975109-0c40-4dc3-adec-73d7abd74fd1" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (Purchase / Jin - PO Approvers: PO Amount &gt; 500,000) (90)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['amount_total', '&gt;', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_4bb8434b-e08b-4edc-bd50-f734b001b0af" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (PO Approvals: PO Amount &lt;= 500,000) (48)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['amount_total', '&lt;=', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_5697efc7-f13f-4890-835b-a0519607b4ba" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (Purchase / Jin - PO Approvers: PO Amount &lt;= 500,000) (98)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_5a6dfd2a-4fc5-4768-9001-4c63950c7f7f" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_197_2be8a99f"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (Technical / Jin_PO_Creator) (70)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain">[['amount_total', '&lt;', 1]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_5d20505a-e204-4175-b932-2fd2482546db" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (PO Approval - 10,000 &lt; Amount) (16)</field>
+    <field name="message">PO amount is greater than 500,000. Need higher approval.</field>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain">[['amount_total', '&gt;', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_62fae215-e287-424b-8984-524fddaa3cd6" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (PO Approval: PO Amount &gt; 500,000) (54)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_643777fa-4d1e-488c-a779-9da08b7262f6" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_public"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (User types / Public) (12)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_6bfbf3e1-75f5-4633-b5d4-1753b4ce2de4" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (User types / Internal User) (71)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_7c94b3a3-8ade-4583-b223-dbde9a71b8b9" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_credit_note_ap_ee96b839-2a01-48d8-9116-c110a15beb4e"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (sales / Jin - Credit Note Approvers) (88)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_a150a878-ce89-4ccb-855e-bc17bcf6a5da" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (User types / Internal User) (15)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_a68f4cbb-e2b9-4138-8f09-ee6c563b56bc" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (PO Approval: PO Amount &gt; 500,000) (75)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['amount_total', '&gt;', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_ab77997b-1314-42c7-b616-0c6f54377108" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (Purchase / Jin - PO Approvers: PO Amount &lt;= 500,000) (89)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain">[['amount_total', '&lt;=', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_ad13f97c-517d-47f2-a895-25b0a6613a1b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (PO Approval: PO Amount &lt;= 500,000) (74)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['amount_total', '&lt;=', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_b29fc8f0-389f-402b-baad-898a83c2d70a" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (PO Approving users) (17)</field>
+    <field name="message">You are not allowed to approve Purchase Orders. Please request for approval from an authorized user.</field>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[["amount_total","&lt;=",500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_bba2d23a-526e-4ecb-aa94-74dc973f7813" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_cancel</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_cancel (User types / Internal User) (64)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_bd218557-9ca3-4c85-aaaf-085c28fd88f4" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_197_2be8a99f"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (Technical / Jin_PO_Creator) (72)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_c64d47f5-8861-4f0c-ae2e-3cbaa2a554b3" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (User types / Internal User) (69)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_dc4606db-8a6b-43a9-ab15-f8097dd41e47" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (PO Approval: PO Amount &gt; 500,000) (49)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['amount_total', '&gt;', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_e27964dc-f9d1-4946-81ed-cfe51d035985" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_approve</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_approve (User types / Internal User) (68)</field>
+    <field name="message">All Purchasing users</field>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain">[['amount_total', '&lt;', 1]]</field>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_butto_f4d8936b-0815-45b1-929d-32ca3e6332e6" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="purchase.group_purchase_manager"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">button_confirm</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/button_confirm (Purchase / Administrator) (7)</field>
+    <field name="message">Approve the Order</field>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['amount_total', '&lt;', 1000]]</field>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_confi_4f0ba3b8-f0ec-4298-9d9a-a7bd01b19641" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">confirm_reminder_mail</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/confirm_reminder_mail (User types / Internal User) (14)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_confi_59820fd1-9bc7-47da-8cbb-2eed993ead13" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="method">confirm_reminder_mail</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Order/confirm_reminder_mail (User types / Internal User) (11)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_order_non_i_2e238175-dc07-401b-8cee-57cc2b49537b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0"/>
+    <field name="model_id" ref="studio_customization.po_non_inventory_efc44f36-0e18-4285-8437-35fa844b16ce"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Order (Non-Inventory)/Approve NPO (Purchase / Jin - PO Approvers: PO Amount &lt;= 500,000) (94)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['x_studio_untaxed_amount', '&lt;=', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_order_non_i_49d8c4a7-5a68-420b-830e-e3b85135ff3b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455"/>
+    <field name="model_id" ref="studio_customization.po_non_inventory_efc44f36-0e18-4285-8437-35fa844b16ce"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Order (Non-Inventory)/Approve NPO (Purchase / Jin - PO Approvers: PO Amount &gt; 500,000) (95)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[['x_studio_untaxed_amount', '&gt;', 500000]]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_app_28429fad-8e42-4166-b38a-26f11feb365d" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request/Approve PR (User types / Internal User) (46)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_request_app_f18c00c4-00f3-496e-9b4a-7c5499606509" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request/Approve PR (Purchase / Purchase Request Approver) (28)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_app_f9ddfa70-db80-492c-81ab-fa8b7fc0b5e3" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request/Approve PR (Purchase / Purchase Request Approver) (29)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_con_db603ad0-d748-48ac-8f94-e981d8e40ffb" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.purchase_pr_approval_06103e69-ed8e-411b-90e6-cee8ce70d9c2"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request/Confirm PR (Purchase / PR Approval) (9)</field>
+    <field name="message">PR Should be Approved to Proceed.</field>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_don_27c406d7-6d0b-4fa6-b83f-612c7188ee6d" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.purchase_pr_approval_06103e69-ed8e-411b-90e6-cee8ce70d9c2"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request/Done PR + Copy PR to RFQ (Purchase / PR Approval) (10)</field>
+    <field name="message">PR Should be Approved to Proceed.</field>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_non_a1ddb17f-5035-46cc-ae05-cf6c6afbb547" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_250_b3c75780"/>
+    <field name="model_id" ref="studio_customization.pr_non_inventory_145a5b85-6c9d-490d-839c-ef99d4b2ffcc"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request (Non-Inventory)/Approve PR - Non-Inventory (Purchase / Jin - Non-Inv PR Approvers) (97)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain">[]</field>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_non_e5bc9bc5-694b-49bb-b764-d88548296ce7" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8"/>
+    <field name="model_id" ref="studio_customization.pr_non_inventory_145a5b85-6c9d-490d-839c-ef99d4b2ffcc"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Request (Non-Inventory)/Approve PR - Non-Inventory (Purchase / Jin - PR Approvers) (93)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_requisition_4063db44-c5df-44db-bfc2-4b992c4f437b" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_203_c5d26176"/>
+    <field name="model_id" ref="purchase_requisition.model_purchase_requisition"/>
+    <field name="method">action_done</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Purchase Requisition/action_done (sales / TEST - SALES - 1) (78)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_requisition_a160b53f-7659-49cf-801d-bc5f213129e5" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="purchase_requisition.model_purchase_requisition"/>
+    <field name="method" eval="False"/>
+    <field name="name">Purchase Requisition/Request for Quotation (User types / Internal User) (77)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_action_c_c63168e2-1f20-4dc3-b454-006abb295a76" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_cancel</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_cancel (User types / Internal User) (33)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_action_d_ff2f7c53-a187-4e2b-a33b-6af10339e8ab" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_draft</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_draft (User types / Internal User) (60)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_action_q_a765b499-7d05-476c-b12d-9c2567c821b3" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_quotation_send</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_quotation_send (User types / Internal User) (61)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_action_q_b7aad46d-432d-429f-a3c8-65273e97472c" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="account.group_warning_account"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_quotation_send</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_quotation_send (Technical / A warning can be set on a partner (Accountt)) (21)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_action_u_15812017-8a92-4080-bb52-5ac8cd1ddaf4" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sale_repair_sales_un_63685c18-3d38-41f6-b366-44cafc7aa856"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_unlock</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_unlock (Sale / Repair Sales Unlock) (47)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_action_u_497be815-f184-4d03-afca-be5440fd3ad3" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="stock.group_stock_manager"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_unlock</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_unlock (Inventory / Administrator) (51)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_action_u_c237ab2e-dadb-4654-a8a0-3ad09d3fdb12" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method">action_unlock</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Sales Order/action_unlock (User types / Internal User) (50)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_bank_295e64d2-80a7-4c35-8451-e92ed2a94321" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_bank_guarantee_a7fd76a4-d009-414e-a6e9-f2c0c3e81c9d"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Bank Guarantee Approval (Sales / Bank Guarantee Approver) (23)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_crea_d1c5f296-e513-4f51-b861-4481f79899a3" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Create Customer Payment (User types / Internal User) (99)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_cred_8a444c12-68d3-4386-98cd-9f30e58518e3" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_credit_limit_a_4cc1daf4-6a25-4b62-bb5a-d00f61a2460e"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Credit Limit Approval (Sales / Credit Limit Approver) (18)</field>
+    <field name="message">Credit Limit Should be Approved</field>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_marg_aff0c583-3cd5-490f-be24-f45938f431cb" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_margin_approve_e14dff10-1f6c-4c47-8c08-44799ceb4bbe"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Margin Approval (Sales / Margin Approver) (27)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_over_3eea1e67-3689-46c8-81b7-a2e5bd6bce4c" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_overdue_approv_31b03f7c-31cb-4482-8655-53d817d0fd4d"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Overdue Approval (Sales / Overdue Approver) (22)</field>
+    <field name="message">You don't have permission to approve sales for overdue customers</field>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_over_e2a50019-7fe7-4a46-a68a-15f14d386bd8" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_over_commissio_4d261a95-e165-4612-81fe-37b3d6759790"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Over Commission Approval (Sales / Over Commission Approver) (26)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_order_sls_temp_4b3ee6a1-d3da-4c07-a039-78e957110925" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_temporary_cred_c1fb9425-67ae-4f3e-b9aa-18ca3fbb2b3b"/>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="method" eval="False"/>
+    <field name="name">Sales Order/SLS - Temporary Credit Approval (Sales / Temporary Credit Approver) (19)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.structure_master_imp_4e509633-6bba-4a6f-9749-506cadce7aac" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_credit_limit_a_4cc1daf4-6a25-4b62-bb5a-d00f61a2460e"/>
+    <field name="model_id" ref="studio_customization.structure_master_34073a1e-bc24-4ab9-ba85-e47aef0c7d9f"/>
+    <field name="method" eval="False"/>
+    <field name="name">Structure Master/IMP - Inactive Structure (Sales / Credit Limit Approver) (20)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.test02_sample_server_3f4f9f11-0196-427d-ba3d-1c338a19a844" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="stock.group_warning_stock"/>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="method" eval="False"/>
+    <field name="name">TEST02/sample server action (Technical / A warning can be set on a partner (Stock)) (45)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.test02_sample_server_403ad22a-d5af-44f2-86a5-da4af36d79ae" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="studio_customization.sales_test_sales_2_41ade2a0-43c2-424e-ac0a-a151fd2a973a"/>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="method" eval="False"/>
+    <field name="name">TEST02/sample server action-2 (sales / TEST - SALES - 2) (76)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="False"/>
+  </record>
+  <record id="studio_customization.test02_sample_server_f65c8bf4-36f6-4948-8c69-240442c15678" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="method" eval="False"/>
+    <field name="name">TEST02/sample server action (User types / Internal User) (44)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.transfer_action_canc_6028bb83-895b-4c80-bd4e-0171270ca4c2" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_248_dc065cc3"/>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="method">action_cancel</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Transfer/action_cancel (Inventory / Jin - Inventory - MR + Transfer + MJ + Operation Types Cancel &amp; Scrap Approval) (96)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.transfer_action_canc_a9827523-3102-4cb3-9ceb-7b96b4eba3ca" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="stock.group_stock_manager"/>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="method">action_cancel</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Transfer/action_cancel (Inventory / Jin - Administrator) (102)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.transfer_action_open_88105b78-2437-4c2a-b807-316c759686ed" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_erp_manager"/>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="method">action_open_label_layout</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Transfer/action_open_label_layout (Administration / Access Rights) (56)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="True"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.transfer_action_put__deefc705-fe86-4f8d-b183-568b0de6b3ba" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="method">action_put_in_pack</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Transfer/action_put_in_pack (User types / Internal User) (62)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+  <record id="studio_customization.transfer_button_scra_7a8a3b27-5e4f-4743-97f9-3f84ce392599" model="studio.approval.rule" context="{'studio': True}">
+    <field name="group_id" ref="__export__.res_groups_248_dc065cc3"/>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="method">button_scrap</field>
+    <field name="action_id" eval="False"/>
+    <field name="name">Transfer/button_scrap (Inventory / Jin - Inventory - MR + Transfer + MJ + Operation Types Cancel &amp; Scrap Approval) (55)</field>
+    <field name="message" eval="False"/>
+    <field name="exclusive_user" eval="False"/>
+    <field name="domain" eval="False"/>
+    <field name="can_validate" eval="True"/>
+  </record>
+</odoo>

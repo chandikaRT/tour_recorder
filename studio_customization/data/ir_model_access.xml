@@ -1,0 +1,2443 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="sale.access_account_account_sale_manager" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="sales_team.group_sale_manager"/>
+    <field name="model_id" ref="account.model_account_account"/>
+    <field name="name">account.account sale manager</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.advance_payment_acco_a5dfef9b-19df-4872-bb84-1a0d7bb60679" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.advance_payment_acco_f20f1302-0ae1-4ab7-a677-95e77a2ae6a2"/>
+    <field name="name">Advance Payment Account group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.advance_payment_acco_c467da80-ff20-4558-94db-b0a630282119" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.advance_payment_acco_f20f1302-0ae1-4ab7-a677-95e77a2ae6a2"/>
+    <field name="name">Advance Payment Account group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.con_consolidated_hea_7a150a89-3116-408a-a8dc-3f1d580e7511" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.con_consolidated_hea_e8b73510-9bdc-40a8-9d2a-4e87c3024dca"/>
+    <field name="name">Con. Consolidated Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.con_consolidated_hea_9f0cd21e-538a-4786-9807-717aaa92f462" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.con_consolidated_hea_e8b73510-9bdc-40a8-9d2a-4e87c3024dca"/>
+    <field name="name">Con. Consolidated Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.con_consolidated_lin_0cb8625c-8459-46cb-bea5-81c4b00a4731" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.con_consolidated_lin_c5c9a08a-8ceb-4035-94d9-dc28b5f83933"/>
+    <field name="name">Con. Consolidated Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.con_consolidated_lin_70eadc30-ad6b-43f8-9956-a240a3adf5a5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.con_consolidated_lin_c5c9a08a-8ceb-4035-94d9-dc28b5f83933"/>
+    <field name="name">Con. Consolidated Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.conditions_group_sys_e4e94c79-57ab-4109-b31a-33f25ad9a367" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.conditions_29001db2-6287-4453-bc96-e7c7bea59ac2"/>
+    <field name="name">Conditions group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.conditions_group_use_614da124-b25b-47ab-8e16-eea5d9d0dd94" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.conditions_29001db2-6287-4453-bc96-e7c7bea59ac2"/>
+    <field name="name">Conditions group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.configuration_group__189c42ae-3918-4725-9bfc-72fd0a3ec125" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.configuration_7635c3f3-5143-4d96-b78c-952e9a7cd9f0"/>
+    <field name="name">Configuration group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.configuration_group__5d94cad5-3bf3-4179-baec-3acb06e17cb6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.configuration_7635c3f3-5143-4d96-b78c-952e9a7cd9f0"/>
+    <field name="name">Configuration group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.consignment_charge_h_83d528e1-c69a-4101-9999-a34cabcc172e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.consignment_charge_h_aa8a583e-c7e8-4536-a797-e7d8d9e42481"/>
+    <field name="name">Consignment Charge Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.consignment_charge_h_eb1bcb26-8117-4a23-9c2b-fbec6efee76a" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.consignment_charge_h_aa8a583e-c7e8-4536-a797-e7d8d9e42481"/>
+    <field name="name">Consignment Charge Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.consignment_charge_l_29d497a9-4b94-4b6b-a774-93f5023549aa" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.consignment_charge_l_d40aad31-32d7-4ad6-a635-ce52c4682eb3"/>
+    <field name="name">Consignment Charge Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.consignment_charge_l_2a31895a-36d8-4d63-b56f-8a3a51b7a75d" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.consignment_charge_l_d40aad31-32d7-4ad6-a635-ce52c4682eb3"/>
+    <field name="name">Consignment Charge Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.consignment_header_g_21b8fb94-d46b-4714-be3b-ad9cef9129ed" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.consignment_header_dd8c881f-035a-413d-a594-9447b058cbf0"/>
+    <field name="name">Consignment Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.consignment_header_g_f7533fb3-3f5c-4516-958f-44be704c0246" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.consignment_header_dd8c881f-035a-413d-a594-9447b058cbf0"/>
+    <field name="name">Consignment Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.consignment_line_gro_4f6f1575-dcce-4fa6-9604-2b20e48c0ac0" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.consignment_line_9f5bb979-172f-407d-8454-834e0cf510d6"/>
+    <field name="name">Consignment Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.consignment_line_gro_9f4595a2-57ff-4a04-a3d8-381b712ec8d2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.consignment_line_9f5bb979-172f-407d-8454-834e0cf510d6"/>
+    <field name="name">Consignment Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.custom_currency_grou_125b3a8e-362a-482f-b614-56218953416e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.custom_currency_0828fb1a-9f33-4bfb-8a0b-f06d2b193b4d"/>
+    <field name="name">Custom Currency group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.custom_currency_grou_885dd452-6990-4f60-bfec-219bf1188f19" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.custom_currency_0828fb1a-9f33-4bfb-8a0b-f06d2b193b4d"/>
+    <field name="name">Custom Currency group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.custom_currency_rate_4c6dd447-a29b-4d73-bbdc-fb03ac9ca9fa" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.custom_currency_rate_e7330c60-4bef-4f50-abe4-48fe4ffd2c29"/>
+    <field name="name">Custom Currency Rate group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.custom_currency_rate_fddd5eb4-2d50-4871-8901-f754565498a0" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.custom_currency_rate_e7330c60-4bef-4f50-abe4-48fe4ffd2c29"/>
+    <field name="name">Custom Currency Rate group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.customer_group_group_854fee2f-6ae8-42f7-a26b-eeb229fd7109" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.customer_group_d8bc02e8-2a36-4d94-abe1-254d38e377fb"/>
+    <field name="name">Customer Group group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.customer_group_group_d669a73e-2a4c-42e6-8cfb-629255a71c84" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.customer_group_d8bc02e8-2a36-4d94-abe1-254d38e377fb"/>
+    <field name="name">Customer Group group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.customer_groups_grou_3eb895aa-9185-4fa4-8749-a8381b1a1b82" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.customer_groups_d5f0f2ad-f0b3-498b-b5ac-66439e0dfae7"/>
+    <field name="name">Customer Groups group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.customer_groups_grou_edc6894a-224c-42fb-b5cf-4b637328c633" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.customer_groups_d5f0f2ad-f0b3-498b-b5ac-66439e0dfae7"/>
+    <field name="name">Customer Groups group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.customer_posting_pro_116f83bb-8804-496b-b714-8246bc2cf861" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.customer_posting_pro_78d4063f-571f-4814-9ce6-37bb7b529022"/>
+    <field name="name">Customer Posting Profile group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.customer_posting_pro_9353b0d6-460c-45c0-9e49-d7ac3a426c69" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.customer_posting_pro_78d4063f-571f-4814-9ce6-37bb7b529022"/>
+    <field name="name">Customer Posting Profile group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.delivery_term_charge_1d29d272-310b-45e3-913b-66c06bf1cede" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.delivery_term_charge_4910adc4-4dcc-4818-9635-bdafdcb9a415"/>
+    <field name="name">Delivery Term Charges group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.delivery_term_charge_7b43a43c-b5ee-48c3-ac81-40a5add8cc0d" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.delivery_term_charge_4910adc4-4dcc-4818-9635-bdafdcb9a415"/>
+    <field name="name">Delivery Term Charges group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.delivery_terms_group_3b140867-eaf4-4f85-ac7c-55d112a7973f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.delivery_terms_d6d57d71-ba05-449c-a12b-a594ba841425"/>
+    <field name="name">Delivery Terms group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.delivery_terms_group_8e20e4ba-3320-43c7-8e0a-2eaabd0b0c93" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.delivery_terms_d6d57d71-ba05-449c-a12b-a594ba841425"/>
+    <field name="name">Delivery Terms group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.diagnosis_areas_grou_00708e6e-d3d0-4839-8a0e-67655af0558a" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.diagnosis_areas_31137d33-5480-48f6-ad09-5827569894c6"/>
+    <field name="name">Diagnosis Areas group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.diagnosis_areas_grou_2cc1cbab-4e01-4827-ad11-e6d5f19dd8a3" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.diagnosis_areas_31137d33-5480-48f6-ad09-5827569894c6"/>
+    <field name="name">Diagnosis Areas group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.diagnosis_codes_grou_98c3e810-6c35-4000-aed9-aac582ab85b3" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.diagnosis_codes_150eeca0-bf2c-44a0-a340-4276223841d7"/>
+    <field name="name">Diagnosis Codes group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.diagnosis_codes_grou_9d45c77c-60c3-4976-bb75-50f32ef5ab81" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.diagnosis_codes_150eeca0-bf2c-44a0-a340-4276223841d7"/>
+    <field name="name">Diagnosis Codes group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.import_charges_group_7744d32a-07a7-4730-b128-ca8659b812d3" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.import_charges_ceeea05d-8129-49b0-8508-9d5a31c78223"/>
+    <field name="name">Import Charges group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.import_charges_group_a97c2612-6b58-4752-8548-8051e7f6f9ae" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.import_charges_ceeea05d-8129-49b0-8508-9d5a31c78223"/>
+    <field name="name">Import Charges group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.import_rfq_charge_he_15934afa-7c95-4b43-bd95-0936f066a0fb" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.import_rfq_charge_he_5bcb8f71-693e-4472-9072-81f373e62ffc"/>
+    <field name="name">Import RFQ Charge Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.import_rfq_charge_he_305766d6-5d32-46a5-802d-51bb35fc8302" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.import_rfq_charge_he_5bcb8f71-693e-4472-9072-81f373e62ffc"/>
+    <field name="name">Import RFQ Charge Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.import_rfq_charge_li_20bf228c-690a-48d7-a753-741c0ab9d48e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.import_rfq_charge_li_fd6ddcbe-7519-4232-abf1-56bac5be96bd"/>
+    <field name="name">Import RFQ Charge Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.import_rfq_charge_li_8bf2e5fc-13a8-4d99-a0b0-52912df3c303" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.import_rfq_charge_li_fd6ddcbe-7519-4232-abf1-56bac5be96bd"/>
+    <field name="name">Import RFQ Charge Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.imports_ledger_setup_5cdc30fe-d71e-444c-bacb-8ad2d0e7ad92" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.imports_ledger_setup_b758e2b6-b3fe-40e1-acbf-d07b0c0888a1"/>
+    <field name="name">Imports Ledger Setup group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.imports_ledger_setup_5ed4e7c1-19d5-4218-ac15-61264c395a7c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.imports_ledger_setup_b758e2b6-b3fe-40e1-acbf-d07b0c0888a1"/>
+    <field name="name">Imports Ledger Setup group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.journal_types_group__30a956b5-bffe-461a-a41e-374d61fc4a47" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.journal_types_b6b2f88a-57ca-4d7a-93f1-dc0f3e8a6ac6"/>
+    <field name="name">Journal Types group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.journal_types_group__9c9ebabc-6e5d-41f6-ad95-dde0ec5f4628" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.journal_types_b6b2f88a-57ca-4d7a-93f1-dc0f3e8a6ac6"/>
+    <field name="name">Journal Types group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.lc_header_group_syst_a70bbb7d-9de7-4a34-957f-ed54d4b23dce" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.lc_header_3f07d6cb-bc5c-4ea0-a0fc-eaa847d04b36"/>
+    <field name="name">LC Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.lc_header_group_user_03459f2c-62ab-4775-affd-8b4e96180fbc" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.lc_header_3f07d6cb-bc5c-4ea0-a0fc-eaa847d04b36"/>
+    <field name="name">LC Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mass_produce_serial__056d2501-ccef-4ef8-914d-4b45542e85ec" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mass_produce_serial__075d7ec2-3b2e-47dd-a703-3518e23e81d6"/>
+    <field name="name">Mass Produce Serial Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.mass_produce_serial__50ae2cb3-096b-49fd-9a95-6f4fe7d2253b" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mass_produce_serial_444dcaeb-03af-489d-a77e-832aa6c7d8f3"/>
+    <field name="name">Mass Produce Serial group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mass_produce_serial__efc16a73-3fb5-4f62-a982-bfa720c4ba03" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mass_produce_serial__075d7ec2-3b2e-47dd-a703-3518e23e81d6"/>
+    <field name="name">Mass Produce Serial Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mass_produce_serial__f3ee2925-1ae8-4d34-a155-c4035fb8b430" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mass_produce_serial_444dcaeb-03af-489d-a77e-832aa6c7d8f3"/>
+    <field name="name">Mass Produce Serial group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.material_request_gro_30ca00b2-2f34-4145-b6f6-2bf7654ca97f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.material_request_ed2e7d05-78e3-4761-bb23-045056e233e4"/>
+    <field name="name">Material Request group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.material_request_gro_8029239d-4265-496b-b87a-c01902bf1c2e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.material_request_ed2e7d05-78e3-4761-bb23-045056e233e4"/>
+    <field name="name">Material Request group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.minimum_sales_margin_3b620a3a-dbea-445b-8a63-5017dd364387" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.minimum_sales_margin_64d9c658-ca14-47c4-90f6-6ab66362d9e0"/>
+    <field name="name">Minimum Sales Margin % group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.minimum_sales_margin_95c23659-5688-4694-9442-e8a79c0891e2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.minimum_sales_margin_64d9c658-ca14-47c4-90f6-6ab66362d9e0"/>
+    <field name="name">Minimum Sales Margin % group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.misc_charge_codes_gr_7859e4fb-829f-48d5-b4c7-e9d821c2e925" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.misc_charge_codes_d61bbd3d-ca69-4562-aed0-ef16e7e429ea"/>
+    <field name="name">Misc Charge Codes group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.misc_charge_codes_gr_bb62098a-c444-4eb4-bb57-3c270553a507" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.misc_charge_codes_d61bbd3d-ca69-4562-aed0-ef16e7e429ea"/>
+    <field name="name">Misc Charge Codes group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mr_config_group_syst_7e29348a-f5ca-468a-8a76-6326c431ef60" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mr_config_2bb9a67f-4bf0-49e9-96b3-8ca4eba070ae"/>
+    <field name="name">MR config group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.mr_config_group_user_fcb0f0a9-033a-42c6-8804-97306d3310e1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mr_config_2bb9a67f-4bf0-49e9-96b3-8ca4eba070ae"/>
+    <field name="name">MR config group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mrp_bom_general_cost_dadd2c54-1155-4f9a-b964-34ab7302ed55" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_general_cost_67b3a68d-c95e-4298-bd29-b944b8800bef"/>
+    <field name="name">mrp.bom.general.cost group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mrp_bom_general_cost_f31c0cc7-d96c-4fdb-b406-c40129406a2a" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_general_cost_67b3a68d-c95e-4298-bd29-b944b8800bef"/>
+    <field name="name">mrp.bom.general.cost group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.mrp_bom_labour_cost__10d996a8-cb00-494b-8493-5b04d17b84e4" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_labour_cost_7930afb2-6f9d-40ef-9918-d28b6a500c19"/>
+    <field name="name">mrp.bom.labour.cost group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.mrp_bom_labour_cost__70766188-e1a0-4c96-b4d8-8325876718f0" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_labour_cost_7930afb2-6f9d-40ef-9918-d28b6a500c19"/>
+    <field name="name">mrp.bom.labour.cost group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mrp_bom_material_cos_18554a4e-1271-41b4-8dd8-d67db43c58d1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_material_cos_eaa85b40-a665-4b72-b5ca-eecf88fe2f26"/>
+    <field name="name">mrp.bom.material.cost group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.mrp_bom_material_cos_40899005-d42b-443f-87a6-4012d8a2dee7" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_material_cos_eaa85b40-a665-4b72-b5ca-eecf88fe2f26"/>
+    <field name="name">mrp.bom.material.cost group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.mrp_bom_overhead_cos_30ea82d9-e6f4-4aac-aef7-07eabce153ee" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_overhead_cos_ac17a18a-b838-411c-83ae-37c129c1e3c5"/>
+    <field name="name">mrp.bom.overhead.cost group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.mrp_bom_overhead_cos_c91e731e-d6f3-46e4-a21c-2cdd3a9e93a6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.mrp_bom_overhead_cos_ac17a18a-b838-411c-83ae-37c129c1e3c5"/>
+    <field name="name">mrp.bom.overhead.cost group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.non_inventory_produc_929dd625-29b2-4f84-9ab8-9ff3e9743a1d" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.non_inventory_produc_f356aff2-6d22-4a6a-aae5-71a85b1ba161"/>
+    <field name="name">Non Inventory Product Code group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.non_inventory_produc_ea5a1cae-d1d2-42d4-a6ec-53bd7f60c144" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.non_inventory_produc_f356aff2-6d22-4a6a-aae5-71a85b1ba161"/>
+    <field name="name">Non Inventory Product Code group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.paye_tax_group_syste_fdf694c3-40d2-46a9-ba12-c502ff5f7e75" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.paye_tax_3182f251-7ee7-4cf2-8b8b-ca9d3c9ffa6d"/>
+    <field name="name">Paye Tax group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.paye_tax_group_user_f255ce0b-9b90-4d9f-8c65-0ecd5c871c42" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.paye_tax_3182f251-7ee7-4cf2-8b8b-ca9d3c9ffa6d"/>
+    <field name="name">Paye Tax group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.paye_tax_tags_group__1e7c8f90-88f8-4a63-9ea7-26c6e6f678cf" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.paye_tax_tags_2ac87331-3504-4c9a-8708-561820127230"/>
+    <field name="name">Paye Tax Tags group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.paye_tax_tags_group__c6336aa4-bf00-456e-a93f-129decdb0501" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.paye_tax_tags_2ac87331-3504-4c9a-8708-561820127230"/>
+    <field name="name">Paye Tax Tags group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.payment_methods_grou_3130bfda-fa33-43c3-a3bb-bed940e47c12" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.payment_methods_6b841dc0-9ef5-464f-a3d7-10d4aac016b8"/>
+    <field name="name">Payment Methods group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.payment_methods_grou_9ff203e0-5964-4f44-a8cf-6fe65b017318" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.payment_methods_6b841dc0-9ef5-464f-a3d7-10d4aac016b8"/>
+    <field name="name">Payment Methods group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.po_line_non_inventor_8e457868-5fc5-42b3-a1e5-8721567427be" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.po_line_non_inventor_4fdc61c5-cebd-496a-ac6b-28e680da6228"/>
+    <field name="name">PO Line Non Inventory group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.po_line_non_inventor_9076b5bd-5709-4075-b830-f1fadba6cf28" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.po_line_non_inventor_4fdc61c5-cebd-496a-ac6b-28e680da6228"/>
+    <field name="name">PO Line Non Inventory group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.po_non_inventory_gro_e51ecc98-997c-427c-b327-7fbafff1ab89" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.po_non_inventory_efc44f36-0e18-4285-8437-35fa844b16ce"/>
+    <field name="name">PO Non Inventory group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.po_non_inventory_gro_f9268bbc-572c-4a2b-a173-177bec8849a4" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.po_non_inventory_efc44f36-0e18-4285-8437-35fa844b16ce"/>
+    <field name="name">PO Non Inventory group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.pr_line_cash_group_s_14760e0a-1e2f-4ce5-816e-8d3cf65236da" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.pr_line_cash_b5751854-dd06-4efd-83ad-e521b111bf41"/>
+    <field name="name">PR Line Cash group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.pr_line_cash_group_u_e3919cd1-cd1c-4f46-8395-57e9c1bba819" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.pr_line_cash_b5751854-dd06-4efd-83ad-e521b111bf41"/>
+    <field name="name">PR Line Cash group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.pr_line_non_inventor_19c3269e-f87d-468c-bdc3-3e587e060507" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.pr_line_non_inventor_daf1f3a4-f802-4f55-b310-27cddfeb909e"/>
+    <field name="name">PR Line Non-Inventory group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.pr_line_non_inventor_90772f50-ed35-4c73-b6cb-b64813696967" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.pr_line_non_inventor_daf1f3a4-f802-4f55-b310-27cddfeb909e"/>
+    <field name="name">PR Line Non-Inventory group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.pr_non_inventory_gro_bb0220d8-ae7e-4584-9759-0c783b5b9e05" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.pr_non_inventory_145a5b85-6c9d-490d-839c-ef99d4b2ffcc"/>
+    <field name="name">PR Non-Inventory group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.pr_non_inventory_gro_df133217-583b-4c88-951c-e3ce60c5e8a2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.pr_non_inventory_145a5b85-6c9d-490d-839c-ef99d4b2ffcc"/>
+    <field name="name">PR Non-Inventory group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.product_product_grou_bcf49d0d-19db-490d-b786-7fcb49d9c908" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.product_product_d523a4f5-b235-431d-8a78-f212307586f1"/>
+    <field name="name">product.product group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.product_product_grou_dabed933-0309-4b17-97d8-208bd4d787f6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.product_product_d523a4f5-b235-431d-8a78-f212307586f1"/>
+    <field name="name">product.product group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.product_test_group_s_783a7d5d-d0db-4a9b-ba5f-327ae405bf49" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.product_test_dfb1bc20-27e9-442b-96a4-0fe0c612a8cb"/>
+    <field name="name">product.test group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.product_test_group_u_ce296008-53e9-4472-bf1b-b7d4f8a7f5da" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.product_test_dfb1bc20-27e9-442b-96a4-0fe0c612a8cb"/>
+    <field name="name">product.test group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.project_category_gro_2f699741-7fd3-4a13-b78e-baa4daaf0f08" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.project_category_gro_6e5bfe29-e5f8-4c84-ad82-eadc94d283bd"/>
+    <field name="name">Project Category Group group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.project_category_gro_a369eea3-182a-44eb-80d5-bb43de172fb4" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.project_category_gro_6e5bfe29-e5f8-4c84-ad82-eadc94d283bd"/>
+    <field name="name">Project Category Group group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.project_category_gro_e079c220-49b2-4005-af95-9cc3142b7a59" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.project_category_f54d7ef7-bdf8-4874-8098-8845090bfba2"/>
+    <field name="name">Project Category group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.project_category_gro_e4494561-ad0c-403d-b521-3b70b09eeae5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.project_category_f54d7ef7-bdf8-4874-8098-8845090bfba2"/>
+    <field name="name">Project Category group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.project_groups_group_12922d71-2fb7-4b05-a676-c4a480e4735a" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.project_groups_408b4f18-9634-47b3-9752-4a7e17774999"/>
+    <field name="name">Project Groups group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.project_groups_group_30458218-9d68-4532-8481-7dbc83f0e835" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.project_groups_408b4f18-9634-47b3-9752-4a7e17774999"/>
+    <field name="name">Project Groups group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.pump_price_costing_g_170d8ec0-db01-4071-9739-91a316699a08" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.pump_price_costing_f1eea3df-1e57-4d1e-9505-caab3665aa21"/>
+    <field name="name">Pump Price Costing group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.pump_price_costing_g_8e6f8105-a99d-4567-811d-bf9fd58af129" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.pump_price_costing_f1eea3df-1e57-4d1e-9505-caab3665aa21"/>
+    <field name="name">Pump Price Costing group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_agreement_t_1fd4114a-eec0-4563-935f-0b1926fb3f57" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.purchase_agreement_t_9e5779c5-84f2-41a7-a43e-1600d6f00f0f"/>
+    <field name="name">Purchase Agreement Types group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_agreement_t_7880e324-e3ce-437f-bfaf-78145a5ee80e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.purchase_agreement_t_9e5779c5-84f2-41a7-a43e-1600d6f00f0f"/>
+    <field name="name">Purchase Agreement Types group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_request_cas_74001b41-93f4-45bf-9f5a-67dc9243cc83" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.purchase_request_cas_1c8c5886-e132-49ad-81cb-f13cbbc62804"/>
+    <field name="name">Purchase  Request Cash group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_request_cas_79e9f11f-a4cf-47d9-9fa0-da96241d8e39" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.purchase_request_cas_1c8c5886-e132-49ad-81cb-f13cbbc62804"/>
+    <field name="name">Purchase  Request Cash group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_gro_1a1491ae-9172-43b5-bf7e-9b7a883a9602" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="name">Purchase Request group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.purchase_request_gro_2a90691b-fb02-4f6a-b674-f9b34122adf6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="name">Purchase Request group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_lin_93e49c63-f27b-4cb5-9ed2-abdf051e46d8" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.purchase_request_lin_470df54a-170e-4525-9bf5-78e172dd2811"/>
+    <field name="name">Purchase Request Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_request_lin_e8d3ff57-b3b4-4be5-bd29-bfcb8df62964" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.purchase_request_lin_470df54a-170e-4525-9bf5-78e172dd2811"/>
+    <field name="name">Purchase Request Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.repair_accounts_grou_2a692715-9bda-40a6-8f32-be9d4677538d" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.repair_accounts_ac342edd-ffda-4422-ae9c-9c8f0cc1a056"/>
+    <field name="name">Repair Accounts group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.repair_accounts_grou_f20ab49f-7010-4a57-8a31-59d9f77eee03" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.repair_accounts_ac342edd-ffda-4422-ae9c-9c8f0cc1a056"/>
+    <field name="name">Repair Accounts group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.repair_reason_custom_1df962c0-823f-4a67-8e22-db3425a9dff8" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.repair_reason_custom_50dd6932-a12c-4d45-837a-a6d63071c499"/>
+    <field name="name">Repair Reason - Customer group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.repair_reason_custom_1e684a72-a4ba-4d84-87eb-257bfc4bfbc1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.repair_reason_custom_50dd6932-a12c-4d45-837a-a6d63071c499"/>
+    <field name="name">Repair Reason - Customer group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.repair_reason_group__75d2c5aa-5c64-4de1-abce-b27b053be4c9" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.repair_reason_36fa6f5e-28c9-4c95-822b-88a525a801e5"/>
+    <field name="name">Repair Reason group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.repair_reason_group__c1a3fd95-5f72-46ff-9f3b-5350e9e91d23" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.repair_reason_36fa6f5e-28c9-4c95-822b-88a525a801e5"/>
+    <field name="name">Repair Reason group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.repair_stages_group__45a0a8a5-1043-4052-9643-24aef4f9250f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.repair_stages_494ca557-b3ec-47c9-b22b-7c5a374936df"/>
+    <field name="name">Repair Stages group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.repair_stages_group__d96be4bf-d1ea-47ff-8480-214d1f1a3aa5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.repair_stages_494ca557-b3ec-47c9-b22b-7c5a374936df"/>
+    <field name="name">Repair Stages group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.repair_sub_reason_gr_5652b1a9-3857-46b6-9257-30aa919ee306" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.repair_sub_reason_e167111a-c461-45ef-871b-f544cf4d02bf"/>
+    <field name="name">Repair Sub Reason group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.repair_sub_reason_gr_8dcb263f-6079-4ddc-bf4b-22d86f96f4b5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.repair_sub_reason_e167111a-c461-45ef-871b-f544cf4d02bf"/>
+    <field name="name">Repair Sub Reason group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.res_config_settings__3f53d97b-2140-4c05-a027-bbebd6067a82" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.res_config_settings_62fdfdff-c7e0-4f8e-a8c9-76678a682871"/>
+    <field name="name">res.config.settings group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.res_config_settings__5606dea0-087f-4ece-8c2a-3c206bfbba2d" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.res_config_settings_62fdfdff-c7e0-4f8e-a8c9-76678a682871"/>
+    <field name="name">res.config.settings group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.resolutions_group_sy_be4a923e-0d67-49a8-8ba9-a8004fcc61b5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.resolutions_c3e3a4e9-2778-4e5a-aaa2-b93d466e0383"/>
+    <field name="name">Resolutions group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.resolutions_group_us_64a6e867-8ef0-4804-a926-01780472129c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.resolutions_c3e3a4e9-2778-4e5a-aaa2-b93d466e0383"/>
+    <field name="name">Resolutions group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_cust_invoice_s1_g_0b2161f0-e393-434e-a89d-89cd8056d03e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_cust_invoice_s1_ac51bc5f-3bc8-4523-8ee0-dc2c2ad7084e"/>
+    <field name="name">RM Cust Invoice S1 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_cust_invoice_s1_g_dcd4e7d9-e4dd-4e88-a2a7-0edde64f0379" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_cust_invoice_s1_ac51bc5f-3bc8-4523-8ee0-dc2c2ad7084e"/>
+    <field name="name">RM Cust Invoice S1 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_customer_wise_inv_973fbaf1-deed-48c5-86f8-6e476266510f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_customer_wise_inv_bc2a6597-f60e-4eba-8c44-9cc2a8142583"/>
+    <field name="name">RM Customer wise Invoices group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_customer_wise_inv_b64f836a-066e-4b9a-a18a-cc28ade36848" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_customer_wise_inv_bc2a6597-f60e-4eba-8c44-9cc2a8142583"/>
+    <field name="name">RM Customer wise Invoices group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_daily_s1_group_sy_1d84f8d8-e872-4f8d-b4f5-f9df294abf99" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_daily_s1_08d8bcdf-7782-46a9-a586-af85c2ae838c"/>
+    <field name="name">RM Daily S1 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_daily_s1_group_us_64d8f33a-e9c8-4727-bb2a-9a423a35d3da" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_daily_s1_08d8bcdf-7782-46a9-a586-af85c2ae838c"/>
+    <field name="name">RM Daily S1 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_daily_s2_group_sy_cf702ad1-05c1-4d36-8807-c65cf985bf99" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_daily_s2_67a72dbb-16ef-433a-b444-f9f118c217ed"/>
+    <field name="name">RM Daily S2 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_daily_s2_group_us_4a51effb-c270-49e6-a659-edf79556af51" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_daily_s2_67a72dbb-16ef-433a-b444-f9f118c217ed"/>
+    <field name="name">RM Daily S2 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_daily_s3_group_sy_b606aa8a-fd0d-4d7e-866d-141b612a8ebb" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_daily_s3_02466570-012f-4a4b-af13-0fe4b669da04"/>
+    <field name="name">RM Daily S3 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_daily_s3_group_us_b88200a8-7904-46b2-8bab-65d278d29afe" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_daily_s3_02466570-012f-4a4b-af13-0fe4b669da04"/>
+    <field name="name">RM Daily S3 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_daily_sales_repor_71c47b0d-a4c5-4499-bb5a-109c8a9153bd" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_daily_sales_repor_08e38c20-0781-4620-8a75-758b17ab9e87"/>
+    <field name="name">RM Daily Sales Report group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_daily_sales_repor_ffaf0139-15f2-46a5-b858-e108be51f805" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_daily_sales_repor_08e38c20-0781-4620-8a75-758b17ab9e87"/>
+    <field name="name">RM Daily Sales Report group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_date_test_group_s_56c148bb-f839-42ad-9152-3172d4ab4c74" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_date_test_c034c91f-39eb-427c-9236-9785428ffd54"/>
+    <field name="name">RM Date Test group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_date_test_group_u_1486f7c4-0a17-400a-9c98-4bb67eba3573" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_date_test_c034c91f-39eb-427c-9236-9785428ffd54"/>
+    <field name="name">RM Date Test group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_actu_333621d8-9f6e-4b21-9d59-2b4ccaad5e48" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_actu_d48fe666-944b-4519-8069-85a6b7f4e54d"/>
+    <field name="name">RM Gross Margin - Actuals group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_actu_acb7c49a-635d-405b-9c99-75f1dd88b840" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_actu_d48fe666-944b-4519-8069-85a6b7f4e54d"/>
+    <field name="name">RM Gross Margin - Actuals group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_comp_a1b51746-6e53-45cb-bf8c-0283365278ea" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_comp_10538f17-e9cc-467a-ab2f-30fd4182c8c9"/>
+    <field name="name">RM Gross Margin - Comparison group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_comp_afb33daa-461b-49a1-a7b8-44416efb4549" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_comp_10538f17-e9cc-467a-ab2f-30fd4182c8c9"/>
+    <field name="name">RM Gross Margin - Comparison group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_esti_04bcef59-1702-4797-8eaf-4b9c891878f9" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_esti_142b4d8e-0ca7-4bb5-817d-fa0d205c763f"/>
+    <field name="name">Rm Gross Margin Esti  Lines group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_esti_5593f5ad-ade7-4281-b48b-8753dcea3aa6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_esti_142b4d8e-0ca7-4bb5-817d-fa0d205c763f"/>
+    <field name="name">Rm Gross Margin Esti  Lines group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_esti_58e2fd7d-8cc7-47fe-a166-391b94f97c01" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_esti_142b4d8e-0ca7-4bb5-817d-fa0d205c763f"/>
+    <field name="name">Rm Gross Margin Esti  Lines group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_esti_7f0a1658-0543-4677-a46d-c4e0a223eef1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_esti_600e7770-e671-42bb-8b2f-da6589308127"/>
+    <field name="name">RM Gross Margin - Estimated group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_esti_82310903-15d8-4620-bfa5-8a4d14a20db4" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_esti_600e7770-e671-42bb-8b2f-da6589308127"/>
+    <field name="name">RM Gross Margin - Estimated group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_esti_99d96fc5-b6ab-41dd-bff9-21b28bdf859f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_esti_142b4d8e-0ca7-4bb5-817d-fa0d205c763f"/>
+    <field name="name">Rm Gross Margin Esti  Lines group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_invo_1fbe3594-374a-4f01-bc6c-6e155693ad96" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_invo_1310d999-0de1-4edc-941d-a0a88174fecd"/>
+    <field name="name">RM Gross Margin - Invoice Details group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_gross_margin_invo_fac10466-2c95-492e-b5d6-563e5e8b462a" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_gross_margin_invo_1310d999-0de1-4edc-941d-a0a88174fecd"/>
+    <field name="name">RM Gross Margin - Invoice Details group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_none_moving_group_26015f57-faba-4318-97e3-74dc11ee604e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_none_moving_e8d7512d-7324-41cc-9f58-6e85f78feb3c"/>
+    <field name="name">RM None Moving group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_none_moving_group_f920f946-7466-4221-aa34-069f0ee643dd" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_none_moving_e8d7512d-7324-41cc-9f58-6e85f78feb3c"/>
+    <field name="name">RM None Moving group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_prod_summary_spli_95720ee7-37ac-403d-98ff-85e1a8466e1b" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_prod_summary_spli_5fc3c822-0390-43b4-aafd-5f73c945d693"/>
+    <field name="name">RM Prod. Summary Split group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_prod_summary_spli_af6a4480-37bd-46f7-acef-5092dc046fc9" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_prod_summary_spli_5fc3c822-0390-43b4-aafd-5f73c945d693"/>
+    <field name="name">RM Prod. Summary Split group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_production_orders_8c47f749-8950-4bb1-aef0-250e40003454" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_production_orders_0724693a-fee3-46d1-a2d5-dd6ff00b82ad"/>
+    <field name="name">RM Production Orders group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_production_orders_9a79b707-80c6-4827-8adb-9b711549a912" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_production_orders_0724693a-fee3-46d1-a2d5-dd6ff00b82ad"/>
+    <field name="name">RM Production Orders group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_production_varian_92e55665-1a45-49f2-a6d6-add2845f4fc3" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_production_varian_656c4655-1964-440e-b29d-b9dfe41caeff"/>
+    <field name="name">RM Production Variance group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_production_varian_d53db0d2-b999-44f1-ac6c-a4c13a89b4aa" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_production_varian_656c4655-1964-440e-b29d-b9dfe41caeff"/>
+    <field name="name">RM Production Variance group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_sales_order_line__076a37ad-3e94-477b-aaee-606a481b1e23" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_sales_order_line_d609c694-90a3-45b2-9d0c-d4f83b8ae672"/>
+    <field name="name">RM Sales Order Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_sales_order_line__c7ca1539-9fd5-4ab5-8491-67dca1844e86" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_sales_order_line_d609c694-90a3-45b2-9d0c-d4f83b8ae672"/>
+    <field name="name">RM Sales Order Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.rm_sales_prod_purch__1cbde986-0550-4a18-9ea3-53fe6a055d8c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.rm_sales_prod_purch_c9fb979e-d768-4b2a-8782-234b8eed472f"/>
+    <field name="name">RM Sales Prod. Purch. group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.rm_sales_prod_purch__52131e71-3b14-45c7-9eed-0abb4ecd93ac" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.rm_sales_prod_purch_c9fb979e-d768-4b2a-8782-234b8eed472f"/>
+    <field name="name">RM Sales Prod. Purch. group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_model_debug_gr_5de76ddc-6ebb-45e9-9656-bde2fb9b80c7" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.sales_model_debug_d4569b6d-f770-4cb2-a235-1b356a899ca9"/>
+    <field name="name">Sales Model Debug group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_model_debug_gr_8f227e72-4efc-4d21-8d9c-603f78f57746" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.sales_model_debug_d4569b6d-f770-4cb2-a235-1b356a899ca9"/>
+    <field name="name">Sales Model Debug group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_report_model_g_11f458de-88d0-4808-9f7d-0c567ce401c2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.sales_report_model_6539148f-b596-418e-b96a-6067e49e1cb2"/>
+    <field name="name">Sales Report Model group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_report_model_g_ad271fdd-6efe-4d19-bf54-37829641aa1c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.sales_report_model_6539148f-b596-418e-b96a-6067e49e1cb2"/>
+    <field name="name">Sales Report Model group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_report_type_gr_005bc0e8-518a-46bd-a731-55769973698b" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.sales_report_type_190850de-eee8-42f4-8af3-ee03593637f8"/>
+    <field name="name">Sales Report Type group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_report_type_gr_b0be5fe2-35fb-49fb-98cb-efc79b43255e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.sales_report_type_190850de-eee8-42f4-8af3-ee03593637f8"/>
+    <field name="name">Sales Report Type group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.structure_details_gr_d2368b79-108b-475c-8967-2872f7c005c5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.structure_details_2fcdd292-4426-4c13-a157-553cf3db1ee0"/>
+    <field name="name">Structure Details group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.structure_details_gr_d53f0ed9-224d-435a-94ac-b52b359c3087" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.structure_details_2fcdd292-4426-4c13-a157-553cf3db1ee0"/>
+    <field name="name">Structure Details group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.structure_master_gro_cdb35a82-46b9-467a-a6da-1c2ad600b2ba" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.structure_master_34073a1e-bc24-4ab9-ba85-e47aef0c7d9f"/>
+    <field name="name">Structure Master group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.structure_master_gro_ebd804bf-bffb-4e84-9e6f-128d478b94ec" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.structure_master_34073a1e-bc24-4ab9-ba85-e47aef0c7d9f"/>
+    <field name="name">Structure Master group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.symptom_areas_group__3c6fdfc7-ab92-4edb-b2bf-9d27f265a043" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.symptom_areas_0e8ae13c-67f9-49e0-b96b-109db90ed52c"/>
+    <field name="name">Symptom Areas group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.symptom_areas_group__4e882708-730e-496b-93cf-11413891c8d6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.symptom_areas_0e8ae13c-67f9-49e0-b96b-109db90ed52c"/>
+    <field name="name">Symptom Areas group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.symptom_codes_group__27c5cbf1-b1c1-49b6-a489-8fd96061cd84" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.symptom_codes_b319d52a-664d-48bd-938f-153e0a9d27cf"/>
+    <field name="name">Symptom Codes group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.symptom_codes_group__f4a5c512-eb6b-4cd5-9844-a66d60cb4ebe" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.symptom_codes_b319d52a-664d-48bd-938f-153e0a9d27cf"/>
+    <field name="name">Symptom Codes group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.tariff_date_group_sy_193ce3a1-6d57-48c2-aad9-7be9b0ada0d2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.tariff_date_ae47156b-2fa3-4366-9525-d468607036e3"/>
+    <field name="name">Tariff Date group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.tariff_date_group_us_0df0d2de-5c12-4825-9574-f71f1871875c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.tariff_date_ae47156b-2fa3-4366-9525-d468607036e3"/>
+    <field name="name">Tariff Date group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.tariff_rates_group_s_97e7a61c-60ae-4a25-9d43-40e27004bea7" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.tariff_rates_0f0e0b37-5ba0-4bb9-96d6-634bb9f5f4e2"/>
+    <field name="name">Tariff Rates group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.tariff_rates_group_u_9cf6c324-e451-4fe3-b9c2-6c70055e13e4" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.tariff_rates_0f0e0b37-5ba0-4bb9-96d6-634bb9f5f4e2"/>
+    <field name="name">Tariff Rates group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.tariffmaster_group_s_fe69ffe3-ee36-4fa5-9682-2bb27c0b7347" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.tariffmaster_68d4962c-8e7b-4cf2-9399-fbbe859ff563"/>
+    <field name="name">TariffMaster group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.tariffmaster_group_u_a94e42bb-1b9c-432d-acd0-5d8410e4683c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.tariffmaster_68d4962c-8e7b-4cf2-9399-fbbe859ff563"/>
+    <field name="name">TariffMaster group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.task_diagnosis_group_0aaebd36-03e8-4218-b88d-d0c01563c2e6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.task_diagnosis_f5e56d6e-9748-4de7-b645-6eecec368689"/>
+    <field name="name">Task Diagnosis group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.task_diagnosis_group_b5231b14-f8e1-483e-8ca4-1d7d815485eb" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.task_diagnosis_f5e56d6e-9748-4de7-b645-6eecec368689"/>
+    <field name="name">Task Diagnosis group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_actual_budget_g_343cf1ac-a156-48b1-a611-97d03a349b20" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_actual_budget_2c96dc11-0601-4422-8ffd-036160db30fe"/>
+    <field name="name">Temp_Actual_Budget group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_actual_budget_g_34b7cd70-1826-4ad7-9976-e69d2c0dc6cd" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_actual_budget_2c96dc11-0601-4422-8ffd-036160db30fe"/>
+    <field name="name">Temp_Actual_Budget group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_con_conso_line__1d45051a-ef76-4448-a1c1-e1434df6fb6e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_con_conso_line_7aa8a9d0-dbb0-47a2-b8ab-e86589817af4"/>
+    <field name="name">Temp Con. Conso. Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_con_conso_line__9e18c203-a614-4f1b-823a-cb21a81311cd" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_con_conso_line_7aa8a9d0-dbb0-47a2-b8ab-e86589817af4"/>
+    <field name="name">Temp Con. Conso. Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_con_consolidate_27fa0ce6-aa73-457a-ba52-bbfbe2795f83" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_con_consolidate_cb548b72-8708-4f1e-923e-7f6417f860d2"/>
+    <field name="name">Temp Con. Consolidated Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_con_consolidate_b63f9b0c-969a-455a-8bf1-b9f24dc30996" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_con_consolidate_cb548b72-8708-4f1e-923e-7f6417f860d2"/>
+    <field name="name">Temp Con. Consolidated Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_consignment_hea_9bf2eec2-34c5-4e38-9c05-ea96966cebe5" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_consignment_hea_21ee7121-15ca-45c9-a8af-ed0189aa8102"/>
+    <field name="name">Temp Consignment Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_consignment_hea_fff48f6d-68e1-4cf8-bd56-7eedef7af5f7" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_consignment_hea_21ee7121-15ca-45c9-a8af-ed0189aa8102"/>
+    <field name="name">Temp Consignment Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_consignment_lin_415e2b47-6cec-454e-aca7-90ab49e62014" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_consignment_lin_a1ac71d5-fcaf-47f5-93f7-bc3dce87c09c"/>
+    <field name="name">Temp Consignment Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_consignment_lin_4244a751-a56b-4de2-aac2-1e46e9c39f97" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_consignment_lin_a1ac71d5-fcaf-47f5-93f7-bc3dce87c09c"/>
+    <field name="name">Temp Consignment Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_estimated_group_9d7d607a-74e9-4b86-9681-7032ac499c4e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_estimated_29a4c8b3-ba75-4969-ad9d-d4d021118d7d"/>
+    <field name="name">Temp_Estimated group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_estimated_group_c9b6125f-0a32-4699-9c8f-4eabff81e2f2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_estimated_29a4c8b3-ba75-4969-ad9d-d4d021118d7d"/>
+    <field name="name">Temp_Estimated group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_structure_detai_bdca619d-6ef0-4f47-b147-e4266d9b1da0" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_structure_detai_a6b7276f-66e1-4e89-ba89-689baebbc915"/>
+    <field name="name">Temp Structure Details group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_structure_detai_cde425fc-ba6e-4ca7-bf52-75a228ee188e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_structure_detai_a6b7276f-66e1-4e89-ba89-689baebbc915"/>
+    <field name="name">Temp Structure Details group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_structure_maste_1e0a0471-bc31-47aa-a541-013b40f8bd0f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_structure_maste_713bdf16-f47e-4d19-b3c8-79999a8173ae"/>
+    <field name="name">Temp Structure Master group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_structure_maste_8a6bcfe1-222b-4e7b-b341-5955c41a8c9e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_structure_maste_713bdf16-f47e-4d19-b3c8-79999a8173ae"/>
+    <field name="name">Temp Structure Master group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_tp_invoice_head_097eeb49-1cf1-47cc-8b88-f315ed8155de" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_tp_invoice_head_bc6b2f3e-a99a-4d43-b81c-4f09910999c6"/>
+    <field name="name">Temp TP Invoice Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.temp_tp_invoice_head_0d0f58e7-c5ed-4643-97a3-f1228d8d8dee" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_tp_invoice_head_bc6b2f3e-a99a-4d43-b81c-4f09910999c6"/>
+    <field name="name">Temp TP Invoice Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_tp_invoice_line_c03b9dc2-9b21-4acd-9ac0-bc4e0092b7e3" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.temp_tp_invoice_line_d87a6be3-c458-42c1-ba70-c84a1a68b161"/>
+    <field name="name">Temp TP Invoice Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.temp_tp_invoice_line_f2ed059f-5984-41a6-95ae-4138895a427c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.temp_tp_invoice_line_d87a6be3-c458-42c1-ba70-c84a1a68b161"/>
+    <field name="name">Temp TP Invoice Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test02_group_system_c58bda9a-3a8e-4aab-8307-7d721d9688e9" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="name">TEST02 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test02_group_user_f5e59ba8-37d5-4b3a-a9e9-9e3ef7f4b19f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="name">TEST02 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test_1_group_system_4be5a5a0-b72b-4288-9a55-cec240d7af14" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test_1_4a00ff62-1c44-419b-8fd5-04e9e9b06d56"/>
+    <field name="name">TEST-1 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test_1_group_user_94223f18-fd8a-4e35-b51c-eaccb707d5c6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test_1_4a00ff62-1c44-419b-8fd5-04e9e9b06d56"/>
+    <field name="name">TEST-1 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test_form_group_syst_a209100a-b374-42af-9119-565ed751b9f3" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test_form_85122973-7f9b-43d7-aa6e-130dba8f2113"/>
+    <field name="name">TEST FORM group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test_form_group_user_81e971a6-3fd4-4721-9ed5-dbcef058575a" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test_form_85122973-7f9b-43d7-aa6e-130dba8f2113"/>
+    <field name="name">TEST FORM group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test_layout_group_sy_d7ead828-38e3-4b30-bf12-37e8c8022b09" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test_layout_1be84b1d-80e5-4506-959a-c74fb6542e26"/>
+    <field name="name">Test Layout group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test_layout_group_us_53daef44-53e9-4681-8f0f-ce8f57395455" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test_layout_1be84b1d-80e5-4506-959a-c74fb6542e26"/>
+    <field name="name">Test Layout group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test_model_link_2_gr_729ef714-22a9-4348-a21e-6c4598f1bdea" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test_model_link_2_5b4ca9c6-6e3e-4a1a-a1b2-025f2f62c62a"/>
+    <field name="name">Test Model Link 2 group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test_model_link_2_gr_e0beec74-5e1a-4ec5-aaac-c6bb5c8812ca" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test_model_link_2_5b4ca9c6-6e3e-4a1a-a1b2-025f2f62c62a"/>
+    <field name="name">Test Model Link 2 group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test_model_link_grou_b8d82891-17f4-4189-a2c1-3f5efb6e8fc1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test_model_link_2c22c57c-33fb-479d-9389-a3ef3db90477"/>
+    <field name="name">TEST MODEL LINK group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test_model_link_grou_c5845605-f5cf-4a9d-b182-e0df607161e6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test_model_link_2c22c57c-33fb-479d-9389-a3ef3db90477"/>
+    <field name="name">TEST MODEL LINK group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.test_model_primary_g_0aeec4d6-30b9-4bc0-b4fc-cf535e98c493" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.test_model_primary_9fb111ce-0fab-4be2-8fb6-204ed6e21e9a"/>
+    <field name="name">TEST MODEL PRIMARY group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.test_model_primary_g_0f6412d5-6855-440d-afdc-4d79e1241eee" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.test_model_primary_9fb111ce-0fab-4be2-8fb6-204ed6e21e9a"/>
+    <field name="name">TEST MODEL PRIMARY group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.testapp_group_system_5158fb28-3db4-4fee-9288-2d2bce572af1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.testapp_29df43b0-d17e-4e98-9ccc-a0fbd927aee1"/>
+    <field name="name">TestApp group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.testapp_group_user_23e1d5ce-d3f7-4f19-8cba-f4c316491c65" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.testapp_29df43b0-d17e-4e98-9ccc-a0fbd927aee1"/>
+    <field name="name">TestApp group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.testdepartment_group_2b2f3f59-5784-4e71-b0da-886e8153a47f" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.testdepartment_52accc6b-0b5a-425a-8b72-65e82670c209"/>
+    <field name="name">TestDepartment group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.testdepartment_group_99420d00-2a4f-4178-9b98-ab9ebe2f5ad7" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.testdepartment_52accc6b-0b5a-425a-8b72-65e82670c209"/>
+    <field name="name">TestDepartment group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.tp_invoice_header_gr_45ed98fd-60ac-4029-8a5d-9b08d01270f6" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.tp_invoice_header_233cf9de-9561-48a8-b42e-d28e679df8f5"/>
+    <field name="name">TP Invoice Header group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.tp_invoice_header_gr_ee94250b-f165-4829-964d-a5168c38c448" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.tp_invoice_header_233cf9de-9561-48a8-b42e-d28e679df8f5"/>
+    <field name="name">TP Invoice Header group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.tp_invoice_line_grou_07beb06f-adf6-4457-ae38-c51d837c5940" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.tp_invoice_line_ac162fac-a1d0-471e-878a-96a2fe8f5871"/>
+    <field name="name">TP Invoice Line group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.tp_invoice_line_grou_76d8c936-8e44-49d1-a49a-4e08399ce5a2" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.tp_invoice_line_ac162fac-a1d0-471e-878a-96a2fe8f5871"/>
+    <field name="name">TP Invoice Line group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.trf_charges_group_sy_6479f215-e592-4e92-831d-f5fc5c0643cc" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.trf_charges_98aa1316-cf28-4f4d-9be3-164da2771930"/>
+    <field name="name">trf Charges group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.trf_charges_group_us_fcb06f7c-4cce-47c4-a806-c3bc6d3239f9" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.trf_charges_98aa1316-cf28-4f4d-9be3-164da2771930"/>
+    <field name="name">trf Charges group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.trf_duty_group_syste_aabf8781-fdb3-48e3-b514-2916eb4cbd47" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.trf_duty_8653fc94-cded-44e8-8d05-0f6c2618afda"/>
+    <field name="name">trf Duty group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.trf_duty_group_user_007bd249-f575-42e1-8b01-a6b6064e93cb" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.trf_duty_8653fc94-cded-44e8-8d05-0f6c2618afda"/>
+    <field name="name">trf Duty group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.trf_taxes_group_syst_eae5c49d-850f-4c0c-b0bc-150d1c5b8cec" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.trf_taxes_eec12568-f772-4e72-844b-5749c9a8e306"/>
+    <field name="name">trf Taxes group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.trf_taxes_group_user_0d9752da-5cf2-4352-a078-3d7da5438c61" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.trf_taxes_eec12568-f772-4e72-844b-5749c9a8e306"/>
+    <field name="name">trf Taxes group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.update_ot_group_syst_bf11fdbc-5ba9-40a7-ae29-5626981fcf0e" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.update_ot_69a5f37d-29f3-4d2f-b7b1-4ad6da477425"/>
+    <field name="name">Update OT group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.update_ot_group_user_4a93d834-7ccb-4f87-97bd-0aaeeeefe8db" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.update_ot_69a5f37d-29f3-4d2f-b7b1-4ad6da477425"/>
+    <field name="name">Update OT group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.update_ot_lines_grou_15d61bfd-e61a-4f25-8d4b-e24677279f18" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.update_ot_lines_844ffbcd-c102-4f40-ad62-f1f0d4ee9091"/>
+    <field name="name">Update Ot  Lines group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.update_ot_lines_grou_3ca4b8a5-4806-4d33-bc2b-bbff264853ae" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.update_ot_lines_844ffbcd-c102-4f40-ad62-f1f0d4ee9091"/>
+    <field name="name">Update Ot  Lines group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.update_ot_lines_grou_8568cd7c-e09c-405d-9049-543d4f29efcf" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.update_ot_lines_844ffbcd-c102-4f40-ad62-f1f0d4ee9091"/>
+    <field name="name">Update Ot  Lines group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.update_ot_lines_grou_ba445d3a-2a1c-41f8-939f-22a05ab5d384" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.update_ot_lines_844ffbcd-c102-4f40-ad62-f1f0d4ee9091"/>
+    <field name="name">Update Ot  Lines group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.vendor_group_group_s_f84684c1-7353-4e2b-bb62-f677516f6d99" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.vendor_group_29d22978-bafb-4a82-aa20-3d70499256db"/>
+    <field name="name">Vendor Group group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.vendor_group_group_u_99d66eb9-4e4c-40ab-bfe7-a23aa2e16306" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.vendor_group_29d22978-bafb-4a82-aa20-3d70499256db"/>
+    <field name="name">Vendor Group group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.website_faq_group_sy_60202fef-d629-4cfc-bbbd-ae43189b3603" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.website_faq_b5a280e5-56e9-48b3-8eb3-50bf1148c012"/>
+    <field name="name">website.faq group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.website_faq_group_us_0cdfd40d-db93-4f87-b2ec-343306cfa14d" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.website_faq_b5a280e5-56e9-48b3-8eb3-50bf1148c012"/>
+    <field name="name">website.faq group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.website_faqs_group_s_a424eb6e-df40-4064-a3c4-e3af59f183b1" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.website_faqs_7e74f968-f933-4f05-9300-08ed39bc12a7"/>
+    <field name="name">website FAQs group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.website_faqs_group_u_9926eb59-7dd7-4718-81b2-433a1d92951c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.website_faqs_7e74f968-f933-4f05-9300-08ed39bc12a7"/>
+    <field name="name">website FAQs group_user</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.website_integration__2330bbdb-d2a0-45ec-94c0-804fce62642c" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="website.website_page_controller_expose"/>
+    <field name="model_id" ref="studio_customization.website_faqs_7e74f968-f933-4f05-9300-08ed39bc12a7"/>
+    <field name="name">Website integration: public model access</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.work_center_costing__27f93778-8d9d-4572-8a15-7f7b016590a7" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.work_center_costing_8fb0a01a-a731-4d80-b50b-87a7711f9c46"/>
+    <field name="name">Work Center Costing group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+  <record id="studio_customization.work_center_costing__af59c0e3-ed45-42b4-8de2-f35f0f22ed86" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.work_center_costing_8fb0a01a-a731-4d80-b50b-87a7711f9c46"/>
+    <field name="name">Work Center Costing group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+</odoo>

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_216_3f955123')])]"/>
+    <field name="name">Jin - PO Approvers: PO Amount &gt; 500,000</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_216_3f955123')])]"/>
+    <field name="name">Jin - PO Approvers: PO Amount &lt;= 500,000</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_pr_approval_06103e69-ed8e-411b-90e6-cee8ce70d9c2" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">PR Approval</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_217_2c7029e0')])]"/>
+    <field name="name">Jin - Inv PR Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sale_repair_sales_un_63685c18-3d38-41f6-b366-44cafc7aa856" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Repair Sales Unlock</field>
+    <field name="share" eval="True"/>
+  </record>
+  <record id="studio_customization.sales_bank_guarantee_a7fd76a4-d009-414e-a6e9-f2c0c3e81c9d" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Jin - Sales - Bank Guarantee Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_credit_limit_a_4cc1daf4-6a25-4b62-bb5a-d00f61a2460e" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Jin - Sales - Credit Limit Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_credit_note_ap_ee96b839-2a01-48d8-9116-c110a15beb4e" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Jin - Sales - Credit Note Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_sales_person_d62173b6-43d8-4124-bf46-b33a8233fd88" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment">11111</field>
+    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_257_7b3cb5cb')])]"/>
+    <field name="name">Jin - Sales - POS Users</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_margin_approve_e14dff10-1f6c-4c47-8c08-44799ceb4bbe" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('studio_customization.sales_sales_person_d62173b6-43d8-4124-bf46-b33a8233fd88')])]"/>
+    <field name="name">Jin - Sales - Sales Margin Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_over_commissio_4d261a95-e165-4612-81fe-37b3d6759790" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Jin - Sales - Over Commission Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_overdue_approv_31b03f7c-31cb-4482-8655-53d817d0fd4d" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Jin - Sales - Overdue Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_temporary_cred_c1fb9425-67ae-4f3e-b9aa-18ca3fbb2b3b" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Jin - Sales - Temporary Credit Approvers</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.sales_test_sales_2_41ade2a0-43c2-424e-ac0a-a151fd2a973a" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">TEST - SALES - 2</field>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.test_mo_markasdone_50a9eeec-785b-41e6-ad33-414e88bf0974" model="res.groups" context="{'studio': True}">
+    <field name="color" eval="False"/>
+    <field name="comment" eval="False"/>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="name">Test_MO_MarkAsDone</field>
+    <field name="share" eval="False"/>
+  </record>
+</odoo>

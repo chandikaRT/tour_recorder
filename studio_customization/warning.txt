@@ -1,0 +1,398 @@
+The following relational data haven't been exported because they either refer
+to a model that Studio doesn't export, or have no XML id:
+
+Record: studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(14,) ('Purchase')
+
+Record: studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(14,) ('Purchase')
+
+Record: studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.purchase_pr_approval_06103e69-ed8e-411b-90e6-cee8ce70d9c2
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(42,) (False)
+
+Record: studio_customization.purchase_pr_approval_06103e69-ed8e-411b-90e6-cee8ce70d9c2
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(25, 2) ('Janitha Chamath Ranasinghe', 'Rohana Balagalla')
+
+Record: studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(14,) ('Purchase')
+
+Record: studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sale_repair_sales_un_63685c18-3d38-41f6-b366-44cafc7aa856
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(66,) ('Sale')
+
+Record: studio_customization.sale_repair_sales_un_63685c18-3d38-41f6-b366-44cafc7aa856
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 635, 25, 8, 640) ('Cell 05', 'Inventory View Only', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Production Manager')
+
+Record: studio_customization.sales_bank_guarantee_a7fd76a4-d009-414e-a6e9-f2c0c3e81c9d
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_bank_guarantee_a7fd76a4-d009-414e-a6e9-f2c0c3e81c9d
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 25, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_credit_limit_a_4cc1daf4-6a25-4b62-bb5a-d00f61a2460e
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_credit_limit_a_4cc1daf4-6a25-4b62-bb5a-d00f61a2460e
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 25, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_credit_note_ap_ee96b839-2a01-48d8-9116-c110a15beb4e
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_credit_note_ap_ee96b839-2a01-48d8-9116-c110a15beb4e
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 25, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_sales_person_d62173b6-43d8-4124-bf46-b33a8233fd88
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_sales_person_d62173b6-43d8-4124-bf46-b33a8233fd88
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 25, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_margin_approve_e14dff10-1f6c-4c47-8c08-44799ceb4bbe
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_margin_approve_e14dff10-1f6c-4c47-8c08-44799ceb4bbe
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 8, 24) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa')
+
+Record: studio_customization.sales_over_commissio_4d261a95-e165-4612-81fe-37b3d6759790
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_over_commissio_4d261a95-e165-4612-81fe-37b3d6759790
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 25, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_overdue_approv_31b03f7c-31cb-4482-8655-53d817d0fd4d
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_overdue_approv_31b03f7c-31cb-4482-8655-53d817d0fd4d
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(634, 164, 25, 8, 24, 2, 146) ('Cell 05', 'Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Kapila Hettiarachchi - New 15', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_temporary_cred_c1fb9425-67ae-4f3e-b9aa-18ca3fbb2b3b
+Model: res.groups
+Field: category_id
+Type: many2one
+Value: ir.module.category(18,) ('Sales')
+
+Record: studio_customization.sales_temporary_cred_c1fb9425-67ae-4f3e-b9aa-18ca3fbb2b3b
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(164, 25, 24, 2, 146) ('Chandika Rathnayake - Sales Person', 'Janitha Chamath Ranasinghe', 'Milinda Bakmiwewa', 'Rohana Balagalla', 'Tharaka Herath')
+
+Record: studio_customization.sales_test_sales_2_41ade2a0-43c2-424e-ac0a-a151fd2a973a
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(146,) ('Tharaka Herath')
+
+Record: studio_customization.test_mo_markasdone_50a9eeec-785b-41e6-ad33-414e88bf0974
+Model: res.groups
+Field: users
+Type: many2many
+Value: res.users(25, 2) ('Janitha Chamath Ranasinghe', 'Rohana Balagalla')
+
+Record: base.paperformat_batch_deposit
+Model: report.paperformat
+Field: report_ids
+Type: one2many
+Value: ir.actions.report(2925, 1622, 1619) ('Ecological Savings by using Electronic Signatures', 'Purchase Order Lines', 'Purchase Order Lines - Backup')
+
+Record: base.paperformat_euro
+Model: report.paperformat
+Field: report_ids
+Type: one2many
+Value: ir.actions.report(504, 1621, 2240, 1596) ('PRO-FORMA Invoice', 'Purchase Order Lines - New', 'Repair Final Notice', 'Sales Order Lines')
+
+Record: studio_customization.odoo_studio_account__2b60683f-0721-4535-be69-13afddd1797f
+Model: ir.ui.view
+Field: inherit_id
+Type: many2one
+Value: ir.ui.view(8293,) ('account.move.line.tree-EPF')
+
+Record: studio_customization.odoo_studio_account__5fe8d6fe-3969-4d1c-94c3-8eec93317be4
+Model: ir.ui.view
+Field: inherit_id
+Type: many2one
+Value: ir.ui.view(5289,) ('account.move.line.tree.grouped_Test-01')
+
+Record: studio_customization.odoo_studio_account__f3188d65-e758-4804-b43d-4c9da8c1cb68
+Model: ir.ui.view
+Field: inherit_id
+Type: many2one
+Value: ir.ui.view(8295,) ('account.move.line.tree-BankData')
+
+Record: studio_customization.odoo_studio_account__f98f01b8-9602-45c2-84d1-544bc1cb35e1
+Model: ir.ui.view
+Field: inherit_id
+Type: many2one
+Value: ir.ui.view(8294,) ('account.move.line.tree-ETF')
+
+Record: studio_customization.bank_data_47e0c6c8-fdaa-4baa-9f72-e3c168da3620
+Model: ir.actions.act_window
+Field: view_id
+Type: many2one
+Value: ir.ui.view(8295,) ('account.move.line.tree-BankData')
+
+Record: studio_customization.eft_schedule_9cce9617-e7d2-4d04-ae0b-3f188f9244c5
+Model: ir.actions.act_window
+Field: view_id
+Type: many2one
+Value: ir.ui.view(8294,) ('account.move.line.tree-ETF')
+
+Record: studio_customization.epf_schedule_48d6053e-8e51-427d-be24-dabb29348fcc
+Model: ir.actions.act_window
+Field: view_id
+Type: many2one
+Value: ir.ui.view(8293,) ('account.move.line.tree-EPF')
+
+Record: studio_customization.accounting_reporting_10d90737-cdb2-4b4c-96e3-f769241a9ba7
+Model: ir.ui.menu
+Field: action
+Type: reference
+Value: ir.actions.client(3200,) ('Profit and Loss (Rohana)')
+
+Record: studio_customization.accounting_reporting_573fe0f7-131b-44ee-b942-39830eb97075
+Model: ir.ui.menu
+Field: action
+Type: reference
+Value: ir.actions.client(3201,) ('Divisional P&L')
+
+Record: studio_customization.test_app_05_temp123_82d28274-bed7-4131-acbb-79c6d21e1a8b
+Model: ir.ui.menu
+Field: action
+Type: reference
+Value: ir.actions.act_window(1657,) ('TEMP123')
+
+Record: studio_customization.test_app_05_test_456_ebf8e4cf-c438-4844-b43b-a427ed3c28f7
+Model: ir.ui.menu
+Field: action
+Type: reference
+Value: ir.actions.act_window(996,) ('TEST 456')
+
+Record: studio_customization.pipeline_status_bar__b7099a4c-958c-4cd3-b463-06ddf222b5f1
+Model: ir.default
+Field: field_id
+Type: many2one
+Value: ir.model.fields(18962,) ('Pipeline status bar (LC Header)')
+
+Record: studio_customization.helpdesk_ticket_reve_aae3b63f-f182-4d2f-bbdf-e2451f8b01ba
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(195,) ('Reverse Transfer')
+
+Record: studio_customization.journal_entry_sls_cr_9ef9bab8-8276-48ad-86e9-6e2088ac327b
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1495,) ('SLS - Credit Note Approval - Main')
+
+Record: studio_customization.journal_entry_sls_ov_83902933-499e-444b-a7bc-298ee5c072bf
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1478,) ('SLS - Overdue Approval')
+
+Record: studio_customization.purchase_order_non_i_2e238175-dc07-401b-8cee-57cc2b49537b
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(982,) ('Approve NPO')
+
+Record: studio_customization.purchase_order_non_i_49d8c4a7-5a68-420b-830e-e3b85135ff3b
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(982,) ('Approve NPO')
+
+Record: studio_customization.purchase_request_app_28429fad-8e42-4166-b38a-26f11feb365d
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(853,) ('Approve PR - Main')
+
+Record: studio_customization.purchase_request_app_f18c00c4-00f3-496e-9b4a-7c5499606509
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(853,) ('Approve PR - Main')
+
+Record: studio_customization.purchase_request_app_f9ddfa70-db80-492c-81ab-fa8b7fc0b5e3
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(853,) ('Approve PR - Main')
+
+Record: studio_customization.purchase_request_con_db603ad0-d748-48ac-8f94-e981d8e40ffb
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(818,) ('Confirm PR')
+
+Record: studio_customization.purchase_request_don_27c406d7-6d0b-4fa6-b83f-612c7188ee6d
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(831,) ('Done PR + Copy PR to RFQ')
+
+Record: studio_customization.purchase_request_non_a1ddb17f-5035-46cc-ae05-cf6c6afbb547
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(954,) ('Approve PR - Non-Inventory')
+
+Record: studio_customization.purchase_request_non_e5bc9bc5-694b-49bb-b764-d88548296ce7
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(954,) ('Approve PR - Non-Inventory')
+
+Record: studio_customization.purchase_requisition_a160b53f-7659-49cf-801d-bc5f213129e5
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(772,) ('Request for Quotation')
+
+Record: studio_customization.sales_order_sls_bank_295e64d2-80a7-4c35-8451-e92ed2a94321
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1487,) ('SLS - Bank Guarantee Approval - Main')
+
+Record: studio_customization.sales_order_sls_crea_d1c5f296-e513-4f51-b861-4481f79899a3
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(2341,) ('SLS - Create Customer Payment')
+
+Record: studio_customization.sales_order_sls_cred_8a444c12-68d3-4386-98cd-9f30e58518e3
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1435,) ('SLS - Credit Limit Approval - Main')
+
+Record: studio_customization.sales_order_sls_marg_aff0c583-3cd5-490f-be24-f45938f431cb
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1515,) ('SLS - Margin Approval - Main')
+
+Record: studio_customization.sales_order_sls_over_3eea1e67-3689-46c8-81b7-a2e5bd6bce4c
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1478,) ('SLS - Overdue Approval')
+
+Record: studio_customization.sales_order_sls_over_e2a50019-7fe7-4a46-a68a-15f14d386bd8
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1505,) ('SLS - Over Commission Approval - Main')
+
+Record: studio_customization.sales_order_sls_temp_4b3ee6a1-d3da-4c07-a039-78e957110925
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1470,) ('SLS - Temporary Credit Approval - Main')
+
+Record: studio_customization.structure_master_imp_4e509633-6bba-4a6f-9749-506cadce7aac
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1186,) ('IMP - Inactive Structure')
+
+Record: studio_customization.test02_sample_server_3f4f9f11-0196-427d-ba3d-1c338a19a844
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1743,) ('sample server action')
+
+Record: studio_customization.test02_sample_server_403ad22a-d5af-44f2-86a5-da4af36d79ae
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(2268,) ('sample server action-2')
+
+Record: studio_customization.test02_sample_server_f65c8bf4-36f6-4948-8c69-240442c15678
+Model: studio.approval.rule
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(1743,) ('sample server action')

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="hr_expense.hr_expense_product_form" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="hr_expense.hr_expense_product"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">2</field>
+    <field name="view_id" ref="hr_expense.product_product_expense_form_view"/>
+    <field name="view_mode">form</field>
+  </record>
+  <record id="hr_expense.hr_expense_product_kanban" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="hr_expense.hr_expense_product"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">1</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">kanban</field>
+  </record>
+  <record id="hr_expense.hr_expense_product_tree" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="hr_expense.hr_expense_product"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree</field>
+  </record>
+  <record id="project.project_all_task_activity_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">7</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">activity</field>
+  </record>
+  <record id="project.project_all_task_calendar_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">4</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">calendar</field>
+  </record>
+  <record id="project.project_all_task_graph_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">6</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">graph</field>
+  </record>
+  <record id="project.project_all_task_pivot_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">5</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">pivot</field>
+  </record>
+  <record id="project.project_task_form_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">3</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">form</field>
+  </record>
+  <record id="project.project_task_kanban_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">1</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">kanban</field>
+  </record>
+  <record id="project.project_task_tree_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree</field>
+  </record>
+  <record id="project_enterprise.project_all_task_gantt_action_view" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="project.act_project_project_2_project_task_all"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">2</field>
+    <field name="view_id" ref="project_enterprise.project_task_dependency_view_gantt"/>
+    <field name="view_mode">gantt</field>
+  </record>
+  <record id="studio_customization.account_journal_dash_5b85e685-40c6-47cb-a284-b58e0d394045" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.open_account_journal_dashboard_kanban"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence" eval="False"/>
+    <field name="view_id" ref="account.account_journal_dashboard_kanban_view"/>
+    <field name="view_mode">kanban</field>
+  </record>
+  <record id="studio_customization.false_231baf88-8c6c-4c00-917c-bd70771e63e9" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="sales_team.crm_team_action_sales"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree</field>
+  </record>
+  <record id="studio_customization.false_48700bc3-c0aa-44a1-aa17-f4d7541fd903" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.open_account_journal_dashboard_kanban"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">1</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">form</field>
+  </record>
+  <record id="studio_customization.false_a0ee272c-ec9c-4fb0-8abd-082d9033125e" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="account.open_account_journal_dashboard_kanban"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">2</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">pivot</field>
+  </record>
+  <record id="studio_customization.false_c1868772-bfea-4d4e-85fd-dd5506e83f45" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="sales_team.crm_team_action_sales"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">2</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">form</field>
+  </record>
+  <record id="studio_customization.false_c8969918-1880-4d1d-b2a1-615137ec858a" model="ir.actions.act_window.view" context="{'studio': True}">
+    <field name="act_window_id" ref="sales_team.crm_team_action_sales"/>
+    <field name="multi" eval="False"/>
+    <field name="sequence">1</field>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">kanban</field>
+  </record>
+</odoo>

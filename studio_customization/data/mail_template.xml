@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.janitha_ranasinghe_dd97acd5-f559-41df-8f02-8175d5c13124" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="True"/>
+    <field name="body_html">&lt;p style="caret-color:#37352f;position:relative;margin:0px 0 12px 0;box-sizing:border-box;"&gt;Access Rights have Changed.....&lt;br&gt;&lt;/p&gt;</field>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from">janitha.r@jinasena.com.lk</field>
+    <field name="email_to">rohana.b@jinasena.com.lk;</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="base.model_res_groups"/>
+    <field name="name">Janitha Ranasinghe</field>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_template_ids" eval="[(6, 0, [])]"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="subject">Access Rights have Changed</field>
+    <field name="use_default_to" eval="False"/>
+  </record>
+</odoo>

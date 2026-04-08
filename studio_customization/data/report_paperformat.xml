@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="base.paperformat_batch_deposit" model="report.paperformat" context="{'studio': True}">
+    <field name="dpi">90</field>
+    <field name="disable_shrinking" eval="False"/>
+    <field name="margin_bottom">10.0</field>
+    <field name="format">Letter</field>
+    <field name="page_width" eval="False"/>
+    <field name="name">US Batch Deposit</field>
+    <field name="header_spacing" eval="False"/>
+    <field name="margin_left">10.0</field>
+    <field name="print_page_height">215.9</field>
+    <field name="print_page_width">279.4</field>
+    <field name="header_line" eval="False"/>
+    <field name="page_height" eval="False"/>
+    <field name="default" eval="False"/>
+    <field name="orientation">Landscape</field>
+    <field name="display_name">US Batch Deposit</field>
+    <field name="margin_top">15.0</field>
+    <field name="margin_right">10.0</field>
+  </record>
+  <record id="base.paperformat_euro" model="report.paperformat" context="{'studio': True}">
+    <field name="dpi">90</field>
+    <field name="disable_shrinking" eval="False"/>
+    <field name="margin_bottom">32.0</field>
+    <field name="format">A4</field>
+    <field name="page_width" eval="False"/>
+    <field name="name">A4</field>
+    <field name="header_spacing">35</field>
+    <field name="margin_left">7.0</field>
+    <field name="print_page_height">210.0</field>
+    <field name="print_page_width">297.0</field>
+    <field name="header_line" eval="True"/>
+    <field name="page_height" eval="False"/>
+    <field name="default" eval="True"/>
+    <field name="orientation">Landscape</field>
+    <field name="display_name">A4</field>
+    <field name="margin_top">40.0</field>
+    <field name="margin_right">7.0</field>
+  </record>
+</odoo>

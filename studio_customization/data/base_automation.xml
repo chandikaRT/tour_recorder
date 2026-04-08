@@ -1,0 +1,1543 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.automatically_update_80d596c6-8d80-46c4-a235-0a5acb2924d6" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.automatically_update_72527e25-9660-4e29-9d73-abec670d4081')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">JIN - Company Id in Product</field>
+  </record>
+  <record id="studio_customization.chk_sample_automated_c016b4e2-9340-4db7-8b08-16490cec723c" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.chk_sample_automated_f3502a32-b5da-438d-a621-6488629bb6cd')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="name">CHK - Sample Automated Action</field>
+  </record>
+  <record id="studio_customization.company_id_in_purcha_ef7173b1-83da-4037-9352-58b86bc61fe1" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.company_id_in_purcha_e42569c5-6b88-4efb-8ebe-99870c191c1e')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="name">JIN - Company Id in Purchase Request</field>
+  </record>
+  <record id="studio_customization.etf_schedule_contrac_b9a44e86-1265-4e35-a98f-e47152bd6441" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.execute_code_9ec7f450-af4a-4bc0-9714-d2c1ed65c5f1')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[("distribution_analytic_account_ids", "!=", False)]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="account.model_account_move_line"/>
+    <field name="name">ETF Schedule - Contract Id</field>
+  </record>
+  <record id="studio_customization.exp_validate_negativ_e77d43f9-d172-4d42-b9ce-8a58092670be" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.exp_validate_negativ_a08ad320-252b-4d74-8381-e64262cbc349')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="hr_expense.model_hr_expense"/>
+    <field name="name">EXP - Validate Negative Quantities</field>
+  </record>
+  <record id="studio_customization.hr_applicant_2_4ad70e8c-2807-4ed1-abd8-47dca49d6b5a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.hr_applicant_2_4b94aa3d-b1f8-4472-a9ef-9b7003acdba7')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_selection_applic_8b7720c3-b0cd-40c8-9967-ba0569063fc0')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">HR - Applicant 2</field>
+  </record>
+  <record id="studio_customization.hr_applicant_d2ede5ca-b463-4f77-b5af-450cd3147c27" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.hr_applicant_3b21afa8-c6e0-435c-90f6-7fd29d759796')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_selection_applic_ce2b7192-6e40-48e3-bf63-a8a6af76f4b4')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">HR - Applicant</field>
+  </record>
+  <record id="studio_customization.hr_validate_assignme_21b1ec75-b3b5-4a8b-b9bc-6e29cc87dc6a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.hr_validate_assignme_f215c403-d6e5-4c64-82fb-64f8fd84375c')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_integer_applican_99ccb75f-a780-4c6c-8460-4fb1c4a65dce')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">HR - Validate Assignment Marks</field>
+  </record>
+  <record id="studio_customization.hr_validate_leadersh_4b3dac56-26af-4064-bc6f-91ed450f9fb3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.hr_validate_leadersh_6e8e8c96-7eeb-4a13-930d-47d3b9888d21')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_integer_applican_9c1ebf61-f970-41d7-bb4f-55f8da5c96eb')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">HR - Validate Leadership Marks</field>
+  </record>
+  <record id="studio_customization.hr_validate_line_man_62819a4f-955c-45d7-9999-bde8bc2c2776" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.hr_validate_line_man_930750f4-51b0-4e16-943a-64fd542bc44f')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_integer_applican_dc5e36cb-59d2-4af6-a09e-85e6cba0ead9')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">HR - Validate Line Manager Marks</field>
+  </record>
+  <record id="studio_customization.hr_validate_recruite_900bed34-4cf9-48ee-aee3-290046afebce" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.hr_validate_recruite_1a5d3d42-f3a5-4389-8929-5c3d9a465753')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_integer_applican_ae265918-65a0-4dc5-acff-d4f137d2ca66')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+    <field name="name">HR - Validate Recruiter Marks</field>
+  </record>
+  <record id="studio_customization.imp_create_charges_f_2e8acfec-5f2a-4f66-b8f5-3c1cd6c3f23f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.imp_create_charges_f_2e8acfec-5f2a-4f66-b8f5-3c1cd6c3f23f_ir_actions_server')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.tariff_date_ae47156b-2fa3-4366-9525-d468607036e3"/>
+    <field name="name">IMP - Create Charges for Tariff Dates</field>
+  </record>
+  <record id="studio_customization.imp_service_item_cha_a97194e3-c99b-491c-9c1f-eaf4db6e8b56" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.imp_service_item_cha_c18331b6-03f6-46b1-9820-053412e31e05')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">IMP - Service Item - Charge-Duty-Tax</field>
+  </record>
+  <record id="studio_customization.imp_update_lc_status_0c67289c-54c2-4840-94dd-b7e5a3bdeba2" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.imp_update_lc_status_883386a5-a46b-4342-a09a-f6dc63716999')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('account.field_account_payment__amount')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="account.model_account_payment"/>
+    <field name="name">RR - Validate Payment %</field>
+  </record>
+  <record id="studio_customization.imp_update_supplier__76f9e0d6-7371-43f9-9c6d-d45affd11d28" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.imp_update_supplier__e3594583-05b1-4057-abae-c0886bd53f28')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.contact_consignment__6305dae3-2d56-43b9-b8af-0145ef257df6')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="studio_customization.consignment_header_dd8c881f-035a-413d-a594-9447b058cbf0"/>
+    <field name="name">IMP - Update Supplier Currency in Consignment</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ch_72da7d3f-df35-4717-817f-d9b7c008cad9" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ch_eeae8497-f127-4461-96fa-f88305fda571')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.trf_charges_98aa1316-cf28-4f4d-9be3-164da2771930"/>
+    <field name="name">JIN - Company Id in Charges</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_0fc6874b-6a54-4b82-8df4-79875aa55470" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_299e49ed-09f0-44e9-b194-be24a63838eb')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.con_consolidated_lin_c5c9a08a-8ceb-4035-94d9-dc28b5f83933"/>
+    <field name="name">JIN - Company Id in Consolidated Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_10dbe5f3-c457-4041-9147-8bd26f540615" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_f6b2d127-23f0-46f9-92ad-9f6245a59a70')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.consignment_header_dd8c881f-035a-413d-a594-9447b058cbf0"/>
+    <field name="name">JIN - Company Id in Consignment Header</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_1a6414a5-1a07-4a6a-81b9-dad924ef9dd5" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_a11e6e4d-9a01-4236-ac47-0c9a32da6f1b')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.consignment_charge_l_d40aad31-32d7-4ad6-a635-ce52c4682eb3"/>
+    <field name="name">JIN - Company Id in Consignment Charge Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_2dc29e52-86c0-4846-8c1a-acd2e40a3470" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_b0280659-8ba8-4041-879c-997690f2d087')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.conditions_29001db2-6287-4453-bc96-e7c7bea59ac2"/>
+    <field name="name">JIN - Company Id in Conditions</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_5bc9ca30-c08e-4a4d-a61c-229ccc8d4697" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_7aa43450-a98e-4dce-9694-f3c323d0ff3b')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.consignment_line_9f5bb979-172f-407d-8454-834e0cf510d6"/>
+    <field name="name">JIN - Company Id in Consignment Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_66138707-427b-4fdc-ae9e-7f528026eec0" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_9acd66e5-b9e1-4e47-b5d1-aed57c481a65')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.con_consolidated_hea_e8b73510-9bdc-40a8-9d2a-4e87c3024dca"/>
+    <field name="name">JIN - Company Id in Consolidated Header</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_co_d9c6bc7a-fcc3-4211-8c8d-c4da6c1f539f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_co_01b29819-555f-4222-9fb1-9a790dd96756')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.consignment_charge_h_aa8a583e-c7e8-4536-a797-e7d8d9e42481"/>
+    <field name="name">JIN - Company Id in Consignment Charge Header</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_cu_81a7d49c-4f26-467a-9769-4b7344d7cd31" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_cu_bb888e5f-399b-4dd1-bb8f-47c80d9d09ee')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.custom_currency_0828fb1a-9f33-4bfb-8a0b-f06d2b193b4d"/>
+    <field name="name">JIN - Company Id in Custom Currency</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_cu_bc11f402-d549-43af-97cc-57f986d804fa" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_cu_108bad36-32fa-4bd8-a5e4-63363b6e6c5b')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.custom_currency_rate_e7330c60-4bef-4f50-abe4-48fe4ffd2c29"/>
+    <field name="name">JIN - Company Id in Custom Currency Rate</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_cu_e15309c8-c606-40c5-9c3a-79ee8278c022" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_cu_ea713b61-a689-4880-ab84-30c94d3dacb4')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.customer_group_d8bc02e8-2a36-4d94-abe1-254d38e377fb"/>
+    <field name="name">JIN - Company Id in Customer Group</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_de_d20e1e3e-1747-4597-a06a-a734747ee23f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_de_61453553-e8d3-4822-9ff7-6445ecf9c613')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.delivery_terms_d6d57d71-ba05-449c-a12b-a594ba841425"/>
+    <field name="name">JIN - Company Id in Delivery Terms</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_de_f85c079b-ce3a-4144-b5df-2a9ca88ce1bd" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_de_b398f6c0-0b95-4d4b-b481-90aff05c1ba5')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.delivery_term_charge_4910adc4-4dcc-4818-9635-bdafdcb9a415"/>
+    <field name="name">JIN - Company Id in Delivery Term Charges</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_di_243dbc05-bae8-4c8d-835c-e0a4f021aaf3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_di_3d53d0de-a25d-4dd7-8097-bb7f91815c19')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.diagnosis_areas_31137d33-5480-48f6-ad09-5827569894c6"/>
+    <field name="name">JIN - Company Id in Diagnosis Areas</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_di_27f0df27-3c61-4ebc-8b1f-ed8016bb48da" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_di_2506dd17-65bd-4941-a444-2e14e4b87471')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.diagnosis_codes_150eeca0-bf2c-44a0-a340-4276223841d7"/>
+    <field name="name">JIN - Company Id in Diagnosis Codes</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_du_b53cffcf-bd50-4335-b61a-820281adebf6" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_du_b623e87f-1f6e-4a82-9f74-3a79f1cc1553')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.trf_duty_8653fc94-cded-44e8-8d05-0f6c2618afda"/>
+    <field name="name">JIN - Company Id in Duties</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_he_785edfa8-d077-43ec-a6e1-c71c8cb951be" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_he_373dedff-efb6-49de-ade0-510dd9eb4f70')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="helpdesk.model_helpdesk_stage"/>
+    <field name="name">JIN - Company Id in Helpdesk Stage</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_im_0ea1adec-890b-4263-b2d5-306e4ca0d5f7" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_im_2a9d1208-d2a3-491d-b095-04423f37beba')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.import_rfq_charge_li_fd6ddcbe-7519-4232-abf1-56bac5be96bd"/>
+    <field name="name">JIN - Company Id in Import RFQ Charge Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_im_2e9ccd08-fce0-4d57-bda1-76920b513237" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_im_e45baa5b-1727-469f-a370-31057af20d0a')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.imports_ledger_setup_b758e2b6-b3fe-40e1-acbf-d07b0c0888a1"/>
+    <field name="name">JIN - Company Id in Imports Ledger Setup</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_im_3c25311f-8ffd-4df4-9c0c-331a3996e3c5" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_im_af58c015-6a6f-4571-956b-5654982c411f')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.import_rfq_charge_he_5bcb8f71-693e-4472-9072-81f373e62ffc"/>
+    <field name="name">JIN - Company Id in Import RFQ Charge Header</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_im_73ca280d-3b8f-44e4-8d24-3f50aba0156e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_im_c2c5e116-1a7a-494a-9680-7111127d0dcd')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.import_charges_ceeea05d-8129-49b0-8508-9d5a31c78223"/>
+    <field name="name">JIN - Company Id in Import Charges</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_jo_95407215-17c2-4e83-b210-44034ce508c9" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_jo_e45df1f2-d4ac-4f4e-8432-69ab5fe748ad')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.journal_types_b6b2f88a-57ca-4d7a-93f1-dc0f3e8a6ac6"/>
+    <field name="name">JIN - Company Id in Journal Types</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_lc_f42aa7c2-2bc0-429f-a7be-81a9d7763f05" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_lc_fe8092b8-7eee-4289-a6c6-69b8c91b1400')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.lc_header_3f07d6cb-bc5c-4ea0-a0fc-eaa847d04b36"/>
+    <field name="name">JIN - Company Id in LC Header</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ma_0f84c6d9-6de0-418d-861b-8f259d1f7908" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ma_e626118a-659d-4e3e-b2ba-5d5fe0ce27ed')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.mass_produce_serial__075d7ec2-3b2e-47dd-a703-3518e23e81d6"/>
+    <field name="name">JIN - Company Id in Mass Produce Serial Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ma_e6902282-730d-497d-98c7-3332c5e62fe3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ma_92dfed50-6ab0-41ff-af76-fbd817cc00be')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.mass_produce_serial_444dcaeb-03af-489d-a77e-832aa6c7d8f3"/>
+    <field name="name">JIN - Company Id in Mass Produce Serial</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_mi_cc6354c8-b92f-471b-89d5-4e1e033d13cb" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_mi_79b0beba-649b-4822-8813-970ee47b09f0')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.misc_charge_codes_d61bbd3d-ca69-4562-aed0-ef16e7e429ea"/>
+    <field name="name">JIN - Company Id in Misc Charge Codes</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_no_46063c7d-bf2b-48c2-9333-0f96123566d4" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_no_80b76634-ca14-4a4a-913c-f25bfafb9840')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.non_inventory_produc_f356aff2-6d22-4a6a-aae5-71a85b1ba161"/>
+    <field name="name">JIN - Company Id in Non-Inventory Product Code</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_no_5a5c175e-d01d-4199-a3d6-8789d82135a7" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_no_e65ef8d5-9bd3-4a68-be73-f6976044054a')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.po_non_inventory_efc44f36-0e18-4285-8437-35fa844b16ce"/>
+    <field name="name">JIN - Company Id in Non-Inventory Purchase Order</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_no_9a5b2d74-93a3-475b-9f43-5e9e53e07851" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_no_0735deb3-d820-4ada-86fa-f21e09524358')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.pr_line_non_inventor_daf1f3a4-f802-4f55-b310-27cddfeb909e"/>
+    <field name="name">JIN - Company Id in Non-Inventory Purchase Request Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_no_b2f2f85d-761c-4506-b04c-c74ca3888607" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_no_1850d431-9a37-43e2-8060-67c6fa4b549b')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.pr_non_inventory_145a5b85-6c9d-490d-839c-ef99d4b2ffcc"/>
+    <field name="name">JIN - Company Id in Non-Inventory Purchase Request</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_no_bf3ad022-ec49-45e8-895a-5be047b11525" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_no_ff2e543e-5cae-44d3-8074-f7df73d14faa')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.po_line_non_inventor_4fdc61c5-cebd-496a-ac6b-28e680da6228"/>
+    <field name="name">JIN - Company Id in Non-Inventory Purchase Order</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_pa_1339cccd-0d93-4202-9e1f-a961693bad39" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_pa_c40db154-6a67-4d7e-83fb-669bde50b032')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.payment_methods_6b841dc0-9ef5-464f-a3d7-10d4aac016b8"/>
+    <field name="name">JIN - Company Id in Payment Methods</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_pa_a06a83fb-4675-4693-8604-9fda3cb6328b" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_pa_61d39339-c87c-4d8b-b6d5-0652b74fe71b')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="account.model_account_payment_term"/>
+    <field name="name">JIN - Company Id in Payment Terms</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_pr_75b841b2-e64d-4eb7-a5be-b767711d626f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_pr_ae76eecd-fd4c-481c-8056-fb68de683924')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="product.model_product_pricelist"/>
+    <field name="name">JIN - Company Id in Pricelist</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_pu_29af4c72-0f29-4592-9f54-ce25140ea782" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_pu_e1b0ef51-f010-400a-96ac-711aaf9cb3d9')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.purchase_request_lin_470df54a-170e-4525-9bf5-78e172dd2811"/>
+    <field name="name">JIN - Company Id in Purchase Request Line</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_pu_8fc2d807-45b1-49be-97d9-3a6c32ec4c2a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_pu_1211d880-d9aa-4cfb-85a2-8a8358a355b9')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.purchase_request_cas_1c8c5886-e132-49ad-81cb-f13cbbc62804"/>
+    <field name="name">JIN - Company Id in Purchase Request Cash</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_pu_f3a9c492-47de-4e97-8d1e-11168f25fccf" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_pu_91db4ae0-c302-4e84-806d-cb269fe3dc2c')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.pr_line_cash_b5751854-dd06-4efd-83ad-e521b111bf41"/>
+    <field name="name">JIN - Company Id in Purchase Request Line Cash</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_12e05495-19db-4430-98b7-2691212ea08b" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_32fa56a1-3bc4-45b3-90a4-b2b649209c5d')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.repair_reason_custom_50dd6932-a12c-4d45-837a-a6d63071c499"/>
+    <field name="name">JIN - Company Id in Repair Reason - Customer</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_21ee5354-0efd-41bc-82fb-160e94209228" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_5d343bfd-e773-4281-b918-410984f5ff96')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.repair_stages_494ca557-b3ec-47c9-b22b-7c5a374936df"/>
+    <field name="name">JIN - Company Id in Repair Stages</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_24532ab5-896f-4da4-b7d5-e1701f13ef34" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_aac351da-beb4-4d09-8eb6-1a6bbf2383cd')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">JIN - Company Id in ResPartner Inherit Model</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_7a968ba9-f3a3-4fba-8cc3-8fb6f217f2e7" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_90d38f9d-559e-4193-9e43-b56bcaf4eced')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.repair_sub_reason_e167111a-c461-45ef-871b-f544cf4d02bf"/>
+    <field name="name">JIN - Company Id in Repair Sub Reason</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_a201a61b-31a0-4f54-8982-2883dd026418" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_239091b9-eace-4fef-ba84-6dc38d6c7f8b')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.resolutions_c3e3a4e9-2778-4e5a-aaa2-b93d466e0383"/>
+    <field name="name">JIN - Company Id in Resolutions</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_d3ff99df-f47b-4dfe-ad7b-889140caed54" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_d2d01417-7655-458a-b37e-73f6c34f5cf1')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.repair_reason_36fa6f5e-28c9-4c95-822b-88a525a801e5"/>
+    <field name="name">JIN - Company Id in Repair Reason</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_re_e133e7ed-af07-4a19-b065-0edf0d19af02" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_re_149d32af-b796-41ae-8100-6a71c3c8914c')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.repair_accounts_ac342edd-ffda-4422-ae9c-9c8f0cc1a056"/>
+    <field name="name">JIN - Company Id in Repair Accounts</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_st_c7cf077c-6944-43ab-89c5-aefb41321fec" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_st_16db4569-3630-4fae-8a55-0954c59e0072')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.structure_details_2fcdd292-4426-4c13-a157-553cf3db1ee0"/>
+    <field name="name">JIN - Company Id in Structure Details</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_st_f877bf70-8e83-4b57-b704-59195a0f8773" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_st_c5e0abd3-2515-44e7-932d-069df6f4b1c9')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.structure_master_34073a1e-bc24-4ab9-ba85-e47aef0c7d9f"/>
+    <field name="name">JIN - Company Id in Structure Master</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_sy_3db8d6ee-095b-4aea-a8bf-b823997b96d9" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_sy_8ddfe60c-277d-4cec-9a66-3ba719550297')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.symptom_codes_b319d52a-664d-48bd-938f-153e0a9d27cf"/>
+    <field name="name">JIN - Company Id in Symptom Codes</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_sy_514ac38f-8f87-44c8-8cbf-3260790c874b" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_sy_7830cf0f-334b-4392-90c3-1860f494d2b9')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.symptom_areas_0e8ae13c-67f9-49e0-b96b-109db90ed52c"/>
+    <field name="name">JIN - Company Id in Symptom Areas</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ta_26ec0677-8247-4ce5-86d9-388201864cfd" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ta_57dd99c6-d467-4482-85a8-a9fc12c37575')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.tariffmaster_68d4962c-8e7b-4cf2-9399-fbbe859ff563"/>
+    <field name="name">JIN - Company Id in TariffMaster</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ta_32cbf38d-cfe3-4231-946c-995af0110691" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ta_f0c3c577-0da7-4562-9d39-17ebc4a04b71')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.tariff_rates_0f0e0b37-5ba0-4bb9-96d6-634bb9f5f4e2"/>
+    <field name="name">JIN - Company Id in Tariff Rates</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ta_d38d8f08-9615-4a54-80df-cd073b37994e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ta_4f220d6b-1983-47d2-ac05-79d059d94286')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.trf_taxes_eec12568-f772-4e72-844b-5749c9a8e306"/>
+    <field name="name">JIN - Company Id in Taxes</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ta_e02c8437-6606-4353-900b-a5536a11ecba" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ta_11fbd9aa-fe98-4c92-905d-e9a15c629c5d')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.tariff_date_ae47156b-2fa3-4366-9525-d468607036e3"/>
+    <field name="name">JIN - Company Id in Tariff Date</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_up_3a80f181-b218-493f-99c2-042fc9ae796a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_up_45b98644-8a89-44f4-bfd4-cb18453b8016')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.update_ot_69a5f37d-29f3-4d2f-b7b1-4ad6da477425"/>
+    <field name="name">JIN - Company Id in Update OT</field>
+  </record>
+  <record id="studio_customization.jin_company_id_in_ve_3a31da5b-7462-4d84-9919-86ac1f78773c" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_company_id_in_ve_3e0b510f-f458-4975-8e48-494cc57ce553')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.vendor_group_29d22978-bafb-4a82-aa20-3d70499256db"/>
+    <field name="name">JIN - Company Id in Vendor Group</field>
+  </record>
+  <record id="studio_customization.jin_pricelist_in_res_377ccef5-3e29-4959-b53c-878c1b1d6f7f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.jin_pricelist_in_res_26336578-cf61-43f9-9241-f7c402521e4d')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.customer_group_conta_dd89ce1c-f61d-440f-99b5-945ffc085d22')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">JIN - Pricelist in ResPartner Inherit Model</field>
+  </record>
+  <record id="studio_customization.material_req_gen_43e8ee94-f9a8-4a35-b6a7-d1c028c3cf2c" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.material_req_gen_7c13acfd-8bb7-4ea1-a99d-da08db71c800')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.material_request_ed2e7d05-78e3-4761-bb23-045056e233e4"/>
+    <field name="name">Material Req GEN</field>
+  </record>
+  <record id="studio_customization.mnt_code_gen_b7e20cd3-8aeb-414c-a591-494a8782a93d" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.mnt_code_gen_22dcaddf-6ba8-4ef9-bacd-5e15d66727cb')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="maintenance.model_maintenance_request"/>
+    <field name="name">MNT code gen</field>
+  </record>
+  <record id="studio_customization.plm_tag_create_2978cad0-e313-4ac4-bfa0-946a28b66a84" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.plm_tag_create_7a089250-f04e-4b83-8099-ab51c8883b94')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="mrp_plm.model_mrp_eco"/>
+    <field name="name">PLM - Tag Create</field>
+  </record>
+  <record id="studio_customization.plm_tag_description_938fda1b-2bcf-462b-949f-9d5e37f90c1c" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.plm_tag_description_9744669b-3b63-4ba7-a752-b5e7e078c342')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('mrp_plm.field_mrp_eco__name')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="mrp_plm.model_mrp_eco"/>
+    <field name="name">PLM - Tag Description</field>
+  </record>
+  <record id="studio_customization.proj_apply_project_p_51f5b9d4-a612-4eb5-9a0a-0ba3fde7dbf2" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.proj_apply_project_p_9e263bd9-d5e0-45bf-b90c-6ef14c5fc2cc')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_selection_sales__6aaf2551-d7fa-4956-8fbd-8bc07658ebdf')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">PROJ - Apply Project Price List</field>
+  </record>
+  <record id="studio_customization.proj_mark_as_done_va_5f3b7c6d-0894-4b12-bd4a-7bbc623aae90" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.proj_mark_as_done_va_68016756-5658-4ce8-8893-e538c347985f')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="name">PROJ - Mark as Done Validation</field>
+  </record>
+  <record id="studio_customization.proj_update_price_co_4562ed92-50c4-4c18-98a2-e3192e9e1f4d" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.proj_update_price_co_6b941f55-2855-4e66-afb4-dbdc1b6b151c')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('sale.field_sale_order_line__product_id')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">PROJ - Update Price Confirmed Status</field>
+  </record>
+  <record id="studio_customization.proj_validate_confir_a55082d5-ca57-44e6-bbff-43d3835fb672" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.proj_validate_confir_7674b6c8-3460-4b54-8427-124734d20452')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="account_budget.model_crossovered_budget"/>
+    <field name="name">PROJ - Validate Confirm</field>
+  </record>
+  <record id="studio_customization.proj_validate_delete_2d9fd212-d54b-45bb-be5c-7d213b9ad564" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.proj_validate_delete_45873421-2e7a-4dd7-b743-9befc47855c3')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_unlink</field>
+    <field name="model_id" ref="account_budget.model_crossovered_budget"/>
+    <field name="name">PROJ - Validate Delete</field>
+  </record>
+  <record id="studio_customization.project_update_proje_12c078a7-6b3d-4805-8c21-9cd8744b18b3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.project_update_proje_88dd7d4a-3650-4806-a3a4-9f0a24cb22f9')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_selection_journa_53fdf6a8-9f7b-4cad-81ff-b21198477e70')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">Project - Update Project No for Manual Transactions</field>
+  </record>
+  <record id="studio_customization.purchase_request_seq_3ea8dede-0573-4ac1-b94e-be02593e0124" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.purchase_request_seq_81dcd460-72f2-49f6-bf58-13ffb450c5d1')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.purchase_request_005b6e76-5619-49fa-81a1-bb195d8ef0d5"/>
+    <field name="name">JIN-Purchase Request Seq.No</field>
+  </record>
+  <record id="studio_customization.restrict_archive_in__80650ec9-9020-4d5e-906b-4fe7ff0e84f4" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.restrict_archive_in__99125332-2656-406a-b229-24c47a08a1d6')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_status_1","=","Draft"]]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.product_purchase_req_e3e34d20-e734-4967-a73e-9562993a1b1b')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="studio_customization.purchase_request_lin_470df54a-170e-4525-9bf5-78e172dd2811"/>
+    <field name="name">Pass Requested by to Line Level</field>
+  </record>
+  <record id="studio_customization.restrict_attachment__135445c9-c87f-439b-8a78-c89b92b7c80a" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.restrict_attachment__8d305472-f5af-4e7a-aed7-19a81420b30a')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_unlink</field>
+    <field name="model_id" ref="base.model_ir_attachment"/>
+    <field name="name">Restrict Attachment Delete for Approved Expenses</field>
+  </record>
+  <record id="studio_customization.rr_auto_generate_quo_89de493d-825b-4f77-88e1-dacdef218a8b" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.rr_auto_generate_quo_036f0728-8196-4285-b86f-eb56e10ef300')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["task_id","!=",False]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_date_sales_order_cd1c5327-9808-4a6b-ab75-5fa55ad25846'), ref('studio_customization.new_date_sales_order_8a8b2cad-e136-4850-8c2c-75ae29f7fe8c')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">PROJ - Validate Start date and End date for Project SOs</field>
+  </record>
+  <record id="studio_customization.rr_repair_seq_no_4ef06421-6fcb-4cec-bbb0-7bb723e9f827" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.rr_repair_seq_no_44f12e9d-afbe-4ad6-b0f5-7c184140bdc3')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+    <field name="name">JIN-Helpdesk(Repair) Seq.No</field>
+  </record>
+  <record id="studio_customization.rr_track_lock_status_3b544152-17db-4f20-858c-27be9d5ca2aa" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.rr_track_lock_status_6162c940-4c25-4152-8c3b-d084483da472')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">RR - Track Lock Status - 2</field>
+  </record>
+  <record id="studio_customization.rr_track_lock_status_58da41f6-5751-4502-81a7-9c48fc5ca552" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.rr_track_lock_status_10b3abb4-b6bd-4987-803f-2403eafab94e')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">RR - Track Lock Status</field>
+  </record>
+  <record id="studio_customization.rr_track_lock_status_72f9f93e-aca1-4266-a4cc-dd910020ee33" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.rr_track_lock_status_aee7e0c3-4c28-4024-831b-d3ce575bfe0e')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">['&amp;', '&amp;', '&amp;', ('state', '=', 'sale'), ('x_studio_locked', '=', True), ('x_studio_quotation_type', '=', 'Repair'), ('x_studio_unlocked', '=', True)]</field>
+    <field name="filter_pre_domain">['&amp;', '&amp;', '&amp;', ('state', '=', 'sale'), ('x_studio_locked', '=', True), ('x_studio_quotation_type', '=', 'Repair'), ('x_studio_unlocked', '=', True)]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">RR - Track Lock Status - 4</field>
+  </record>
+  <record id="studio_customization.rr_track_lock_status_9b6c45ba-3df3-434b-8f7f-8ff0d0c6e63f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.rr_track_lock_status_40e5bbd9-6de4-4d37-b042-0558eb4cfa92')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_quotation_type","=","Repair"]]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('sale.field_sale_order_line__product_id')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">RR - Track Lock Status - 3</field>
+  </record>
+  <record id="studio_customization.sls_track_credit_lim_37713bd9-f10f-4c56-b3ab-b9611f2831d5" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_track_credit_lim_ba556465-3c2c-4f17-b550-4c902e0b9373')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">SLS - Track Credit Limit in Customer</field>
+  </record>
+  <record id="studio_customization.sls_validate_bank_gu_14b824eb-255e-416e-ad2c-7c91882aacef" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_validate_bank_gu_27e25ffa-1d72-442a-9ffb-5da85a3b0ce1')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">SLS - Validate Bank Guarantee in SO Confirm</field>
+  </record>
+  <record id="studio_customization.sls_validate_bank_gu_6ad4b46b-77b4-44ac-84cf-f354057988c3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_validate_bank_gu_010e0748-6d98-4711-9bb3-67d8cf6dfa6c')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">SLS - Validate Bank Guarantee in Customer Invoice</field>
+  </record>
+  <record id="studio_customization.sls_validate_credit__2d36075f-159b-4ac0-ba00-976ef6394d7d" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_validate_credit__50726052-2ead-4c05-adba-1f231e698cc0')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">SLS - Validate Credit Limit</field>
+  </record>
+  <record id="studio_customization.sls_validate_credit__e90bb43c-eb63-4592-8c88-0ff5375269d4" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_validate_credit__cbc1ed38-5cac-44ce-8bc0-42768ac991f5')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('account.field_res_partner__credit_limit'), ref('studio_customization.new_decimal_contact_368f95e1-1936-4d04-9410-f388a9d1555e')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">SLS - Validate Credit Limit &amp; Bank Guarantee Amount - 1</field>
+  </record>
+  <record id="studio_customization.sls_validate_payment_45b061f2-6000-4538-84d0-81f7267b0fac" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_validate_payment_e4ae3690-8b5c-46cb-a0fc-7e00f7400f06')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">SLS - Validate Payment in Shipment</field>
+  </record>
+  <record id="studio_customization.sls_validate_payment_d1255c6a-b76d-4322-b619-391ece8ab368" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.sls_validate_payment_479d4d03-9897-4a27-9ee9-31d729504c31')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">SLS - Validate Payment in Customer Invoice</field>
+  </record>
+  <record id="studio_customization.srm_auto_populate_da_b0617e30-ce06-4e87-9d5a-1e8b1b9a0e43" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.srm_auto_populate_da_948cd45f-a1b5-495d-a4a8-fe2f6746e996')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_date_sales_repor_32f9acfa-6e65-4f59-a00b-7399c7be4d23')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type">hour</field>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="studio_customization.sales_report_model_6539148f-b596-418e-b96a-6067e49e1cb2"/>
+    <field name="name">SRM - Auto Populate Data</field>
+  </record>
+  <record id="studio_customization.srm_auto_populate_da_d6310ff9-9eb1-4f4a-8360-03670f6c5450" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.srm_auto_populate_da_024ae844-e718-420f-af07-c8df47d7354a')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_date_sales_repor_32f9acfa-6e65-4f59-a00b-7399c7be4d23')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.sales_report_model_6539148f-b596-418e-b96a-6067e49e1cb2"/>
+    <field name="name">SRM - Auto Populate Data</field>
+  </record>
+  <record id="studio_customization.super_user_validate_5126dc20-b5a0-46dd-a59d-d2c69f74e96f" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.super_user_validate_8b00c5ca-7a36-490f-8ac0-91bb30602cff')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="base.model_res_users"/>
+    <field name="name">Super User Validate</field>
+  </record>
+  <record id="studio_customization.test_layout_changes_9f398fc8-570f-4734-a10c-bbace158a99e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.test_layout_changes_f412afd5-1972-4ed5-9246-284af8c9925d')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_selection_test02_87498aef-9d82-4639-b642-706cf7898240')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.test02_74b03aeb-285e-4a6a-a385-5ef28de99d9d"/>
+    <field name="name">Test - Layout Changes</field>
+  </record>
+  <record id="studio_customization.tp_invoice_currency__487338cf-383a-4739-bde2-298ee5c7f3b3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.tp_invoice_currency__29b3f77d-b203-4a42-941f-e656d5fc9e5e')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.contact_tp_invoice_h_5b547124-1d3f-45de-94a1-179fdc525672')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="studio_customization.tp_invoice_header_233cf9de-9561-48a8-b42e-d28e679df8f5"/>
+    <field name="name">TP Invoice Currency Update</field>
+  </record>
+  <record id="studio_customization.update_cost_per_hour_6447ce42-517b-4160-b7d5-f0b560845938" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.update_cost_per_hour_0ff9022b-89e4-4b31-a968-efc9ca84860d')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="mrp.model_mrp_workcenter"/>
+    <field name="name">Update Cost Per Hour</field>
+  </record>
+  <record id="studio_customization.update_cost_per_hour_e7622914-991f-4b19-a215-761b2a862f70" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.update_cost_per_hour_8365780a-fa45-4b79-9993-72465c43e298')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">Update Cost Per Hour in Work Center</field>
+  </record>
+  <record id="studio_customization.update_ot_1675f812-5f04-49c0-a9fd-465c3088bfa8" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.update_ot_104e4e3d-9608-489a-bc8d-49914a9db604')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.new_date_sales_repor_32f9acfa-6e65-4f59-a00b-7399c7be4d23')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="studio_customization.update_ot_69a5f37d-29f3-4d2f-b7b1-4ad6da477425"/>
+    <field name="name">Update OT</field>
+  </record>
+  <record id="studio_customization.update_payment_term_cc9cdaa6-9ecd-432d-86fa-95995cc1b736" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.update_payment_term_7b51d4ee-ed38-4c8f-8c2b-eeee7b867074')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["x_studio_customer_group","!=",False]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [ref('studio_customization.customer_group_conta_dd89ce1c-f61d-440f-99b5-945ffc085d22')])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_change</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">SLS - Update Payment Term - Customer</field>
+  </record>
+  <record id="studio_customization.update_project_no_in_b56637fa-4fee-4736-ba68-e7734aa5b5e3" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.update_project_no_in_43d5bc2c-60cc-4c8a-a209-1145fa704e40')])]"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="account.model_account_payment"/>
+    <field name="name">Update Project No in Journal Entry</field>
+  </record>
+  <record id="studio_customization.user_group_change_no_eec19c24-9b22-4ca8-9d19-2beffb598984" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.user_group_change_no_67132cb9-e976-4a2c-9f8c-42e1b3df0c58')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+    <field name="model_id" ref="base.model_res_groups"/>
+    <field name="name">User Group Change - Notify</field>
+  </record>
+  <record id="studio_customization.user_location_valida_18843aca-9220-4805-bd46-09d07515ac66" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.user_location_valida_0d3b7716-8fa2-4533-a220-a0947b685b46')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[["state","=","draft"]]</field>
+    <field name="filter_pre_domain">[["state","=","draft"]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_write</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">User Location Validation-TEST</field>
+  </record>
+  <record id="studio_customization.user_location_valida_2886e11f-1514-47e9-8729-797d13433b40" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.user_location_valida_75221388-7099-4bea-b8a3-3f387b9ac710')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">["|","|","|",["state","=","draft"],["state","=","waiting"],["state","=","confirmed"],["state","=","assigned"]]</field>
+    <field name="filter_pre_domain">["|","|","|",["state","=","draft"],["state","=","waiting"],["state","=","confirmed"],["state","=","assigned"]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">User Location Validation</field>
+  </record>
+  <record id="studio_customization.user_location_valida_6988947d-b39c-4750-87f6-59fc7e7083ec" model="base.automation" context="{'studio': True}">
+    <field name="action_server_ids" eval="[(6, 0, [ref('studio_customization.user_location_valida_fc2a0d80-7f00-404b-840f-66b5cc00675e')])]"/>
+    <field name="active" eval="False"/>
+    <field name="filter_domain">[["stage_id","=",1]]</field>
+    <field name="filter_pre_domain">[["stage_id","=",1]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_field_ids" eval="[(6, 0, [])]"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+    <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+    <field name="name">User Location Validation - Helpdesk</field>
+  </record>
+</odoo>
