@@ -1,16 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
+  <!-- Base custom groups referenced by other groups (not exported via studio flag) -->
+  <record id="studio_customization.jin_procurement_view_only" model="res.groups" context="{'studio': True}">
+    <field name="name">Jin - Procurement - View Only</field>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.jin_pr_view_only" model="res.groups" context="{'studio': True}">
+    <field name="name">Jin - PR View Only</field>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="share" eval="False"/>
+  </record>
+  <record id="studio_customization.jin_sales_add_edit_del_ca_customers" model="res.groups" context="{'studio': True}">
+    <field name="name">Jin - Sales - Add/Edit/Del Ca Customers</field>
+    <field name="implied_ids" eval="[(6, 0, [])]"/>
+    <field name="share" eval="False"/>
+  </record>
+
   <record id="studio_customization.po_approval_10_000_a_0e048fff-1703-4100-a6c8-75961f343455" model="res.groups" context="{'studio': True}">
     <field name="color" eval="False"/>
     <field name="comment" eval="False"/>
-    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_216_3f955123')])]"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('studio_customization.jin_procurement_view_only')])]"/>
     <field name="name">Jin - PO Approvers: PO Amount &gt; 500,000</field>
     <field name="share" eval="False"/>
   </record>
   <record id="studio_customization.po_approving_users_9b5f887d-b55e-43e3-a71b-71cb7cc4a0c0" model="res.groups" context="{'studio': True}">
     <field name="color" eval="False"/>
     <field name="comment" eval="False"/>
-    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_216_3f955123')])]"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('studio_customization.jin_procurement_view_only')])]"/>
     <field name="name">Jin - PO Approvers: PO Amount &lt;= 500,000</field>
     <field name="share" eval="False"/>
   </record>
@@ -24,7 +41,7 @@
   <record id="studio_customization.purchase_purchase_re_716b1e81-f495-4059-bdce-51874b4d97f8" model="res.groups" context="{'studio': True}">
     <field name="color" eval="False"/>
     <field name="comment" eval="False"/>
-    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_217_2c7029e0')])]"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('studio_customization.jin_pr_view_only')])]"/>
     <field name="name">Jin - Inv PR Approvers</field>
     <field name="share" eval="False"/>
   </record>
@@ -59,7 +76,7 @@
   <record id="studio_customization.sales_sales_person_d62173b6-43d8-4124-bf46-b33a8233fd88" model="res.groups" context="{'studio': True}">
     <field name="color" eval="False"/>
     <field name="comment">11111</field>
-    <field name="implied_ids" eval="[(6, 0, [ref('__export__.res_groups_257_7b3cb5cb')])]"/>
+    <field name="implied_ids" eval="[(6, 0, [ref('studio_customization.jin_sales_add_edit_del_ca_customers')])]"/>
     <field name="name">Jin - Sales - POS Users</field>
     <field name="share" eval="False"/>
   </record>
