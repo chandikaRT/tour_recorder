@@ -6,23 +6,34 @@ import { getTour } from "./tour_registry";
  * Thin wrapper around the vendored Driver.js UMD build.
  *
  * Uses Driver.js in single-element highlight() mode. The sidebar controls
- * which step is active; Driver.js only renders the overlay + popover for the
- * current step. This survives Odoo's SPA navigations cleanly.
+ * which step is active; Driver.js only renders the overlay + popover.
  *
- * Auto-advance: after highlighting, a one-shot click listener is attached to
- * the target element. For clickable elements (buttons, links) the listener
- * fires onComplete() so the sidebar can advance to the next step. For field
- * widgets (inputs, divs) auto-advance is suppressed — the user must click
- * the sidebar's Next button instead.
+ * Auto-advance uses two complementary mechanisms that share a "fire-once"
+ * gate so only whichever fires first wins:
+ *
+ * 1. Coordinate-based document capture click listener.
+ *    Driver.js places a stage <div> over the highlighted element, so a
+ *    plain el.addEventListener("click") is never reached — clicks land on
+ *    the stage. We listen at the capture phase on document instead and
+ *    compare the click coordinates to the element's bounding rect.
+ *    Applied to button/link steps only (not field widgets).
+ *
+ * 2. MutationObserver watching for the next step's target selector.
+ *    When the next step's element is NOT yet in the DOM (cross-page
+ *    navigation — e.g. the user clicked "New" and Odoo is loading the
+ *    quotation form), we watch for it to appear. This fires independently
+ *    of click mechanics and is reliable across all SPA transitions.
  */
 export class DriverBridge {
     constructor() {
         this._driver = null;
         this._tour = null;
-        this._clickCleanup = null;
+        // Auto-advance cleanup handles
+        this._docClickCleanup = null;
+        this._observer = null;
+        this._observerTimeout = null;
 
-        // Destroy the overlay on any Odoo SPA navigation so it never
-        // persists on the wrong page.
+        // Destroy the overlay on back/forward browser navigation.
         this._onNav = () => this._destroyDriver();
         window.addEventListener("popstate", this._onNav);
         window.addEventListener("hashchange", this._onNav);
@@ -40,12 +51,25 @@ export class DriverBridge {
         return g;
     }
 
-    /** Tear down the Driver.js overlay and any pending click listener. */
-    _destroyDriver() {
-        if (this._clickCleanup) {
-            this._clickCleanup();
-            this._clickCleanup = null;
+    /** Remove all auto-advance listeners without advancing. */
+    _cleanupAutoAdvance() {
+        if (this._docClickCleanup) {
+            this._docClickCleanup();
+            this._docClickCleanup = null;
         }
+        if (this._observerTimeout) {
+            clearTimeout(this._observerTimeout);
+            this._observerTimeout = null;
+        }
+        if (this._observer) {
+            this._observer.disconnect();
+            this._observer = null;
+        }
+    }
+
+    /** Tear down Driver.js overlay and all auto-advance listeners. */
+    _destroyDriver() {
+        this._cleanupAutoAdvance();
         if (this._driver) {
             try {
                 this._driver.destroy();
@@ -57,18 +81,66 @@ export class DriverBridge {
     }
 
     /**
-     * Returns true if the element should auto-advance on click.
-     * Buttons and anchor links trigger an action when clicked, so advancing
-     * makes sense. Input fields and generic widgets are used for data entry —
-     * advancing on click would skip the step before the user is done.
+     * True for elements that trigger an action on click (buttons, links).
+     * Field widgets and generic divs are excluded — clicking them starts
+     * data entry, not a navigation, so auto-advance would skip prematurely.
      */
     _isClickAction(el) {
         const tag = el.tagName.toUpperCase();
         if (tag === "BUTTON" || tag === "A") return true;
         if (el.getAttribute("role") === "button") return true;
-        // Driver.js spotlights the element but the real button may be a child.
         if (el.querySelector("button, a[href]")) return true;
         return false;
+    }
+
+    /**
+     * Wire up both auto-advance mechanisms for the current step.
+     *
+     * @param {Element} el          The highlighted DOM element.
+     * @param {Function} advance    The fire-once advance callback.
+     * @param {string|null} nextTarget  CSS selector for the next step's element.
+     */
+    _setupAutoAdvance(el, advance, nextTarget) {
+        // ── Mechanism 1: coordinate-based document capture click ──────────────
+        // Fires before any element handler, regardless of Driver.js overlays.
+        if (this._isClickAction(el)) {
+            const onClick = (e) => {
+                const rect = el.getBoundingClientRect();
+                if (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                ) {
+                    advance();
+                }
+            };
+            document.addEventListener("click", onClick, true); // capture phase
+            this._docClickCleanup = () =>
+                document.removeEventListener("click", onClick, true);
+        }
+
+        // ── Mechanism 2: MutationObserver for next step's element ─────────────
+        // Only set up when the next element is NOT already in the DOM.
+        // This handles cross-page navigation reliably (e.g. list → form view).
+        if (nextTarget && !document.querySelector(nextTarget)) {
+            const observer = new MutationObserver(() => {
+                if (document.querySelector(nextTarget)) {
+                    advance();
+                }
+            });
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
+            this._observer = observer;
+            // Safety net: disconnect after 30 s to avoid zombie observers.
+            this._observerTimeout = setTimeout(() => {
+                observer.disconnect();
+                this._observer = null;
+                this._observerTimeout = null;
+            }, 30000);
+        }
     }
 
     /**
@@ -88,12 +160,13 @@ export class DriverBridge {
 
     /**
      * Highlight the step identified by stepId.
+     *
      * @param {string} stepId
-     * @param {Function|null} onComplete  Called when the user clicks the
-     *   highlighted element (buttons/links only). Use this to advance the tour.
+     * @param {Function|null} onComplete  Advance callback (called once).
+     * @param {string|null}   nextTarget  CSS selector for the next step's element.
      * @returns {boolean} true if the target element was found and highlighted
      */
-    highlightStep(stepId, onComplete) {
+    highlightStep(stepId, onComplete, nextTarget) {
         if (!this._tour) {
             return false;
         }
@@ -107,7 +180,7 @@ export class DriverBridge {
             return false;
         }
 
-        // Tear down previous highlight + click listener before creating new ones.
+        // Tear down previous highlight and any pending auto-advance listeners.
         this._destroyDriver();
 
         const driverObj = this._factory()({
@@ -127,14 +200,18 @@ export class DriverBridge {
             },
         });
 
-        // Attach auto-advance listener for clickable elements.
-        if (onComplete && this._isClickAction(el)) {
-            const handler = () => {
-                this._clickCleanup = null;
+        // Wire auto-advance if a callback was provided.
+        if (onComplete) {
+            // Fire-once gate: whichever mechanism fires first wins; the other
+            // is cleaned up immediately so it can't double-advance.
+            let fired = false;
+            const advance = () => {
+                if (fired) return;
+                fired = true;
+                this._cleanupAutoAdvance();
                 onComplete();
             };
-            el.addEventListener("click", handler, { once: true });
-            this._clickCleanup = () => el.removeEventListener("click", handler);
+            this._setupAutoAdvance(el, advance, nextTarget || null);
         }
 
         return true;

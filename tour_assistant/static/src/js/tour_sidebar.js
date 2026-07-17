@@ -89,14 +89,13 @@ export class TourSidebar extends Component {
         this.state.currentStepIndex = index;
         const step = tour.steps[index];
 
-        // Build the auto-advance callback for this step.
-        const onComplete =
-            index < tour.steps.length - 1
-                ? () => this.goToStep(index + 1)
-                : null;
+        // Build the auto-advance callback and next-step target for this step.
+        const isLast = index >= tour.steps.length - 1;
+        const onComplete = isLast ? null : () => this.goToStep(index + 1);
+        const nextTarget = isLast ? null : (tour.steps[index + 1].target || null);
 
         // Attempt immediate highlight.
-        let highlighted = this.driver.highlightStep(step.id, onComplete);
+        let highlighted = this.driver.highlightStep(step.id, onComplete, nextTarget);
 
         if (!highlighted) {
             // Navigate to the declared action first (if any).
@@ -115,7 +114,7 @@ export class TourSidebar extends Component {
             // user-triggered SPA transitions (e.g. clicking "New" opens a form).
             for (let i = 0; i < 8 && !highlighted; i++) {
                 await new Promise((r) => setTimeout(r, 250));
-                highlighted = this.driver.highlightStep(step.id, onComplete);
+                highlighted = this.driver.highlightStep(step.id, onComplete, nextTarget);
             }
         }
 
