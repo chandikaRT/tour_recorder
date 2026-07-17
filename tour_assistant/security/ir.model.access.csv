@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tour_definition_user,tour.definition.user,model_tour_definition,base.group_user,1,0,0,0
+access_tour_definition_manager,tour.definition.manager,model_tour_definition,base.group_system,1,1,1,1
+access_tour_chat_log_user,tour.chat.log.user,model_tour_chat_log,base.group_user,1,0,1,0
+access_tour_chat_log_manager,tour.chat.log.manager,model_tour_chat_log,base.group_system,1,1,1,1

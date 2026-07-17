@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="tour_assistant.TourSidebar">
+        <div class="o_tour_assistant" t-att-class="{ 'o_ta_open': state.open }">
+
+            <!-- Toggle handle (always visible, docked right) -->
+            <button class="o_ta_handle btn btn-primary"
+                    t-on-click="toggle"
+                    title="Tour Assistant">
+                <i class="fa fa-compass" role="img" aria-label="Tour Assistant"/>
+            </button>
+
+            <!-- Docked panel -->
+            <div class="o_ta_panel" t-if="state.open">
+
+                <!-- Tab header -->
+                <div class="o_ta_tabs">
+                    <button class="o_ta_tab btn"
+                            t-att-class="{ active: state.activeTab === 'tour' }"
+                            t-on-click="() => this.setTab('tour')">
+                        Tour
+                    </button>
+                    <button class="o_ta_tab btn"
+                            t-att-class="{ active: state.activeTab === 'chat' }"
+                            t-on-click="() => this.setTab('chat')">
+                        Ask AI
+                    </button>
+                    <button class="o_ta_close btn btn-link ms-auto"
+                            t-on-click="toggle" title="Close">
+                        <i class="fa fa-times"/>
+                    </button>
+                </div>
+
+                <!-- ===== Tour panel ===== -->
+                <div class="o_ta_body" t-if="state.activeTab === 'tour'">
+
+                    <!-- Tour picker -->
+                    <t t-if="!state.currentTour">
+                        <div class="o_ta_hint">Pick a tour to get started.</div>
+                        <t t-foreach="tours" t-as="tour" t-key="tour.id">
+                            <div class="o_ta_tour_card"
+                                 t-on-click="() => this.startTour(tour.id)">
+                                <div class="o_ta_tour_title" t-esc="tour.title"/>
+                                <div class="o_ta_tour_desc" t-esc="tour.description"/>
+                            </div>
+                        </t>
+                    </t>
+
+                    <!-- Active tour step list -->
+                    <t t-if="state.currentTour and activeTour">
+                        <div class="o_ta_tour_header">
+                            <span class="o_ta_tour_title" t-esc="activeTour.title"/>
+                            <button class="btn btn-link btn-sm"
+                                    t-on-click="stopTour">Exit</button>
+                        </div>
+                        <ol class="o_ta_steps">
+                            <t t-foreach="activeTour.steps" t-as="step"
+                               t-key="step.id">
+                                <li class="o_ta_step"
+                                    t-att-class="{ active: step_index === state.currentStepIndex }"
+                                    t-on-click="() => this.goToStep(step_index)">
+                                    <span class="o_ta_step_title" t-esc="step.title"/>
+                                    <div class="o_ta_step_content" t-out="step.content"/>
+                                </li>
+                            </t>
+                        </ol>
+                        <div class="o_ta_step_nav">
+                            <button class="btn btn-secondary btn-sm"
+                                    t-att-disabled="state.currentStepIndex === 0"
+                                    t-on-click="prevStep">Previous</button>
+                            <button class="btn btn-primary btn-sm"
+                                    t-att-disabled="state.currentStepIndex >= activeTour.steps.length - 1"
+                                    t-on-click="nextStep">Next</button>
+                        </div>
+                    </t>
+                </div>
+
+                <!-- ===== Chat panel ===== -->
+                <div class="o_ta_body o_ta_chat" t-if="state.activeTab === 'chat'">
+                    <div class="o_ta_messages">
+                        <t t-if="!state.messages.length">
+                            <div class="o_ta_hint">
+                                Ask about any feature and I'll point you to a tour.
+                            </div>
+                        </t>
+                        <t t-foreach="state.messages" t-as="msg" t-key="msg_index">
+                            <div class="o_ta_msg"
+                                 t-att-class="'o_ta_msg_' + msg.role">
+                                <div class="o_ta_msg_text" t-esc="msg.text"/>
+                                <button t-if="msg.action and msg.action.tour"
+                                        class="btn btn-sm btn-outline-primary o_ta_action"
+                                        t-on-click="() => this.followAction(msg.action)">
+                                    Show me
+                                </button>
+                            </div>
+                        </t>
+                        <div class="o_ta_msg o_ta_msg_assistant"
+                             t-if="state.chatLoading">
+                            <i class="fa fa-spinner fa-spin"/> Thinking…
+                        </div>
+                    </div>
+                    <div class="o_ta_composer">
+                        <textarea class="form-control"
+                                  rows="2"
+                                  placeholder="Ask a question…"
+                                  t-model="state.chatInput"
+                                  t-on-keydown="onChatKeydown"/>
+                        <button class="btn btn-primary"
+                                t-att-disabled="state.chatLoading"
+                                t-on-click="sendMessage">Send</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </t>
+
+</templates>

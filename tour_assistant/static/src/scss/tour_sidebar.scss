@@ -1,0 +1,183 @@
+// Tour Assistant — right-docked panel, consistent with Odoo's drawer patterns.
+
+.o_tour_assistant {
+    $ta-width: 360px;
+
+    // Toggle handle sits at the right edge, vertically centered.
+    .o_ta_handle {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 1040;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 10px 12px;
+        box-shadow: -2px 0 6px rgba(0, 0, 0, 0.15);
+    }
+
+    // Slide-over docked panel.
+    .o_ta_panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: $ta-width;
+        max-width: 90vw;
+        z-index: 1045;
+        display: flex;
+        flex-direction: column;
+        background: var(--o-view-background-color, #fff);
+        border-left: 1px solid var(--border-color, #dee2e6);
+        box-shadow: -3px 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .o_ta_tabs {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--border-color, #dee2e6);
+        padding: 4px 8px;
+        gap: 4px;
+
+        .o_ta_tab {
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            font-weight: 500;
+
+            &.active {
+                border-bottom-color: var(--primary, #714b67);
+                color: var(--primary, #714b67);
+            }
+        }
+    }
+
+    .o_ta_body {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        padding: 12px;
+    }
+
+    .o_ta_hint {
+        color: var(--text-muted, #6c757d);
+        font-size: 0.9em;
+        margin-bottom: 8px;
+    }
+
+    // ---- tour list ----
+    .o_ta_tour_card {
+        border: 1px solid var(--border-color, #dee2e6);
+        border-radius: 6px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--o-list-footer-bg-color, #f8f9fa);
+        }
+
+        .o_ta_tour_desc {
+            font-size: 0.85em;
+            color: var(--text-muted, #6c757d);
+        }
+    }
+
+    .o_ta_tour_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+
+        .o_ta_tour_title {
+            font-weight: 600;
+        }
+    }
+
+    .o_ta_steps {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+
+        .o_ta_step {
+            border-left: 3px solid transparent;
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+                background: var(--o-list-footer-bg-color, #f8f9fa);
+            }
+
+            &.active {
+                border-left-color: var(--primary, #714b67);
+                background: var(--o-list-footer-bg-color, #f8f9fa);
+            }
+
+            .o_ta_step_title {
+                font-weight: 500;
+            }
+
+            .o_ta_step_content {
+                font-size: 0.85em;
+                color: var(--text-muted, #6c757d);
+            }
+        }
+    }
+
+    .o_ta_step_nav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+    }
+
+    // ---- chat ----
+    &.o_ta_open .o_ta_chat,
+    .o_ta_chat {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .o_ta_messages {
+        flex: 1 1 auto;
+        overflow-y: auto;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .o_ta_msg {
+        max-width: 85%;
+        padding: 8px 10px;
+        border-radius: 10px;
+        font-size: 0.9em;
+        white-space: pre-wrap;
+
+        &.o_ta_msg_user {
+            align-self: flex-end;
+            background: var(--primary, #714b67);
+            color: #fff;
+        }
+
+        &.o_ta_msg_assistant {
+            align-self: flex-start;
+            background: var(--o-list-footer-bg-color, #f1f1f1);
+        }
+
+        .o_ta_action {
+            margin-top: 6px;
+        }
+    }
+
+    .o_ta_composer {
+        display: flex;
+        gap: 6px;
+        padding: 8px;
+        border-top: 1px solid var(--border-color, #dee2e6);
+
+        textarea {
+            resize: none;
+        }
+    }
+}
