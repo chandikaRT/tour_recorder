@@ -124,6 +124,16 @@
         }
     }
 
+    .o_ta_step_missing {
+        font-size: 0.82em;
+        color: var(--warning, #856404);
+        background: var(--o-warning-bg, #fff3cd);
+        border: 1px solid var(--o-warning-border, #ffc107);
+        border-radius: 4px;
+        padding: 6px 10px;
+        margin-top: 8px;
+    }
+
     .o_ta_step_nav {
         display: flex;
         justify-content: space-between;

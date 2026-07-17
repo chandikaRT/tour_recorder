@@ -65,6 +65,11 @@
                                 </li>
                             </t>
                         </ol>
+                        <div t-if="state.stepNotFound" class="o_ta_step_missing">
+                            <i class="fa fa-eye-slash me-1"/>
+                            Element not on this page — navigate to the correct
+                            view and click the step again to highlight it.
+                        </div>
                         <div class="o_ta_step_nav">
                             <button class="btn btn-secondary btn-sm"
                                     t-att-disabled="state.currentStepIndex === 0"
