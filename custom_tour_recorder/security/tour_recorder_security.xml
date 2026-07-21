@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="module_category_tour_recorder" model="ir.module.category">
+            <field name="name">Tour Recorder</field>
+            <field name="description">Manage interactive user guides / tours.</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="group_tour_user" model="res.groups">
+            <field name="name">User: Play assigned guides</field>
+            <field name="category_id" ref="module_category_tour_recorder"/>
+            <field name="comment">Can view and play the guides that have been assigned to them.</field>
+        </record>
+
+        <record id="group_tour_manager" model="res.groups">
+            <field name="name">Manager: Record &amp; manage guides</field>
+            <field name="category_id" ref="module_category_tour_recorder"/>
+            <field name="implied_ids" eval="[(4, ref('group_tour_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+            <field name="comment">Can record, edit, assign and delete guides, and see everyone's progress.</field>
+        </record>
+
+        <!-- Every internal user can at least play guides assigned to them. -->
+        <record id="base.group_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_tour_user'))]"/>
+        </record>
+
+        <!-- Record rules -->
+
+        <record id="tour_recorder_rule_user_read" model="ir.rule">
+            <field name="name">Tour: users read assigned guides</field>
+            <field name="model_id" ref="model_tour_recorder"/>
+            <field name="domain_force">[('user_ids', 'in', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_tour_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="tour_recorder_rule_manager_all" model="ir.rule">
+            <field name="name">Tour: managers full access</field>
+            <field name="model_id" ref="model_tour_recorder"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_tour_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="tour_progress_rule_user_own" model="ir.rule">
+            <field name="name">Progress: users manage their own</field>
+            <field name="model_id" ref="model_tour_recorder_progress"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_tour_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="tour_progress_rule_manager_all" model="ir.rule">
+            <field name="name">Progress: managers see all</field>
+            <field name="model_id" ref="model_tour_recorder_progress"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_tour_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

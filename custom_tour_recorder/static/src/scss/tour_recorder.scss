@@ -1,0 +1,128 @@
+// ---------------------------------------------------------------------------
+// Interactive User Guide & Tour Recorder - visual styling
+// Approximates the look of the original app: maroon accent, pill systray
+// buttons, light save panel and status badges.
+// ---------------------------------------------------------------------------
+
+$tr-maroon: #7a2e4e;
+$tr-maroon-dark: #682843;
+$tr-record-bg: #2b2b2b;
+$tr-recording-bg: #d9384a;
+$tr-save-green: #2ea44f;
+
+// ------------------------------- Systray -----------------------------------
+.o_tour_recorder_systray {
+    display: flex;
+    align-items: center;
+
+    .btn {
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 1.4;
+        padding: 3px 12px;
+        box-shadow: none;
+    }
+
+    .o_tr_dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        background: #111;
+    }
+
+    .o_tr_record_btn {
+        background: $tr-record-bg;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background: #000;
+            color: #fff;
+        }
+        .o_tr_dot {
+            background: #111;
+            box-shadow: 0 0 0 2px #fff inset;
+        }
+    }
+
+    .o_tr_recording_btn {
+        background: $tr-recording-bg;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background: darken($tr-recording-bg, 6%);
+            color: #fff;
+        }
+        .o_tr_dot_recording {
+            background: #fff;
+            animation: o_tr_blink 1s ease-in-out infinite;
+        }
+    }
+
+    .o_tr_save_btn {
+        background: $tr-save-green;
+        color: #fff;
+        border-radius: 8px;
+        &:hover,
+        &:focus {
+            background: darken($tr-save-green, 6%);
+            color: #fff;
+        }
+    }
+
+    .o_tr_guides_btn {
+        background: #f2f2f4;
+        color: #3b3b3b;
+        border: 1px solid #dcdce1;
+        &:hover,
+        &:focus {
+            background: #e9e9ee;
+            color: #000;
+        }
+    }
+}
+
+@keyframes o_tr_blink {
+    50% {
+        opacity: 0.35;
+    }
+}
+
+// ------------------------------- Dialogs -----------------------------------
+.o_tour_recorder_dialog {
+    .btn-primary {
+        background-color: $tr-maroon;
+        border-color: $tr-maroon;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $tr-maroon-dark !important;
+            border-color: $tr-maroon-dark !important;
+        }
+    }
+
+    .o_tr_save_panel {
+        background: #eef2fb;
+        border: 1px solid #e0e6f5;
+    }
+
+    .o_tr_tours_table {
+        th {
+            color: #6b6b6b;
+            font-weight: 600;
+            border-top: none;
+        }
+        td {
+            vertical-align: middle;
+        }
+    }
+
+    .o_tr_step_card {
+        background: #fafafa;
+    }
+
+    .o_tr_step_handle {
+        cursor: grab;
+    }
+}
