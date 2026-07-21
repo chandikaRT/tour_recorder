@@ -23,6 +23,7 @@ This is a clean-room implementation for Odoo 17.
         "security/ir.model.access.csv",
         "views/tour_recorder_views.xml",
         "views/tour_recorder_menus.xml",
+        "views/tour_recorder_wizard_views.xml",
     ],
     "assets": {
         "web.assets_backend": [

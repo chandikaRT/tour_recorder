@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
+import base64
+import json
+
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class TourRecorder(models.Model):
@@ -188,6 +192,61 @@ class TourRecorder(models.Model):
             vals.update({"tour_id": tour_id, "user_id": self.env.uid})
             Progress.create(vals)
         return True
+
+    # ------------------------------------------------------------------
+    # Import / Export
+    # ------------------------------------------------------------------
+    def _export_json(self):
+        """Serialize the current tours to a base64-encoded JSON payload."""
+        payload = {"version": 1, "tours": []}
+        for tour in self:
+            payload["tours"].append(
+                {
+                    "name": tour.name,
+                    "description": tour.description or "",
+                    "steps": [
+                        {
+                            "sequence": step.sequence,
+                            "title": step.name or "",
+                            "trigger": step.css_selector or "",
+                            "content": step.content or "",
+                            "position": step.position or "bottom",
+                            "run": step.run or "click",
+                            "is_check": step.is_check,
+                        }
+                        for step in tour.step_ids.sorted(lambda s: (s.sequence, s.id))
+                    ],
+                }
+            )
+        raw = json.dumps(payload, indent=2).encode("utf-8")
+        return base64.b64encode(raw)
+
+    @api.model
+    def _import_json(self, b64data):
+        """Create tours from a base64-encoded JSON export. Returns created ids."""
+        if not b64data:
+            raise UserError(_("Please select a file to import."))
+        try:
+            raw = base64.b64decode(b64data)
+            payload = json.loads(raw.decode("utf-8"))
+        except Exception as exc:
+            raise UserError(_("The uploaded file is not a valid tour export:\n%s") % exc)
+
+        tours = payload.get("tours") if isinstance(payload, dict) else None
+        if not isinstance(tours, list) or not tours:
+            raise UserError(_("The file does not contain any tours."))
+
+        created = self.browse()
+        for tour in tours:
+            if not isinstance(tour, dict):
+                continue
+            new_id = self.create_from_recording(
+                tour.get("name") or _("Imported Tour"),
+                tour.get("description") or "",
+                tour.get("steps") or [],
+            )
+            created |= self.browse(new_id)
+        return created.ids
 
     # ------------------------------------------------------------------
     # UI actions

@@ -5,3 +5,5 @@ access_tour_recorder_progress_user,tour.recorder.progress.user,model_tour_record
 access_tour_recorder_manager,tour.recorder.manager,model_tour_recorder,group_tour_manager,1,1,1,1
 access_tour_recorder_step_manager,tour.recorder.step.manager,model_tour_recorder_step,group_tour_manager,1,1,1,1
 access_tour_recorder_progress_manager,tour.recorder.progress.manager,model_tour_recorder_progress,group_tour_manager,1,1,1,1
+access_tour_export_wizard,tour.recorder.export.wizard,model_tour_recorder_export_wizard,group_tour_manager,1,1,1,1
+access_tour_import_wizard,tour.recorder.import.wizard,model_tour_recorder_import_wizard,group_tour_manager,1,1,1,1

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===================== EXPORT WIZARD ===================== -->
+    <record id="view_tour_export_wizard_form" model="ir.ui.view">
+        <field name="name">tour.recorder.export.wizard.form</field>
+        <field name="model">tour.recorder.export.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Export Tours">
+                <div class="alert alert-success" role="alert">
+                    Your export is ready. Click the file below to download it.
+                </div>
+                <group>
+                    <field name="filename" invisible="1"/>
+                    <field name="data" filename="filename" readonly="1"/>
+                </group>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Export server action, shown in the Action menu of the tours list/form -->
+    <record id="action_export_tours_server" model="ir.actions.server">
+        <field name="name">Export Tours</field>
+        <field name="model_id" ref="model_tour_recorder"/>
+        <field name="binding_model_id" ref="model_tour_recorder"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="groups_id" eval="[(4, ref('group_tour_manager'))]"/>
+        <field name="state">code</field>
+        <field name="code">
+tours = records
+wizard = env['tour.recorder.export.wizard'].create({
+    'data': tours._export_json(),
+    'filename': 'tour_export.json',
+})
+action = {
+    'type': 'ir.actions.act_window',
+    'name': 'Export Tours',
+    'res_model': 'tour.recorder.export.wizard',
+    'view_mode': 'form',
+    'res_id': wizard.id,
+    'target': 'new',
+}
+        </field>
+    </record>
+
+    <!-- ===================== IMPORT WIZARD ===================== -->
+    <record id="view_tour_import_wizard_form" model="ir.ui.view">
+        <field name="name">tour.recorder.import.wizard.form</field>
+        <field name="model">tour.recorder.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Tours">
+                <div class="text-muted mb-2">
+                    Upload a JSON file previously exported from a Tour Recorder.
+                </div>
+                <group>
+                    <field name="data" filename="filename" required="1"/>
+                    <field name="filename" invisible="1"/>
+                </group>
+                <footer>
+                    <button string="Import" name="action_import" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tour_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import Tours</field>
+        <field name="res_model">tour.recorder.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_tour_import"
+              name="Import Tours"
+              parent="menu_tour_recorder_root"
+              action="action_tour_import_wizard"
+              groups="group_tour_manager"
+              sequence="20"/>
+
+</odoo>
