@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_tour_recorder_root"
+              name="Tour Recorder"
+              web_icon="custom_tour_recorder,static/description/icon.png"
+              groups="group_tour_user"
+              sequence="90"/>
+
+    <menuitem id="menu_tour_recorder_manage"
+              name="Manage Tours"
+              parent="menu_tour_recorder_root"
+              action="action_tour_recorder"
+              groups="group_tour_user"
+              sequence="10"/>
+
+</odoo>

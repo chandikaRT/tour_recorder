@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="custom_tour_recorder.TourManagerDialog">
+        <Dialog title="'Tour Manager'" size="'lg'" contentClass="'o_tour_recorder_dialog'">
+
+            <!-- Save panel (recording flow or "New Tour") -->
+            <div class="o_tr_save_panel p-3 mb-3 rounded" t-if="state.showSave">
+                <h5 class="mb-3">
+                    <i class="fa fa-floppy-o me-1"/>
+                    Save Tour (<t t-esc="recordedCount"/> steps recorded)
+                </h5>
+                <div class="mb-2">
+                    <label class="fw-bold d-block mb-1">Tour Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" t-model="state.name"
+                           placeholder="e.g. Sales: Quick Start Guide"/>
+                </div>
+                <div class="mb-2">
+                    <label class="fw-bold d-block mb-1">Description</label>
+                    <textarea class="form-control" rows="2" t-model="state.description"
+                              placeholder="What will the user learn?"/>
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-primary" t-on-click="save">
+                        <i class="fa fa-check me-1"/> Save
+                    </button>
+                    <button class="btn btn-secondary ms-1" t-on-click="cancelSave">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Tours list -->
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <h5 class="mb-0">Your Tours (<t t-esc="state.tours.length"/>)</h5>
+                <button class="btn btn-sm btn-primary" t-if="state.isManager and !state.showSave"
+                        t-on-click="newTour">
+                    <i class="fa fa-plus me-1"/> New Tour
+                </button>
+            </div>
+
+            <div t-if="state.loading" class="text-center text-muted py-4">
+                <i class="fa fa-spin fa-circle-o-notch"/> Loading...
+            </div>
+
+            <div t-elif="!state.tours.length" class="text-center text-muted py-5">
+                <i class="fa fa-film fa-2x d-block mb-2"/>
+                No tours assigned to you yet. Record one using the systray button!
+            </div>
+
+            <table t-else="" class="table o_tr_tours_table align-middle">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th class="text-center">Steps</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="state.tours" t-as="tour" t-key="tour.id">
+                        <td class="fw-bold" t-esc="tour.name"/>
+                        <td class="text-muted" t-esc="tour.description"/>
+                        <td class="text-center">
+                            <span class="badge text-bg-secondary" t-esc="tour.step_count"/>
+                        </td>
+                        <td class="text-end text-nowrap">
+                            <button class="btn btn-sm btn-success" t-on-click="() => this.play(tour)"
+                                    title="Play tour">
+                                <i class="fa fa-play"/>
+                            </button>
+                            <button class="btn btn-sm btn-primary ms-1" t-if="state.isManager"
+                                    t-on-click="() => this.editSteps(tour)" title="Edit steps">
+                                <i class="fa fa-pencil"/>
+                            </button>
+                            <button class="btn btn-sm btn-danger ms-1" t-if="state.isManager"
+                                    t-on-click="() => this.remove(tour)" title="Delete tour">
+                                <i class="fa fa-trash"/>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </Dialog>
+    </t>
+
+</templates>

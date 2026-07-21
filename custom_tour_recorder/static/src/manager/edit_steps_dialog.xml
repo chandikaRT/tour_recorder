@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="custom_tour_recorder.EditStepsDialog">
+        <Dialog title="dialogTitle" size="'xl'" contentClass="'o_tour_recorder_dialog'">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="text-muted">Reorder · edit selectors · adjust tooltips</span>
+                <button class="btn btn-sm btn-primary" t-on-click="addStep">
+                    <i class="fa fa-plus me-1"/> Add Step
+                </button>
+            </div>
+
+            <div t-if="state.loading" class="text-center text-muted py-4">
+                <i class="fa fa-spin fa-circle-o-notch"/> Loading...
+            </div>
+
+            <div t-else="">
+                <div t-foreach="state.steps" t-as="step" t-key="step_index"
+                     class="o_tr_step_card border rounded p-3 mb-3">
+                    <div class="d-flex align-items-center mb-2">
+                        <span class="o_tr_step_handle badge text-bg-secondary me-2">
+                            #<t t-esc="step_index + 1"/>
+                        </span>
+                        <input type="text" class="form-control fw-bold"
+                               t-model="step.title" placeholder="Step title"/>
+                        <button class="btn btn-sm btn-light ms-2" t-on-click="() => this.moveUp(step_index)"
+                                title="Move up"><i class="fa fa-arrow-up"/></button>
+                        <button class="btn btn-sm btn-light ms-1" t-on-click="() => this.moveDown(step_index)"
+                                title="Move down"><i class="fa fa-arrow-down"/></button>
+                        <button class="btn btn-sm btn-danger ms-1" t-on-click="() => this.removeStep(step_index)"
+                                title="Delete step"><i class="fa fa-trash"/></button>
+                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <label class="small fw-bold d-block">CSS Trigger Selector *</label>
+                            <input type="text" class="form-control form-control-sm font-monospace"
+                                   t-model="step.trigger"/>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="small fw-bold d-block">Position</label>
+                            <select class="form-select form-select-sm" t-model="step.position">
+                                <t t-foreach="positions" t-as="pos" t-key="pos[0]">
+                                    <option t-att-value="pos[0]" t-esc="pos[1]"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="small fw-bold d-block">Action (run)</label>
+                            <input type="text" class="form-control form-control-sm"
+                                   t-model="step.run"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="small fw-bold d-block">Tooltip</label>
+                            <input type="text" class="form-control form-control-sm"
+                                   t-model="step.content"/>
+                        </div>
+                    </div>
+                    <div class="form-check mt-2">
+                        <input type="checkbox" class="form-check-input" t-att-id="'chk_' + step_index"
+                               t-model="step.is_check"/>
+                        <label class="form-check-label small" t-att-for="'chk_' + step_index">
+                            Check only (assert element is visible, don't interact)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="save">
+                    <i class="fa fa-floppy-o me-1"/> Save All Steps
+                </button>
+                <button class="btn btn-secondary" t-on-click="() => props.close()">Cancel</button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

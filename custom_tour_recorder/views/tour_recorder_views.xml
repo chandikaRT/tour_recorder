@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================ FORM ============================ -->
+    <record id="view_tour_recorder_form" model="ir.ui.view">
+        <field name="name">tour.recorder.form</field>
+        <field name="model">tour.recorder</field>
+        <field name="arch" type="xml">
+            <form string="Tour">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object"
+                                name="action_open_steps" icon="fa-list-ol">
+                            <field name="step_count" widget="statinfo" string="Step Count"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Tour Name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Sales: Quick Start Guide"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="description" placeholder="Short description shown to users..."/>
+                    </group>
+                    <group>
+                        <field name="user_ids" widget="many2many_tags"
+                               options="{'no_create': True}"
+                               help="Only the assigned users will see this guide in their 'Guides' list."/>
+                        <field name="tour_key" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Steps" name="steps">
+                            <field name="step_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" string="Step Title"/>
+                                    <field name="position" string="Tooltip Position"/>
+                                    <field name="content" string="Content / Tooltip"/>
+                                    <field name="css_selector" string="CSS Selector"/>
+                                    <field name="run" string="Run Command"/>
+                                    <field name="is_check" string="Check only"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="User Progress" name="progress">
+                            <field name="progress_ids" readonly="1">
+                                <tree create="false" edit="false" delete="false">
+                                    <field name="user_id" string="User"/>
+                                    <field name="steps_completed" string="Steps Completed"/>
+                                    <field name="total" string="Total"/>
+                                    <field name="status" widget="badge"
+                                           decoration-info="status == 'not_started'"
+                                           decoration-warning="status == 'in_progress'"
+                                           decoration-success="status == 'completed'"/>
+                                    <field name="last_update" string="Last Update"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================ TREE ============================ -->
+    <record id="view_tour_recorder_tree" model="ir.ui.view">
+        <field name="name">tour.recorder.tree</field>
+        <field name="model">tour.recorder</field>
+        <field name="arch" type="xml">
+            <tree string="Tours">
+                <field name="name"/>
+                <field name="description" optional="show"/>
+                <field name="user_ids" widget="many2many_tags" optional="show"/>
+                <field name="step_count" string="Steps"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- =========================== SEARCH =========================== -->
+    <record id="view_tour_recorder_search" model="ir.ui.view">
+        <field name="name">tour.recorder.search</field>
+        <field name="model">tour.recorder</field>
+        <field name="arch" type="xml">
+            <search string="Tours">
+                <field name="name"/>
+                <field name="user_ids"/>
+                <filter string="Assigned to me" name="my_tours"
+                        domain="[('user_ids', 'in', uid)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ========================== ACTION =========================== -->
+    <record id="action_tour_recorder" model="ir.actions.act_window">
+        <field name="name">Manage Tours</field>
+        <field name="res_model">tour.recorder</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_tour_recorder_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first interactive guide
+            </p>
+            <p>
+                Use the <b>Record</b> button in the systray to capture a guide by clicking
+                through the interface, or create one manually here.
+            </p>
+        </field>
+    </record>
+
+</odoo>

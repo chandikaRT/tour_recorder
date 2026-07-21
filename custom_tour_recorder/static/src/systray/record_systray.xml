@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="custom_tour_recorder.RecordSystray">
+        <div class="o_tour_recorder_systray d-flex align-items-center" t-if="ui.isManager">
+            <t t-if="!state.recording">
+                <button class="btn o_tr_record_btn d-flex align-items-center"
+                        t-on-click="onRecordClick" title="Record a new interactive tour">
+                    <span class="o_tr_dot me-1"/>
+                    <span>Record</span>
+                </button>
+            </t>
+            <t t-else="">
+                <button class="btn o_tr_recording_btn d-flex align-items-center"
+                        t-on-click="onRecordClick" title="Click to cancel recording">
+                    <span class="o_tr_dot o_tr_dot_recording me-1"/>
+                    <span>Recording (<t t-esc="state.steps.length"/>)</span>
+                </button>
+                <button class="btn o_tr_save_btn ms-1" t-on-click="onSaveClick"
+                        title="Finish and save this tour">
+                    <i class="fa fa-floppy-o"/>
+                </button>
+            </t>
+        </div>
+    </t>
+
+</templates>

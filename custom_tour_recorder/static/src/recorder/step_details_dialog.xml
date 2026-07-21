@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="custom_tour_recorder.StepDetailsDialog">
+        <Dialog title="'Step Details'" size="'md'" contentClass="'o_tour_recorder_dialog'">
+            <div class="o_tr_step_form">
+                <div class="mb-3">
+                    <label class="fw-bold d-block mb-1">Step Title (Internal)</label>
+                    <input type="text" class="form-control"
+                           t-model="state.title"
+                           placeholder="e.g. Welcome to Sales!"/>
+                </div>
+                <div class="mb-3">
+                    <label class="fw-bold d-block mb-1">Tooltip (Instruction for User)</label>
+                    <textarea class="form-control" rows="3"
+                              t-model="state.content"
+                              placeholder="What should the user do here?"/>
+                </div>
+                <div class="row align-items-start">
+                    <div class="col-6">
+                        <label class="fw-bold d-block mb-1">Tooltip Position</label>
+                        <select class="form-select" t-model="state.position">
+                            <t t-foreach="positions" t-as="pos" t-key="pos[0]">
+                                <option t-att-value="pos[0]" t-esc="pos[1]"/>
+                            </t>
+                        </select>
+                    </div>
+                    <div class="col-6 pt-4">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="tr_is_check"
+                                   t-model="state.is_check"/>
+                            <label class="form-check-label fw-bold" for="tr_is_check">
+                                Is Check (No Interaction)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-muted small mt-3" t-if="props.selector">
+                    Target: <code t-esc="props.selector"/>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary o_tr_add_step" t-on-click="add">Add Step</button>
+                <button class="btn btn-secondary" t-on-click="cancel">Cancel / Skip</button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

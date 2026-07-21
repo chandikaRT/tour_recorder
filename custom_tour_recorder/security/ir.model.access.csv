@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tour_recorder_user,tour.recorder.user,model_tour_recorder,group_tour_user,1,0,0,0
+access_tour_recorder_step_user,tour.recorder.step.user,model_tour_recorder_step,group_tour_user,1,0,0,0
+access_tour_recorder_progress_user,tour.recorder.progress.user,model_tour_recorder_progress,group_tour_user,1,1,1,0
+access_tour_recorder_manager,tour.recorder.manager,model_tour_recorder,group_tour_manager,1,1,1,1
+access_tour_recorder_step_manager,tour.recorder.step.manager,model_tour_recorder_step,group_tour_manager,1,1,1,1
+access_tour_recorder_progress_manager,tour.recorder.progress.manager,model_tour_recorder_progress,group_tour_manager,1,1,1,1
