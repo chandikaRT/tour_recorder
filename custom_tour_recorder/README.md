@@ -22,6 +22,12 @@ screenshots and description.
   (Not Started / In Progress / Completed with step counts).
 - **Native playback**: guides run in Odoo's manual tour mode, ending with the
   usual rainbow-man "Tour completed!" effect.
+- **Import / Export** (managers): back up or move guides between databases as a
+  JSON file.
+  - *Export*: in **Tour Recorder → Manage Tours**, select tours → **Action →
+    Export Tours** → download the `.json`.
+  - *Import*: **Tour Recorder → Import Tours** → upload a previously exported
+    `.json`.
 
 ## Install
 
