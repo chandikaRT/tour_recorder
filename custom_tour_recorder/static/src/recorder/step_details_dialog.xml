@@ -25,14 +25,23 @@
                             </t>
                         </select>
                     </div>
-                    <div class="col-6 pt-4">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="tr_is_check"
-                                   t-model="state.is_check"/>
-                            <label class="form-check-label fw-bold" for="tr_is_check">
-                                Is Check (No Interaction)
-                            </label>
-                        </div>
+                    <div class="col-6">
+                        <label class="fw-bold d-block mb-1">Run Command</label>
+                        <select class="form-select" t-model="state.run"
+                                t-att-disabled="state.is_check ? 'disabled' : undefined">
+                            <t t-foreach="runCommands" t-as="cmd" t-key="cmd[0]">
+                                <option t-att-value="cmd[0]" t-esc="cmd[1]"/>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="tr_is_check"
+                               t-model="state.is_check"/>
+                        <label class="form-check-label fw-bold" for="tr_is_check">
+                            Is Check (No Interaction)
+                        </label>
                     </div>
                 </div>
                 <div class="mt-3">

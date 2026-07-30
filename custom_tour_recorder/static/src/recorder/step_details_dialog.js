@@ -24,6 +24,7 @@ export class StepDetailsDialog extends Component {
             title: this.props.title || "",
             content: "",
             position: "bottom",
+            run: this.props.run || "click",
             is_check: false,
             validation_type: "none",
             validation_regex: "",
@@ -40,6 +41,17 @@ export class StepDetailsDialog extends Component {
         ];
     }
 
+    get runCommands() {
+        return [
+            ["click", "Click"],
+            ["dblclick", "Double Click"],
+            ["edit", "Edit / Type"],
+            ["press Enter", "Press Enter"],
+            ["press Escape", "Press Escape"],
+            ["press Tab", "Press Tab"],
+        ];
+    }
+
     get validationTypes() {
         return VALIDATION_TYPES;
     }
@@ -49,7 +61,7 @@ export class StepDetailsDialog extends Component {
             title: this.state.title,
             content: this.state.content,
             position: this.state.position,
-            run: this.props.run,
+            run: this.state.run,
             is_check: this.state.is_check,
             validation_type: this.state.validation_type,
             validation_regex: this.state.validation_regex,
