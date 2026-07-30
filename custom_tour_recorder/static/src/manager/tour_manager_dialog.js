@@ -28,6 +28,7 @@ export class TourManagerDialog extends Component {
         this.dialog = useService("dialog");
         this.notification = useService("notification");
         this.player = useService("tour_player");
+        this.recorder = useService("tour_recorder");
         const user = useService("user");
 
         this.steps = this.props.recordedSteps || [];
@@ -56,6 +57,15 @@ export class TourManagerDialog extends Component {
 
     get recordedCount() {
         return this.steps.length;
+    }
+
+    get isRecording() {
+        return this.recorder.state.recording;
+    }
+
+    continueRecording(tour) {
+        this.props.close();
+        this.recorder.continueRecording(tour);
     }
 
     newTour() {

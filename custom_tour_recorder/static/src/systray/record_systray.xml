@@ -14,7 +14,12 @@
                 <button class="btn o_tr_recording_btn d-flex align-items-center"
                         t-on-click="onRecordClick" title="Click to cancel recording">
                     <span class="o_tr_dot o_tr_dot_recording me-1"/>
-                    <span>Recording (<t t-esc="state.steps.length"/>)</span>
+                    <t t-if="state.tourId">
+                        <span>Adding to: <t t-esc="state.tourName"/> (<t t-esc="state.steps.length"/>)</span>
+                    </t>
+                    <t t-else="">
+                        <span>Recording (<t t-esc="state.steps.length"/>)</span>
+                    </t>
                 </button>
                 <button class="btn o_tr_save_btn ms-1" t-on-click="onSaveClick"
                         title="Finish and save this tour">

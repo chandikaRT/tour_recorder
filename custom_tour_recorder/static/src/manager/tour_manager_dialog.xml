@@ -71,6 +71,12 @@
                                     t-on-click="() => this.editSteps(tour)" title="Edit steps">
                                 <i class="fa fa-pencil"/>
                             </button>
+                            <button class="btn btn-sm btn-warning ms-1"
+                                    t-if="state.isManager and !isRecording"
+                                    t-on-click="() => this.continueRecording(tour)"
+                                    title="Continue recording — append new steps to this tour">
+                                <i class="fa fa-circle me-1"/>Continue
+                            </button>
                             <button class="btn btn-sm btn-danger ms-1" t-if="state.isManager"
                                     t-on-click="() => this.remove(tour)" title="Delete tour">
                                 <i class="fa fa-trash"/>

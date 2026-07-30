@@ -18,6 +18,8 @@ export const tourRecorderService = {
         const state = reactive({
             recording: false,
             steps: [],
+            tourId: null,   // null = new tour; integer = continue an existing tour
+            tourName: "",   // display name shown in the systray during continue mode
         });
 
         let contextHandler = null;
@@ -65,11 +67,49 @@ export const tourRecorderService = {
             }
             state.recording = true;
             state.steps = [];
+            state.tourId = null;
+            state.tourName = "";
             contextHandler = onContextMenu;
             document.addEventListener("contextmenu", contextHandler, true);
             notification.add(
                 _t(
                     "Recording started. Use LEFT CLICK to interact normally. RIGHT CLICK an element to record a step."
+                ),
+                { type: "info", sticky: false }
+            );
+        }
+
+        /**
+         * Resume recording on an existing saved tour. Pre-loads its steps so new
+         * right-clicked steps are appended. Saving will update the tour in-place
+         * via save_steps instead of creating a new one.
+         */
+        function continueRecording(tour) {
+            if (state.recording) {
+                return;
+            }
+            // Convert server-side step shape to the client-side recording format.
+            state.steps = (tour.steps || []).map((s) => ({
+                title: s.title || "",
+                trigger: s.trigger || "",
+                content: s.content || "",
+                position: s.position || "bottom",
+                run: s.run || "click",
+                is_check: !!s.is_check,
+                validation_type: s.validation_type || "none",
+                validation_regex: s.validation_regex || "",
+                validation_message: s.validation_message || "",
+            }));
+            state.tourId = tour.id;
+            state.tourName = tour.name;
+            state.recording = true;
+            contextHandler = onContextMenu;
+            document.addEventListener("contextmenu", contextHandler, true);
+            notification.add(
+                _t(
+                    'Continuing "%s" — %s existing step(s). RIGHT CLICK to add more steps.',
+                    tour.name,
+                    state.steps.length
                 ),
                 { type: "info", sticky: false }
             );
@@ -82,18 +122,24 @@ export const tourRecorderService = {
             }
         }
 
+        function clearState() {
+            state.recording = false;
+            state.steps = [];
+            state.tourId = null;
+            state.tourName = "";
+        }
+
         /** Cancel recording, discarding captured steps. */
         function cancel() {
             if (!state.recording) {
                 return;
             }
             stopListening();
-            state.recording = false;
-            state.steps = [];
+            clearState();
             notification.add(_t("Recording cancelled."), { type: "warning" });
         }
 
-        /** Finish recording and open the save dialog. */
+        /** Finish recording: update an existing tour or open the save dialog for a new one. */
         function save() {
             if (!state.recording) {
                 return;
@@ -102,26 +148,37 @@ export const tourRecorderService = {
                 notification.add(_t("No steps were recorded yet."), { type: "warning" });
                 return;
             }
-            const recordedSteps = [...state.steps];
-            dialog.add(TourManagerDialog, {
-                recordedSteps,
-                onSaved: () => {
+            if (state.tourId) {
+                // Continue mode: persist directly to the existing tour.
+                const tourId = state.tourId;
+                const allSteps = [...state.steps];
+                orm.call("tour.recorder", "save_steps", [tourId, allSteps]).then(() => {
+                    notification.add(_t("Tour updated!"), { type: "success" });
                     stopListening();
-                    state.recording = false;
-                    state.steps = [];
-                },
-            });
+                    clearState();
+                });
+            } else {
+                // New tour mode: open the manager dialog to name and save.
+                const recordedSteps = [...state.steps];
+                dialog.add(TourManagerDialog, {
+                    recordedSteps,
+                    onSaved: () => {
+                        stopListening();
+                        clearState();
+                    },
+                });
+            }
         }
 
         function reset() {
             stopListening();
-            state.recording = false;
-            state.steps = [];
+            clearState();
         }
 
         return {
             state,
             start,
+            continueRecording,
             cancel,
             save,
             reset,
