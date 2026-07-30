@@ -55,6 +55,26 @@
                                    t-model="step.content"/>
                         </div>
                     </div>
+                    <div class="row g-2 mt-1 align-items-end">
+                        <div class="col-md-3">
+                            <label class="small fw-bold d-block">Validation</label>
+                            <select class="form-select form-select-sm" t-model="step.validation_type">
+                                <t t-foreach="validationTypes" t-as="vt" t-key="vt[0]">
+                                    <option t-att-value="vt[0]" t-esc="vt[1]"/>
+                                </t>
+                            </select>
+                        </div>
+                        <div class="col-md-3" t-if="step.validation_type === 'regex'">
+                            <label class="small fw-bold d-block">Custom Regex</label>
+                            <input type="text" class="form-control form-control-sm font-monospace"
+                                   t-model="step.validation_regex" placeholder="^\d{4}$"/>
+                        </div>
+                        <div class="col-md-6" t-if="step.validation_type !== 'none'">
+                            <label class="small fw-bold d-block">Validation Message</label>
+                            <input type="text" class="form-control form-control-sm"
+                                   t-model="step.validation_message" placeholder="Optional error message"/>
+                        </div>
+                    </div>
                     <div class="form-check mt-2">
                         <input type="checkbox" class="form-check-input" t-att-id="'chk_' + step_index"
                                t-model="step.is_check"/>

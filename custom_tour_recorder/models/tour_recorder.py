@@ -84,9 +84,28 @@ class TourRecorder(models.Model):
                     "position": step.position or "bottom",
                     "run": step.run or "click",
                     "is_check": step.is_check,
+                    "validation_type": step.validation_type or "none",
+                    "validation_regex": step.validation_regex or "",
+                    "validation_message": step.validation_message or "",
                 }
             )
         return steps
+
+    @api.model
+    def _step_vals_from_payload(self, step, index):
+        """Map a front-end / import step dict to `tour.recorder.step` values."""
+        return {
+            "sequence": (index + 1) * 10,
+            "name": step.get("title") or "",
+            "css_selector": step.get("trigger") or "",
+            "content": step.get("content") or "",
+            "position": step.get("position") or "bottom",
+            "run": step.get("run") or "click",
+            "is_check": bool(step.get("is_check")),
+            "validation_type": step.get("validation_type") or "none",
+            "validation_regex": step.get("validation_regex") or "",
+            "validation_message": step.get("validation_message") or "",
+        }
 
     def _tour_payload(self):
         self.ensure_one()
@@ -125,23 +144,10 @@ class TourRecorder(models.Model):
     @api.model
     def create_from_recording(self, name, description, steps):
         """Persist a freshly recorded tour (called by the Save Tour dialog)."""
-        commands = []
-        for index, step in enumerate(steps or []):
-            commands.append(
-                (
-                    0,
-                    0,
-                    {
-                        "sequence": (index + 1) * 10,
-                        "name": step.get("title") or "",
-                        "css_selector": step.get("trigger") or "",
-                        "content": step.get("content") or "",
-                        "position": step.get("position") or "bottom",
-                        "run": step.get("run") or "click",
-                        "is_check": bool(step.get("is_check")),
-                    },
-                )
-            )
+        commands = [
+            (0, 0, self._step_vals_from_payload(step, index))
+            for index, step in enumerate(steps or [])
+        ]
         tour = self.create(
             {
                 "name": name or "Untitled Tour",
@@ -155,22 +161,10 @@ class TourRecorder(models.Model):
         """Replace all steps of the tour (called by the Edit Steps dialog)."""
         self.ensure_one()
         commands = [(5, 0, 0)]
-        for index, step in enumerate(steps or []):
-            commands.append(
-                (
-                    0,
-                    0,
-                    {
-                        "sequence": (index + 1) * 10,
-                        "name": step.get("title") or "",
-                        "css_selector": step.get("trigger") or "",
-                        "content": step.get("content") or "",
-                        "position": step.get("position") or "bottom",
-                        "run": step.get("run") or "click",
-                        "is_check": bool(step.get("is_check")),
-                    },
-                )
-            )
+        commands += [
+            (0, 0, self._step_vals_from_payload(step, index))
+            for index, step in enumerate(steps or [])
+        ]
         self.write({"step_ids": commands})
         return True
 
@@ -213,6 +207,9 @@ class TourRecorder(models.Model):
                             "position": step.position or "bottom",
                             "run": step.run or "click",
                             "is_check": step.is_check,
+                            "validation_type": step.validation_type or "none",
+                            "validation_regex": step.validation_regex or "",
+                            "validation_message": step.validation_message or "",
                         }
                         for step in tour.step_ids.sorted(lambda s: (s.sequence, s.id))
                     ],

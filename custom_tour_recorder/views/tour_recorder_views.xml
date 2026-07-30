@@ -40,6 +40,9 @@
                                     <field name="content" string="Content / Tooltip"/>
                                     <field name="css_selector" string="CSS Selector"/>
                                     <field name="run" string="Run Command"/>
+                                    <field name="validation_type" string="Validation"/>
+                                    <field name="validation_regex" string="Regex" optional="hide"/>
+                                    <field name="validation_message" string="Message" optional="hide"/>
                                     <field name="is_check" string="Check only"/>
                                 </tree>
                             </field>

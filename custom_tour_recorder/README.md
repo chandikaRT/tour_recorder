@@ -22,6 +22,11 @@ screenshots and description.
   (Not Started / In Progress / Completed with step counts).
 - **Native playback**: guides run in Odoo's manual tour mode, ending with the
   usual rainbow-man "Tour completed!" effect.
+- **Data-type validation**: a step can require the user's input to be a valid
+  type before the tour will advance — *required, whole number, decimal, email,
+  phone, URL, date, letters, letters+numbers,* or a **custom regex**. Wrong input
+  shows an inline error and the tour is blocked until it's corrected. Configure it
+  in the recording **Step Details** dialog or in **Edit Steps**.
 - **Import / Export** (managers): back up or move guides between databases as a
   JSON file.
   - *Export*: in **Tour Recorder → Manage Tours**, select tours → **Action →

@@ -2,6 +2,7 @@
 
 import { Component, useState } from "@odoo/owl";
 import { Dialog } from "@web/core/dialog/dialog";
+import { VALIDATION_TYPES } from "../validation";
 
 /**
  * "Step Details" modal shown each time the user right-clicks an element while
@@ -24,6 +25,9 @@ export class StepDetailsDialog extends Component {
             content: "",
             position: "bottom",
             is_check: false,
+            validation_type: "none",
+            validation_regex: "",
+            validation_message: "",
         });
     }
 
@@ -36,6 +40,10 @@ export class StepDetailsDialog extends Component {
         ];
     }
 
+    get validationTypes() {
+        return VALIDATION_TYPES;
+    }
+
     add() {
         this.props.onAdd({
             title: this.state.title,
@@ -43,6 +51,9 @@ export class StepDetailsDialog extends Component {
             position: this.state.position,
             run: this.props.run,
             is_check: this.state.is_check,
+            validation_type: this.state.validation_type,
+            validation_regex: this.state.validation_regex,
+            validation_message: this.state.validation_message,
         });
         this.props.close();
     }

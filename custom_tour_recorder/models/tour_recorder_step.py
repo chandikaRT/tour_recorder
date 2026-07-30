@@ -32,3 +32,32 @@ class TourRecorderStep(models.Model):
         string="Check only",
         help="Only assert the element is visible, do not interact with it.",
     )
+
+    validation_type = fields.Selection(
+        [
+            ("none", "No validation"),
+            ("required", "Required (not empty)"),
+            ("integer", "Whole number"),
+            ("float", "Number (decimal)"),
+            ("email", "Email"),
+            ("phone", "Phone"),
+            ("url", "URL"),
+            ("date", "Date"),
+            ("alpha", "Letters only"),
+            ("alphanumeric", "Letters & numbers"),
+            ("regex", "Custom (regex)"),
+        ],
+        string="Validation",
+        default="none",
+        required=True,
+        help="Block the tour from advancing until the user's input matches this "
+        "data type.",
+    )
+    validation_regex = fields.Char(
+        string="Custom Regex",
+        help="Regular expression the value must match (used when Validation = Custom).",
+    )
+    validation_message = fields.Char(
+        string="Validation Message",
+        help="Optional error shown to the user when the value is invalid.",
+    )

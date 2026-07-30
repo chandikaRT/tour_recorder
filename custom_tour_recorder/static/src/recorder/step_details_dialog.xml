@@ -35,6 +35,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-3">
+                    <label class="fw-bold d-block mb-1">Validation (blocks advancing until valid)</label>
+                    <select class="form-select" t-model="state.validation_type">
+                        <t t-foreach="validationTypes" t-as="vt" t-key="vt[0]">
+                            <option t-att-value="vt[0]" t-esc="vt[1]"/>
+                        </t>
+                    </select>
+                </div>
+                <div class="mt-2" t-if="state.validation_type === 'regex'">
+                    <label class="fw-bold d-block mb-1">Custom Regex</label>
+                    <input type="text" class="form-control font-monospace"
+                           t-model="state.validation_regex" placeholder="e.g. ^\d{4}$"/>
+                </div>
+                <div class="mt-2" t-if="state.validation_type !== 'none'">
+                    <label class="fw-bold d-block mb-1">Validation Message (optional)</label>
+                    <input type="text" class="form-control"
+                           t-model="state.validation_message"
+                           placeholder="Shown when the value is invalid"/>
+                </div>
                 <div class="text-muted small mt-3" t-if="props.selector">
                     Target: <code t-esc="props.selector"/>
                 </div>

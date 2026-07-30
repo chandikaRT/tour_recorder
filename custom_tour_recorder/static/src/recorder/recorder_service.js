@@ -50,6 +50,9 @@ export const tourRecorderService = {
                         position: step.position,
                         run: step.run || inferRun(target),
                         is_check: step.is_check,
+                        validation_type: step.validation_type || "none",
+                        validation_regex: step.validation_regex || "",
+                        validation_message: step.validation_message || "",
                     });
                 },
             });

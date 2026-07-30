@@ -5,6 +5,7 @@ import { Dialog } from "@web/core/dialog/dialog";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
 import { sprintf } from "@web/core/utils/strings";
+import { VALIDATION_TYPES } from "../validation";
 
 /**
  * "Edit Steps" modal: reorder steps, tweak selectors / positions / tooltips and
@@ -37,6 +38,9 @@ export class EditStepsDialog extends Component {
                 position: s.position || "bottom",
                 run: s.run || "click",
                 is_check: !!s.is_check,
+                validation_type: s.validation_type || "none",
+                validation_regex: s.validation_regex || "",
+                validation_message: s.validation_message || "",
             }));
             this.state.loading = false;
         });
@@ -51,6 +55,10 @@ export class EditStepsDialog extends Component {
         ];
     }
 
+    get validationTypes() {
+        return VALIDATION_TYPES;
+    }
+
     addStep() {
         this.state.steps.push({
             title: "",
@@ -59,6 +67,9 @@ export class EditStepsDialog extends Component {
             position: "bottom",
             run: "click",
             is_check: false,
+            validation_type: "none",
+            validation_regex: "",
+            validation_message: "",
         });
     }
 

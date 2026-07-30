@@ -28,6 +28,7 @@ This is a clean-room implementation for Odoo 17.
     "assets": {
         "web.assets_backend": [
             "custom_tour_recorder/static/src/scss/tour_recorder.scss",
+            "custom_tour_recorder/static/src/validation.js",
             "custom_tour_recorder/static/src/recorder/selector_utils.js",
             "custom_tour_recorder/static/src/recorder/recorder_service.js",
             "custom_tour_recorder/static/src/recorder/step_details_dialog.js",
