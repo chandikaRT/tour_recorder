@@ -37,9 +37,18 @@ export const tourPlayerService = {
                     step.run = () => {};
                 } else if (s.run) {
                     step.run = s.run;
+                    // When the intended action is a click, tell the engine to
+                    // advance on the 'click' event. Without this, input elements
+                    // (e.g. Many2one / dropdown triggers like the Department field)
+                    // use their default consumeEvent of 'input', which never fires
+                    // on a click and leaves the tour stuck on that step.
+                    if (s.run === "click") {
+                        step.consumeEvent = "click";
+                    }
                 }
                 if (s.validation_type && s.validation_type !== "none") {
                     // Advance only via our validated custom event (see validator).
+                    // This overrides the click consumeEvent set above when needed.
                     step.consumeEvent = CONSUME_EVENT;
                 }
                 return step;
