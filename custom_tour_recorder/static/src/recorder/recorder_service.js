@@ -27,9 +27,10 @@ export const tourRecorderService = {
                 return;
             }
             const target = ev.target;
-            // Ignore right-clicks inside our own dialogs / systray controls.
+            // Ignore right-clicks inside our own recorder dialogs / systray
+            // controls, but allow recording on any other Odoo popup/dialog.
             if (
-                target.closest(".o_dialog") ||
+                target.closest(".o_tour_recorder_dialog") ||
                 target.closest(".o_tour_recorder_systray")
             ) {
                 return;
