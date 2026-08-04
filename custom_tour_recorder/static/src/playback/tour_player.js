@@ -231,9 +231,12 @@ export const tourPlayerService = {
             }, 800);
 
             // Safety net: never poll forever.
+            // Also clear localStorage so an abandoned tour doesn't leave stale
+            // state behind that would block the next play attempt.
             setTimeout(() => {
                 clearInterval(interval);
                 validator.teardown();
+                tourState.clear(tourKey);
             }, 1000 * 60 * 30);
         }
 
@@ -245,6 +248,15 @@ export const tourPlayerService = {
             if (!total) {
                 return;
             }
+
+            // Clear any stale localStorage state BEFORE adding to the registry.
+            // If stale state exists, the registry UPDATE listener sees tourKey in
+            // tourState.getActiveTourNames(), calls resumeTour(), and adds the key
+            // to Odoo's internal `runningTours` Set. The subsequent startTour() call
+            // is then silently blocked by the guard:
+            //   if (runningTours.has(tourName) && mode === "manual") return;
+            // Clearing first breaks that chain and guarantees a clean restart.
+            tourState.clear(tourKey);
 
             registry.category("web_tour.tours").add(
                 tourKey,
