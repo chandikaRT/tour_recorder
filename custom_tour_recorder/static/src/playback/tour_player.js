@@ -44,6 +44,19 @@ export const tourPlayerService = {
                     // on a click and leaves the tour stuck on that step.
                     if (s.run === "click") {
                         step.consumeEvent = "click";
+                    } else if (s.run === "dblclick") {
+                        step.consumeEvent = "dblclick";
+                    } else if (s.run === "edit") {
+                        // Legacy: steps recorded as "edit" on a dropdown field
+                        // widget should still advance on click. Detected by
+                        // pattern-matching the field-widget class in the selector.
+                        const isDropdown = /o_field_(many2one|many2many|selection|tags)/.test(
+                            s.trigger || ""
+                        );
+                        if (isDropdown) {
+                            step.consumeEvent = "click";
+                        }
+                        // Plain text inputs keep the default "input" consumeEvent.
                     }
                 }
                 if (s.validation_type && s.validation_type !== "none") {

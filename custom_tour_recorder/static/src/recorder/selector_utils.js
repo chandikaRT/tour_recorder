@@ -128,10 +128,22 @@ export function inferRun(el) {
         return "click";
     }
     const tag = el.tagName ? el.tagName.toLowerCase() : "";
+
+    // Native <select> is always a click interaction (opens the OS dropdown).
+    if (tag === "select") {
+        return "click";
+    }
+
+    // Odoo dropdown field widgets: the user clicks to open the picker, not type.
+    // Returning "edit" here causes the playback engine to wait for an "input"
+    // event, which never fires on a plain click — leaving the step stuck.
+    if (el.closest(".o_field_many2one, .o_field_many2many, .o_field_selection, .o_field_tags")) {
+        return "click";
+    }
+
     const editable =
         tag === "input" ||
         tag === "textarea" ||
-        tag === "select" ||
         el.isContentEditable ||
         el.closest("input, textarea, [contenteditable=true]");
     return editable ? "edit" : "click";
