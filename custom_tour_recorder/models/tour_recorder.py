@@ -122,6 +122,22 @@ class TourRecorder(models.Model):
     # Public RPC methods (called from JS via orm.call)
     # ------------------------------------------------------------------
     @api.model
+    def get_incomplete_tour_count(self):
+        """Count of assigned tours not yet completed by the current user."""
+        if self.env.user.has_group("custom_tour_recorder.group_tour_manager"):
+            tours = self.search([])
+        else:
+            tours = self.search([("user_ids", "in", self.env.uid)])
+        if not tours:
+            return 0
+        completed_ids = self.env["tour.recorder.progress"].search([
+            ("tour_id", "in", tours.ids),
+            ("user_id", "=", self.env.uid),
+            ("status", "=", "completed"),
+        ]).mapped("tour_id").ids
+        return len(tours) - len(set(completed_ids) & set(tours.ids))
+
+    @api.model
     def get_my_tours(self):
         """Tours visible in the systray 'Guides' dialog.
 
