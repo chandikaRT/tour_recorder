@@ -87,25 +87,9 @@ export function getCssSelector(el) {
         return "";
     }
 
-    // 1. A stable id is by far the most robust trigger.
-    if (el.id) {
-        const sel = `#${cssEscape(el.id)}`;
-        if (isUnique(sel)) {
-            return sel;
-        }
-    }
-
-    // 2. Odoo fields/buttons usually carry a "name" attribute.
-    const nameAttr = el.getAttribute && el.getAttribute("name");
-    if (nameAttr) {
-        const tag = el.tagName.toLowerCase();
-        const sel = `${tag}[name="${nameAttr}"]`;
-        if (isUnique(sel)) {
-            return sel;
-        }
-    }
-
-    // 3. data-menu-xmlid / data-hotkey are also fairly stable.
+    // 1. Semantic xmlid / hotkey — the most stable identifiers in Odoo.
+    //    Checked BEFORE id because Odoo auto-generates positional ids like
+    //    "result_app_3" that change whenever apps are installed/removed.
     for (const attr of ["data-menu-xmlid", "data-hotkey"]) {
         const val = el.getAttribute && el.getAttribute(attr);
         if (val) {
@@ -116,7 +100,46 @@ export function getCssSelector(el) {
         }
     }
 
-    // 4. Fall back to a structural path.
+    // 2. A stable id.
+    if (el.id) {
+        const sel = `#${cssEscape(el.id)}`;
+        if (isUnique(sel)) {
+            return sel;
+        }
+    }
+
+    // 3. Odoo fields/buttons usually carry a "name" attribute.
+    const nameAttr = el.getAttribute && el.getAttribute("name");
+    if (nameAttr) {
+        const tag = el.tagName.toLowerCase();
+        const sel = `${tag}[name="${nameAttr}"]`;
+        if (isUnique(sel)) {
+            return sel;
+        }
+    }
+
+    // 4. Ancestor bubble-up for semantic attributes.
+    //    When the user right-clicks an inner element (e.g. the <img> or
+    //    <div class="o_caption"> inside an app icon <a data-menu-xmlid="...">),
+    //    ev.target is that child and not the parent anchor. Climb up the DOM
+    //    (max 5 levels) to find a parent that carries a stable semantic attribute.
+    let ancestor = el.parentElement;
+    let depth = 0;
+    while (ancestor && ancestor.nodeType === 1 && ancestor.tagName !== "BODY" && depth < 5) {
+        for (const attr of ["data-menu-xmlid", "data-hotkey"]) {
+            const val = ancestor.getAttribute && ancestor.getAttribute(attr);
+            if (val) {
+                const sel = `[${attr}="${val}"]`;
+                if (isUnique(sel)) {
+                    return sel;
+                }
+            }
+        }
+        ancestor = ancestor.parentElement;
+        depth++;
+    }
+
+    // 5. Fall back to a structural path.
     return buildPath(el);
 }
 
