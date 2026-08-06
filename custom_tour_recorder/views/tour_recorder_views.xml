@@ -31,7 +31,7 @@
                         <field name="active" invisible="1"/>
                     </group>
                     <notebook>
-                        <page string="Steps" name="steps">
+                        <page string="Steps" name="steps" groups="custom_tour_recorder.group_tour_manager">
                             <field name="step_ids">
                                 <tree editable="bottom">
                                     <field name="sequence" widget="handle"/>
