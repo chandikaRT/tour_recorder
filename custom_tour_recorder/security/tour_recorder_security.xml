@@ -18,7 +18,6 @@
             <field name="name">Manager: Record &amp; manage guides</field>
             <field name="category_id" ref="module_category_tour_recorder"/>
             <field name="implied_ids" eval="[(4, ref('group_tour_user'))]"/>
-            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
             <field name="comment">Can record, edit, assign and delete guides, and see everyone's progress.</field>
         </record>
 
