@@ -37,7 +37,7 @@
                             #<t t-esc="step_index + 1"/>
                         </span>
                         <input type="text" class="form-control fw-bold"
-                               t-model="step.title" placeholder="Step title"/>
+                               t-model="step.title" placeholder="Step label (internal name — not shown during playback)"/>
                         <button class="btn btn-sm btn-light ms-2" t-on-click="() => this.moveUp(step_index)"
                                 title="Move up"><i class="fa fa-arrow-up"/></button>
                         <button class="btn btn-sm btn-light ms-1" t-on-click="() => this.moveDown(step_index)"
@@ -65,9 +65,13 @@
                                    t-model="step.run"/>
                         </div>
                         <div class="col-md-4">
-                            <label class="small fw-bold d-block">Tooltip</label>
+                            <label class="small fw-bold d-block">
+                                Tooltip text
+                                <span class="text-danger ms-1" title="This is the text shown in the tour overlay bubble during playback">★ translatable</span>
+                            </label>
                             <input type="text" class="form-control form-control-sm"
-                                   t-model="step.content"/>
+                                   t-model="step.content"
+                                   placeholder="Text shown in the tour bubble…"/>
                         </div>
                     </div>
                     <div class="row g-2 mt-1 align-items-end">
