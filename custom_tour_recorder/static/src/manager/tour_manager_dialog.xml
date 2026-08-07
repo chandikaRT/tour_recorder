@@ -31,10 +31,24 @@
             <!-- Tours list -->
             <div class="d-flex align-items-center justify-content-between mb-2">
                 <h5 class="mb-0">Your Tours (<t t-esc="state.tours.length"/>)</h5>
-                <button class="btn btn-sm btn-primary" t-if="state.isManager and !state.showSave"
-                        t-on-click="newTour">
-                    <i class="fa fa-plus me-1"/> New Tour
-                </button>
+                <div class="d-flex align-items-center">
+                    <t t-if="state.langs.length > 1">
+                        <label class="small fw-bold mb-0 me-1" title="Language to play the tour in">
+                            <i class="fa fa-language me-1"/>Play in
+                        </label>
+                        <select class="form-select form-select-sm me-2" style="width:auto"
+                                t-on-change="onPlayLangChange">
+                            <t t-foreach="state.langs" t-as="lang" t-key="lang.code">
+                                <option t-att-value="lang.code" t-esc="lang.name"
+                                        t-att-selected="lang.code === state.playLang ? 'selected' : undefined"/>
+                            </t>
+                        </select>
+                    </t>
+                    <button class="btn btn-sm btn-primary" t-if="state.isManager and !state.showSave"
+                            t-on-click="newTour">
+                        <i class="fa fa-plus me-1"/> New Tour
+                    </button>
+                </div>
             </div>
 
             <div t-if="state.loading" class="text-center text-muted py-4">

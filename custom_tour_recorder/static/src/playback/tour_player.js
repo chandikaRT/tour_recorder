@@ -253,8 +253,8 @@ export const tourPlayerService = {
             }, 1000 * 60 * 30);
         }
 
-        async function play(tourId) {
-            const tour = await orm.call("tour.recorder", "get_tour_for_play", [tourId]);
+        async function play(tourId, lang = null) {
+            const tour = await orm.call("tour.recorder", "get_tour_for_play", [tourId, lang]);
             const tourKey = tour.tour_key;
             const steps = tour.steps || [];
             const total = steps.length;

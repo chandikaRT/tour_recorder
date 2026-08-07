@@ -30,9 +30,19 @@ screenshots and description.
 - **Import / Export** (managers): back up or move guides between databases as a
   JSON file.
   - *Export*: in **Tour Recorder → Manage Tours**, select tours → **Action →
-    Export Tours** → download the `.json`.
+    Export Tours** → download the `.json` (includes all languages).
   - *Import*: **Tour Recorder → Import Tours** → upload a previously exported
     `.json`.
+- **Multi-language** (English / Sinhala / Tamil): tour text (name, description,
+  step titles, tooltips, validation messages) is translated per-record using
+  Odoo's native field translation.
+  - *Playback language*: each user sees the guide in **their own Odoo language**
+    automatically; the **Guides** dialog has a *"Play in"* picker to override.
+  - *Translating*: open **Edit Steps**, choose a language in the **Language**
+    switcher, translate each step's text and **Save** (structure/selectors are
+    shared across languages — edit those in your main language).
+  - Sinhala (`si_LK`) and Tamil (`ta_IN`) are activated automatically on install;
+    the recorder/player UI itself is translated via `i18n/` PO files.
 
 ## Install
 

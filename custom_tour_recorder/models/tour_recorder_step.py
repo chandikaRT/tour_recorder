@@ -10,7 +10,7 @@ class TourRecorderStep(models.Model):
     tour_id = fields.Many2one("tour.recorder", string="Tour", required=True, ondelete="cascade")
     sequence = fields.Integer(string="Sequence", default=10)
 
-    name = fields.Char(string="Step Title")
+    name = fields.Char(string="Step Title", translate=True)
     css_selector = fields.Char(string="CSS Trigger Selector", required=True)
     position = fields.Selection(
         [
@@ -27,7 +27,7 @@ class TourRecorderStep(models.Model):
         default="click",
         help='Tour action to run, e.g. "click" or "edit some text".',
     )
-    content = fields.Text(string="Content / Tooltip")
+    content = fields.Text(string="Content / Tooltip", translate=True)
     is_check = fields.Boolean(
         string="Check only",
         help="Only assert the element is visible, do not interact with it.",
@@ -59,5 +59,6 @@ class TourRecorderStep(models.Model):
     )
     validation_message = fields.Char(
         string="Validation Message",
+        translate=True,
         help="Optional error shown to the user when the value is invalid.",
     )

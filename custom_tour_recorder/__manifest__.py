@@ -18,6 +18,7 @@ This is a clean-room implementation for Odoo 17.
     "website": "",
     "license": "LGPL-3",
     "depends": ["web", "mail", "web_tour"],
+    "post_init_hook": "post_init_hook",
     "data": [
         "security/tour_recorder_security.xml",
         "security/ir.model.access.csv",

@@ -1,35 +1,40 @@
 /** @odoo-module **/
 
+import { _t } from "@web/core/l10n/translation";
+
 /**
  * Shared validation definitions for tour steps. Kept in sync with the
  * `validation_type` Selection on the `tour.recorder.step` model.
+ *
+ * Labels and messages use `_t` so they follow the user's language via the
+ * module's PO files.
  */
 
 export const VALIDATION_TYPES = [
-    ["none", "No validation"],
-    ["required", "Required (not empty)"],
-    ["integer", "Whole number"],
-    ["float", "Number (decimal)"],
-    ["email", "Email"],
-    ["phone", "Phone"],
-    ["url", "URL"],
-    ["date", "Date"],
-    ["alpha", "Letters only"],
-    ["alphanumeric", "Letters & numbers"],
-    ["regex", "Custom (regex)"],
+    ["none", _t("No validation")],
+    ["required", _t("Required (not empty)")],
+    ["integer", _t("Whole number")],
+    ["float", _t("Number (decimal)")],
+    ["email", _t("Email")],
+    ["phone", _t("Phone")],
+    ["url", _t("URL")],
+    ["date", _t("Date")],
+    ["alpha", _t("Letters only")],
+    ["alphanumeric", _t("Letters & numbers")],
+    ["regex", _t("Custom (regex)")],
 ];
 
 const DEFAULT_MESSAGES = {
-    required: "This field is required.",
-    integer: "Please enter a whole number.",
-    float: "Please enter a valid number.",
-    email: "Please enter a valid email address.",
-    phone: "Please enter a valid phone number.",
-    url: "Please enter a valid URL.",
-    date: "Please enter a valid date.",
-    alpha: "Please use letters only.",
-    alphanumeric: "Please use letters and numbers only.",
-    regex: "The value does not match the required format.",
+    required: _t("This field is required."),
+    integer: _t("Please enter a whole number."),
+    float: _t("Please enter a valid number."),
+    email: _t("Please enter a valid email address."),
+    phone: _t("Please enter a valid phone number."),
+    url: _t("Please enter a valid URL."),
+    date: _t("Please enter a valid date."),
+    alpha: _t("Please use letters only."),
+    alphanumeric: _t("Please use letters and numbers only."),
+    regex: _t("The value does not match the required format."),
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -89,5 +94,5 @@ export function isValid(value, type, regex) {
 }
 
 export function validationMessage(type, customMessage) {
-    return customMessage || DEFAULT_MESSAGES[type] || "Invalid value.";
+    return customMessage || DEFAULT_MESSAGES[type] || _t("Invalid value.");
 }

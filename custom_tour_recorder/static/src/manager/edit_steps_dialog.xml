@@ -5,9 +5,24 @@
         <Dialog title="dialogTitle" size="'xl'" contentClass="'o_tour_recorder_dialog'">
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <span class="text-muted">Reorder · edit selectors · adjust tooltips</span>
-                <button class="btn btn-sm btn-primary" t-on-click="addStep">
-                    <i class="fa fa-plus me-1"/> Add Step
-                </button>
+                <div class="d-flex align-items-center">
+                    <label class="small fw-bold mb-0 me-1">Language</label>
+                    <select class="form-select form-select-sm me-2" style="width:auto"
+                            t-on-change="onLangChange">
+                        <t t-foreach="state.langs" t-as="lang" t-key="lang.code">
+                            <option t-att-value="lang.code" t-esc="lang.name"
+                                    t-att-selected="lang.code === state.lang ? 'selected' : undefined"/>
+                        </t>
+                    </select>
+                    <button class="btn btn-sm btn-primary" t-on-click="addStep">
+                        <i class="fa fa-plus me-1"/> Add Step
+                    </button>
+                </div>
+            </div>
+            <div class="alert alert-light border small py-1 px-2 mb-3" t-if="state.langs.length > 1">
+                Editing text for <b t-esc="state.lang"/>. Switching language reloads steps —
+                save first to keep your changes. Selectors, order and validation type are shared
+                across languages; edit those in your main language.
             </div>
 
             <div t-if="state.loading" class="text-center text-muted py-4">

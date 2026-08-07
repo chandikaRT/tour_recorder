@@ -89,7 +89,10 @@ export const tourRecorderService = {
                 return;
             }
             // Convert server-side step shape to the client-side recording format.
+            // Keep the step id so save_steps updates existing rows in place
+            // (preserving per-language translations) instead of recreating them.
             state.steps = (tour.steps || []).map((s) => ({
+                id: s.id,
                 title: s.title || "",
                 trigger: s.trigger || "",
                 content: s.content || "",

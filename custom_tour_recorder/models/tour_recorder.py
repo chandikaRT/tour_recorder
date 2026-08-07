@@ -12,8 +12,8 @@ class TourRecorder(models.Model):
     _inherit = ["mail.thread"]
     _order = "name"
 
-    name = fields.Char(string="Tour Name", required=True, tracking=True)
-    description = fields.Text(string="Description")
+    name = fields.Char(string="Tour Name", required=True, tracking=True, translate=True)
+    description = fields.Text(string="Description", translate=True)
     active = fields.Boolean(default=True)
 
     user_ids = fields.Many2many(
@@ -151,11 +151,24 @@ class TourRecorder(models.Model):
         return [tour._tour_payload() for tour in tours]
 
     @api.model
-    def get_tour_for_play(self, tour_id):
+    def get_tour_for_play(self, tour_id, lang=None):
         tour = self.browse(tour_id)
         tour.check_access_rights("read")
         tour.check_access_rule("read")
+        if lang:
+            tour = tour.with_context(lang=lang)
         return tour._tour_payload()
+
+    @api.model
+    def get_languages(self):
+        """Installed languages + the current user's language, for the pickers."""
+        return {
+            "current": self.env.context.get("lang") or self.env.lang or "en_US",
+            "langs": [
+                {"code": code, "name": name}
+                for code, name in self.env["res.lang"].get_installed()
+            ],
+        }
 
     @api.model
     def create_from_recording(self, name, description, steps):
@@ -173,15 +186,42 @@ class TourRecorder(models.Model):
         )
         return tour.id
 
-    def save_steps(self, steps):
-        """Replace all steps of the tour (called by the Edit Steps dialog)."""
+    # Fields whose value is language-specific (stored per-language as jsonb).
+    _TRANSLATABLE_STEP_FIELDS = ("name", "content", "validation_message")
+
+    def save_steps(self, steps, lang=None):
+        """Update the tour's steps in place (called by the Edit Steps dialog).
+
+        Steps are matched by ``id`` and **updated** rather than deleted+recreated,
+        so per-language translations stored on each step record survive. When a
+        ``lang`` is given, translatable text is written for that language only.
+        """
         self.ensure_one()
-        commands = [(5, 0, 0)]
-        commands += [
-            (0, 0, self._step_vals_from_payload(step, index))
-            for index, step in enumerate(steps or [])
-        ]
-        self.write({"step_ids": commands})
+        Step = self.env["tour.recorder.step"]
+        if lang:
+            Step = Step.with_context(lang=lang)
+
+        incoming = steps or []
+        keep_ids = []
+        for index, step in enumerate(incoming):
+            vals = self._step_vals_from_payload(step, index)
+            step_id = step.get("id")
+            existing = Step.browse(step_id) if step_id else Step.browse()
+            if step_id and existing.exists() and existing.tour_id.id == self.id:
+                existing.write(vals)
+                keep_ids.append(existing.id)
+            else:
+                vals["tour_id"] = self.id
+                new = Step.create(vals)
+                # Seed the source language so there is always a fallback value.
+                if lang and lang != "en_US":
+                    new.with_context(lang="en_US").write(
+                        {f: vals.get(f) or "" for f in self._TRANSLATABLE_STEP_FIELDS}
+                    )
+                keep_ids.append(new.id)
+
+        # Remove steps the user deleted in the editor.
+        (self.step_ids - self.env["tour.recorder.step"].browse(keep_ids)).unlink()
         return True
 
     @api.model
@@ -207,31 +247,46 @@ class TourRecorder(models.Model):
     # Import / Export
     # ------------------------------------------------------------------
     def _export_json(self):
-        """Serialize the current tours to a base64-encoded JSON payload."""
-        payload = {"version": 1, "tours": []}
+        """Serialize the current tours to a base64-encoded JSON payload.
+
+        Translatable fields are exported both as their source value (flat key,
+        backward-compatible) and as a per-language ``*_i18n`` map so all
+        languages travel between databases.
+        """
+        langs = [code for code, _name in self.env["res.lang"].get_installed()]
+
+        def i18n(record, field):
+            return {lang: (record.with_context(lang=lang)[field] or "") for lang in langs}
+
+        payload = {"version": 2, "tours": []}
         for tour in self:
             payload["tours"].append(
                 {
                     "name": tour.name,
+                    "name_i18n": i18n(tour, "name"),
                     "description": tour.description or "",
+                    "description_i18n": i18n(tour, "description"),
                     "steps": [
                         {
                             "sequence": step.sequence,
                             "title": step.name or "",
+                            "title_i18n": i18n(step, "name"),
                             "trigger": step.css_selector or "",
                             "content": step.content or "",
+                            "content_i18n": i18n(step, "content"),
                             "position": step.position or "bottom",
                             "run": step.run or "click",
                             "is_check": step.is_check,
                             "validation_type": step.validation_type or "none",
                             "validation_regex": step.validation_regex or "",
                             "validation_message": step.validation_message or "",
+                            "validation_message_i18n": i18n(step, "validation_message"),
                         }
                         for step in tour.step_ids.sorted(lambda s: (s.sequence, s.id))
                     ],
                 }
             )
-        raw = json.dumps(payload, indent=2).encode("utf-8")
+        raw = json.dumps(payload, indent=2, ensure_ascii=False).encode("utf-8")
         return base64.b64encode(raw)
 
     @api.model
@@ -249,17 +304,48 @@ class TourRecorder(models.Model):
         if not isinstance(tours, list) or not tours:
             raise UserError(_("The file does not contain any tours."))
 
+        installed = [code for code, _name in self.env["res.lang"].get_installed()]
+
         created = self.browse()
         for tour in tours:
             if not isinstance(tour, dict):
                 continue
+            step_dicts = tour.get("steps") or []
             new_id = self.create_from_recording(
                 tour.get("name") or _("Imported Tour"),
                 tour.get("description") or "",
-                tour.get("steps") or [],
+                step_dicts,
             )
-            created |= self.browse(new_id)
+            new_tour = self.browse(new_id)
+            self._apply_import_translations(new_tour, tour, step_dicts, installed)
+            created |= new_tour
         return created.ids
+
+    def _apply_import_translations(self, tour, tour_dict, step_dicts, installed):
+        """Write the per-language ``*_i18n`` maps from an export onto a new tour."""
+        for lang in installed:
+            vals = {}
+            if tour_dict.get("name_i18n", {}).get(lang):
+                vals["name"] = tour_dict["name_i18n"][lang]
+            if tour_dict.get("description_i18n", {}).get(lang):
+                vals["description"] = tour_dict["description_i18n"][lang]
+            if vals:
+                tour.with_context(lang=lang).write(vals)
+
+        steps = tour.step_ids.sorted(lambda s: (s.sequence, s.id))
+        for step_rec, sdict in zip(steps, step_dicts):
+            if not isinstance(sdict, dict):
+                continue
+            for lang in installed:
+                vals = {}
+                if sdict.get("title_i18n", {}).get(lang):
+                    vals["name"] = sdict["title_i18n"][lang]
+                if sdict.get("content_i18n", {}).get(lang):
+                    vals["content"] = sdict["content_i18n"][lang]
+                if sdict.get("validation_message_i18n", {}).get(lang):
+                    vals["validation_message"] = sdict["validation_message_i18n"][lang]
+                if vals:
+                    step_rec.with_context(lang=lang).write(vals)
 
     # ------------------------------------------------------------------
     # UI actions

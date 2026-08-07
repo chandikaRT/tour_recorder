@@ -24,26 +24,41 @@ export class EditStepsDialog extends Component {
     setup() {
         this.orm = useService("orm");
         this.notification = useService("notification");
-        this.state = useState({ steps: [], loading: true });
+        this.state = useState({ steps: [], loading: true, langs: [], lang: "en_US" });
         this.dialogTitle = sprintf(_t("Edit Steps – %s"), this.props.tourName || "");
 
         onWillStart(async () => {
-            const tour = await this.orm.call("tour.recorder", "get_tour_for_play", [
-                this.props.tourId,
-            ]);
-            this.state.steps = (tour.steps || []).map((s) => ({
-                title: s.title || "",
-                trigger: s.trigger || "",
-                content: s.content || "",
-                position: s.position || "bottom",
-                run: s.run || "click",
-                is_check: !!s.is_check,
-                validation_type: s.validation_type || "none",
-                validation_regex: s.validation_regex || "",
-                validation_message: s.validation_message || "",
-            }));
-            this.state.loading = false;
+            const info = await this.orm.call("tour.recorder", "get_languages", []);
+            this.state.langs = info.langs || [];
+            this.state.lang = info.current || "en_US";
+            await this.loadSteps();
         });
+    }
+
+    async loadSteps() {
+        this.state.loading = true;
+        const tour = await this.orm.call("tour.recorder", "get_tour_for_play", [
+            this.props.tourId,
+            this.state.lang,
+        ]);
+        this.state.steps = (tour.steps || []).map((s) => ({
+            id: s.id,
+            title: s.title || "",
+            trigger: s.trigger || "",
+            content: s.content || "",
+            position: s.position || "bottom",
+            run: s.run || "click",
+            is_check: !!s.is_check,
+            validation_type: s.validation_type || "none",
+            validation_regex: s.validation_regex || "",
+            validation_message: s.validation_message || "",
+        }));
+        this.state.loading = false;
+    }
+
+    async onLangChange(ev) {
+        this.state.lang = ev.target.value;
+        await this.loadSteps();
     }
 
     get positions() {
@@ -61,6 +76,7 @@ export class EditStepsDialog extends Component {
 
     addStep() {
         this.state.steps.push({
+            id: false,
             title: "",
             trigger: "",
             content: "",
@@ -105,6 +121,7 @@ export class EditStepsDialog extends Component {
         await this.orm.call("tour.recorder", "save_steps", [
             this.props.tourId,
             this.state.steps,
+            this.state.lang,
         ]);
         this.notification.add(_t("Steps saved."), { type: "success" });
         if (this.props.onSaved) {

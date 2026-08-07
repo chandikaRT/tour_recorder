@@ -39,14 +39,23 @@ export class TourManagerDialog extends Component {
             showSave: !!this.props.recordedSteps,
             name: "",
             description: "",
+            langs: [],
+            playLang: "en_US",
         });
 
         onWillStart(async () => {
             this.state.isManager = await user.hasGroup(
                 "custom_tour_recorder.group_tour_manager"
             );
+            const info = await this.orm.call("tour.recorder", "get_languages", []);
+            this.state.langs = info.langs || [];
+            this.state.playLang = info.current || "en_US";
             await this.loadTours();
         });
+    }
+
+    onPlayLangChange(ev) {
+        this.state.playLang = ev.target.value;
     }
 
     async loadTours() {
@@ -100,7 +109,7 @@ export class TourManagerDialog extends Component {
 
     play(tour) {
         this.props.close();
-        this.player.play(tour.id);
+        this.player.play(tour.id, this.state.playLang);
     }
 
     editSteps(tour) {
