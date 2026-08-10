@@ -203,7 +203,105 @@ export const tourPlayerService = {
             return { checkCurrent, onStepChange, teardown };
         }
 
-        function trackProgress(tourId, tourKey, total, validator) {
+        // ---------------------------------------------------------------
+        // Spotlight overlay controller
+        // ---------------------------------------------------------------
+        function createSpotlight() {
+            const div = document.createElement("div");
+            div.className = "o_tr_spotlight";
+            div.style.display = "none";
+            document.body.appendChild(div);
+
+            let currentTrigger = null;
+            let rafId = null;
+            let transitionTimer = null;
+
+            function getTargetEl() {
+                if (!currentTrigger) return null;
+                try {
+                    return document.querySelector(currentTrigger);
+                } catch {
+                    return null;
+                }
+            }
+
+            function updatePosition() {
+                const target = getTargetEl();
+                if (!target) {
+                    div.style.display = "none";
+                    return;
+                }
+                const rect = target.getBoundingClientRect();
+                // Guard: element present but inside a collapsed/hidden ancestor
+                if (rect.width === 0 && rect.height === 0) {
+                    div.style.display = "none";
+                    return;
+                }
+                const pad = 8;
+                div.style.display = "block";
+                div.style.top    = `${rect.top    - pad}px`;
+                div.style.left   = `${rect.left   - pad}px`;
+                div.style.width  = `${rect.width  + pad * 2}px`;
+                div.style.height = `${rect.height + pad * 2}px`;
+            }
+
+            function tick() {
+                updatePosition();
+                rafId = requestAnimationFrame(tick);
+            }
+
+            // Capture-phase pointer blocker: intercepts click/mousedown/pointerdown
+            // before any bubbling handler fires, and cancels them when they land
+            // outside the current step's target subtree.
+            function onCapturingPointer(e) {
+                if (!currentTrigger) return;
+                const target = getTargetEl();
+                if (!target || !target.contains(e.target)) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                }
+            }
+            document.addEventListener("click",       onCapturingPointer, true);
+            document.addEventListener("mousedown",   onCapturingPointer, true);
+            document.addEventListener("pointerdown", onCapturingPointer, true);
+
+            rafId = requestAnimationFrame(tick);
+
+            return {
+                setTrigger(trigger) {
+                    currentTrigger = trigger;
+                    // Short CSS transition for the step-change animation.
+                    // Removed after 300 ms so the RAF tracking loop stays lag-free
+                    // during scroll / resize.
+                    div.style.transition =
+                        "top 0.25s ease, left 0.25s ease, width 0.25s ease, height 0.25s ease";
+                    updatePosition();
+                    if (transitionTimer) clearTimeout(transitionTimer);
+                    transitionTimer = setTimeout(() => {
+                        div.style.transition = "";
+                        transitionTimer = null;
+                    }, 300);
+                },
+                destroy() {
+                    if (rafId) {
+                        cancelAnimationFrame(rafId);
+                        rafId = null;
+                    }
+                    if (transitionTimer) {
+                        clearTimeout(transitionTimer);
+                        transitionTimer = null;
+                    }
+                    document.removeEventListener("click",       onCapturingPointer, true);
+                    document.removeEventListener("mousedown",   onCapturingPointer, true);
+                    document.removeEventListener("pointerdown", onCapturingPointer, true);
+                    if (div.parentNode) {
+                        div.parentNode.removeChild(div);
+                    }
+                },
+            };
+        }
+
+        function trackProgress(tourId, tourKey, total, validator, spotlight, steps) {
             let last = 0;
             let sawActive = false;
             const interval = setInterval(async () => {
@@ -221,6 +319,8 @@ export const tourPlayerService = {
                     if (idx !== last) {
                         last = idx;
                         validator.onStepChange();
+                        const stepIdx = Math.min(idx, steps.length - 1);
+                        spotlight.setTrigger(steps[stepIdx].trigger);
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
                             Math.min(idx, total),
@@ -234,6 +334,7 @@ export const tourPlayerService = {
                     // stopped by the user.
                     clearInterval(interval);
                     validator.teardown();
+                    spotlight.destroy();
                     const completed = last >= total - 1;
                     await orm.call("tour.recorder", "set_progress", [
                         tourId,
@@ -249,6 +350,7 @@ export const tourPlayerService = {
             setTimeout(() => {
                 clearInterval(interval);
                 validator.teardown();
+                spotlight.destroy();
                 tourState.clear(tourKey);
             }, 1000 * 60 * 30);
         }
@@ -280,10 +382,15 @@ export const tourPlayerService = {
             );
 
             const validator = createValidator(steps, tourKey);
+            const spotlight = createSpotlight();
+            // Point to the first step immediately so the overlay is visible
+            // before the TourPointer bubble appears. steps[0] is safe here
+            // because play() returns early above when total === 0.
+            spotlight.setTrigger(steps[0].trigger);
 
             await orm.call("tour.recorder", "set_progress", [tourId, 0, "in_progress"]);
             tour_service.startTour(tourKey, { mode: "manual" });
-            trackProgress(tourId, tourKey, total, validator);
+            trackProgress(tourId, tourKey, total, validator, spotlight, steps);
         }
 
         return { play };
