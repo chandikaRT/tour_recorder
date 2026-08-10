@@ -144,6 +144,19 @@ $tr-save-green: #2ea44f;
     }
 }
 
+// -------------------- Playback spotlight overlay --------------------
+.o_tr_spotlight {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1075;
+    border-radius: 6px;
+    border: 2px solid rgba(122, 46, 78, 0.75);
+    box-shadow:
+        0 0 0 9999px rgba(0, 0, 0, 0.65),
+        0 0 0 6px rgba(122, 46, 78, 0.2);
+    will-change: top, left, width, height;
+}
+
 // -------------------- Playback validation error --------------------
 .o_tr_validation_error {
     position: fixed;
