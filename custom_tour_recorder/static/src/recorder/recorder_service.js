@@ -23,54 +23,6 @@ export const tourRecorderService = {
         });
 
         let contextHandler = null;
-        let selectChangeHandler = null;
-
-        /**
-         * Auto-capture native <select> option picks during recording.
-         *
-         * OS-rendered dropdown options never fire a contextmenu event, so the
-         * normal right-click flow is impossible for native <select> fields.
-         * Instead we intercept the "change" event that fires after the user
-         * picks an option from the OS dropdown and offer to record it as a step.
-         */
-        function onSelectChange(ev) {
-            if (!state.recording) {
-                return;
-            }
-            const el = ev.target;
-            if (!el || el.tagName !== "SELECT") {
-                return;
-            }
-            // Skip selects that live inside our own recorder UI.
-            if (
-                el.closest(".o_tour_recorder_dialog") ||
-                el.closest(".o_tour_recorder_systray")
-            ) {
-                return;
-            }
-            const selector = getCssSelector(el);
-            // Use the chosen option's label as the step title suggestion.
-            const chosen = el.options[el.selectedIndex];
-            const label = chosen ? chosen.text.trim() : el.value;
-            dialog.add(StepDetailsDialog, {
-                selector,
-                title: label ? `Select: ${label}` : "",
-                run: "select",
-                onAdd: (step) => {
-                    state.steps.push({
-                        title: step.title,
-                        trigger: selector,
-                        content: step.content,
-                        position: step.position,
-                        run: "select",
-                        is_check: step.is_check,
-                        validation_type: step.validation_type || "none",
-                        validation_regex: step.validation_regex || "",
-                        validation_message: step.validation_message || "",
-                    });
-                },
-            });
-        }
 
         function onContextMenu(ev) {
             if (!state.recording) {
@@ -118,9 +70,7 @@ export const tourRecorderService = {
             state.tourId = null;
             state.tourName = "";
             contextHandler = onContextMenu;
-            selectChangeHandler = onSelectChange;
             document.addEventListener("contextmenu", contextHandler, true);
-            document.addEventListener("change", selectChangeHandler, true);
             notification.add(
                 _t(
                     "Recording started. Use LEFT CLICK to interact normally. RIGHT CLICK an element to record a step."
@@ -157,9 +107,7 @@ export const tourRecorderService = {
             state.tourName = tour.name;
             state.recording = true;
             contextHandler = onContextMenu;
-            selectChangeHandler = onSelectChange;
             document.addEventListener("contextmenu", contextHandler, true);
-            document.addEventListener("change", selectChangeHandler, true);
             notification.add(
                 _t(
                     'Continuing "%s" — %s existing step(s). RIGHT CLICK to add more steps.',
@@ -174,10 +122,6 @@ export const tourRecorderService = {
             if (contextHandler) {
                 document.removeEventListener("contextmenu", contextHandler, true);
                 contextHandler = null;
-            }
-            if (selectChangeHandler) {
-                document.removeEventListener("change", selectChangeHandler, true);
-                selectChangeHandler = null;
             }
         }
 
