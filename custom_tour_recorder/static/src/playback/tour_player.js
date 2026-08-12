@@ -294,9 +294,18 @@ export const tourPlayerService = {
                 // advance the step.  Lock out all further events immediately so no
                 // rapid second click can undo what just happened (e.g. close a
                 // dropdown that the next step needs to be open).
+                //
+                // Exception: native <select> steps advance on "change" not "click".
+                // The click only opens the OS-rendered dropdown; locking here would
+                // prevent the user from re-opening it to try again after a wrong pick.
+                // The OS manages the dropdown state so the rapid-click issue that
+                // stepLocked guards against does not apply.
                 if (e.type === "click") {
-                    stepLocked = true;
-                    div.style.display = "none";
+                    const targetEl = getTargetEl();
+                    if (!targetEl || targetEl.tagName !== "SELECT") {
+                        stepLocked = true;
+                        div.style.display = "none";
+                    }
                 }
             }
             document.addEventListener("click",       onCapturingPointer, true);
