@@ -215,6 +215,11 @@ export const tourPlayerService = {
             let currentTrigger = null;
             let rafId = null;
             let transitionTimer = null;
+            // True after a click passes through to the tour engine and before the
+            // next step's trigger is set. Blocks all further pointer events during
+            // the inter-step gap so a rapid second click cannot toggle a dropdown
+            // back closed (or otherwise undo the action the tour just consumed).
+            let stepLocked = false;
 
             function getTargetEl() {
                 if (!currentTrigger) return null;
@@ -254,11 +259,28 @@ export const tourPlayerService = {
             // before any bubbling handler fires, and cancels them when they land
             // outside the current step's target subtree.
             function onCapturingPointer(e) {
+                // Between steps: block everything until setTrigger() is called for
+                // the next step.  This prevents a rapid second click from toggling
+                // a dropdown back closed before the next step's target is ready.
+                if (stepLocked) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                    return;
+                }
                 if (!currentTrigger) return;
                 const target = getTargetEl();
                 if (!target || !target.contains(e.target)) {
                     e.stopImmediatePropagation();
                     e.preventDefault();
+                    return;
+                }
+                // A click reached the target — the tour engine will consume it and
+                // advance the step.  Lock out all further events immediately so no
+                // rapid second click can undo what just happened (e.g. close a
+                // dropdown that the next step needs to be open).
+                if (e.type === "click") {
+                    stepLocked = true;
+                    div.style.display = "none";
                 }
             }
             document.addEventListener("click",       onCapturingPointer, true);
@@ -269,6 +291,7 @@ export const tourPlayerService = {
 
             return {
                 setTrigger(trigger) {
+                    stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
                     // Short CSS transition for the step-change animation.
                     // Removed after 300 ms so the RAF tracking loop stays lag-free
