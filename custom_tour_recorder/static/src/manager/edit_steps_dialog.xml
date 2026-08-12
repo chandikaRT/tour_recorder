@@ -61,8 +61,13 @@
                         </div>
                         <div class="col-md-2">
                             <label class="small fw-bold d-block">Action (run)</label>
-                            <input type="text" class="form-control form-control-sm"
-                                   t-model="step.run"/>
+                            <select class="form-select form-select-sm" t-model="step.run">
+                                <t t-foreach="runCommands" t-as="cmd" t-key="cmd[0]">
+                                    <option t-att-value="cmd[0]" t-esc="cmd[1]"/>
+                                </t>
+                                <option t-att-selected="!runCommands.some(c => c[0] === step.run) ? 'selected' : undefined"
+                                        t-att-value="step.run" t-esc="step.run || 'custom…'"/>
+                            </select>
                         </div>
                         <div class="col-md-4">
                             <label class="small fw-bold d-block">

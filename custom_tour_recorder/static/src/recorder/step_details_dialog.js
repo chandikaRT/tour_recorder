@@ -46,6 +46,7 @@ export class StepDetailsDialog extends Component {
             ["click", "Click"],
             ["dblclick", "Double Click"],
             ["edit", "Edit / Type"],
+            ["select", "Select option (native dropdown)"],
             ["press Enter", "Press Enter"],
             ["press Escape", "Press Escape"],
             ["press Tab", "Press Tab"],

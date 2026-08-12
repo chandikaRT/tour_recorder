@@ -46,6 +46,15 @@ export const tourPlayerService = {
                         step.consumeEvent = "click";
                     } else if (s.run === "dblclick") {
                         step.consumeEvent = "dblclick";
+                    } else if (s.run === "select") {
+                        // Native <select> field: the user must pick an option from
+                        // the OS dropdown. Advance only on the "change" event so the
+                        // tour waits for an actual selection, not just for the user
+                        // clicking the select to open the OS picker.
+                        // In manual mode the engine does not auto-interact, so a
+                        // no-op run keeps the type check happy.
+                        step.consumeEvent = "change";
+                        step.run = () => {};
                     } else if (s.run === "edit") {
                         // Legacy: steps recorded as "edit" on a dropdown field
                         // widget should still advance on click. Detected by
