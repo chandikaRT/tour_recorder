@@ -15,6 +15,8 @@ export class StepDetailsDialog extends Component {
         selector: { type: String, optional: true },
         title: { type: String, optional: true },
         run: { type: String, optional: true },
+        /** Array of { value, label } objects for native <select> option pickers. */
+        selectOptions: { type: Array, optional: true },
         onAdd: { type: Function },
         close: { type: Function },
     };
@@ -25,11 +27,35 @@ export class StepDetailsDialog extends Component {
             content: "",
             position: "bottom",
             run: this.props.run || "click",
+            /** Which <option> value the user chose (only used when selectOptions provided). */
+            selectValue: "",
             is_check: false,
             validation_type: "none",
             validation_regex: "",
             validation_message: "",
         });
+    }
+
+    /**
+     * Called when the user picks an option from the native-select picker.
+     * Auto-fills the step title and tooltip so they don't have to type from scratch.
+     */
+    onSelectValueChange(ev) {
+        const val = ev.target.value;
+        this.state.selectValue = val;
+        if (!val || !this.props.selectOptions) {
+            return;
+        }
+        const opt = this.props.selectOptions.find((o) => o.value === val);
+        if (!opt) {
+            return;
+        }
+        if (!this.state.title) {
+            this.state.title = `Select: ${opt.label}`;
+        }
+        if (!this.state.content) {
+            this.state.content = `Select "${opt.label}" from the dropdown`;
+        }
     }
 
     get positions() {

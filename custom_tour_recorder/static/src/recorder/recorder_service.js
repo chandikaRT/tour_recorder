@@ -41,10 +41,21 @@ export const tourRecorderService = {
             ev.stopPropagation();
 
             const selector = getCssSelector(target);
+            // For native <select> elements: read the available <option> nodes from
+            // the DOM (they are always present, even when the OS dropdown is closed)
+            // and pass them to the dialog so the user can pick which one to record.
+            const selectOptions =
+                target.tagName === "SELECT"
+                    ? Array.from(target.options).map((o) => ({
+                          value: o.value,
+                          label: o.text.trim() || o.value,
+                      }))
+                    : undefined;
             dialog.add(StepDetailsDialog, {
                 selector,
                 title: suggestTitle(target),
                 run: inferRun(target),
+                selectOptions,
                 onAdd: (step) => {
                     state.steps.push({
                         title: step.title,
