@@ -275,17 +275,33 @@ export const tourPlayerService = {
             // before any bubbling handler fires, and cancels them when they land
             // outside the current step's target subtree.
             function onCapturingPointer(e) {
-                // Between steps: block everything until setTrigger() is called for
-                // the next step.  This prevents a rapid second click from toggling
-                // a dropdown back closed before the next step's target is ready.
                 if (stepLocked) {
-                    e.stopImmediatePropagation();
-                    e.preventDefault();
-                    return;
+                    // The trigger element has left the DOM (e.g. a wizard was closed
+                    // by the button click that advanced the step).  The step is done;
+                    // we are just waiting for trackProgress to poll and call
+                    // setTrigger().  Release the lock immediately so that events in
+                    // the newly-opened wizard or page are not blocked — a frozen wizard
+                    // can cause Odoo's dialog system to report a tour failure.
+                    if (!getTargetEl()) {
+                        stepLocked = false;
+                        // fall through: target is null so the guard below returns early
+                    } else {
+                        // Target still in DOM — genuine inter-step gap (e.g. a custom
+                        // dropdown that was just opened).  Keep blocking rapid clicks.
+                        e.stopImmediatePropagation();
+                        e.preventDefault();
+                        return;
+                    }
                 }
                 if (!currentTrigger) return;
                 const target = getTargetEl();
-                if (!target || !target.contains(e.target)) {
+                // Target not found: we are in a between-steps transition (e.g. a
+                // wizard is opening, a page is navigating).  Don't block anything —
+                // the spotlight has no element to protect right now, and blocking
+                // here would prevent the new wizard/page from receiving focus and
+                // initialising correctly.
+                if (!target) return;
+                if (!target.contains(e.target)) {
                     e.stopImmediatePropagation();
                     e.preventDefault();
                     return;
@@ -300,12 +316,9 @@ export const tourPlayerService = {
                 // prevent the user from re-opening it to try again after a wrong pick.
                 // The OS manages the dropdown state so the rapid-click issue that
                 // stepLocked guards against does not apply.
-                if (e.type === "click") {
-                    const targetEl = getTargetEl();
-                    if (!targetEl || targetEl.tagName !== "SELECT") {
-                        stepLocked = true;
-                        div.style.display = "none";
-                    }
+                if (e.type === "click" && target.tagName !== "SELECT") {
+                    stepLocked = true;
+                    div.style.display = "none";
                 }
             }
             document.addEventListener("click",       onCapturingPointer, true);
