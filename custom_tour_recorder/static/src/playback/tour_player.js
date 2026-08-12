@@ -316,7 +316,13 @@ export const tourPlayerService = {
                 if (changed !== targetEl && !targetEl.contains(changed)) return;
                 if (changed.tagName !== "SELECT") return;
                 if (changed.value !== currentRequiredValue) {
+                    // Wrong value picked — stop the tour engine from advancing.
                     e.stopImmediatePropagation();
+                    // The click on the <select> set stepLocked=true (rapid-click
+                    // guard). Since the tour did not advance, setTrigger() won't be
+                    // called to clear it.  Reset here so the user can re-open the
+                    // dropdown and pick the correct option.
+                    stepLocked = false;
                 }
             }
             document.addEventListener("change", onCapturingChange, true);
