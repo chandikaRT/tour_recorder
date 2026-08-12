@@ -46,11 +46,14 @@ export const tourPlayerService = {
                         step.consumeEvent = "click";
                     } else if (s.run === "dblclick") {
                         step.consumeEvent = "dblclick";
-                    } else if (s.run === "select") {
+                    } else if (s.run === "select" || s.run.startsWith("select:")) {
                         // Native <select> field: the user must pick an option from
                         // the OS dropdown. Advance only on the "change" event so the
                         // tour waits for an actual selection, not just for the user
                         // clicking the select to open the OS picker.
+                        // "select:value" steps additionally enforce the specific value
+                        // via the spotlight's change interceptor — the tour engine
+                        // still only cares about consumeEvent:"change".
                         // In manual mode the engine does not auto-interact, so a
                         // no-op run keeps the type check happy.
                         step.consumeEvent = "change";
@@ -222,6 +225,10 @@ export const tourPlayerService = {
             document.body.appendChild(div);
 
             let currentTrigger = null;
+            // When non-null, only a <select> change event with this exact value is
+            // allowed through to the tour engine.  Any other selection is silently
+            // swallowed so the step cannot advance on the wrong pick.
+            let currentRequiredValue = null;
             let rafId = null;
             let transitionTimer = null;
             // True after a click passes through to the tour engine and before the
@@ -296,12 +303,31 @@ export const tourPlayerService = {
             document.addEventListener("mousedown",   onCapturingPointer, true);
             document.addEventListener("pointerdown", onCapturingPointer, true);
 
+            // For "select:value" steps: block the tour engine from advancing on the
+            // wrong selection.  We intercept the change event in capture phase before
+            // the engine's own listener sees it.  The <select> value visually stays
+            // changed (we can't revert it after the fact), but the tour cannot advance
+            // until the user picks the correct option.
+            function onCapturingChange(e) {
+                if (!currentRequiredValue) return;
+                const targetEl = getTargetEl();
+                if (!targetEl) return;
+                const changed = e.target;
+                if (changed !== targetEl && !targetEl.contains(changed)) return;
+                if (changed.tagName !== "SELECT") return;
+                if (changed.value !== currentRequiredValue) {
+                    e.stopImmediatePropagation();
+                }
+            }
+            document.addEventListener("change", onCapturingChange, true);
+
             rafId = requestAnimationFrame(tick);
 
             return {
-                setTrigger(trigger) {
+                setTrigger(trigger, requiredValue) {
                     stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
+                    currentRequiredValue = requiredValue || null;
                     // Short CSS transition for the step-change animation.
                     // Removed after 300 ms so the RAF tracking loop stays lag-free
                     // during scroll / resize.
@@ -326,6 +352,7 @@ export const tourPlayerService = {
                     document.removeEventListener("click",       onCapturingPointer, true);
                     document.removeEventListener("mousedown",   onCapturingPointer, true);
                     document.removeEventListener("pointerdown", onCapturingPointer, true);
+                    document.removeEventListener("change",      onCapturingChange,  true);
                     if (div.parentNode) {
                         div.parentNode.removeChild(div);
                     }
@@ -352,7 +379,12 @@ export const tourPlayerService = {
                         last = idx;
                         validator.onStepChange();
                         const stepIdx = Math.min(idx, steps.length - 1);
-                        spotlight.setTrigger(steps[stepIdx].trigger);
+                        const stepData = steps[stepIdx];
+                        const reqVal =
+                            typeof stepData.run === "string" && stepData.run.startsWith("select:")
+                                ? stepData.run.slice(7)
+                                : null;
+                        spotlight.setTrigger(stepData.trigger, reqVal);
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
                             Math.min(idx, total),
@@ -418,7 +450,11 @@ export const tourPlayerService = {
             // Point to the first step immediately so the overlay is visible
             // before the TourPointer bubble appears. steps[0] is safe here
             // because play() returns early above when total === 0.
-            spotlight.setTrigger(steps[0].trigger);
+            const firstReqVal =
+                typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
+                    ? steps[0].run.slice(7)
+                    : null;
+            spotlight.setTrigger(steps[0].trigger, firstReqVal);
 
             await orm.call("tour.recorder", "set_progress", [tourId, 0, "in_progress"]);
             tour_service.startTour(tourKey, { mode: "manual" });

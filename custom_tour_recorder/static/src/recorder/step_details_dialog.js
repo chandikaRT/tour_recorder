@@ -84,11 +84,18 @@ export class StepDetailsDialog extends Component {
     }
 
     add() {
+        let run = this.state.run;
+        // When the user picked a specific option from the native-select picker,
+        // encode the value so playback can enforce the correct selection.
+        // Format: "select:<optionValue>"  e.g. "select:confirmed"
+        if (run === "select" && this.state.selectValue) {
+            run = `select:${this.state.selectValue}`;
+        }
         this.props.onAdd({
             title: this.state.title,
             content: this.state.content,
             position: this.state.position,
-            run: this.state.run,
+            run,
             is_check: this.state.is_check,
             validation_type: this.state.validation_type,
             validation_regex: this.state.validation_regex,
