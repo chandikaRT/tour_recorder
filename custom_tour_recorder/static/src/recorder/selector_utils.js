@@ -152,9 +152,12 @@ export function inferRun(el) {
     }
     const tag = el.tagName ? el.tagName.toLowerCase() : "";
 
-    // Native <select> is always a click interaction (opens the OS dropdown).
+    // Native <select>: the meaningful action is picking a value, not just
+    // opening the OS dropdown. We use the sentinel "select" so buildSteps()
+    // can set consumeEvent:"change" — the tour then advances only after the
+    // user has actually chosen an option, not on the initial click-to-open.
     if (tag === "select") {
-        return "click";
+        return "select";
     }
 
     // Odoo dropdown field widgets: the user clicks to open the picker, not type.

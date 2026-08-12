@@ -70,6 +70,18 @@ export class EditStepsDialog extends Component {
         ];
     }
 
+    get runCommands() {
+        return [
+            ["click", "click"],
+            ["dblclick", "dblclick"],
+            ["edit", "edit"],
+            ["select", "select (native dropdown)"],
+            ["press Enter", "press Enter"],
+            ["press Escape", "press Escape"],
+            ["press Tab", "press Tab"],
+        ];
+    }
+
     get validationTypes() {
         return VALIDATION_TYPES;
     }

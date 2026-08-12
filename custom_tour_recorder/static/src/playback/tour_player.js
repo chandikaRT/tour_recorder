@@ -46,6 +46,18 @@ export const tourPlayerService = {
                         step.consumeEvent = "click";
                     } else if (s.run === "dblclick") {
                         step.consumeEvent = "dblclick";
+                    } else if (s.run === "select" || s.run.startsWith("select:")) {
+                        // Native <select> field: the user must pick an option from
+                        // the OS dropdown. Advance only on the "change" event so the
+                        // tour waits for an actual selection, not just for the user
+                        // clicking the select to open the OS picker.
+                        // "select:value" steps additionally enforce the specific value
+                        // via the spotlight's change interceptor — the tour engine
+                        // still only cares about consumeEvent:"change".
+                        // In manual mode the engine does not auto-interact, so a
+                        // no-op run keeps the type check happy.
+                        step.consumeEvent = "change";
+                        step.run = () => {};
                     } else if (s.run === "edit") {
                         // Legacy: steps recorded as "edit" on a dropdown field
                         // widget should still advance on click. Detected by
@@ -213,8 +225,17 @@ export const tourPlayerService = {
             document.body.appendChild(div);
 
             let currentTrigger = null;
+            // When non-null, only a <select> change event with this exact value is
+            // allowed through to the tour engine.  Any other selection is silently
+            // swallowed so the step cannot advance on the wrong pick.
+            let currentRequiredValue = null;
             let rafId = null;
             let transitionTimer = null;
+            // True after a click passes through to the tour engine and before the
+            // next step's trigger is set. Blocks all further pointer events during
+            // the inter-step gap so a rapid second click cannot toggle a dropdown
+            // back closed (or otherwise undo the action the tour just consumed).
+            let stepLocked = false;
 
             function getTargetEl() {
                 if (!currentTrigger) return null;
@@ -254,22 +275,87 @@ export const tourPlayerService = {
             // before any bubbling handler fires, and cancels them when they land
             // outside the current step's target subtree.
             function onCapturingPointer(e) {
+                if (stepLocked) {
+                    // The trigger element has left the DOM (e.g. a wizard was closed
+                    // by the button click that advanced the step).  The step is done;
+                    // we are just waiting for trackProgress to poll and call
+                    // setTrigger().  Release the lock immediately so that events in
+                    // the newly-opened wizard or page are not blocked — a frozen wizard
+                    // can cause Odoo's dialog system to report a tour failure.
+                    if (!getTargetEl()) {
+                        stepLocked = false;
+                        // fall through: target is null so the guard below returns early
+                    } else {
+                        // Target still in DOM — genuine inter-step gap (e.g. a custom
+                        // dropdown that was just opened).  Keep blocking rapid clicks.
+                        e.stopImmediatePropagation();
+                        e.preventDefault();
+                        return;
+                    }
+                }
                 if (!currentTrigger) return;
                 const target = getTargetEl();
-                if (!target || !target.contains(e.target)) {
+                // Target not found: we are in a between-steps transition (e.g. a
+                // wizard is opening, a page is navigating).  Don't block anything —
+                // the spotlight has no element to protect right now, and blocking
+                // here would prevent the new wizard/page from receiving focus and
+                // initialising correctly.
+                if (!target) return;
+                if (!target.contains(e.target)) {
                     e.stopImmediatePropagation();
                     e.preventDefault();
+                    return;
+                }
+                // A click reached the target — the tour engine will consume it and
+                // advance the step.  Lock out all further events immediately so no
+                // rapid second click can undo what just happened (e.g. close a
+                // dropdown that the next step needs to be open).
+                //
+                // Exception: native <select> steps advance on "change" not "click".
+                // The click only opens the OS-rendered dropdown; locking here would
+                // prevent the user from re-opening it to try again after a wrong pick.
+                // The OS manages the dropdown state so the rapid-click issue that
+                // stepLocked guards against does not apply.
+                if (e.type === "click" && target.tagName !== "SELECT") {
+                    stepLocked = true;
+                    div.style.display = "none";
                 }
             }
             document.addEventListener("click",       onCapturingPointer, true);
             document.addEventListener("mousedown",   onCapturingPointer, true);
             document.addEventListener("pointerdown", onCapturingPointer, true);
 
+            // For "select:value" steps: block the tour engine from advancing on the
+            // wrong selection.  We intercept the change event in capture phase before
+            // the engine's own listener sees it.  The <select> value visually stays
+            // changed (we can't revert it after the fact), but the tour cannot advance
+            // until the user picks the correct option.
+            function onCapturingChange(e) {
+                if (!currentRequiredValue) return;
+                const targetEl = getTargetEl();
+                if (!targetEl) return;
+                const changed = e.target;
+                if (changed !== targetEl && !targetEl.contains(changed)) return;
+                if (changed.tagName !== "SELECT") return;
+                if (changed.value !== currentRequiredValue) {
+                    // Wrong value picked — stop the tour engine from advancing.
+                    e.stopImmediatePropagation();
+                    // The click on the <select> set stepLocked=true (rapid-click
+                    // guard). Since the tour did not advance, setTrigger() won't be
+                    // called to clear it.  Reset here so the user can re-open the
+                    // dropdown and pick the correct option.
+                    stepLocked = false;
+                }
+            }
+            document.addEventListener("change", onCapturingChange, true);
+
             rafId = requestAnimationFrame(tick);
 
             return {
-                setTrigger(trigger) {
+                setTrigger(trigger, requiredValue) {
+                    stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
+                    currentRequiredValue = requiredValue || null;
                     // Short CSS transition for the step-change animation.
                     // Removed after 300 ms so the RAF tracking loop stays lag-free
                     // during scroll / resize.
@@ -294,6 +380,7 @@ export const tourPlayerService = {
                     document.removeEventListener("click",       onCapturingPointer, true);
                     document.removeEventListener("mousedown",   onCapturingPointer, true);
                     document.removeEventListener("pointerdown", onCapturingPointer, true);
+                    document.removeEventListener("change",      onCapturingChange,  true);
                     if (div.parentNode) {
                         div.parentNode.removeChild(div);
                     }
@@ -320,7 +407,12 @@ export const tourPlayerService = {
                         last = idx;
                         validator.onStepChange();
                         const stepIdx = Math.min(idx, steps.length - 1);
-                        spotlight.setTrigger(steps[stepIdx].trigger);
+                        const stepData = steps[stepIdx];
+                        const reqVal =
+                            typeof stepData.run === "string" && stepData.run.startsWith("select:")
+                                ? stepData.run.slice(7)
+                                : null;
+                        spotlight.setTrigger(stepData.trigger, reqVal);
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
                             Math.min(idx, total),
@@ -386,7 +478,11 @@ export const tourPlayerService = {
             // Point to the first step immediately so the overlay is visible
             // before the TourPointer bubble appears. steps[0] is safe here
             // because play() returns early above when total === 0.
-            spotlight.setTrigger(steps[0].trigger);
+            const firstReqVal =
+                typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
+                    ? steps[0].run.slice(7)
+                    : null;
+            spotlight.setTrigger(steps[0].trigger, firstReqVal);
 
             await orm.call("tour.recorder", "set_progress", [tourId, 0, "in_progress"]);
             tour_service.startTour(tourKey, { mode: "manual" });
