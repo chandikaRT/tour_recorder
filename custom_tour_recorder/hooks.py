@@ -11,6 +11,68 @@ TOUR_LANGS = [
 ]
 
 
+def pre_init_hook(env):
+    """
+    Deactivate stale Odoo Studio customisations on res.users.form that
+    reference a sel_groups_* field which no longer exists on this database.
+
+    Background: Odoo auto-generates a combined selection field on res.users
+    whose name encodes the DB IDs of all groups in a given category, e.g.
+    sel_groups_146_147_225_226_234.  If any module is installed or removed
+    since a Studio customisation was saved, those IDs change and the XPath
+    in the Studio view becomes invalid.
+
+    When our module creates its res.groups records, Odoo calls
+    _update_user_groups_view() which validates ALL child views of
+    res.users.form — exposing the stale XPath as a ParseError that blocks
+    installation.  Running this hook first avoids the crash.
+    """
+    import re
+    cr = env.cr
+
+    # Find all active views on res.users that mention a sel_groups_ field.
+    cr.execute("""
+        SELECT id, arch_db
+        FROM ir_ui_view
+        WHERE active = TRUE
+          AND model = 'res.users'
+          AND arch_db::text LIKE '%%sel_groups_%%'
+    """)
+    views = cr.fetchall()
+    if not views:
+        return
+
+    # Collect sel_groups_* field names that actually exist right now.
+    cr.execute("""
+        SELECT name FROM ir_model_fields
+        WHERE model = 'res.users' AND name LIKE 'sel_groups_%%'
+    """)
+    existing = {r[0] for r in cr.fetchall()}
+
+    stale_ids = []
+    for view_id, arch in views:
+        referenced = set(re.findall(r'sel_groups_[\d_]+', arch or ''))
+        missing = referenced - existing
+        if missing:
+            stale_ids.append(view_id)
+            _logger.warning(
+                "custom_tour_recorder pre_init: deactivating ir.ui.view(%s) "
+                "— references non-existent field(s): %s",
+                view_id, missing,
+            )
+
+    if stale_ids:
+        cr.execute(
+            "UPDATE ir_ui_view SET active = FALSE WHERE id = ANY(%s)",
+            [stale_ids],
+        )
+        _logger.info(
+            "custom_tour_recorder pre_init: deactivated %d stale "
+            "res.users view(s) before group creation.",
+            len(stale_ids),
+        )
+
+
 def post_init_hook(env):
     """Activate Sinhala and Tamil so tour content can be translated into them.
 
