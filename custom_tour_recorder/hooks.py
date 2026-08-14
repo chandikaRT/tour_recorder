@@ -31,8 +31,10 @@ def pre_init_hook(env):
     cr = env.cr
 
     # Find all active views on res.users that mention a sel_groups_ field.
+    # Cast arch_db to text: in Odoo 17 translated fields are stored as jsonb
+    # and psycopg2 would deserialise them to a Python dict, breaking re.findall.
     cr.execute("""
-        SELECT id, arch_db
+        SELECT id, arch_db::text
         FROM ir_ui_view
         WHERE active = TRUE
           AND model = 'res.users'
