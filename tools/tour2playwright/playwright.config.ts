@@ -16,21 +16,22 @@ export default defineConfig({
   retries: 0,
   timeout: 120_000,
   reporter: [["list"], ["html", { outputFolder: "generated/report", open: "never" }]],
+  // NOTE: storageState is intentionally NOT set here. If it were, the `setup`
+  // project (which *creates* the state file) would inherit it and fail reading a
+  // file that doesn't exist yet on the first run. Only the `tours` project reads it.
   use: {
     baseURL,
-    storageState,
     viewport: { width: 1440, height: 900 },
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
     actionTimeout: 15_000,
   },
   projects: [
-    // 1) Log in to Odoo once and persist the session.
+    // 1) Log in to Odoo once and persist the session (runs with no stored state).
     {
       name: "setup",
       testDir: "src",
       testMatch: /auth\.setup\.mjs/,
-      use: { storageState: undefined },
     },
     // 2) The generated tour specs, reusing the saved session.
     {
@@ -38,7 +39,7 @@ export default defineConfig({
       testDir: "generated/specs",
       testMatch: /.*\.spec\.ts/,
       dependencies: ["setup"],
-      use: { ...devices["Desktop Chrome"] },
+      use: { ...devices["Desktop Chrome"], storageState },
     },
   ],
 });
