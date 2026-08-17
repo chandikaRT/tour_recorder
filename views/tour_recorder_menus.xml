@@ -3,7 +3,7 @@
 
     <menuitem id="menu_tour_recorder_root"
               name="Tour Recorder"
-              web_icon="custom_tour_recorder,static/description/icon.png"
+              web_icon="tour_recorder,static/description/icon.png"
               groups="group_tour_user"
               sequence="90"/>
 

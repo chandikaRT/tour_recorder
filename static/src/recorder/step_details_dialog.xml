@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
 
-    <t t-name="custom_tour_recorder.StepDetailsDialog">
+    <t t-name="tour_recorder.StepDetailsDialog">
         <Dialog title="'Step Details'" size="'md'" contentClass="'o_tour_recorder_dialog'">
             <div class="o_tr_step_form">
                 <div class="mb-3">

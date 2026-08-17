@@ -15,7 +15,7 @@ import { EditStepsDialog } from "./edit_steps_dialog";
  *    a panel to name and save the freshly recorded tour.
  */
 export class TourManagerDialog extends Component {
-    static template = "custom_tour_recorder.TourManagerDialog";
+    static template = "tour_recorder.TourManagerDialog";
     static components = { Dialog };
     static props = {
         recordedSteps: { type: Array, optional: true },
@@ -45,7 +45,7 @@ export class TourManagerDialog extends Component {
 
         onWillStart(async () => {
             this.state.isManager = await user.hasGroup(
-                "custom_tour_recorder.group_tour_manager"
+                "tour_recorder.group_tour_manager"
             );
             const info = await this.orm.call("tour.recorder", "get_languages", []);
             this.state.langs = info.langs || [];

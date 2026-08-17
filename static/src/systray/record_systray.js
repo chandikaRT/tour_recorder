@@ -8,7 +8,7 @@ import { useService } from "@web/core/utils/hooks";
  * Systray control (managers only) to start/cancel/save a tour recording.
  */
 export class RecordSystray extends Component {
-    static template = "custom_tour_recorder.RecordSystray";
+    static template = "tour_recorder.RecordSystray";
 
     setup() {
         this.recorder = useService("tour_recorder");
@@ -17,7 +17,7 @@ export class RecordSystray extends Component {
         const user = useService("user");
         onWillStart(async () => {
             this.ui.isManager = await user.hasGroup(
-                "custom_tour_recorder.group_tour_manager"
+                "tour_recorder.group_tour_manager"
             );
         });
     }
@@ -37,4 +37,4 @@ export class RecordSystray extends Component {
 
 registry
     .category("systray")
-    .add("custom_tour_recorder.record", { Component: RecordSystray }, { sequence: 101 });
+    .add("tour_recorder.record", { Component: RecordSystray }, { sequence: 101 });

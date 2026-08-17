@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
 
-    <t t-name="custom_tour_recorder.RecordSystray">
+    <t t-name="tour_recorder.RecordSystray">
         <div class="o_tour_recorder_systray d-flex align-items-center" t-if="ui.isManager">
             <t t-if="!state.recording">
                 <button class="btn o_tr_record_btn d-flex align-items-center"

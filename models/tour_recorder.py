@@ -38,7 +38,7 @@ class TourRecorder(models.Model):
     @api.depends()
     def _compute_tour_key(self):
         for rec in self:
-            rec.tour_key = "custom_tour_recorder_%s" % rec.id if rec.id else False
+            rec.tour_key = "tour_recorder_%s" % rec.id if rec.id else False
 
     # ------------------------------------------------------------------
     # ORM overrides: keep creator assigned and progress rows in sync
@@ -124,7 +124,7 @@ class TourRecorder(models.Model):
     @api.model
     def get_incomplete_tour_count(self):
         """Count of assigned tours not yet completed by the current user."""
-        if self.env.user.has_group("custom_tour_recorder.group_tour_manager"):
+        if self.env.user.has_group("tour_recorder.group_tour_manager"):
             tours = self.search([])
         else:
             tours = self.search([("user_ids", "in", self.env.uid)])
@@ -144,7 +144,7 @@ class TourRecorder(models.Model):
         Managers see every tour so they can manage them; regular users only
         see the guides that have been assigned to them.
         """
-        if self.env.user.has_group("custom_tour_recorder.group_tour_manager"):
+        if self.env.user.has_group("tour_recorder.group_tour_manager"):
             tours = self.search([])
         else:
             tours = self.search([("user_ids", "in", self.env.uid)])

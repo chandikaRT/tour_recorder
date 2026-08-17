@@ -9,7 +9,7 @@ import { VALIDATION_TYPES } from "../validation";
  * recording. Collects the title, tooltip, position and the "check only" flag.
  */
 export class StepDetailsDialog extends Component {
-    static template = "custom_tour_recorder.StepDetailsDialog";
+    static template = "tour_recorder.StepDetailsDialog";
     static components = { Dialog };
     static props = {
         selector: { type: String, optional: true },

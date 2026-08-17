@@ -58,7 +58,7 @@ def pre_init_hook(env):
         if missing:
             stale_ids.append(view_id)
             _logger.warning(
-                "custom_tour_recorder pre_init: deactivating ir.ui.view(%s) "
+                "tour_recorder pre_init: deactivating ir.ui.view(%s) "
                 "— references non-existent field(s): %s",
                 view_id, missing,
             )
@@ -69,7 +69,7 @@ def pre_init_hook(env):
             [stale_ids],
         )
         _logger.info(
-            "custom_tour_recorder pre_init: deactivated %d stale "
+            "tour_recorder pre_init: deactivated %d stale "
             "res.users view(s) before group creation.",
             len(stale_ids),
         )
@@ -100,9 +100,9 @@ def post_init_hook(env):
         if existing:
             if not existing.active:
                 existing.write({"active": True})
-                _logger.info("custom_tour_recorder: activated language %s", code)
+                _logger.info("tour_recorder: activated language %s", code)
             else:
-                _logger.info("custom_tour_recorder: language %s already active", code)
+                _logger.info("tour_recorder: language %s already active", code)
         else:
             Lang.create({
                 "code":          code,
@@ -113,4 +113,4 @@ def post_init_hook(env):
                 "active":        True,
                 **defaults,
             })
-            _logger.info("custom_tour_recorder: created and activated language %s", code)
+            _logger.info("tour_recorder: created and activated language %s", code)

@@ -46,8 +46,8 @@ screenshots and description.
 
 ## Install
 
-1. Copy the `custom_tour_recorder/` folder into your odoo.sh repository's addons
-   path (e.g. the repo root) and push.
+1. Clone this repo as a `tour_recorder/` folder under your odoo.sh repository's
+   addons path and push.
 2. In Odoo: **Apps → Update Apps List**, then install
    *Interactive User Guide & Tour Recorder*.
 3. Grant users the security roles (Settings → Users):

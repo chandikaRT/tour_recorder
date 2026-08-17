@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
 
-    <t t-name="custom_tour_recorder.TourManagerDialog">
+    <t t-name="tour_recorder.TourManagerDialog">
         <Dialog title="'Tour Manager'" size="'lg'" contentClass="'o_tour_recorder_dialog'">
 
             <!-- Save panel (recording flow or "New Tour") -->

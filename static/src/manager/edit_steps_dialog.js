@@ -12,7 +12,7 @@ import { VALIDATION_TYPES } from "../validation";
  * toggle "check only", then persist everything at once.
  */
 export class EditStepsDialog extends Component {
-    static template = "custom_tour_recorder.EditStepsDialog";
+    static template = "tour_recorder.EditStepsDialog";
     static components = { Dialog };
     static props = {
         tourId: { type: Number },
