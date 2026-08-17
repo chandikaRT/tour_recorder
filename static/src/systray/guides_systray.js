@@ -14,7 +14,7 @@ import { TourManagerDialog } from "../manager/tour_manager_dialog";
  * refreshed each time the user opens the Guides dialog.
  */
 export class GuidesSystray extends Component {
-    static template = "custom_tour_recorder.GuidesSystray";
+    static template = "tour_recorder.GuidesSystray";
 
     setup() {
         this.dialog = useService("dialog");
@@ -39,4 +39,4 @@ export class GuidesSystray extends Component {
 
 registry
     .category("systray")
-    .add("custom_tour_recorder.guides", { Component: GuidesSystray }, { sequence: 100 });
+    .add("tour_recorder.guides", { Component: GuidesSystray }, { sequence: 100 });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
 
-    <t t-name="custom_tour_recorder.GuidesSystray">
+    <t t-name="tour_recorder.GuidesSystray">
         <div class="o_tour_recorder_systray">
             <div class="position-relative d-inline-flex">
                 <button class="btn o_tr_guides_btn d-flex align-items-center"

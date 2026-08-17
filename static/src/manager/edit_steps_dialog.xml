@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates xml:space="preserve">
 
-    <t t-name="custom_tour_recorder.EditStepsDialog">
+    <t t-name="tour_recorder.EditStepsDialog">
         <Dialog title="dialogTitle" size="'xl'" contentClass="'o_tour_recorder_dialog'">
             <div class="d-flex align-items-center justify-content-between mb-3">
                 <span class="text-muted">Reorder · edit selectors · adjust tooltips</span>

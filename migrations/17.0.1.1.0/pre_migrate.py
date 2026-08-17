@@ -36,17 +36,17 @@ def _convert_column(cr, table, column):
     row = cr.fetchone()
     if not row:
         _logger.info(
-            "custom_tour_recorder migrate: %s.%s not found — skipping.", table, column
+            "tour_recorder migrate: %s.%s not found — skipping.", table, column
         )
         return
     if row[0] == "jsonb":
         _logger.info(
-            "custom_tour_recorder migrate: %s.%s already jsonb — skipping.", table, column
+            "tour_recorder migrate: %s.%s already jsonb — skipping.", table, column
         )
         return
 
     _logger.info(
-        "custom_tour_recorder migrate: converting %s.%s (%s → jsonb) …",
+        "tour_recorder migrate: converting %s.%s (%s → jsonb) …",
         table,
         column,
         row[0],
@@ -62,7 +62,7 @@ def _convert_column(cr, table, column):
             END
         """  # noqa: S608 — table/column are hard-coded constants, not user input
     )
-    _logger.info("custom_tour_recorder migrate: %s.%s converted.", table, column)
+    _logger.info("tour_recorder migrate: %s.%s converted.", table, column)
 
 
 def migrate(cr, version):
