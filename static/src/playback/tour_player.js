@@ -275,6 +275,13 @@ export const tourPlayerService = {
             // before any bubbling handler fires, and cancels them when they land
             // outside the current step's target subtree.
             function onCapturingPointer(e) {
+                // Programmatic (untrusted) events — e.g. an upload button calling
+                // fileInput.click() to open the native file picker, or Odoo's own
+                // internal JS dispatching synthetic clicks — must always pass through.
+                // Blocking them (especially with preventDefault) prevents the browser
+                // from opening the file dialog / upload wizard on the first user click.
+                if (!e.isTrusted) return;
+
                 if (stepLocked) {
                     // The trigger element has left the DOM (e.g. a wizard was closed
                     // by the button click that advanced the step).  The step is done;
