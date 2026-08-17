@@ -1,0 +1,7 @@
+.env
+
+# tour2playwright toolchain
+tools/tour2playwright/.env
+tools/tour2playwright/node_modules/
+tools/tour2playwright/generated/
+tools/tour2playwright/package-lock.json
