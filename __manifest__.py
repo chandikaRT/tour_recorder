@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Interactive User Guide & Tour Recorder",
-    "version": "17.0.1.1.0",
+    "version": "17.0.1.2.0",
     "summary": "Record, assign and play no-code interactive guides using Odoo's native tour engine.",
     "description": """
 Interactive User Guide & Tour Recorder

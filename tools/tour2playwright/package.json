@@ -1,0 +1,20 @@
+{
+  "name": "tour2playwright",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generate Playwright e2e tests and illustrated user manuals from Tour Recorder JSON exports.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "gen": "node src/cli.mjs generate",
+    "manual": "node src/cli.mjs manual",
+    "build": "node src/cli.mjs build",
+    "test": "playwright test",
+    "auth": "playwright test auth.setup.mjs --project=setup"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
