@@ -5,3 +5,9 @@ tools/tour2playwright/.env
 tools/tour2playwright/node_modules/
 tools/tour2playwright/generated/
 tools/tour2playwright/package-lock.json
+# Playwright default output dirs
+tools/tour2playwright/test-results/
+tools/tour2playwright/playwright-report/
+# Local tour exports dropped into the tool dir (keep them out of git)
+tools/tour2playwright/*.json
+!tools/tour2playwright/package.json
