@@ -43,6 +43,17 @@ screenshots and description.
     shared across languages — edit those in your main language).
   - Sinhala (`si_LK`) and Tamil (`ta_IN`) are activated automatically on install;
     the recorder/player UI itself is translated via `i18n/` PO files.
+- **Contextual / workflow guides** (managers): a guide can be **bound to a
+  document model, a stage condition and a role** so the right guide reaches the
+  right person on the right record. On the guide form (**Workflow Context**) set
+  **Applies To** (e.g. *Repair Order*), an optional **For Role**, and a **Trigger
+  Condition** domain (e.g. the record's current stage). The model method
+  `get_guides_for(model, res_id)` returns the guides matching a given record for
+  the current user — the foundation for surfacing a *"guide available for this
+  step"* prompt on the record. A multi-user workflow (a record passing between
+  several roles) is modelled as **one contextual guide per stage**; each fires for
+  its role when the record reaches that stage. Guides with no model set behave
+  exactly as before.
 
 ## Install
 

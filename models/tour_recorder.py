@@ -4,6 +4,7 @@ import json
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
+from odoo.tools.safe_eval import safe_eval
 
 
 class TourRecorder(models.Model):
@@ -29,6 +30,37 @@ class TourRecorder(models.Model):
 
     step_count = fields.Integer(string="Step Count", compute="_compute_step_count", store=True)
     tour_key = fields.Char(string="Tour Key", compute="_compute_tour_key")
+
+    # ------------------------------------------------------------------
+    # Workflow context binding
+    # A guide can be attached to a document model + a stage condition + a role,
+    # so the right guide can be surfaced to the right user on the right record
+    # (e.g. the "Log the repair" guide shows to a technician only while the
+    # repair order sits in the "Under Repair" stage). All optional: a guide
+    # with no model set behaves exactly as before (a free-standing guide).
+    # ------------------------------------------------------------------
+    model_id = fields.Many2one(
+        "ir.model",
+        string="Applies To",
+        ondelete="cascade",
+        help="Bind this guide to a document model (e.g. Repair Order). When set, "
+        "the guide can be offered contextually on records of this model.",
+    )
+    res_model = fields.Char(
+        string="Model Name", related="model_id.model", store=True, index=True
+    )
+    group_id = fields.Many2one(
+        "res.groups",
+        string="For Role",
+        help="Only members of this role are offered the guide contextually. "
+        "Leave empty to offer it to any assigned user.",
+    )
+    trigger_domain = fields.Char(
+        string="Trigger Condition",
+        default="[]",
+        help="Domain evaluated against the record to decide when this guide "
+        "applies (e.g. the record's stage). Empty means: any record of the model.",
+    )
 
     @api.depends("step_ids")
     def _compute_step_count(self):
@@ -115,6 +147,9 @@ class TourRecorder(models.Model):
             "name": self.name,
             "description": self.description or "",
             "step_count": self.step_count,
+            "res_model": self.res_model or "",
+            "group_id": self.group_id.id or False,
+            "group_name": self.group_id.display_name or "",
             "steps": self._serialize_steps(),
         }
 
@@ -149,6 +184,60 @@ class TourRecorder(models.Model):
         else:
             tours = self.search([("user_ids", "in", self.env.uid)])
         return [tour._tour_payload() for tour in tours]
+
+    def _parse_trigger_domain(self):
+        """Return this guide's trigger_domain as a domain list (safe)."""
+        self.ensure_one()
+        raw = (self.trigger_domain or "").strip()
+        if not raw or raw == "[]":
+            return []
+        try:
+            domain = safe_eval(raw, {"uid": self.env.uid})
+        except Exception:
+            return []
+        return domain if isinstance(domain, list) else []
+
+    def _is_eligible_for(self, user):
+        """Whether ``user`` should be offered this guide contextually."""
+        self.ensure_one()
+        if user.has_group("custom_tour_recorder.group_tour_manager"):
+            return True
+        if self.group_id:
+            return user in self.group_id.users
+        # No role restriction → fall back to the explicit assignment list.
+        return user in self.user_ids
+
+    @api.model
+    def get_guides_for(self, res_model, res_id):
+        """Guides that apply to a specific record for the current user.
+
+        A guide matches when it is bound to ``res_model``, the current user is
+        eligible (manager, in the guide's role, or assigned), and the record
+        satisfies the guide's ``trigger_domain`` (e.g. its current stage).
+        Used to surface the right guide on the right record at the right stage.
+        """
+        if not res_model or not res_id:
+            return []
+        Model = self.env.get(res_model)
+        if Model is None:
+            return []
+        guides = self.search([("res_model", "=", res_model)])
+        if not guides:
+            return []
+        user = self.env.user
+        result = []
+        for guide in guides:
+            if not guide._is_eligible_for(user):
+                continue
+            domain = [("id", "=", res_id)] + guide._parse_trigger_domain()
+            try:
+                matches = bool(Model.search_count(domain))
+            except Exception:
+                # A malformed/incompatible domain never blocks other guides.
+                matches = False
+            if matches:
+                result.append(guide._tour_payload())
+        return result
 
     @api.model
     def get_tour_for_play(self, tour_id, lang=None):
