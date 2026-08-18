@@ -40,6 +40,7 @@ This is a clean-room implementation for Odoo 17.
             "custom_tour_recorder/static/src/manager/edit_steps_dialog.js",
             "custom_tour_recorder/static/src/manager/edit_steps_dialog.xml",
             "custom_tour_recorder/static/src/playback/tour_player.js",
+            "custom_tour_recorder/static/src/surfacing/guide_prompt.js",
             "custom_tour_recorder/static/src/systray/record_systray.js",
             "custom_tour_recorder/static/src/systray/record_systray.xml",
             "custom_tour_recorder/static/src/systray/guides_systray.js",

@@ -47,13 +47,12 @@ screenshots and description.
   document model, a stage condition and a role** so the right guide reaches the
   right person on the right record. On the guide form (**Workflow Context**) set
   **Applies To** (e.g. *Repair Order*), an optional **For Role**, and a **Trigger
-  Condition** domain (e.g. the record's current stage). The model method
-  `get_guides_for(model, res_id)` returns the guides matching a given record for
-  the current user — the foundation for surfacing a *"guide available for this
-  step"* prompt on the record. A multi-user workflow (a record passing between
-  several roles) is modelled as **one contextual guide per stage**; each fires for
-  its role when the record reaches that stage. Guides with no model set behave
-  exactly as before.
+  Condition** domain (e.g. the record's current stage). When a user opens a
+  matching record, a **non-blocking prompt** (*"A guide is available for this
+  step — Show me"*) offers to play the guide right there. A multi-user workflow
+  (a record passing between several roles) is modelled as **one contextual guide
+  per stage**; each guide surfaces for its role when the record reaches that
+  stage. Guides with no model set behave exactly as before.
 
 ## Install
 
