@@ -44,6 +44,15 @@ screenshots and description.
   - Sinhala (`si_LK`) and Tamil (`ta_IN`) are activated automatically on install;
     the recorder/player UI itself is translated via `i18n/` PO files.
 
+## Generating tests & manuals from guides
+
+The [`tools/tour2playwright/`](tools/tour2playwright/) toolchain turns an exported
+guide (**Manage Tours → Action → Export Tours**) into **Playwright end-to-end tests**
+and **illustrated Markdown user manuals** (one per language). Running the generated
+tests both verifies the guide still works after an upgrade and captures a screenshot of
+every step, which the manuals embed. It's a dev/CI tool, separate from the Odoo module —
+see its [README](tools/tour2playwright/README.md) for setup and usage.
+
 ## Install
 
 1. Copy the `custom_tour_recorder/` folder into your odoo.sh repository's addons
