@@ -200,7 +200,7 @@ class TourRecorder(models.Model):
     def _is_eligible_for(self, user):
         """Whether ``user`` should be offered this guide contextually."""
         self.ensure_one()
-        if user.has_group("custom_tour_recorder.group_tour_manager"):
+        if user.has_group("tour_recorder.group_tour_manager"):
             return True
         if self.group_id:
             return user in self.group_id.users
