@@ -240,6 +240,21 @@ class TourRecorder(models.Model):
         return result
 
     @api.model
+    def get_contextual_models(self):
+        """Distinct model names that have a contextual guide for this user.
+
+        Fetched once by the frontend so it can skip the per-record
+        ``get_guides_for`` RPC on models that have no guide at all.
+        """
+        guides = self.search([("res_model", "!=", False)])
+        user = self.env.user
+        models = set()
+        for guide in guides:
+            if guide._is_eligible_for(user):
+                models.add(guide.res_model)
+        return sorted(models)
+
+    @api.model
     def get_tour_for_play(self, tour_id, lang=None):
         tour = self.browse(tour_id)
         tour.check_access_rights("read")
