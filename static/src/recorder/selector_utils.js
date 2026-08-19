@@ -27,6 +27,36 @@ function isUnique(selector) {
  */
 const VOLATILE_CLASS = /^(o_selected|o_current|active|show|focus|hover|disabled|o_dirty|o_field_invalid|d-none|collapsed|collapsing)$/;
 
+/**
+ * Purely visual / decorative tags that should never be the selector target.
+ * When the user right-clicks one of these (e.g. a Font Awesome <i> icon or
+ * a <span> label inside a button), we walk up to the nearest interactive
+ * ancestor.  Recording the icon's selector produces a spotlight the size of
+ * the icon; recording the button's selector produces a spotlight that covers
+ * the full button as the user expects.
+ */
+const DECORATIVE_TAGS = new Set([
+    "SPAN", "I", "EM", "B", "STRONG", "SMALL", "SUP", "SUB",
+    "IMG", "SVG", "PATH", "USE", "G", "CIRCLE", "RECT", "POLYGON",
+]);
+
+const INTERACTIVE_SELECTOR = [
+    "button",
+    "a",
+    "input",
+    "select",
+    "textarea",
+    "label",
+    "[role='button']",
+    "[role='link']",
+    "[role='menuitem']",
+    "[role='option']",
+    "[role='tab']",
+    "[role='checkbox']",
+    "[role='radio']",
+    "[role='switch']",
+].join(", ");
+
 function classSelector(el) {
     if (!el.classList || !el.classList.length) {
         return "";
@@ -85,6 +115,18 @@ function buildPath(el) {
 export function getCssSelector(el) {
     if (!el || el.nodeType !== 1) {
         return "";
+    }
+
+    // 0. Normalise: walk up to interactive ancestor when the right-clicked
+    //    element is a decorative inline node (icon, label span, SVG path…).
+    //    Recording button > span.oi.oi-save produces a selector for a tiny
+    //    icon; recording the button itself produces a selector for the full
+    //    interactive element, which is always what the tour should target.
+    if (DECORATIVE_TAGS.has(el.tagName)) {
+        const interactiveParent = el.closest(INTERACTIVE_SELECTOR);
+        if (interactiveParent) {
+            el = interactiveParent;
+        }
     }
 
     // 1. Semantic xmlid / hotkey — the most stable identifiers in Odoo.
