@@ -131,6 +131,29 @@ export const tourPlayerService = {
                 }
             }
 
+            /**
+             * Query for a CSS selector, preferring elements inside open dialogs.
+             *
+             * Odoo appends dialog DOMs at the END of <body>, so a plain
+             * document.querySelector() always returns background-page elements
+             * first (earlier document order). When a wizard is open, we want
+             * the match inside the dialog — search .o_dialog containers
+             * newest-first (frontmost modal wins), then fall back to the full
+             * document.
+             */
+            function queryWithDialogPriority(selector) {
+                try {
+                    const dialogs = document.querySelectorAll(".o_dialog");
+                    for (let i = dialogs.length - 1; i >= 0; i--) {
+                        const el = dialogs[i].querySelector(selector);
+                        if (el) return el;
+                    }
+                    return document.querySelector(selector);
+                } catch {
+                    return null;
+                }
+            }
+
             function resolveElement(step, target) {
                 if (!step) {
                     return null;
@@ -145,7 +168,7 @@ export const tourPlayerService = {
                             return found;
                         }
                     }
-                    return document.querySelector(step.trigger);
+                    return queryWithDialogPriority(step.trigger);
                 } catch {
                     return null;
                 }
@@ -239,11 +262,7 @@ export const tourPlayerService = {
 
             function getTargetEl() {
                 if (!currentTrigger) return null;
-                try {
-                    return document.querySelector(currentTrigger);
-                } catch {
-                    return null;
-                }
+                return queryWithDialogPriority(currentTrigger);
             }
 
             function updatePosition() {

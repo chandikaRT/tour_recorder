@@ -24,11 +24,48 @@ export const tourRecorderService = {
 
         let contextHandler = null;
 
+        /**
+         * Resolve the actual intended target for a right-click event.
+         *
+         * ev.target is set by the browser's pointer-events hit-test, which
+         * skips elements with `pointer-events: none`. Custom wizards sometimes
+         * apply pointer-events: none to their container (or an ancestor), so
+         * the event falls through to a background element — not the wizard
+         * button the user visually clicked.
+         *
+         * document.elementsFromPoint() returns every element at the cursor in
+         * paint order (topmost layer first), ignoring pointer-events. Taking
+         * the first non-backdrop, non-recorder element gives us what the user
+         * actually intended to click regardless of pointer-event CSS.
+         */
+        function resolveTarget(ev) {
+            if (!document.elementsFromPoint) {
+                return ev.target;
+            }
+            const candidates = document.elementsFromPoint(ev.clientX, ev.clientY);
+            for (const el of candidates) {
+                if (
+                    el === document.documentElement ||
+                    el === document.body ||
+                    el.classList.contains("modal-backdrop") ||
+                    el.closest(".o_tour_recorder_dialog") ||
+                    el.closest(".o_tour_recorder_systray")
+                ) {
+                    continue;
+                }
+                return el;
+            }
+            return ev.target;
+        }
+
         function onContextMenu(ev) {
             if (!state.recording) {
                 return;
             }
-            const target = ev.target;
+            // Use paint-order hit-testing so clicks on custom wizard buttons
+            // are captured even when pointer-events: none causes ev.target to
+            // land on a background element instead.
+            const target = resolveTarget(ev);
             // Ignore right-clicks inside our own recorder dialogs / systray
             // controls, but allow recording on any other Odoo popup/dialog.
             if (
