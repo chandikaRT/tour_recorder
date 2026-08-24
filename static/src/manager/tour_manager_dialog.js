@@ -112,6 +112,12 @@ export class TourManagerDialog extends Component {
         this.player.play(tour.id, this.state.playLang);
     }
 
+    challenge(tour) {
+        // Replay from memory with all hints hidden; scores comprehension.
+        this.props.close();
+        this.player.play(tour.id, this.state.playLang, { challenge: true });
+    }
+
     editSteps(tour) {
         this.dialog.add(EditStepsDialog, {
             tourId: tour.id,

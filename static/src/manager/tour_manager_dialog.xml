@@ -71,15 +71,35 @@
                 </thead>
                 <tbody>
                     <tr t-foreach="state.tours" t-as="tour" t-key="tour.id">
-                        <td class="fw-bold" t-esc="tour.name"/>
+                        <td class="fw-bold">
+                            <span t-esc="tour.name"/>
+                            <span t-if="tour.verified" class="badge text-bg-success ms-1"
+                                  title="You passed the challenge for this guide">
+                                <i class="fa fa-check me-1"/>Verified
+                            </span>
+                            <span t-elif="tour.verification_required"
+                                  class="badge text-bg-light text-muted ms-1"
+                                  title="Pass the challenge to verify you understood this guide">
+                                Not verified
+                            </span>
+                            <span t-if="tour.best_score" class="small text-muted ms-1"
+                                  title="Your best challenge score">
+                                (best <t t-esc="Math.round(tour.best_score)"/>%)
+                            </span>
+                        </td>
                         <td class="text-muted" t-esc="tour.description"/>
                         <td class="text-center">
                             <span class="badge text-bg-secondary" t-esc="tour.step_count"/>
                         </td>
                         <td class="text-end text-nowrap">
                             <button class="btn btn-sm btn-success" t-on-click="() => this.play(tour)"
-                                    title="Play tour">
+                                    title="Play tour (guided, with hints)">
                                 <i class="fa fa-play"/>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary ms-1"
+                                    t-on-click="() => this.challenge(tour)"
+                                    title="Test me — replay from memory with hints hidden">
+                                <i class="fa fa-graduation-cap me-1"/>Test me
                             </button>
                             <button class="btn btn-sm btn-primary ms-1" t-if="state.isManager"
                                     t-on-click="() => this.editSteps(tour)" title="Edit steps">

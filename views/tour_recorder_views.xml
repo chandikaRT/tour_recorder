@@ -27,6 +27,8 @@
                         <field name="user_ids" widget="many2many_tags"
                                options="{'no_create': True}"
                                help="Only the assigned users will see this guide in their 'Guides' list."/>
+                        <field name="verification_required"
+                               help="Require users to pass the Challenge (replay from memory, hints hidden) before this guide counts as done."/>
                         <field name="tour_key" invisible="1"/>
                         <field name="active" invisible="1"/>
                     </group>
@@ -67,6 +69,10 @@
                                            decoration-info="status == 'not_started'"
                                            decoration-warning="status == 'in_progress'"
                                            decoration-success="status == 'completed'"/>
+                                    <field name="best_score" string="Best Score (%)" optional="show"/>
+                                    <field name="challenge_attempts" string="Attempts" optional="show"/>
+                                    <field name="verified" widget="boolean_toggle" readonly="1"
+                                           string="Verified" optional="show"/>
                                     <field name="last_update" string="Last Update"/>
                                 </tree>
                             </field>

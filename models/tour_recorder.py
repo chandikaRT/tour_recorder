@@ -61,6 +61,13 @@ class TourRecorder(models.Model):
         help="Domain evaluated against the record to decide when this guide "
         "applies (e.g. the record's stage). Empty means: any record of the model.",
     )
+    verification_required = fields.Boolean(
+        string="Verification Required",
+        default=False,
+        help="When enabled, the guide is only considered done once the user "
+        "passes its Challenge (replays it from memory with hints hidden and "
+        "scores at or above the pass threshold).",
+    )
 
     @api.depends("step_ids")
     def _compute_step_count(self):
@@ -141,6 +148,7 @@ class TourRecorder(models.Model):
 
     def _tour_payload(self):
         self.ensure_one()
+        my_progress = self.progress_ids.filtered(lambda p: p.user_id.id == self.env.uid)[:1]
         return {
             "id": self.id,
             "tour_key": self.tour_key,
@@ -150,6 +158,9 @@ class TourRecorder(models.Model):
             "res_model": self.res_model or "",
             "group_id": self.group_id.id or False,
             "group_name": self.group_id.display_name or "",
+            "verification_required": self.verification_required,
+            "verified": bool(my_progress.verified),
+            "best_score": my_progress.best_score or 0.0,
             "steps": self._serialize_steps(),
         }
 
@@ -165,12 +176,22 @@ class TourRecorder(models.Model):
             tours = self.search([("user_ids", "in", self.env.uid)])
         if not tours:
             return 0
-        completed_ids = self.env["tour.recorder.progress"].search([
+        progresses = self.env["tour.recorder.progress"].search([
             ("tour_id", "in", tours.ids),
             ("user_id", "=", self.env.uid),
-            ("status", "=", "completed"),
-        ]).mapped("tour_id").ids
-        return len(tours) - len(set(completed_ids) & set(tours.ids))
+        ])
+        by_tour = {p.tour_id.id: p for p in progresses}
+        incomplete = 0
+        for tour in tours:
+            prog = by_tour.get(tour.id)
+            if tour.verification_required:
+                # Only counts as done once the challenge is passed.
+                done = bool(prog and prog.verified)
+            else:
+                done = bool(prog and prog.status == "completed")
+            if not done:
+                incomplete += 1
+        return incomplete
 
     @api.model
     def get_my_tours(self):
@@ -331,6 +352,53 @@ class TourRecorder(models.Model):
             vals.update({"tour_id": tour_id, "user_id": self.env.uid})
             Progress.create(vals)
         return True
+
+    # Default pass mark for the comprehension challenge (percent, first-try
+    # accuracy). Overridable via ir.config_parameter "tour_recorder.challenge_pass_threshold".
+    CHALLENGE_PASS_THRESHOLD = 80.0
+
+    def _challenge_pass_threshold(self):
+        param = self.env["ir.config_parameter"].sudo().get_param(
+            "tour_recorder.challenge_pass_threshold"
+        )
+        try:
+            return float(param) if param not in (None, "") else self.CHALLENGE_PASS_THRESHOLD
+        except (TypeError, ValueError):
+            return self.CHALLENGE_PASS_THRESHOLD
+
+    @api.model
+    def set_challenge_result(self, tour_id, accuracy, mistakes, total):
+        """Record a challenge (comprehension) result for the current user.
+
+        `accuracy` is the client-computed first-try percentage. Pass/fail is
+        decided **server-side** against the threshold so the client cannot
+        declare itself verified. Writes go through sudo() because the value is a
+        graded result, not free user data. Returns the outcome for the UI.
+        """
+        try:
+            accuracy = max(0.0, min(100.0, float(accuracy)))
+        except (TypeError, ValueError):
+            accuracy = 0.0
+        threshold = self._challenge_pass_threshold()
+        passed = accuracy >= threshold
+
+        Progress = self.env["tour.recorder.progress"].sudo()
+        progress = Progress.search(
+            [("tour_id", "=", tour_id), ("user_id", "=", self.env.uid)], limit=1
+        )
+        if not progress:
+            progress = Progress.create({"tour_id": tour_id, "user_id": self.env.uid})
+        vals = {
+            "last_score": accuracy,
+            "best_score": max(progress.best_score or 0.0, accuracy),
+            "challenge_attempts": (progress.challenge_attempts or 0) + 1,
+            "last_update": fields.Datetime.now(),
+        }
+        if passed and not progress.verified:
+            vals["verified"] = True
+            vals["verified_date"] = fields.Datetime.now()
+        progress.write(vals)
+        return {"passed": passed, "accuracy": accuracy, "threshold": threshold}
 
     # ------------------------------------------------------------------
     # Import / Export

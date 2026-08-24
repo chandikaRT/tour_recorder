@@ -23,13 +23,15 @@ import { isValid, validationMessage } from "../validation";
 const CONSUME_EVENT = "tr_validated";
 
 export const tourPlayerService = {
-    dependencies: ["orm", "tour_service"],
-    start(env, { orm, tour_service }) {
-        function buildSteps(steps) {
+    dependencies: ["orm", "tour_service", "notification"],
+    start(env, { orm, tour_service, notification }) {
+        function buildSteps(steps, { challenge = false } = {}) {
             return steps.map((s) => {
                 const step = {
                     trigger: s.trigger,
-                    content: s.content,
+                    // Challenge mode hides all hints: no tooltip text (the location
+                    // pointer is hidden via injected CSS in createChallenge).
+                    content: challenge ? "" : s.content,
                     position: s.position || "bottom",
                 };
                 if (s.is_check) {
@@ -417,7 +419,127 @@ export const tourPlayerService = {
             };
         }
 
-        function trackProgress(tourId, tourKey, total, validator, spotlight, steps) {
+        // ---------------------------------------------------------------
+        // Challenge-mode controller
+        //
+        // Replaces the spotlight in "challenge" playback. It hides every hint
+        // (tooltip text is already blanked in buildSteps; here we hide the
+        // web_tour location pointer via injected CSS) so the user must find and
+        // act on each element from memory. A capture-phase listener counts wrong
+        // clicks/changes per step (interactions that miss the current step's
+        // trigger), WITHOUT blocking them — making mistakes is the whole point.
+        // A small HUD shows progress + mistake count, and score() computes the
+        // first-try accuracy used to decide pass/fail.
+        // ---------------------------------------------------------------
+        function createChallenge(steps, tourKey) {
+            // Hide the native tour pointer/bubble (the "where" hint).
+            const style = document.createElement("style");
+            style.textContent =
+                ".o_tour_pointer, .o_tour_pointer_content { display: none !important; }";
+            document.head.appendChild(style);
+
+            const hud = document.createElement("div");
+            hud.className = "o_tr_challenge_hud";
+            document.body.appendChild(hud);
+
+            const interactiveTotal = steps.filter((s) => !s.is_check).length;
+            const wrong = new Array(steps.length).fill(0);
+
+            function currentIndex() {
+                try {
+                    return tourState.get(tourKey, "currentIndex") || 0;
+                } catch {
+                    return 0;
+                }
+            }
+
+            function targetEl() {
+                const step = steps[currentIndex()];
+                if (!step) {
+                    return null;
+                }
+                try {
+                    return queryWithDialogPriority(step.trigger);
+                } catch {
+                    return null;
+                }
+            }
+
+            function totalMistakes() {
+                return wrong.reduce((a, b) => a + b, 0);
+            }
+
+            function renderHud() {
+                const idx = Math.min(currentIndex() + 1, steps.length);
+                hud.textContent = `Challenge — Step ${idx} of ${steps.length} · Mistakes: ${totalMistakes()}`;
+            }
+            renderHud();
+
+            function flashMiss() {
+                hud.classList.add("o_tr_challenge_miss");
+                setTimeout(() => hud.classList.remove("o_tr_challenge_miss"), 400);
+            }
+
+            // Count a miss when a real click/change lands outside the current
+            // step's trigger. Never preventDefault/stop — let the user roam.
+            function onPointer(e) {
+                if (!e.isTrusted) {
+                    return;
+                }
+                const idx = currentIndex();
+                const step = steps[idx];
+                if (!step) {
+                    return;
+                }
+                const target = targetEl();
+                // Between steps / target not yet in DOM: don't penalize.
+                if (!target) {
+                    return;
+                }
+                if (target !== e.target && !target.contains(e.target)) {
+                    wrong[idx] = (wrong[idx] || 0) + 1;
+                    renderHud();
+                    flashMiss();
+                }
+            }
+            document.addEventListener("click", onPointer, true);
+            document.addEventListener("change", onPointer, true);
+
+            return {
+                // Called by trackProgress on each step change (keeps HUD fresh).
+                onStepChange() {
+                    renderHud();
+                },
+                // First-try accuracy over interactive steps + total mistakes.
+                score() {
+                    let firstTry = 0;
+                    steps.forEach((s, i) => {
+                        if (s.is_check) {
+                            return;
+                        }
+                        if ((wrong[i] || 0) === 0) {
+                            firstTry += 1;
+                        }
+                    });
+                    const accuracy = interactiveTotal
+                        ? Math.round((firstTry / interactiveTotal) * 100)
+                        : 100;
+                    return { accuracy, mistakes: totalMistakes(), total: interactiveTotal };
+                },
+                destroy() {
+                    document.removeEventListener("click", onPointer, true);
+                    document.removeEventListener("change", onPointer, true);
+                    if (style.parentNode) {
+                        style.parentNode.removeChild(style);
+                    }
+                    if (hud.parentNode) {
+                        hud.parentNode.removeChild(hud);
+                    }
+                },
+            };
+        }
+
+        function trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge) {
             let last = 0;
             let sawActive = false;
             const interval = setInterval(async () => {
@@ -437,11 +559,16 @@ export const tourPlayerService = {
                         validator.onStepChange();
                         const stepIdx = Math.min(idx, steps.length - 1);
                         const stepData = steps[stepIdx];
-                        const reqVal =
-                            typeof stepData.run === "string" && stepData.run.startsWith("select:")
-                                ? stepData.run.slice(7)
-                                : null;
-                        spotlight.setTrigger(stepData.trigger, reqVal);
+                        if (challenge) {
+                            challenge.onStepChange();
+                        } else {
+                            const reqVal =
+                                typeof stepData.run === "string" &&
+                                stepData.run.startsWith("select:")
+                                    ? stepData.run.slice(7)
+                                    : null;
+                            spotlight.setTrigger(stepData.trigger, reqVal);
+                        }
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
                             Math.min(idx, total),
@@ -455,13 +582,40 @@ export const tourPlayerService = {
                     // stopped by the user.
                     clearInterval(interval);
                     validator.teardown();
-                    spotlight.destroy();
                     const completed = last >= total - 1;
-                    await orm.call("tour.recorder", "set_progress", [
-                        tourId,
-                        completed ? total : last,
-                        completed ? "completed" : "in_progress",
-                    ]);
+                    if (challenge) {
+                        // Record the comprehension result (pass/fail decided
+                        // server-side from the accuracy + threshold).
+                        const { accuracy, mistakes, total: interactive } = challenge.score();
+                        challenge.destroy();
+                        if (completed) {
+                            const res = await orm.call("tour.recorder", "set_challenge_result", [
+                                tourId,
+                                accuracy,
+                                mistakes,
+                                interactive,
+                            ]);
+                            if (res && res.passed) {
+                                notification.add(
+                                    `Challenge passed — ${accuracy}% (${mistakes} mistake(s)). Verified!`,
+                                    { type: "success" }
+                                );
+                            } else {
+                                const threshold = res ? res.threshold : 80;
+                                notification.add(
+                                    `Challenge scored ${accuracy}% — ${threshold}% needed to verify. Try again!`,
+                                    { type: "warning" }
+                                );
+                            }
+                        }
+                    } else {
+                        spotlight.destroy();
+                        await orm.call("tour.recorder", "set_progress", [
+                            tourId,
+                            completed ? total : last,
+                            completed ? "completed" : "in_progress",
+                        ]);
+                    }
                 }
             }, 800);
 
@@ -471,12 +625,17 @@ export const tourPlayerService = {
             setTimeout(() => {
                 clearInterval(interval);
                 validator.teardown();
-                spotlight.destroy();
+                if (challenge) {
+                    challenge.destroy();
+                } else {
+                    spotlight.destroy();
+                }
                 tourState.clear(tourKey);
             }, 1000 * 60 * 30);
         }
 
-        async function play(tourId, lang = null) {
+        async function play(tourId, lang = null, options = {}) {
+            const challengeMode = !!options.challenge;
             const tour = await orm.call("tour.recorder", "get_tour_for_play", [tourId, lang]);
             const tourKey = tour.tour_key;
             const steps = tour.steps || [];
@@ -497,25 +656,32 @@ export const tourPlayerService = {
             registry.category("web_tour.tours").add(
                 tourKey,
                 {
-                    steps: () => buildSteps(steps),
+                    steps: () => buildSteps(steps, { challenge: challengeMode }),
                 },
                 { force: true }
             );
 
             const validator = createValidator(steps, tourKey);
-            const spotlight = createSpotlight();
-            // Point to the first step immediately so the overlay is visible
-            // before the TourPointer bubble appears. steps[0] is safe here
-            // because play() returns early above when total === 0.
-            const firstReqVal =
-                typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
-                    ? steps[0].run.slice(7)
-                    : null;
-            spotlight.setTrigger(steps[0].trigger, firstReqVal);
+            let spotlight = null;
+            let challenge = null;
+            if (challengeMode) {
+                // No spotlight/pointer: the user must find each element unaided.
+                challenge = createChallenge(steps, tourKey);
+            } else {
+                spotlight = createSpotlight();
+                // Point to the first step immediately so the overlay is visible
+                // before the TourPointer bubble appears. steps[0] is safe here
+                // because play() returns early above when total === 0.
+                const firstReqVal =
+                    typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
+                        ? steps[0].run.slice(7)
+                        : null;
+                spotlight.setTrigger(steps[0].trigger, firstReqVal);
+            }
 
             await orm.call("tour.recorder", "set_progress", [tourId, 0, "in_progress"]);
             tour_service.startTour(tourKey, { mode: "manual" });
-            trackProgress(tourId, tourKey, total, validator, spotlight, steps);
+            trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge);
         }
 
         return { play };
