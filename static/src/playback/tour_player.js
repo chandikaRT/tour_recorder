@@ -2,6 +2,7 @@
 
 import { registry } from "@web/core/registry";
 import { tourState } from "@web_tour/tour_service/tour_state";
+import { TourPointer } from "@web_tour/tour_pointer/tour_pointer";
 import { isValid, validationMessage } from "../validation";
 
 /**
@@ -23,8 +24,8 @@ import { isValid, validationMessage } from "../validation";
 const CONSUME_EVENT = "tr_validated";
 
 export const tourPlayerService = {
-    dependencies: ["orm", "tour_service", "notification"],
-    start(env, { orm, tour_service, notification }) {
+    dependencies: ["orm", "tour_service", "notification", "overlay"],
+    start(env, { orm, tour_service, notification, overlay }) {
         function buildSteps(steps, { challenge = false } = {}) {
             return steps.map((s) => {
                 const step = {
@@ -741,14 +742,33 @@ export const tourPlayerService = {
             //      and persists partial progress (guided: "in_progress" at the
             //      last seen step; challenge: no score written since completed=false).
             const stopBtn = createStopButton(() => {
-                // Immediate visual teardown — destroy() calls are idempotent so
-                // the trackProgress cleanup path can safely call them again.
+                // 1. Immediate teardown of our own overlays (spotlight / HUD).
+                //    destroy() is idempotent — the trackProgress cleanup path
+                //    can call them again safely.
                 if (challenge) {
                     challenge.destroy();
                 } else if (spotlight) {
                     spotlight.destroy();
                 }
+
+                // 2. Remove Odoo's native TourPointer Owl component.
+                //    Odoo 17 has no public API to stop a running tour — the
+                //    macro engine and runningTours Set are private to tour_service.
+                //    We reach into the overlay service (which IS injectable) and
+                //    remove any TourPointer entry directly.  The component
+                //    unmounts immediately; subsequent pointer.pointTo() calls by
+                //    the still-running macro update reactive state that has no
+                //    subscriber, so nothing re-renders.
+                for (const ov of Object.values(overlay.overlays)) {
+                    if (ov.component === TourPointer) {
+                        ov.remove();
+                    }
+                }
+
+                // 3. Clear localStorage — prevents the tour from resuming on
+                //    the next page navigation / browser refresh.
                 tourState.clear(tourKey);
+
                 notification.add("Tour stopped.", { type: "info" });
             });
 
