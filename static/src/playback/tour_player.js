@@ -542,6 +542,14 @@ export const tourPlayerService = {
         function trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge) {
             let last = 0;
             let sawActive = false;
+            // The last step that actually requires user interaction (non-check steps
+            // auto-advance in Odoo 17 manual mode and may fire faster than the 800ms
+            // poll).  Using this index instead of (total - 1) prevents a false
+            // "incomplete" reading when the tour ends with one or more check steps.
+            const lastInteractiveIdx = steps.reduce(
+                (acc, s, i) => (!s.is_check ? i : acc),
+                total - 1 // fallback: treat last step as interactive if all are checks
+            );
             const interval = setInterval(async () => {
                 const activeNames = tourState.getActiveTourNames
                     ? tourState.getActiveTourNames()
@@ -579,10 +587,22 @@ export const tourPlayerService = {
                     validator.checkCurrent();
                 } else if (sawActive) {
                     // The tour left the active set: it either completed or was
-                    // stopped by the user.
+                    // stopped by the user.  Make one last synchronous read of
+                    // currentIndex — if Odoo hasn't cleared localStorage yet we
+                    // may catch an index that the 800ms poll missed.
+                    try {
+                        const finalIdx = tourState.get(tourKey, "currentIndex") || 0;
+                        if (finalIdx > last) {
+                            last = finalIdx;
+                        }
+                    } catch {}
                     clearInterval(interval);
                     validator.teardown();
-                    const completed = last >= total - 1;
+                    // A tour is "completed" when the user reached the last step that
+                    // requires an action.  Trailing check steps (run: () => {}) auto-
+                    // advance without user input and can exit the active set before the
+                    // next 800ms poll — so we gate on lastInteractiveIdx, not total-1.
+                    const completed = last >= lastInteractiveIdx;
                     if (challenge) {
                         // Record the comprehension result (pass/fail decided
                         // server-side from the accuracy + threshold).
