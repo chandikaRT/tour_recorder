@@ -305,6 +305,9 @@ export const tourPlayerService = {
                 // Blocking them (especially with preventDefault) prevents the browser
                 // from opening the file dialog / upload wizard on the first user click.
                 if (!e.isTrusted) return;
+                // The stop-tour button must always pass through regardless of step
+                // state — the spotlight must never trap the user with no exit.
+                if (e.target && e.target.closest && e.target.closest(".o_tr_stop_btn")) return;
 
                 if (stepLocked) {
                     // The trigger element has left the DOM (e.g. a wizard was closed
@@ -486,6 +489,8 @@ export const tourPlayerService = {
                 if (!e.isTrusted) {
                     return;
                 }
+                // Never penalise a click on the stop button — it's not a "wrong" answer.
+                if (e.target && e.target.closest && e.target.closest(".o_tr_stop_btn")) return;
                 const idx = currentIndex();
                 const step = steps[idx];
                 if (!step) {
@@ -539,7 +544,35 @@ export const tourPlayerService = {
             };
         }
 
-        function trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge) {
+        // ---------------------------------------------------------------
+        // Stop button
+        //
+        // A persistent "✕ Stop" pill in the bottom-right corner that the user
+        // can click at any time to abandon a guided play or a challenge run.
+        // The spotlight's capture-phase blocker and the challenge's miss
+        // detector both have explicit exemptions for this element so the button
+        // is always reachable regardless of step state.
+        //
+        // onStop() is called synchronously on click (before the button is
+        // removed from the DOM) so callers can do immediate teardown.
+        // ---------------------------------------------------------------
+        function createStopButton(onStop) {
+            const btn = document.createElement("button");
+            btn.className = "o_tr_stop_btn";
+            btn.setAttribute("type", "button");
+            btn.textContent = "✕ Stop";   // ✕ Stop
+            document.body.appendChild(btn);
+            btn.addEventListener("click", () => {
+                destroy();
+                onStop();
+            });
+            function destroy() {
+                if (btn.parentNode) btn.parentNode.removeChild(btn);
+            }
+            return { destroy };
+        }
+
+        function trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge, onCleanup) {
             let last = 0;
             let sawActive = false;
             // The last step that actually requires user interaction (non-check steps
@@ -636,6 +669,7 @@ export const tourPlayerService = {
                             completed ? "completed" : "in_progress",
                         ]);
                     }
+                    if (onCleanup) onCleanup();
                 }
             }, 800);
 
@@ -651,6 +685,7 @@ export const tourPlayerService = {
                     spotlight.destroy();
                 }
                 tourState.clear(tourKey);
+                if (onCleanup) onCleanup();
             }, 1000 * 60 * 30);
         }
 
@@ -699,9 +734,29 @@ export const tourPlayerService = {
                 spotlight.setTrigger(steps[0].trigger, firstReqVal);
             }
 
+            // Stop button — always visible during play/challenge so the user
+            // can abandon at any point.  Clicking it:
+            //   1. Immediately removes the overlay (spotlight / challenge HUD).
+            //   2. Clears tour state so the poll's next tick detects completion
+            //      and persists partial progress (guided: "in_progress" at the
+            //      last seen step; challenge: no score written since completed=false).
+            const stopBtn = createStopButton(() => {
+                // Immediate visual teardown — destroy() calls are idempotent so
+                // the trackProgress cleanup path can safely call them again.
+                if (challenge) {
+                    challenge.destroy();
+                } else if (spotlight) {
+                    spotlight.destroy();
+                }
+                tourState.clear(tourKey);
+                notification.add("Tour stopped.", { type: "info" });
+            });
+
             await orm.call("tour.recorder", "set_progress", [tourId, 0, "in_progress"]);
             tour_service.startTour(tourKey, { mode: "manual" });
-            trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge);
+            trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge, () => {
+                stopBtn.destroy();
+            });
         }
 
         return { play };
