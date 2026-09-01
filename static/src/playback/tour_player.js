@@ -70,8 +70,21 @@ export const tourPlayerService = {
                         );
                         if (isDropdown) {
                             step.consumeEvent = "click";
+                        } else if (
+                            /contenteditable|\bodoo-editor-editable\b|\.note-editable\b|o_field_html/.test(
+                                s.trigger || ""
+                            )
+                        ) {
+                            // Contenteditable / rich-text editors do not fire "change".
+                            // "blur" fires once when focus leaves the element.
+                            step.consumeEvent = "blur";
+                        } else {
+                            // Regular <input> / <textarea>: advance only when the
+                            // user finishes typing AND moves focus away, not on every
+                            // keystroke (the "input" event default would advance
+                            // the tour after the first character typed).
+                            step.consumeEvent = "change";
                         }
-                        // Plain text inputs keep the default "input" consumeEvent.
                     }
                 }
                 if (s.validation_type && s.validation_type !== "none") {
