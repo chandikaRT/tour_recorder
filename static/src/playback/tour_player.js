@@ -2,6 +2,7 @@
 
 import { registry } from "@web/core/registry";
 import { tourState } from "@web_tour/tour_service/tour_state";
+import { TourPointer } from "@web_tour/tour_pointer/tour_pointer";
 import { isValid, validationMessage } from "../validation";
 
 /**
@@ -23,13 +24,15 @@ import { isValid, validationMessage } from "../validation";
 const CONSUME_EVENT = "tr_validated";
 
 export const tourPlayerService = {
-    dependencies: ["orm", "tour_service"],
-    start(env, { orm, tour_service }) {
-        function buildSteps(steps) {
+    dependencies: ["orm", "tour_service", "notification", "overlay"],
+    start(env, { orm, tour_service, notification, overlay }) {
+        function buildSteps(steps, { challenge = false } = {}) {
             return steps.map((s) => {
                 const step = {
                     trigger: s.trigger,
-                    content: s.content,
+                    // Challenge mode hides all hints: no tooltip text (the location
+                    // pointer is hidden via injected CSS in createChallenge).
+                    content: challenge ? "" : s.content,
                     position: s.position || "bottom",
                 };
                 if (s.is_check) {
@@ -67,8 +70,21 @@ export const tourPlayerService = {
                         );
                         if (isDropdown) {
                             step.consumeEvent = "click";
+                        } else if (
+                            /contenteditable|\bodoo-editor-editable\b|\.note-editable\b|o_field_html/.test(
+                                s.trigger || ""
+                            )
+                        ) {
+                            // Contenteditable / rich-text editors do not fire "change".
+                            // "blur" fires once when focus leaves the element.
+                            step.consumeEvent = "blur";
+                        } else {
+                            // Regular <input> / <textarea>: advance only when the
+                            // user finishes typing AND moves focus away, not on every
+                            // keystroke (the "input" event default would advance
+                            // the tour after the first character typed).
+                            step.consumeEvent = "change";
                         }
-                        // Plain text inputs keep the default "input" consumeEvent.
                     }
                 }
                 if (s.validation_type && s.validation_type !== "none") {
@@ -303,6 +319,9 @@ export const tourPlayerService = {
                 // Blocking them (especially with preventDefault) prevents the browser
                 // from opening the file dialog / upload wizard on the first user click.
                 if (!e.isTrusted) return;
+                // The stop-tour button must always pass through regardless of step
+                // state — the spotlight must never trap the user with no exit.
+                if (e.target && e.target.closest && e.target.closest(".o_tr_stop_btn")) return;
 
                 if (stepLocked) {
                     // The trigger element has left the DOM (e.g. a wizard was closed
@@ -417,9 +436,167 @@ export const tourPlayerService = {
             };
         }
 
-        function trackProgress(tourId, tourKey, total, validator, spotlight, steps) {
+        // ---------------------------------------------------------------
+        // Challenge-mode controller
+        //
+        // Replaces the spotlight in "challenge" playback. It hides every hint
+        // (tooltip text is already blanked in buildSteps; here we hide the
+        // web_tour location pointer via injected CSS) so the user must find and
+        // act on each element from memory. A capture-phase listener counts wrong
+        // clicks/changes per step (interactions that miss the current step's
+        // trigger), WITHOUT blocking them — making mistakes is the whole point.
+        // A small HUD shows progress + mistake count, and score() computes the
+        // first-try accuracy used to decide pass/fail.
+        // ---------------------------------------------------------------
+        function createChallenge(steps, tourKey) {
+            // Hide the native tour pointer/bubble (the "where" hint).
+            const style = document.createElement("style");
+            style.textContent =
+                ".o_tour_pointer, .o_tour_pointer_content { display: none !important; }";
+            document.head.appendChild(style);
+
+            const hud = document.createElement("div");
+            hud.className = "o_tr_challenge_hud";
+            document.body.appendChild(hud);
+
+            const interactiveTotal = steps.filter((s) => !s.is_check).length;
+            const wrong = new Array(steps.length).fill(0);
+
+            function currentIndex() {
+                try {
+                    return tourState.get(tourKey, "currentIndex") || 0;
+                } catch {
+                    return 0;
+                }
+            }
+
+            function targetEl() {
+                const step = steps[currentIndex()];
+                if (!step) {
+                    return null;
+                }
+                try {
+                    return queryWithDialogPriority(step.trigger);
+                } catch {
+                    return null;
+                }
+            }
+
+            function totalMistakes() {
+                return wrong.reduce((a, b) => a + b, 0);
+            }
+
+            function renderHud() {
+                const idx = Math.min(currentIndex() + 1, steps.length);
+                hud.textContent = `Challenge — Step ${idx} of ${steps.length} · Mistakes: ${totalMistakes()}`;
+            }
+            renderHud();
+
+            function flashMiss() {
+                hud.classList.add("o_tr_challenge_miss");
+                setTimeout(() => hud.classList.remove("o_tr_challenge_miss"), 400);
+            }
+
+            // Count a miss when a real click/change lands outside the current
+            // step's trigger. Never preventDefault/stop — let the user roam.
+            function onPointer(e) {
+                if (!e.isTrusted) {
+                    return;
+                }
+                // Never penalise a click on the stop button — it's not a "wrong" answer.
+                if (e.target && e.target.closest && e.target.closest(".o_tr_stop_btn")) return;
+                const idx = currentIndex();
+                const step = steps[idx];
+                if (!step) {
+                    return;
+                }
+                const target = targetEl();
+                // Between steps / target not yet in DOM: don't penalize.
+                if (!target) {
+                    return;
+                }
+                if (target !== e.target && !target.contains(e.target)) {
+                    wrong[idx] = (wrong[idx] || 0) + 1;
+                    renderHud();
+                    flashMiss();
+                }
+            }
+            document.addEventListener("click", onPointer, true);
+            document.addEventListener("change", onPointer, true);
+
+            return {
+                // Called by trackProgress on each step change (keeps HUD fresh).
+                onStepChange() {
+                    renderHud();
+                },
+                // First-try accuracy over interactive steps + total mistakes.
+                score() {
+                    let firstTry = 0;
+                    steps.forEach((s, i) => {
+                        if (s.is_check) {
+                            return;
+                        }
+                        if ((wrong[i] || 0) === 0) {
+                            firstTry += 1;
+                        }
+                    });
+                    const accuracy = interactiveTotal
+                        ? Math.round((firstTry / interactiveTotal) * 100)
+                        : 100;
+                    return { accuracy, mistakes: totalMistakes(), total: interactiveTotal };
+                },
+                destroy() {
+                    document.removeEventListener("click", onPointer, true);
+                    document.removeEventListener("change", onPointer, true);
+                    if (style.parentNode) {
+                        style.parentNode.removeChild(style);
+                    }
+                    if (hud.parentNode) {
+                        hud.parentNode.removeChild(hud);
+                    }
+                },
+            };
+        }
+
+        // ---------------------------------------------------------------
+        // Stop button
+        //
+        // A persistent "✕ Stop" pill in the bottom-right corner that the user
+        // can click at any time to abandon a guided play or a challenge run.
+        // The spotlight's capture-phase blocker and the challenge's miss
+        // detector both have explicit exemptions for this element so the button
+        // is always reachable regardless of step state.
+        //
+        // onStop() is called synchronously on click (before the button is
+        // removed from the DOM) so callers can do immediate teardown.
+        // ---------------------------------------------------------------
+        function createStopButton(onStop) {
+            const btn = document.createElement("button");
+            btn.className = "o_tr_stop_btn";
+            btn.setAttribute("type", "button");
+            btn.textContent = "✕ Stop";   // ✕ Stop
+            document.body.appendChild(btn);
+            btn.addEventListener("click", () => {
+                destroy();
+                onStop();
+            });
+            function destroy() {
+                if (btn.parentNode) btn.parentNode.removeChild(btn);
+            }
+            return { destroy };
+        }
+
+        function trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge, onCleanup) {
             let last = 0;
             let sawActive = false;
+            // The last step that actually requires user interaction (non-check steps
+            // auto-advance in Odoo 17 manual mode and may fire faster than the 800ms
+            // poll).  Using this index instead of (total - 1) prevents a false
+            // "incomplete" reading when the tour ends with one or more check steps.
+            const lastInteractiveIdx = steps.reduce(
+                (acc, s, i) => (!s.is_check ? i : acc),
+                total - 1 // fallback: treat last step as interactive if all are checks
+            );
             const interval = setInterval(async () => {
                 const activeNames = tourState.getActiveTourNames
                     ? tourState.getActiveTourNames()
@@ -437,11 +614,16 @@ export const tourPlayerService = {
                         validator.onStepChange();
                         const stepIdx = Math.min(idx, steps.length - 1);
                         const stepData = steps[stepIdx];
-                        const reqVal =
-                            typeof stepData.run === "string" && stepData.run.startsWith("select:")
-                                ? stepData.run.slice(7)
-                                : null;
-                        spotlight.setTrigger(stepData.trigger, reqVal);
+                        if (challenge) {
+                            challenge.onStepChange();
+                        } else {
+                            const reqVal =
+                                typeof stepData.run === "string" &&
+                                stepData.run.startsWith("select:")
+                                    ? stepData.run.slice(7)
+                                    : null;
+                            spotlight.setTrigger(stepData.trigger, reqVal);
+                        }
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
                             Math.min(idx, total),
@@ -452,16 +634,56 @@ export const tourPlayerService = {
                     validator.checkCurrent();
                 } else if (sawActive) {
                     // The tour left the active set: it either completed or was
-                    // stopped by the user.
+                    // stopped by the user.  Make one last synchronous read of
+                    // currentIndex — if Odoo hasn't cleared localStorage yet we
+                    // may catch an index that the 800ms poll missed.
+                    try {
+                        const finalIdx = tourState.get(tourKey, "currentIndex") || 0;
+                        if (finalIdx > last) {
+                            last = finalIdx;
+                        }
+                    } catch {}
                     clearInterval(interval);
                     validator.teardown();
-                    spotlight.destroy();
-                    const completed = last >= total - 1;
-                    await orm.call("tour.recorder", "set_progress", [
-                        tourId,
-                        completed ? total : last,
-                        completed ? "completed" : "in_progress",
-                    ]);
+                    // A tour is "completed" when the user reached the last step that
+                    // requires an action.  Trailing check steps (run: () => {}) auto-
+                    // advance without user input and can exit the active set before the
+                    // next 800ms poll — so we gate on lastInteractiveIdx, not total-1.
+                    const completed = last >= lastInteractiveIdx;
+                    if (challenge) {
+                        // Record the comprehension result (pass/fail decided
+                        // server-side from the accuracy + threshold).
+                        const { accuracy, mistakes, total: interactive } = challenge.score();
+                        challenge.destroy();
+                        if (completed) {
+                            const res = await orm.call("tour.recorder", "set_challenge_result", [
+                                tourId,
+                                accuracy,
+                                mistakes,
+                                interactive,
+                            ]);
+                            if (res && res.passed) {
+                                notification.add(
+                                    `Challenge passed — ${accuracy}% (${mistakes} mistake(s)). Verified!`,
+                                    { type: "success" }
+                                );
+                            } else {
+                                const threshold = res ? res.threshold : 80;
+                                notification.add(
+                                    `Challenge scored ${accuracy}% — ${threshold}% needed to verify. Try again!`,
+                                    { type: "warning" }
+                                );
+                            }
+                        }
+                    } else {
+                        spotlight.destroy();
+                        await orm.call("tour.recorder", "set_progress", [
+                            tourId,
+                            completed ? total : last,
+                            completed ? "completed" : "in_progress",
+                        ]);
+                    }
+                    if (onCleanup) onCleanup();
                 }
             }, 800);
 
@@ -471,12 +693,18 @@ export const tourPlayerService = {
             setTimeout(() => {
                 clearInterval(interval);
                 validator.teardown();
-                spotlight.destroy();
+                if (challenge) {
+                    challenge.destroy();
+                } else {
+                    spotlight.destroy();
+                }
                 tourState.clear(tourKey);
+                if (onCleanup) onCleanup();
             }, 1000 * 60 * 30);
         }
 
-        async function play(tourId, lang = null) {
+        async function play(tourId, lang = null, options = {}) {
+            const challengeMode = !!options.challenge;
             const tour = await orm.call("tour.recorder", "get_tour_for_play", [tourId, lang]);
             const tourKey = tour.tour_key;
             const steps = tour.steps || [];
@@ -497,25 +725,71 @@ export const tourPlayerService = {
             registry.category("web_tour.tours").add(
                 tourKey,
                 {
-                    steps: () => buildSteps(steps),
+                    steps: () => buildSteps(steps, { challenge: challengeMode }),
                 },
                 { force: true }
             );
 
             const validator = createValidator(steps, tourKey);
-            const spotlight = createSpotlight();
-            // Point to the first step immediately so the overlay is visible
-            // before the TourPointer bubble appears. steps[0] is safe here
-            // because play() returns early above when total === 0.
-            const firstReqVal =
-                typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
-                    ? steps[0].run.slice(7)
-                    : null;
-            spotlight.setTrigger(steps[0].trigger, firstReqVal);
+            let spotlight = null;
+            let challenge = null;
+            if (challengeMode) {
+                // No spotlight/pointer: the user must find each element unaided.
+                challenge = createChallenge(steps, tourKey);
+            } else {
+                spotlight = createSpotlight();
+                // Point to the first step immediately so the overlay is visible
+                // before the TourPointer bubble appears. steps[0] is safe here
+                // because play() returns early above when total === 0.
+                const firstReqVal =
+                    typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
+                        ? steps[0].run.slice(7)
+                        : null;
+                spotlight.setTrigger(steps[0].trigger, firstReqVal);
+            }
+
+            // Stop button — always visible during play/challenge so the user
+            // can abandon at any point.  Clicking it:
+            //   1. Immediately removes the overlay (spotlight / challenge HUD).
+            //   2. Clears tour state so the poll's next tick detects completion
+            //      and persists partial progress (guided: "in_progress" at the
+            //      last seen step; challenge: no score written since completed=false).
+            const stopBtn = createStopButton(() => {
+                // 1. Immediate teardown of our own overlays (spotlight / HUD).
+                //    destroy() is idempotent — the trackProgress cleanup path
+                //    can call them again safely.
+                if (challenge) {
+                    challenge.destroy();
+                } else if (spotlight) {
+                    spotlight.destroy();
+                }
+
+                // 2. Remove Odoo's native TourPointer Owl component.
+                //    Odoo 17 has no public API to stop a running tour — the
+                //    macro engine and runningTours Set are private to tour_service.
+                //    We reach into the overlay service (which IS injectable) and
+                //    remove any TourPointer entry directly.  The component
+                //    unmounts immediately; subsequent pointer.pointTo() calls by
+                //    the still-running macro update reactive state that has no
+                //    subscriber, so nothing re-renders.
+                for (const ov of Object.values(overlay.overlays)) {
+                    if (ov.component === TourPointer) {
+                        ov.remove();
+                    }
+                }
+
+                // 3. Clear localStorage — prevents the tour from resuming on
+                //    the next page navigation / browser refresh.
+                tourState.clear(tourKey);
+
+                notification.add("Tour stopped.", { type: "info" });
+            });
 
             await orm.call("tour.recorder", "set_progress", [tourId, 0, "in_progress"]);
             tour_service.startTour(tourKey, { mode: "manual" });
-            trackProgress(tourId, tourKey, total, validator, spotlight, steps);
+            trackProgress(tourId, tourKey, total, validator, spotlight, steps, challenge, () => {
+                stopBtn.destroy();
+            });
         }
 
         return { play };

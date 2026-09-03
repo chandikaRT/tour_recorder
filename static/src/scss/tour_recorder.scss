@@ -173,3 +173,58 @@ $tr-save-green: #2ea44f;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     pointer-events: none;
 }
+
+// -------------------- Challenge mode HUD --------------------
+.o_tr_challenge_hud {
+    position: fixed;
+    z-index: 1000000;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px;
+    background: #7a2e4e;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.o_tr_challenge_hud.o_tr_challenge_miss {
+    background: #d9384a;
+}
+
+// -------------------- Stop-tour button --------------------
+// Floating pill in the bottom-right corner, present during both guided play
+// and challenge mode.  Uses pointer-events: auto so it always receives clicks
+// even when the spotlight overlay (pointer-events: none) is visible.
+// z-index is one above the challenge HUD (1000000) so neither obscures the other.
+.o_tr_stop_btn {
+    position: fixed;
+    z-index: 1000001;
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 18px;
+    background: rgba(30, 30, 30, 0.82);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    white-space: nowrap;
+    transition: background 0.18s ease;
+
+    &:hover,
+    &:focus {
+        background: #d9384a;
+        outline: none;
+    }
+}

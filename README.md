@@ -54,6 +54,16 @@ screenshots and description.
   several roles) is modelled as **one contextual guide per stage**; each fires for
   its role when the record reaches that stage. Guides with no model set behave
   exactly as before.
+- **Challenge mode (verify understanding)**: a user can *"Test me"* on any guide —
+  it replays the **same tour from memory with every hint hidden** (no tooltip text,
+  no spotlight, no location pointer). Wrong clicks are counted; a **first-try
+  accuracy score** is recorded and the user becomes **Verified** only if they score
+  at or above the pass threshold (**80%** by default; override with the
+  `tour_recorder.challenge_pass_threshold` system parameter). Pass/fail is decided
+  server-side. Enable **Verification Required** on a guide so it only counts as done
+  once the challenge is passed (the systray incomplete-count respects this). Managers
+  see each user's **Best Score**, **Attempts** and **Verified** flag on the
+  *User Progress* tab.
 
 ## Generating tests & manuals from guides
 

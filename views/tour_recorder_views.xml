@@ -27,18 +27,11 @@
                         <field name="user_ids" widget="many2many_tags"
                                options="{'no_create': True}"
                                help="Only the assigned users will see this guide in their 'Guides' list."/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="verification_required"
+                               help="Require users to pass the Challenge (replay from memory, hints hidden) before this guide counts as done."/>
                         <field name="tour_key" invisible="1"/>
                         <field name="active" invisible="1"/>
-                    </group>
-                    <group string="Workflow Context (optional)" name="context"
-                           groups="tour_recorder.group_tour_manager">
-                        <field name="model_id" options="{'no_create': True}"/>
-                        <field name="res_model" invisible="1"/>
-                        <field name="group_id" string="For Role"
-                               invisible="not model_id"/>
-                        <field name="trigger_domain" widget="domain"
-                               options="{'model': 'res_model'}"
-                               invisible="not res_model"/>
                     </group>
                     <notebook>
                         <page string="Steps" name="steps" groups="tour_recorder.group_tour_manager">
@@ -67,6 +60,10 @@
                                            decoration-info="status == 'not_started'"
                                            decoration-warning="status == 'in_progress'"
                                            decoration-success="status == 'completed'"/>
+                                    <field name="best_score" string="Best Score (%)" optional="show"/>
+                                    <field name="challenge_attempts" string="Attempts" optional="show"/>
+                                    <field name="verified" widget="boolean_toggle" readonly="1"
+                                           string="Verified" optional="show"/>
                                     <field name="last_update" string="Last Update"/>
                                 </tree>
                             </field>
@@ -89,6 +86,7 @@
             <tree string="Tours">
                 <field name="name"/>
                 <field name="description" optional="show"/>
+                <field name="company_id" optional="show" groups="base.group_multi_company"/>
                 <field name="user_ids" widget="many2many_tags" optional="show"/>
                 <field name="step_count" string="Steps"/>
             </tree>
@@ -103,15 +101,13 @@
             <search string="Tours">
                 <field name="name"/>
                 <field name="user_ids"/>
-                <field name="model_id"/>
                 <filter string="Assigned to me" name="my_tours"
                         domain="[('user_ids', 'in', uid)]"/>
-                <filter string="Contextual guides" name="contextual"
-                        domain="[('res_model', '!=', False)]"/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                 <group expand="0" string="Group By">
-                    <filter string="Model" name="group_model" context="{'group_by': 'model_id'}"/>
-                    <filter string="Role" name="group_role" context="{'group_by': 'group_id'}"/>
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_id'}"
+                            groups="base.group_multi_company"/>
                 </group>
             </search>
         </field>

@@ -27,6 +27,19 @@ class TourRecorderProgress(models.Model):
     )
     last_update = fields.Datetime(string="Last Update")
 
+    # --- Challenge mode (comprehension check) ---
+    # Recorded when the user replays the tour from memory with hints hidden.
+    best_score = fields.Float(string="Best Score (%)", default=0.0)
+    last_score = fields.Float(string="Last Score (%)", default=0.0)
+    challenge_attempts = fields.Integer(string="Challenge Attempts", default=0)
+    verified = fields.Boolean(
+        string="Verified",
+        default=False,
+        help="Set once the user passes the challenge (score >= threshold), "
+        "confirming they can perform the flow unaided.",
+    )
+    verified_date = fields.Datetime(string="Verified On")
+
     _sql_constraints = [
         (
             "unique_tour_user",
