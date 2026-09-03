@@ -16,6 +16,12 @@ class TourRecorder(models.Model):
     name = fields.Char(string="Tour Name", required=True, tracking=True, translate=True)
     description = fields.Text(string="Description", translate=True)
     active = fields.Boolean(default=True)
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        default=lambda self: self.env.company,
+        help="Leave empty to show this guide in all companies.",
+    )
 
     user_ids = fields.Many2many(
         "res.users",
@@ -158,6 +164,8 @@ class TourRecorder(models.Model):
             "res_model": self.res_model or "",
             "group_id": self.group_id.id or False,
             "group_name": self.group_id.display_name or "",
+            "company_id": self.company_id.id or False,
+            "company_name": self.company_id.name or "",
             "verification_required": self.verification_required,
             "verified": bool(my_progress.verified),
             "best_score": my_progress.best_score or 0.0,

@@ -27,6 +27,7 @@
                         <field name="user_ids" widget="many2many_tags"
                                options="{'no_create': True}"
                                help="Only the assigned users will see this guide in their 'Guides' list."/>
+                        <field name="company_id" groups="base.group_multi_company"/>
                         <field name="verification_required"
                                help="Require users to pass the Challenge (replay from memory, hints hidden) before this guide counts as done."/>
                         <field name="tour_key" invisible="1"/>
@@ -95,6 +96,7 @@
             <tree string="Tours">
                 <field name="name"/>
                 <field name="description" optional="show"/>
+                <field name="company_id" optional="show" groups="base.group_multi_company"/>
                 <field name="user_ids" widget="many2many_tags" optional="show"/>
                 <field name="step_count" string="Steps"/>
             </tree>
@@ -116,6 +118,9 @@
                         domain="[('res_model', '!=', False)]"/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
                 <group expand="0" string="Group By">
+                    <filter string="Company" name="group_company"
+                            context="{'group_by': 'company_id'}"
+                            groups="base.group_multi_company"/>
                     <filter string="Model" name="group_model" context="{'group_by': 'model_id'}"/>
                     <filter string="Role" name="group_role" context="{'group_by': 'group_id'}"/>
                 </group>

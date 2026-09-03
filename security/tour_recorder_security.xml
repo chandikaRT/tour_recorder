@@ -31,7 +31,13 @@
         <record id="tour_recorder_rule_user_read" model="ir.rule">
             <field name="name">Tour: users read assigned guides</field>
             <field name="model_id" ref="model_tour_recorder"/>
-            <field name="domain_force">[('user_ids', 'in', user.id)]</field>
+            <!-- User can see a guide only when it is assigned to them AND its
+                 company matches one of their currently active companies (or
+                 the guide has no company, meaning it is global). -->
+            <field name="domain_force">
+                ['&amp;', ('user_ids', 'in', user.id),
+                 '|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
             <field name="groups" eval="[(4, ref('group_tour_user'))]"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
@@ -42,7 +48,11 @@
         <record id="tour_recorder_rule_manager_all" model="ir.rule">
             <field name="name">Tour: managers full access</field>
             <field name="model_id" ref="model_tour_recorder"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <!-- Managers see all guides for their active companies plus global
+                 guides (company_id = False). -->
+            <field name="domain_force">
+                ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+            </field>
             <field name="groups" eval="[(4, ref('group_tour_manager'))]"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
