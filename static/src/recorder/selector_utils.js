@@ -231,23 +231,95 @@ export function suggestTitle(el) {
 }
 
 /**
+ * Parse Odoo's `data-tooltip-info` JSON attribute and extract the help text.
+ *
+ * Odoo uses a template-based tooltip system: `data-tooltip-template` names a
+ * QWeb template (e.g. "web.FieldTooltip") and `data-tooltip-info` carries a
+ * JSON payload for that template.  In non-debug mode the payload is:
+ *   { "field": { "help": "Human-readable help text" } }
+ * In debug mode extra keys appear (resModel, technical_name, …) but `field.help`
+ * is still the user-visible text we want.
+ *
+ * Returns "" when the attribute is absent, malformed, or has no help text.
+ */
+function parseTooltipInfo(node) {
+    const raw = node.getAttribute("data-tooltip-info");
+    if (!raw) {
+        return "";
+    }
+    try {
+        const info = JSON.parse(raw);
+        const help = (info.field && info.field.help) || info.help || "";
+        return help.trim();
+    } catch {
+        return "";
+    }
+}
+
+/**
+ * Read any recognised tooltip text from a single DOM node.
+ *
+ * Priority:
+ *   1. data-tooltip            (plain string — most Odoo buttons / menus)
+ *   2. data-tooltip-template   (template-based; payload parsed from data-tooltip-info)
+ *   3. title
+ *   4. aria-label
+ *   5. placeholder             (only on the original clicked element, not parents)
+ */
+function readTooltipAttr(node, checkPlaceholder) {
+    const tooltip = (node.getAttribute("data-tooltip") || "").trim();
+    if (tooltip) {
+        return tooltip;
+    }
+    if (node.getAttribute("data-tooltip-template")) {
+        const info = parseTooltipInfo(node);
+        if (info) {
+            return info;
+        }
+    }
+    const title = (node.getAttribute("title") || "").trim();
+    if (title) {
+        return title;
+    }
+    const ariaLabel = (node.getAttribute("aria-label") || "").trim();
+    if (ariaLabel) {
+        return ariaLabel;
+    }
+    if (checkPlaceholder) {
+        const ph = (node.getAttribute("placeholder") || "").trim();
+        if (ph) {
+            return ph;
+        }
+    }
+    return "";
+}
+
+/**
  * Read a human-readable tooltip string from a DOM element's attributes.
  *
  * The right-click target is frequently a decorative child element (e.g. a
- * Font Awesome <i> or a <span> label) while the actual tooltip attribute
- * lives on the interactive parent (button, field widget wrapper, etc.).
- * We apply the same DECORATIVE_TAGS walk-up used by getCssSelector first,
- * then search up to 4 ancestor levels for any of the recognised attributes.
+ * Font Awesome <i> or a <span> inside a button) while the actual tooltip
+ * attribute lives on the interactive parent or on a sibling/child of it.
  *
- * Priority per element: data-tooltip → title → aria-label
- * placeholder is only checked on the starting element (inputs/textareas).
+ * Strategy:
+ *  1. Walk up from decorative elements to the nearest interactive ancestor
+ *     (same logic as getCssSelector).
+ *  2. Check the resolved "start" element's own attributes.
+ *  3. Check start's DIRECT CHILDREN — this handles the Odoo form-label pattern
+ *     where the `<sup data-tooltip-template … data-tooltip-info …>?</sup>` help
+ *     icon is a child of `<label class="o_form_label">`, not an ancestor.
+ *  4. Walk up to 5 more ancestor levels, checking attributes at each level.
+ *
+ * Attributes checked per element (in priority order):
+ *   data-tooltip → data-tooltip-template (JSON parsed) → title → aria-label
+ * placeholder is only checked on the originally clicked element (inputs).
  */
 export function suggestTooltip(el) {
     if (!el) {
         return "";
     }
-    // Step 1: walk up from decorative elements to the interactive parent,
-    // mirroring the same logic getCssSelector uses.
+
+    // Step 1: resolve the interactive starting element.
     let start = el;
     if (DECORATIVE_TAGS.has(el.tagName)) {
         const interactive = el.closest(INTERACTIVE_SELECTOR);
@@ -255,28 +327,35 @@ export function suggestTooltip(el) {
             start = interactive;
         }
     }
-    // Step 2: check the resolved element and up to 3 ancestors.
-    let node = start;
-    for (let depth = 0; depth < 4 && node && node !== document.body; depth++, node = node.parentElement) {
-        const tooltip = (node.getAttribute("data-tooltip") || "").trim();
-        if (tooltip) {
-            return tooltip;
-        }
-        const title = (node.getAttribute("title") || "").trim();
-        if (title) {
-            return title;
-        }
-        const ariaLabel = (node.getAttribute("aria-label") || "").trim();
-        if (ariaLabel) {
-            return ariaLabel;
-        }
-        // placeholder only makes sense on the element itself, not parents
-        if (depth === 0) {
-            const placeholder = (node.getAttribute("placeholder") || "").trim();
-            if (placeholder) {
-                return placeholder;
-            }
+
+    // Step 2: check the start element itself.
+    const startResult = readTooltipAttr(start, true);
+    if (startResult) {
+        return startResult;
+    }
+
+    // Step 3: check start's direct children.
+    // Handles the Odoo form-label tooltip pattern:
+    //   <label class="o_form_label">
+    //     Field Name
+    //     <sup data-tooltip-template="web.FieldTooltip"
+    //          data-tooltip-info='{"field":{"help":"…"}}'>?</sup>
+    //   </label>
+    for (const child of start.children) {
+        const childResult = readTooltipAttr(child, false);
+        if (childResult) {
+            return childResult;
         }
     }
+
+    // Step 4: walk up the ancestor chain.
+    let node = start.parentElement;
+    for (let depth = 0; depth < 5 && node && node !== document.body; depth++, node = node.parentElement) {
+        const result = readTooltipAttr(node, false);
+        if (result) {
+            return result;
+        }
+    }
+
     return "";
 }
