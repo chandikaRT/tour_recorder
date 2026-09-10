@@ -95,6 +95,7 @@ class TourRecorder(models.Model):
                     "title": step.name or "",
                     "trigger": step.css_selector or "",
                     "content": step.content or "",
+                    "description": step.description or "",
                     "position": step.position or "bottom",
                     "run": step.run or "click",
                     "is_check": step.is_check,
@@ -113,6 +114,7 @@ class TourRecorder(models.Model):
             "name": step.get("title") or "",
             "css_selector": step.get("trigger") or "",
             "content": step.get("content") or "",
+            "description": step.get("description") or "",
             "position": step.get("position") or "bottom",
             "run": step.get("run") or "click",
             "is_check": bool(step.get("is_check")),
@@ -217,7 +219,7 @@ class TourRecorder(models.Model):
         return tour.id
 
     # Fields whose value is language-specific (stored per-language as jsonb).
-    _TRANSLATABLE_STEP_FIELDS = ("name", "content", "validation_message")
+    _TRANSLATABLE_STEP_FIELDS = ("name", "content", "description", "validation_message")
 
     def save_steps(self, steps, lang=None):
         """Update the tour's steps in place (called by the Edit Steps dialog).
@@ -355,6 +357,8 @@ class TourRecorder(models.Model):
                             "run": step.run or "click",
                             "is_check": step.is_check,
                             "validation_type": step.validation_type or "none",
+                            "description": step.description or "",
+                            "description_i18n": i18n(step, "description"),
                             "validation_regex": step.validation_regex or "",
                             "validation_message": step.validation_message or "",
                             "validation_message_i18n": i18n(step, "validation_message"),
@@ -419,6 +423,8 @@ class TourRecorder(models.Model):
                     vals["name"] = sdict["title_i18n"][lang]
                 if sdict.get("content_i18n", {}).get(lang):
                     vals["content"] = sdict["content_i18n"][lang]
+                if sdict.get("description_i18n", {}).get(lang):
+                    vals["description"] = sdict["description_i18n"][lang]
                 if sdict.get("validation_message_i18n", {}).get(lang):
                     vals["validation_message"] = sdict["validation_message_i18n"][lang]
                 if vals:

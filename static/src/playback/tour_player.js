@@ -28,11 +28,18 @@ export const tourPlayerService = {
     start(env, { orm, tour_service, notification, overlay }) {
         function buildSteps(steps, { challenge = false } = {}) {
             return steps.map((s) => {
+                // Build the display content: combine the short tooltip with the optional
+                // longer description. The TourPointer renders content via t-out (HTML),
+                // so an HTML string works without touching the pointer component.
+                // Challenge mode hides both (same blank-content logic as before).
+                const tooltip = challenge ? "" : (
+                    s.content && s.description
+                        ? `${s.content}<p class="o_tr_step_desc small text-muted mt-1 mb-0">${s.description}</p>`
+                        : (s.content || "")
+                );
                 const step = {
                     trigger: s.trigger,
-                    // Challenge mode hides all hints: no tooltip text (the location
-                    // pointer is hidden via injected CSS in createChallenge).
-                    content: challenge ? "" : s.content,
+                    content: tooltip,
                     position: s.position || "bottom",
                 };
                 if (s.is_check) {

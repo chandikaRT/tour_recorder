@@ -229,3 +229,27 @@ export function suggestTitle(el) {
         .replace(/\s+/g, " ");
     return text.slice(0, 40);
 }
+
+/**
+ * Read a human-readable tooltip string from a DOM element's attributes.
+ * Priority: data-tooltip → title → aria-label → placeholder
+ * Returns "" when nothing useful is found.
+ */
+export function suggestTooltip(el) {
+    if (!el) {
+        return "";
+    }
+    const candidates = [
+        el.getAttribute("data-tooltip"),
+        el.getAttribute("title"),
+        el.getAttribute("aria-label"),
+        el.getAttribute("placeholder"),
+    ];
+    for (const text of candidates) {
+        const trimmed = (text || "").trim();
+        if (trimmed) {
+            return trimmed;
+        }
+    }
+    return "";
+}
