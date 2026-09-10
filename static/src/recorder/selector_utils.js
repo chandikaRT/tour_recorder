@@ -335,7 +335,8 @@ export function suggestTooltip(el) {
     }
 
     // Step 3: check start's direct children.
-    // Handles the Odoo form-label tooltip pattern:
+    // Handles the Odoo form-label tooltip pattern where the help icon is a child
+    // of the <label> element itself:
     //   <label class="o_form_label">
     //     Field Name
     //     <sup data-tooltip-template="web.FieldTooltip"
@@ -348,9 +349,51 @@ export function suggestTooltip(el) {
         }
     }
 
-    // Step 4: walk up the ancestor chain.
+    // Step 4: Odoo form-group row scan.
+    //
+    // In Odoo 17 InnerGroup, each field row is:
+    //   <div class="o_wrap_field">          ← ROW wrapper
+    //     <div class="o_cell o_wrap_label"> ← label cell
+    //       <label class="o_form_label">
+    //         <sup data-tooltip-template … data-tooltip-info …>?</sup>
+    //       </label>
+    //     </div>
+    //     <div class="o_cell">             ← field widget cell (where user clicks)
+    //       <div class="o_field_widget …" name="…">
+    //         <input …/>
+    //       </div>
+    //     </div>
+    //   </div>
+    //
+    // Clicking the input or field widget lands in the field cell. Walking up
+    // ancestors reaches the o_wrap_field wrapper without ever visiting the label
+    // cell (they are siblings, not ancestors). We use .closest() to jump to the
+    // row wrapper, then scan the whole row for any element carrying tooltip attrs.
+    // This is reliable regardless of how many intermediate divs the widget adds.
+    const rowWrapper = start.closest(".o_wrap_field");
+    if (rowWrapper) {
+        // Template-based tooltip (Odoo field labels): data-tooltip-template + JSON
+        const templateEl = rowWrapper.querySelector("[data-tooltip-template][data-tooltip-info]");
+        if (templateEl) {
+            const info = parseTooltipInfo(templateEl);
+            if (info) {
+                return info;
+            }
+        }
+        // Plain-string tooltip (buttons, menus, etc.)
+        const plainEl = rowWrapper.querySelector("[data-tooltip]");
+        if (plainEl) {
+            const t = (plainEl.getAttribute("data-tooltip") || "").trim();
+            if (t) {
+                return t;
+            }
+        }
+    }
+
+    // Step 5: walk up the ancestor chain (catches tooltips on parent containers,
+    // menu items, or any element the previous steps didn't cover).
     let node = start.parentElement;
-    for (let depth = 0; depth < 5 && node && node !== document.body; depth++, node = node.parentElement) {
+    for (let depth = 0; depth < 6 && node && node !== document.body; depth++, node = node.parentElement) {
         const result = readTooltipAttr(node, false);
         if (result) {
             return result;
