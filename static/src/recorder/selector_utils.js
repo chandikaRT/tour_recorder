@@ -232,23 +232,50 @@ export function suggestTitle(el) {
 
 /**
  * Read a human-readable tooltip string from a DOM element's attributes.
- * Priority: data-tooltip → title → aria-label → placeholder
- * Returns "" when nothing useful is found.
+ *
+ * The right-click target is frequently a decorative child element (e.g. a
+ * Font Awesome <i> or a <span> label) while the actual tooltip attribute
+ * lives on the interactive parent (button, field widget wrapper, etc.).
+ * We apply the same DECORATIVE_TAGS walk-up used by getCssSelector first,
+ * then search up to 4 ancestor levels for any of the recognised attributes.
+ *
+ * Priority per element: data-tooltip → title → aria-label
+ * placeholder is only checked on the starting element (inputs/textareas).
  */
 export function suggestTooltip(el) {
     if (!el) {
         return "";
     }
-    const candidates = [
-        el.getAttribute("data-tooltip"),
-        el.getAttribute("title"),
-        el.getAttribute("aria-label"),
-        el.getAttribute("placeholder"),
-    ];
-    for (const text of candidates) {
-        const trimmed = (text || "").trim();
-        if (trimmed) {
-            return trimmed;
+    // Step 1: walk up from decorative elements to the interactive parent,
+    // mirroring the same logic getCssSelector uses.
+    let start = el;
+    if (DECORATIVE_TAGS.has(el.tagName)) {
+        const interactive = el.closest(INTERACTIVE_SELECTOR);
+        if (interactive) {
+            start = interactive;
+        }
+    }
+    // Step 2: check the resolved element and up to 3 ancestors.
+    let node = start;
+    for (let depth = 0; depth < 4 && node && node !== document.body; depth++, node = node.parentElement) {
+        const tooltip = (node.getAttribute("data-tooltip") || "").trim();
+        if (tooltip) {
+            return tooltip;
+        }
+        const title = (node.getAttribute("title") || "").trim();
+        if (title) {
+            return title;
+        }
+        const ariaLabel = (node.getAttribute("aria-label") || "").trim();
+        if (ariaLabel) {
+            return ariaLabel;
+        }
+        // placeholder only makes sense on the element itself, not parents
+        if (depth === 0) {
+            const placeholder = (node.getAttribute("placeholder") || "").trim();
+            if (placeholder) {
+                return placeholder;
+            }
         }
     }
     return "";
