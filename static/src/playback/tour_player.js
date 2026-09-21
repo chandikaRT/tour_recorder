@@ -568,7 +568,7 @@ export const tourPlayerService = {
         // ---------------------------------------------------------------
         // Stop button
         //
-        // A persistent "✕ Stop" pill in the bottom-right corner that the user
+        // A persistent "✕ Stop" pill centered at the bottom of the screen that the user
         // can click at any time to abandon a guided play or a challenge run.
         // The spotlight's capture-phase blocker and the challenge's miss
         // detector both have explicit exemptions for this element so the button
