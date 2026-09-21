@@ -208,7 +208,7 @@ $tr-save-green: #2ea44f;
 }
 
 // -------------------- Stop-tour button --------------------
-// Floating pill centered at the bottom of the screen, present during both
+// Floating pill at the bottom-left of the screen, present during both
 // guided play and challenge mode.  Uses pointer-events: auto so it always
 // receives clicks even when the spotlight overlay (pointer-events: none) is
 // visible.  z-index is one above the challenge HUD (1000000) so neither
@@ -217,8 +217,7 @@ $tr-save-green: #2ea44f;
     position: fixed;
     z-index: 1000001;
     bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 16px;
     padding: 8px 18px;
     background: rgba(30, 30, 30, 0.82);
     color: #fff;
