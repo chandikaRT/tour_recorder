@@ -23,6 +23,9 @@ import { isValid, validationMessage } from "../validation";
 
 const CONSUME_EVENT = "tr_validated";
 
+const POPUP_TRIGGER_RE =
+    /o_datetime_picker|o_popover|o-autocomplete|ui-autocomplete|dropdown-menu|o_notification/;
+
 export const tourPlayerService = {
     dependencies: ["orm", "tour_service", "notification", "overlay"],
     start(env, { orm, tour_service, notification, overlay }) {
@@ -42,6 +45,11 @@ export const tourPlayerService = {
                     content: tooltip,
                     position: s.position || "bottom",
                 };
+                // With a modal open the engine only searches inside it, so popups
+                // rendered outside the modal (date picker, dropdowns) are never found.
+                if (POPUP_TRIGGER_RE.test(s.trigger || "")) {
+                    step.in_modal = false;
+                }
                 if (s.is_check) {
                     // Emulate isCheck on Odoo 17: assert visibility, no interaction.
                     step.run = () => {};
