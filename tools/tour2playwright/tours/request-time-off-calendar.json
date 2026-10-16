@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Request Time Off (with calendar)",
+      "name_i18n": {
+        "en_US": "Request Time Off (with calendar)"
+      },
+      "description": "Learn how to submit a time off request: choose the leave type, give a reason, pick your dates in the calendar, save the request, and check that it is waiting for your manager.",
+      "description_i18n": {
+        "en_US": "Learn how to submit a time off request: choose the leave type, give a reason, pick your dates in the calendar, save the request, and check that it is waiting for your manager."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "The Time Off app is where you submit leave requests and follow their approval.",
+          "description_i18n": {
+            "en_US": "The Time Off app is where you submit leave requests and follow their approval."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "New request",
+          "title_i18n": {
+            "en_US": "New request"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .btn-time-off",
+          "content": "Click New to start a time off request.",
+          "content_i18n": {
+            "en_US": "Click New to start a time off request."
+          },
+          "description": "The New button opens a blank time off request in a window on top of your calendar.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank time off request in a window on top of your calendar."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off Type",
+          "title_i18n": {
+            "en_US": "Time Off Type"
+          },
+          "trigger": "[name=\"holiday_status_id\"] input",
+          "content": "Click here to open the list of time off types.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of time off types."
+          },
+          "description": "The leave type decides how your days are counted and who has to approve the request. Opening the field shows the types available to you.",
+          "description_i18n": {
+            "en_US": "The leave type decides how your days are counted and who has to approve the request. Opening the field shows the types available to you."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Choose the type",
+          "title_i18n": {
+            "en_US": "Choose the type"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the type of leave you want to take.",
+          "content_i18n": {
+            "en_US": "Click the type of leave you want to take."
+          },
+          "description": "The number in brackets next to a type is the balance you have left for it. Pick the type that matches your absence, for example Annual Leave for a holiday.",
+          "description_i18n": {
+            "en_US": "The number in brackets next to a type is the balance you have left for it. Pick the type that matches your absence, for example Annual Leave for a holiday."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Reason",
+          "title_i18n": {
+            "en_US": "Reason"
+          },
+          "trigger": "[name=\"name\"] textarea",
+          "content": "Type a short reason for your request, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a short reason for your request, then press Tab."
+          },
+          "description": "Say briefly why you need the time off. Your manager reads this note when deciding, so a clear reason helps your request get approved faster.",
+          "description_i18n": {
+            "en_US": "Say briefly why you need the time off. Your manager reads this note when deciding, so a clear reason helps your request get approved faster."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open the calendar",
+          "title_i18n": {
+            "en_US": "Open the calendar"
+          },
+          "trigger": "[data-field=\"request_date_from\"]",
+          "content": "Click the date field to open the calendar.",
+          "content_i18n": {
+            "en_US": "Click the date field to open the calendar."
+          },
+          "description": "Both dates start as today. Opening the calendar lets you choose when your leave begins and ends.",
+          "description_i18n": {
+            "en_US": "Both dates start as today. Opening the calendar lets you choose when your leave begins and ends."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Pick your last day",
+          "title_i18n": {
+            "en_US": "Pick your last day"
+          },
+          "trigger": ".o_datetime_picker",
+          "content": "Click the last day of your leave in the calendar.",
+          "content_i18n": {
+            "en_US": "Click the last day of your leave in the calendar."
+          },
+          "description": "Click the final day of your leave in the calendar. For a single day off, click the same day again. The number of days is calculated for you.",
+          "description_i18n": {
+            "en_US": "Click the final day of your leave in the calendar. For a single day off, click the same day again. The number of days is calculated for you."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Apply",
+          "title_i18n": {
+            "en_US": "Apply"
+          },
+          "trigger": ".o_datetime_picker .o_apply",
+          "content": "Click Apply to confirm your dates.",
+          "content_i18n": {
+            "en_US": "Click Apply to confirm your dates."
+          },
+          "description": "Apply confirms the dates you picked and closes the calendar. The Duration field now shows how many days you are requesting.",
+          "description_i18n": {
+            "en_US": "Apply confirms the dates you picked and closes the calendar. The Duration field now shows how many days you are requesting."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Save & Close",
+          "title_i18n": {
+            "en_US": "Save & Close"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click Save & Close to submit your request.",
+          "content_i18n": {
+            "en_US": "Click Save & Close to submit your request."
+          },
+          "description": "Nothing is sent until you save. Saving submits the request to your manager for approval.",
+          "description_i18n": {
+            "en_US": "Nothing is sent until you save. Saving submits the request to your manager for approval."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "My Time",
+          "title_i18n": {
+            "en_US": "My Time"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_my_leaves\"]",
+          "content": "Open the My Time menu to check your request.",
+          "content_i18n": {
+            "en_US": "Open the My Time menu to check your request."
+          },
+          "description": "After saving, check that your request was recorded. Start from the My Time menu.",
+          "description_i18n": {
+            "en_US": "After saving, check that your request was recorded. Start from the My Time menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "My Time Off",
+          "title_i18n": {
+            "en_US": "My Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_leave_menu_my\"]",
+          "content": "Open My Time Off.",
+          "content_i18n": {
+            "en_US": "Open My Time Off."
+          },
+          "description": "My Time Off lists all your requests, with the newest first, so you can find the one you just made.",
+          "description_i18n": {
+            "en_US": "My Time Off lists all your requests, with the newest first, so you can find the one you just made."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Check the status",
+          "title_i18n": {
+            "en_US": "Check the status"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell[name=\"state\"]",
+          "content": "Your new request is at the top. Click the status to finish.",
+          "content_i18n": {
+            "en_US": "Your new request is at the top. Click the status to finish."
+          },
+          "description": "A new request starts as To Approve and changes to Approved or Refused once your manager decides.",
+          "description_i18n": {
+            "en_US": "A new request starts as To Approve and changes to Approved or Refused once your manager decides."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Approve or Refuse Time Off Requests",
+      "name_i18n": {
+        "en_US": "Approve or Refuse Time Off Requests"
+      },
+      "description": "Learn how a manager finds the time off requests waiting for a decision, checks the details, and approves or refuses them.",
+      "description_i18n": {
+        "en_US": "Learn how a manager finds the time off requests waiting for a decision, checks the details, and approves or refuses them."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "The Time Off app is also where managers review the leave requests of their team.",
+          "description_i18n": {
+            "en_US": "The Time Off app is also where managers review the leave requests of their team."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Management",
+          "title_i18n": {
+            "en_US": "Management"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_management\"]",
+          "content": "Open the Management menu.",
+          "content_i18n": {
+            "en_US": "Open the Management menu."
+          },
+          "description": "The Management menu is visible to managers. It gathers the screens used to review requests and allocations.",
+          "description_i18n": {
+            "en_US": "The Management menu is visible to managers. It gathers the screens used to review requests and allocations."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off requests",
+          "title_i18n": {
+            "en_US": "Time Off requests"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_open_department_leave_approve\"]",
+          "content": "Open Time Off to see your team requests.",
+          "content_i18n": {
+            "en_US": "Open Time Off to see your team requests."
+          },
+          "description": "This list shows the time off requests of your team, grouped by employee.",
+          "description_i18n": {
+            "en_US": "This list shows the time off requests of your team, grouped by employee."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open the filters",
+          "title_i18n": {
+            "en_US": "Open the filters"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here to open the search filters.",
+          "content_i18n": {
+            "en_US": "Click here to open the search filters."
+          },
+          "description": "The filter menu narrows down the list so you only see what needs your attention.",
+          "description_i18n": {
+            "en_US": "The filter menu narrows down the list so you only see what needs your attention."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Waiting For Me",
+          "title_i18n": {
+            "en_US": "Waiting For Me"
+          },
+          "trigger": ".o_search_bar_menu [role=\"menuitemcheckbox\"]",
+          "content": "Choose Waiting For Me to show only the requests that need your decision.",
+          "content_i18n": {
+            "en_US": "Choose Waiting For Me to show only the requests that need your decision."
+          },
+          "description": "Waiting For Me keeps only the requests that are waiting for your decision and hides requests that are already approved or refused.",
+          "description_i18n": {
+            "en_US": "Waiting For Me keeps only the requests that are waiting for your decision and hides requests that are already approved or refused."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Close the filters",
+          "title_i18n": {
+            "en_US": "Close the filters"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here again to close the filter menu.",
+          "content_i18n": {
+            "en_US": "Click here again to close the filter menu."
+          },
+          "description": "Close the menu to see the filtered list.",
+          "description_i18n": {
+            "en_US": "Close the menu to see the filtered list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Open the employee group",
+          "title_i18n": {
+            "en_US": "Open the employee group"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click the employee name to show their requests.",
+          "content_i18n": {
+            "en_US": "Click the employee name to show their requests."
+          },
+          "description": "Requests are grouped by employee. Click a name to expand their requests; the number in brackets is how many requests that employee has.",
+          "description_i18n": {
+            "en_US": "Requests are grouped by employee. Click a name to expand their requests; the number in brackets is how many requests that employee has."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Approve",
+          "title_i18n": {
+            "en_US": "Approve"
+          },
+          "trigger": ".o_list_view .o_data_row button[name=\"action_approve\"]",
+          "content": "Click Approve to accept the request.",
+          "content_i18n": {
+            "en_US": "Click Approve to accept the request."
+          },
+          "description": "Check the leave type, dates and duration first. Click Approve to accept the request, or Refuse beside it to reject it. The employee then sees the new status in their requests.",
+          "description_i18n": {
+            "en_US": "Check the leave type, dates and duration first. Click Approve to accept the request, or Refuse beside it to reject it. The employee then sees the new status in their requests."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

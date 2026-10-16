@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Check My Leave Balance and History",
+      "name_i18n": {
+        "en_US": "Check My Leave Balance and History"
+      },
+      "description": "Learn how to see how many leave days you have left, review the status of every request you have submitted, and check the leave allocations you have been granted.",
+      "description_i18n": {
+        "en_US": "Learn how to see how many leave days you have left, review the status of every request you have submitted, and check the leave allocations you have been granted."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "The Time Off app is where you request leave, follow your requests and check your balance. It opens on your personal dashboard.",
+          "description_i18n": {
+            "en_US": "The Time Off app is where you request leave, follow your requests and check your balance. It opens on your personal dashboard."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Your balance",
+          "title_i18n": {
+            "en_US": "Your balance"
+          },
+          "trigger": ".o_timeoff_dashboard .o_timeoff_card",
+          "content": "This card shows how many days of this leave type you have left. Click it to continue.",
+          "content_i18n": {
+            "en_US": "This card shows how many days of this leave type you have left. Click it to continue."
+          },
+          "description": "Each card shows one leave type and the number of days you can still take. Check it before you submit a request to make sure you have enough days.",
+          "description_i18n": {
+            "en_US": "Each card shows one leave type and the number of days you can still take. Check it before you submit a request to make sure you have enough days."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "My Time",
+          "title_i18n": {
+            "en_US": "My Time"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_my_leaves\"]",
+          "content": "Open the My Time menu.",
+          "content_i18n": {
+            "en_US": "Open the My Time menu."
+          },
+          "description": "The My Time menu groups everything that belongs to you: your leave requests and your leave allocations.",
+          "description_i18n": {
+            "en_US": "The My Time menu groups everything that belongs to you: your leave requests and your leave allocations."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "My Time Off",
+          "title_i18n": {
+            "en_US": "My Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_leave_menu_my\"]",
+          "content": "Open My Time Off to see all your requests.",
+          "content_i18n": {
+            "en_US": "Open My Time Off to see all your requests."
+          },
+          "description": "This list shows every request you have submitted, with its leave type, dates and duration. Use it to look back at your leave history.",
+          "description_i18n": {
+            "en_US": "This list shows every request you have submitted, with its leave type, dates and duration. Use it to look back at your leave history."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Request status",
+          "title_i18n": {
+            "en_US": "Request status"
+          },
+          "trigger": ".o_list_view th[data-name=\"state\"]",
+          "content": "The Status column shows whether each request is approved, refused or waiting for approval. Click it to continue.",
+          "content_i18n": {
+            "en_US": "The Status column shows whether each request is approved, refused or waiting for approval. Click it to continue."
+          },
+          "description": "The Status column shows where each request stands. To Approve means it is waiting for your manager, Approved means it is confirmed, and Refused means it was rejected.",
+          "description_i18n": {
+            "en_US": "The Status column shows where each request stands. To Approve means it is waiting for your manager, Approved means it is confirmed, and Refused means it was rejected."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "My Time again",
+          "title_i18n": {
+            "en_US": "My Time again"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_my_leaves\"]",
+          "content": "Open the My Time menu again.",
+          "content_i18n": {
+            "en_US": "Open the My Time menu again."
+          },
+          "description": "Open the My Time menu again to move from your requests to your leave allocations.",
+          "description_i18n": {
+            "en_US": "Open the My Time menu again to move from your requests to your leave allocations."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "My Allocations",
+          "title_i18n": {
+            "en_US": "My Allocations"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_open_allocation\"]",
+          "content": "Open My Allocations to see the leave days you have been given.",
+          "content_i18n": {
+            "en_US": "Open My Allocations to see the leave days you have been given."
+          },
+          "description": "An allocation is a number of leave days granted to you, such as your yearly entitlement. Your balance is your allocation minus the days you have already taken.",
+          "description_i18n": {
+            "en_US": "An allocation is a number of leave days granted to you, such as your yearly entitlement. Your balance is your allocation minus the days you have already taken."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Your allocations",
+          "title_i18n": {
+            "en_US": "Your allocations"
+          },
+          "trigger": ".o_list_view",
+          "content": "This list shows every allocation you received. Click anywhere in it to finish.",
+          "content_i18n": {
+            "en_US": "This list shows every allocation you received. Click anywhere in it to finish."
+          },
+          "description": "Each line shows an allocation with its leave type and number of days. Read it together with your request history to understand how your balance is calculated.",
+          "description_i18n": {
+            "en_US": "Each line shows an allocation with its leave type and number of days. Read it together with your request history to understand how your balance is calculated."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}
