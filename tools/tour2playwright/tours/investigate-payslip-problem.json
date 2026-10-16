@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Investigate a Payslip with a Warning or Wrong Amount",
+      "name_i18n": {
+        "en_US": "Investigate a Payslip with a Warning or Wrong Amount"
+      },
+      "description": "Learn how to investigate a payslip that shows a warning or an unexpected amount: open the payslip, check the worked days it is based on, and open the employee's work entries to find and correct the cause before recomputing.",
+      "description_i18n": {
+        "en_US": "Learn how to investigate a payslip that shows a warning or an unexpected amount: open the payslip, check the worked days it is based on, and open the employee's work entries to find and correct the cause before recomputing."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Payslips that show a warning or an unexpected amount are investigated from the Payslips list in the Payroll app.",
+          "description_i18n": {
+            "en_US": "Payslips that show a warning or an unexpected amount are investigated from the Payslips list in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu lists the payslips of all employees and the batches they belong to.",
+          "description_i18n": {
+            "en_US": "The Payslips menu lists the payslips of all employees and the batches they belong to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "This list shows every payslip. Payslips with a problem are flagged with a warning or have an amount that looks wrong, such as a negative net salary.",
+          "description_i18n": {
+            "en_US": "This list shows every payslip. Payslips with a problem are flagged with a warning or have an amount that looks wrong, such as a negative net salary."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a batch",
+          "title_i18n": {
+            "en_US": "Open a batch"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a batch name to show its payslips.",
+          "content_i18n": {
+            "en_US": "Click a batch name to show its payslips."
+          },
+          "description": "Payslips are grouped by batch. Expand the batch that contains the payslip you want to check.",
+          "description_i18n": {
+            "en_US": "Payslips are grouped by batch. Expand the batch that contains the payslip you want to check."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the payslip",
+          "title_i18n": {
+            "en_US": "Open the payslip"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"employee_id\"]",
+          "content": "Click the payslip to open it.",
+          "content_i18n": {
+            "en_US": "Click the payslip to open it."
+          },
+          "description": "If the payslip has a problem, a warning message is shown at the top of the form and explains what is wrong, for example work entries in conflict or a missing contract.",
+          "description_i18n": {
+            "en_US": "If the payslip has a problem, a warning message is shown at the top of the form and explains what is wrong, for example work entries in conflict or a missing contract."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Worked days and inputs",
+          "title_i18n": {
+            "en_US": "Worked days and inputs"
+          },
+          "trigger": "a[name=\"worked_days_input\"]",
+          "content": "Click the Worked Days & Inputs tab.",
+          "content_i18n": {
+            "en_US": "Click the Worked Days & Inputs tab."
+          },
+          "description": "Most payslip problems come from the days the pay is based on. Compare the number of days and hours with what you expect for the period.",
+          "description_i18n": {
+            "en_US": "Most payslip problems come from the days the pay is based on. Compare the number of days and hours with what you expect for the period."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Work Entries",
+          "title_i18n": {
+            "en_US": "Work Entries"
+          },
+          "trigger": "button[name=\"action_open_work_entries\"]",
+          "content": "Click Work Entries to see the employee's attendance and leave records.",
+          "content_i18n": {
+            "en_US": "Click Work Entries to see the employee's attendance and leave records."
+          },
+          "description": "Work entries are the daily records of presence, leave and absence that feed the payslip. A conflict or a missing entry here is the usual cause of a warning.",
+          "description_i18n": {
+            "en_US": "Work entries are the daily records of presence, leave and absence that feed the payslip. A conflict or a missing entry here is the usual cause of a warning."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Correct and recompute",
+          "title_i18n": {
+            "en_US": "Correct and recompute"
+          },
+          "trigger": ".o_cp_searchview",
+          "content": "Review the entries, then click the search bar to finish.",
+          "content_i18n": {
+            "en_US": "Review the entries, then click the search bar to finish."
+          },
+          "description": "Fix any conflicting or missing entry in this list. Then go back to the payslip with the breadcrumb and click Compute Sheet to recalculate it with the corrected data.",
+          "description_i18n": {
+            "en_US": "Fix any conflicting or missing entry in this list. Then go back to the payslip with the breadcrumb and click Compute Sheet to recalculate it with the corrected data."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

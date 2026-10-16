@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Explore Salary Structures and Salary Rules",
+      "name_i18n": {
+        "en_US": "Explore Salary Structures and Salary Rules"
+      },
+      "description": "Learn how payroll is organised: how a salary structure groups the rules that compute each payslip, and how to read the rules a structure contains.",
+      "description_i18n": {
+        "en_US": "Learn how payroll is organised: how a salary structure groups the rules that compute each payslip, and how to read the rules a structure contains."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "The Payroll app is where contracts, payslips and the rules that compute them are managed.",
+          "description_i18n": {
+            "en_US": "The Payroll app is where contracts, payslips and the rules that compute them are managed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "Configuration holds the settings that control how salaries are calculated, including structures and rules.",
+          "description_i18n": {
+            "en_US": "Configuration holds the settings that control how salaries are calculated, including structures and rules."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Structures",
+          "title_i18n": {
+            "en_US": "Structures"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_structure_view\"]",
+          "content": "Click Structures.",
+          "content_i18n": {
+            "en_US": "Click Structures."
+          },
+          "description": "A salary structure is a set of rules applied to the payslips of the employees who use it. Different groups of staff, such as employees and workers, can follow different structures.",
+          "description_i18n": {
+            "en_US": "A salary structure is a set of rules applied to the payslips of the employees who use it. Different groups of staff, such as employees and workers, can follow different structures."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a group",
+          "title_i18n": {
+            "en_US": "Open a group"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a group name to show its structures.",
+          "content_i18n": {
+            "en_US": "Click a group name to show its structures."
+          },
+          "description": "Structures are grouped by structure type. Click a group to expand it and see the structures inside.",
+          "description_i18n": {
+            "en_US": "Structures are grouped by structure type. Click a group to expand it and see the structures inside."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open a structure",
+          "title_i18n": {
+            "en_US": "Open a structure"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"name\"]",
+          "content": "Click a structure to open it.",
+          "content_i18n": {
+            "en_US": "Click a structure to open it."
+          },
+          "description": "Opening a structure shows its settings, such as the payslip name and the pay schedule, and the list of rules it applies.",
+          "description_i18n": {
+            "en_US": "Opening a structure shows its settings, such as the payslip name and the pay schedule, and the list of rules it applies."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Salary Rules tab",
+          "title_i18n": {
+            "en_US": "Salary Rules tab"
+          },
+          "trigger": "a[name=\"salary_rules\"]",
+          "content": "Click the Salary Rules tab.",
+          "content_i18n": {
+            "en_US": "Click the Salary Rules tab."
+          },
+          "description": "The Salary Rules tab lists every rule used to compute a payslip for this structure, in the order they are calculated.",
+          "description_i18n": {
+            "en_US": "The Salary Rules tab lists every rule used to compute a payslip for this structure, in the order they are calculated."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Read the rules",
+          "title_i18n": {
+            "en_US": "Read the rules"
+          },
+          "trigger": "[name=\"rule_ids\"] th[data-name=\"category_id\"]",
+          "content": "Look at the Category column, then click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the Category column, then click it to continue."
+          },
+          "description": "Each rule has a name, a code and a category such as Basic, Allowance or Deduction. The category tells you how the amount is used, for example whether it adds to or reduces the net salary.",
+          "description_i18n": {
+            "en_US": "Each rule has a name, a code and a category such as Basic, Allowance or Deduction. The category tells you how the amount is used, for example whether it adds to or reduces the net salary."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Finish",
+          "title_i18n": {
+            "en_US": "Finish"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "Click the structure name in the breadcrumb to finish.",
+          "content_i18n": {
+            "en_US": "Click the structure name in the breadcrumb to finish."
+          },
+          "description": "You can now read a structure and its rules. Use the breadcrumb to go back to the list of structures at any time.",
+          "description_i18n": {
+            "en_US": "You can now read a structure and its rules. Use the breadcrumb to go back to the list of structures at any time."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

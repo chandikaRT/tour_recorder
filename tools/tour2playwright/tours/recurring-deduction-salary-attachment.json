@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Set Up a Recurring Deduction on Salary",
+      "name_i18n": {
+        "en_US": "Set Up a Recurring Deduction on Salary"
+      },
+      "description": "Learn how to record an amount that is taken from an employee's salary every month, such as a loan or advance repayment, using a salary attachment that payslips pick up automatically.",
+      "description_i18n": {
+        "en_US": "Learn how to record an amount that is taken from an employee's salary every month, such as a loan or advance repayment, using a salary attachment that payslips pick up automatically."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Recurring amounts that affect an employee's pay are recorded in the Payroll app as salary attachments.",
+          "description_i18n": {
+            "en_US": "Recurring amounts that affect an employee's pay are recorded in the Payroll app as salary attachments."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Contracts menu",
+          "title_i18n": {
+            "en_US": "Contracts menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employees_root\"]",
+          "content": "Open the Contracts menu.",
+          "content_i18n": {
+            "en_US": "Open the Contracts menu."
+          },
+          "description": "The Contracts menu holds the contracts and the salary attachments linked to each employee's pay.",
+          "description_i18n": {
+            "en_US": "The Contracts menu holds the contracts and the salary attachments linked to each employee's pay."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Salary Attachments",
+          "title_i18n": {
+            "en_US": "Salary Attachments"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.hr_menu_salary_attachments\"]",
+          "content": "Click Salary Attachments.",
+          "content_i18n": {
+            "en_US": "Click Salary Attachments."
+          },
+          "description": "This list shows every recurring deduction, such as loan repayments, with its status and remaining amount.",
+          "description_i18n": {
+            "en_US": "This list shows every recurring deduction, such as loan repayments, with its status and remaining amount."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New attachment",
+          "title_i18n": {
+            "en_US": "New attachment"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a salary attachment.",
+          "content_i18n": {
+            "en_US": "Click New to create a salary attachment."
+          },
+          "description": "The New button opens a blank attachment where you describe the amount, who pays it and for how long.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank attachment where you describe the amount, who pays it and for how long."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Employee",
+          "title_i18n": {
+            "en_US": "Employee"
+          },
+          "trigger": "[name=\"employee_ids\"] input",
+          "content": "Click here to open the list of employees.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of employees."
+          },
+          "description": "An attachment can apply to one or several employees. Opening the field shows the employees you can choose from.",
+          "description_i18n": {
+            "en_US": "An attachment can apply to one or several employees. Opening the field shows the employees you can choose from."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose the employee",
+          "title_i18n": {
+            "en_US": "Choose the employee"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the employee concerned.",
+          "content_i18n": {
+            "en_US": "Click the employee concerned."
+          },
+          "description": "Pick the employee whose salary the amount will be taken from.",
+          "description_i18n": {
+            "en_US": "Pick the employee whose salary the amount will be taken from."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Description",
+          "title_i18n": {
+            "en_US": "Description"
+          },
+          "trigger": "[name=\"description\"] input",
+          "content": "Type a short description, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a short description, then press Tab."
+          },
+          "description": "The description explains the reason for the deduction, such as Staff loan or Salary advance. It is shown to payroll officers who review the payslip.",
+          "description_i18n": {
+            "en_US": "The description explains the reason for the deduction, such as Staff loan or Salary advance. It is shown to payroll officers who review the payslip."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Deduction type",
+          "title_i18n": {
+            "en_US": "Deduction type"
+          },
+          "trigger": "[name=\"deduction_type_id\"] input",
+          "content": "Click here to open the list of deduction types.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of deduction types."
+          },
+          "description": "The type decides how the amount appears on the payslip, for example as a loan repayment or an attachment of salary.",
+          "description_i18n": {
+            "en_US": "The type decides how the amount appears on the payslip, for example as a loan repayment or an attachment of salary."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Choose the type",
+          "title_i18n": {
+            "en_US": "Choose the type"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the type of deduction.",
+          "content_i18n": {
+            "en_US": "Click the type of deduction."
+          },
+          "description": "Choose the type that matches the reason for the deduction.",
+          "description_i18n": {
+            "en_US": "Choose the type that matches the reason for the deduction."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Monthly amount",
+          "title_i18n": {
+            "en_US": "Monthly amount"
+          },
+          "trigger": "[name=\"monthly_amount\"] input",
+          "content": "Type the amount to deduct each month, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the amount to deduct each month, then press Tab."
+          },
+          "description": "This is the amount taken from each monthly payslip until the total is reached.",
+          "description_i18n": {
+            "en_US": "This is the amount taken from each monthly payslip until the total is reached."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Total amount",
+          "title_i18n": {
+            "en_US": "Total amount"
+          },
+          "trigger": "[name=\"total_amount\"] input",
+          "content": "Type the total amount to recover, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the total amount to recover, then press Tab."
+          },
+          "description": "Deductions stop automatically once the total amount has been recovered, and the attachment is marked as completed.",
+          "description_i18n": {
+            "en_US": "Deductions stop automatically once the total amount has been recovered, and the attachment is marked as completed."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the attachment.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the attachment."
+          },
+          "description": "Saving makes the attachment active. The next payslip computed for this employee includes the monthly deduction.",
+          "description_i18n": {
+            "en_US": "Saving makes the attachment active. The next payslip computed for this employee includes the monthly deduction."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

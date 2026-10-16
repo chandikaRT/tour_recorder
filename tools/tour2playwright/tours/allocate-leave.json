@@ -1,0 +1,342 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Allocate Leave to Employees",
+      "name_i18n": {
+        "en_US": "Allocate Leave to Employees"
+      },
+      "description": "Learn how to give leave days to employees: create an allocation, choose the leave type and number of days, decide whether it is for one employee or a whole department, and save it.",
+      "description_i18n": {
+        "en_US": "Learn how to give leave days to employees: create an allocation, choose the leave type and number of days, decide whether it is for one employee or a whole department, and save it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Leave allocations are managed in the Time Off app. An allocation is the number of days an employee is entitled to take for a leave type.",
+          "description_i18n": {
+            "en_US": "Leave allocations are managed in the Time Off app. An allocation is the number of days an employee is entitled to take for a leave type."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Management menu",
+          "title_i18n": {
+            "en_US": "Management menu"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_management\"]",
+          "content": "Open the Management menu.",
+          "content_i18n": {
+            "en_US": "Open the Management menu."
+          },
+          "description": "The Management menu groups the screens HR officers use to review requests and to give leave to employees.",
+          "description_i18n": {
+            "en_US": "The Management menu groups the screens HR officers use to review requests and to give leave to employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Allocations",
+          "title_i18n": {
+            "en_US": "Allocations"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_menu_manager_approve_allocations\"]",
+          "content": "Click Allocations.",
+          "content_i18n": {
+            "en_US": "Click Allocations."
+          },
+          "description": "This list shows every allocation that has been given or requested, with its leave type, employee and number of days.",
+          "description_i18n": {
+            "en_US": "This list shows every allocation that has been given or requested, with its leave type, employee and number of days."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New allocation",
+          "title_i18n": {
+            "en_US": "New allocation"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create an allocation.",
+          "content_i18n": {
+            "en_US": "Click New to create an allocation."
+          },
+          "description": "The New button opens a blank allocation form. Nothing is stored until you save it.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank allocation form. Nothing is stored until you save it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Description",
+          "title_i18n": {
+            "en_US": "Description"
+          },
+          "trigger": "[name=\"private_name\"] input",
+          "content": "Type a short description, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a short description, then press Tab."
+          },
+          "description": "The description tells everyone why the days were given, for example Annual leave 2026. It also appears in the employee's balance history.",
+          "description_i18n": {
+            "en_US": "The description tells everyone why the days were given, for example Annual leave 2026. It also appears in the employee's balance history."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open Time Off Type",
+          "title_i18n": {
+            "en_US": "Open Time Off Type"
+          },
+          "trigger": "[name=\"holiday_status_id\"] input",
+          "content": "Click here to choose the leave type.",
+          "content_i18n": {
+            "en_US": "Click here to choose the leave type."
+          },
+          "description": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list.",
+          "description_i18n": {
+            "en_US": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Choose the type",
+          "title_i18n": {
+            "en_US": "Choose the type"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the leave type you are allocating.",
+          "content_i18n": {
+            "en_US": "Click the leave type you are allocating."
+          },
+          "description": "Pick the type of leave the days belong to, for example Annual Leave. The days will only be usable for that type.",
+          "description_i18n": {
+            "en_US": "Pick the type of leave the days belong to, for example Annual Leave. The days will only be usable for that type."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Number of days",
+          "title_i18n": {
+            "en_US": "Number of days"
+          },
+          "trigger": "[name=\"number_of_days_display\"] input",
+          "content": "Type the number of days to give, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the number of days to give, then press Tab."
+          },
+          "description": "This is the length of the allocation. The unit (days or hours) follows the leave type you chose.",
+          "description_i18n": {
+            "en_US": "This is the length of the allocation. The unit (days or hours) follows the leave type you chose."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Allocation mode",
+          "title_i18n": {
+            "en_US": "Allocation mode"
+          },
+          "trigger": "[name=\"holiday_type\"] select",
+          "content": "Choose By Department to give the days to a whole department.",
+          "content_i18n": {
+            "en_US": "Choose By Department to give the days to a whole department."
+          },
+          "description": "The mode decides who receives the allocation. By Employee gives it to chosen people. By Department, By Company and By Employee Tag allocate the same days to everyone in that group at once, which is how you do a bulk allocation.",
+          "description_i18n": {
+            "en_US": "The mode decides who receives the allocation. By Employee gives it to chosen people. By Department, By Company and By Employee Tag allocate the same days to everyone in that group at once, which is how you do a bulk allocation."
+          },
+          "position": "bottom",
+          "run": "select",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Open Department",
+          "title_i18n": {
+            "en_US": "Open Department"
+          },
+          "trigger": "[name=\"department_id\"] input",
+          "content": "Click here to choose the department.",
+          "content_i18n": {
+            "en_US": "Click here to choose the department."
+          },
+          "description": "Every employee in the chosen department receives the same allocation. One allocation record is created for each of them.",
+          "description_i18n": {
+            "en_US": "Every employee in the chosen department receives the same allocation. One allocation record is created for each of them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Choose the department",
+          "title_i18n": {
+            "en_US": "Choose the department"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the department that receives the leave.",
+          "content_i18n": {
+            "en_US": "Click the department that receives the leave."
+          },
+          "description": "Pick the department. Start typing a name to narrow the list.",
+          "description_i18n": {
+            "en_US": "Pick the department. Start typing a name to narrow the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the allocation.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the allocation."
+          },
+          "description": "Saving creates the allocation. For leave types that need approval it now waits for validation and a Validate button appears next to Refuse. For the others it is approved straight away.",
+          "description_i18n": {
+            "en_US": "Saving creates the allocation. For leave types that need approval it now waits for validation and a Validate button appears next to Refuse. For the others it is approved straight away."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 130,
+          "title": "Allocation saved",
+          "title_i18n": {
+            "en_US": "Allocation saved"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The allocation is saved. Click its name to finish.",
+          "content_i18n": {
+            "en_US": "The allocation is saved. Click its name to finish."
+          },
+          "description": "When no approval is needed the status already reads Approved, so the days are in the employees' balance. If you made a mistake, use Refuse to cancel the allocation and create a new one.",
+          "description_i18n": {
+            "en_US": "When no approval is needed the status already reads Approved, so the days are in the employees' balance. If you made a mistake, use Refuse to cancel the allocation and create a new one."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

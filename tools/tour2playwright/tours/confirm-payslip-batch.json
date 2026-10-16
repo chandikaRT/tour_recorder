@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Confirm a Payslip Batch and Create the Accounting Entries",
+      "name_i18n": {
+        "en_US": "Confirm a Payslip Batch and Create the Accounting Entries"
+      },
+      "description": "Learn how to review a payslip batch and confirm all of its payslips in one step, which locks the payslips and creates the draft accounting entries for the salaries.",
+      "description_i18n": {
+        "en_US": "Learn how to review a payslip batch and confirm all of its payslips in one step, which locks the payslips and creates the draft accounting entries for the salaries."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Once every payslip of a pay period has been checked, the whole batch is confirmed in one step from the Payroll app.",
+          "description_i18n": {
+            "en_US": "Once every payslip of a pay period has been checked, the whole batch is confirmed in one step from the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu gives access to the payslips and to the batches that group them by pay period.",
+          "description_i18n": {
+            "en_US": "The Payslips menu gives access to the payslips and to the batches that group them by pay period."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Batches",
+          "title_i18n": {
+            "en_US": "Batches"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payslip_run\"]",
+          "content": "Click Batches.",
+          "content_i18n": {
+            "en_US": "Click Batches."
+          },
+          "description": "This list shows every batch with its period, its status and the number of payslips it contains. Batches that are not yet done still need to be checked and confirmed.",
+          "description_i18n": {
+            "en_US": "This list shows every batch with its period, its status and the number of payslips it contains. Batches that are not yet done still need to be checked and confirmed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open the batch",
+          "title_i18n": {
+            "en_US": "Open the batch"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"name\"]",
+          "content": "Click the batch to open it.",
+          "content_i18n": {
+            "en_US": "Click the batch to open it."
+          },
+          "description": "Open the batch for the period you are closing. Its payslips are listed behind the Payslips button, where you can still review or recompute them.",
+          "description_i18n": {
+            "en_US": "Open the batch for the period you are closing. Its payslips are listed behind the Payslips button, where you can still review or recompute them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Create Draft Entry",
+          "title_i18n": {
+            "en_US": "Create Draft Entry"
+          },
+          "trigger": "button[name=\"action_validate\"]",
+          "content": "Click Create Draft Entry to confirm the batch.",
+          "content_i18n": {
+            "en_US": "Click Create Draft Entry to confirm the batch."
+          },
+          "description": "This confirms every payslip of the batch at once. The payslips become Done and can no longer be edited, and the draft accounting entries for the salaries are created.",
+          "description_i18n": {
+            "en_US": "This confirms every payslip of the batch at once. The payslips become Done and can no longer be edited, and the draft accounting entries for the salaries are created."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Confirm in the window",
+          "title_i18n": {
+            "en_US": "Confirm in the window"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Ok to confirm.",
+          "content_i18n": {
+            "en_US": "Click Ok to confirm."
+          },
+          "description": "Odoo asks for a confirmation because a confirmed payslip is locked. Click Ok to continue.",
+          "description_i18n": {
+            "en_US": "Odoo asks for a confirmation because a confirmed payslip is locked. Click Ok to continue."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Check the status",
+          "title_i18n": {
+            "en_US": "Check the status"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "Check that the batch status is now Done, then click the batch name to finish.",
+          "content_i18n": {
+            "en_US": "Check that the batch status is now Done, then click the batch name to finish."
+          },
+          "description": "The status bar shows the batch as Done. The batch is now closed for changes and ready to be marked as paid.",
+          "description_i18n": {
+            "en_US": "The status bar shows the batch as Done. The batch is now closed for changes and ready to be marked as paid."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

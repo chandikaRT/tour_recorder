@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Check the Payslip of a Mid-Month Joiner or Leaver",
+      "name_i18n": {
+        "en_US": "Check the Payslip of a Mid-Month Joiner or Leaver"
+      },
+      "description": "Learn how to verify the pay of an employee who joins or leaves during the month: check the contract start and end dates, then confirm on the payslip that only the days under contract are paid.",
+      "description_i18n": {
+        "en_US": "Learn how to verify the pay of an employee who joins or leaves during the month: check the contract start and end dates, then confirm on the payslip that only the days under contract are paid."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "A payslip for someone who joins or leaves in the middle of a month must only cover the days they were under contract. Start by checking the contract dates.",
+          "description_i18n": {
+            "en_US": "A payslip for someone who joins or leaves in the middle of a month must only cover the days they were under contract. Start by checking the contract dates."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Contracts menu",
+          "title_i18n": {
+            "en_US": "Contracts menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employees_root\"]",
+          "content": "Open the Contracts menu.",
+          "content_i18n": {
+            "en_US": "Open the Contracts menu."
+          },
+          "description": "The Contracts menu lists the employment contracts that payroll uses to compute the pay.",
+          "description_i18n": {
+            "en_US": "The Contracts menu lists the employment contracts that payroll uses to compute the pay."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Contracts",
+          "title_i18n": {
+            "en_US": "Contracts"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.hr_menu_all_contracts\"]",
+          "content": "Click Contracts.",
+          "content_i18n": {
+            "en_US": "Click Contracts."
+          },
+          "description": "This list shows every contract with its status, start date and end date.",
+          "description_i18n": {
+            "en_US": "This list shows every contract with its status, start date and end date."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a group",
+          "title_i18n": {
+            "en_US": "Open a group"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a group to show its contracts.",
+          "content_i18n": {
+            "en_US": "Click a group to show its contracts."
+          },
+          "description": "Contracts are grouped by status. Expand Running to see the current contracts, or Expired for people who have left.",
+          "description_i18n": {
+            "en_US": "Contracts are grouped by status. Expand Running to see the current contracts, or Expired for people who have left."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Start date",
+          "title_i18n": {
+            "en_US": "Start date"
+          },
+          "trigger": "th[data-name=\"date_start\"]",
+          "content": "Look at the Start Date column, then click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the Start Date column, then click it to continue."
+          },
+          "description": "The start date is the first day the employee is paid. For a joiner in the middle of a month, the first payslip only counts the days from this date.",
+          "description_i18n": {
+            "en_US": "The start date is the first day the employee is paid. For a joiner in the middle of a month, the first payslip only counts the days from this date."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "End date",
+          "title_i18n": {
+            "en_US": "End date"
+          },
+          "trigger": "th[data-name=\"date_end\"]",
+          "content": "Look at the End Date column, then click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the End Date column, then click it to continue."
+          },
+          "description": "The end date is the last day the employee is paid. For a leaver, the last payslip only counts the days up to this date. An empty end date means the contract has no end.",
+          "description_i18n": {
+            "en_US": "The end date is the last day the employee is paid. For a leaver, the last payslip only counts the days up to this date. An empty end date means the contract has no end."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "Now check that the payslip of the employee agrees with the contract dates.",
+          "description_i18n": {
+            "en_US": "Now check that the payslip of the employee agrees with the contract dates."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "This list shows every payslip. Find the payslip of the joiner or leaver for the month.",
+          "description_i18n": {
+            "en_US": "This list shows every payslip. Find the payslip of the joiner or leaver for the month."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Open a batch",
+          "title_i18n": {
+            "en_US": "Open a batch"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a batch name to show its payslips.",
+          "content_i18n": {
+            "en_US": "Click a batch name to show its payslips."
+          },
+          "description": "Payslips are grouped by batch. Expand the batch of the month you are checking.",
+          "description_i18n": {
+            "en_US": "Payslips are grouped by batch. Expand the batch of the month you are checking."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Open the payslip",
+          "title_i18n": {
+            "en_US": "Open the payslip"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"employee_id\"]",
+          "content": "Click the payslip to open it.",
+          "content_i18n": {
+            "en_US": "Click the payslip to open it."
+          },
+          "description": "The payslip shows the employee, the period and the contract used to compute it.",
+          "description_i18n": {
+            "en_US": "The payslip shows the employee, the period and the contract used to compute it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Worked days and inputs",
+          "title_i18n": {
+            "en_US": "Worked days and inputs"
+          },
+          "trigger": "a[name=\"worked_days_input\"]",
+          "content": "Click the Worked Days & Inputs tab.",
+          "content_i18n": {
+            "en_US": "Click the Worked Days & Inputs tab."
+          },
+          "description": "This tab shows the days and hours that are paid. For a joiner or leaver, the number of days must be lower than a full month and match the days between the contract start and end dates.",
+          "description_i18n": {
+            "en_US": "This tab shows the days and hours that are paid. For a joiner or leaver, the number of days must be lower than a full month and match the days between the contract start and end dates."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Worked days lines",
+          "title_i18n": {
+            "en_US": "Worked days lines"
+          },
+          "trigger": "[name=\"worked_days_line_ids\"]",
+          "content": "Compare the days with the contract dates, then click the table to finish.",
+          "content_i18n": {
+            "en_US": "Compare the days with the contract dates, then click the table to finish."
+          },
+          "description": "If the days are wrong, fix the contract dates or the work entries and click Compute Sheet again to recalculate the payslip.",
+          "description_i18n": {
+            "en_US": "If the days are wrong, fix the contract dates or the work entries and click Compute Sheet again to recalculate the payslip."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

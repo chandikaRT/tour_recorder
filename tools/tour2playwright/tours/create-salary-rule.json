@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Create a Salary Rule",
+      "name_i18n": {
+        "en_US": "Create a Salary Rule"
+      },
+      "description": "Learn how to add a new salary rule, such as a fixed allowance, to a salary structure: name it, give it a category and a code, attach it to a structure, set the amount and save it.",
+      "description_i18n": {
+        "en_US": "Learn how to add a new salary rule, such as a fixed allowance, to a salary structure: name it, give it a category and a code, attach it to a structure, set the amount and save it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Salary rules are configured in the Payroll app. Each rule produces one line on the payslip.",
+          "description_i18n": {
+            "en_US": "Salary rules are configured in the Payroll app. Each rule produces one line on the payslip."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "Configuration holds the settings that decide how every payslip is calculated.",
+          "description_i18n": {
+            "en_US": "Configuration holds the settings that decide how every payslip is calculated."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Rules",
+          "title_i18n": {
+            "en_US": "Rules"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_action_hr_salary_rule_form\"]",
+          "content": "Click Rules.",
+          "content_i18n": {
+            "en_US": "Click Rules."
+          },
+          "description": "This list shows every salary rule of every structure, grouped by category. Check it first to avoid creating a rule that already exists.",
+          "description_i18n": {
+            "en_US": "This list shows every salary rule of every structure, grouped by category. Check it first to avoid creating a rule that already exists."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New rule",
+          "title_i18n": {
+            "en_US": "New rule"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a salary rule.",
+          "content_i18n": {
+            "en_US": "Click New to create a salary rule."
+          },
+          "description": "The New button opens a blank rule. A rule needs a name, a category, a code and the structure it belongs to.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank rule. A rule needs a name, a category, a code and the structure it belongs to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Rule name",
+          "title_i18n": {
+            "en_US": "Rule name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type the name of the rule, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the name of the rule, then press Tab."
+          },
+          "description": "The name is the label that appears on the payslip, for example Transport Allowance. Choose something employees will understand.",
+          "description_i18n": {
+            "en_US": "The name is the label that appears on the payslip, for example Transport Allowance. Choose something employees will understand."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Category",
+          "title_i18n": {
+            "en_US": "Category"
+          },
+          "trigger": "[name=\"category_id\"] input",
+          "content": "Click here to open the list of categories.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of categories."
+          },
+          "description": "The category groups the rule with similar ones, for example Basic, Allowance or Deduction. It also decides whether the amount adds to or reduces the net pay.",
+          "description_i18n": {
+            "en_US": "The category groups the rule with similar ones, for example Basic, Allowance or Deduction. It also decides whether the amount adds to or reduces the net pay."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Choose the category",
+          "title_i18n": {
+            "en_US": "Choose the category"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the category of this rule.",
+          "content_i18n": {
+            "en_US": "Click the category of this rule."
+          },
+          "description": "Pick Allowance for an amount added to the salary, or a deduction category for an amount taken off.",
+          "description_i18n": {
+            "en_US": "Pick Allowance for an amount added to the salary, or a deduction category for an amount taken off."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Code",
+          "title_i18n": {
+            "en_US": "Code"
+          },
+          "trigger": "[name=\"code\"] input",
+          "content": "Type a short code for the rule, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a short code for the rule, then press Tab."
+          },
+          "description": "The code identifies the rule in formulas and reports. Keep it short, in capital letters and without spaces, for example TRANSPORT.",
+          "description_i18n": {
+            "en_US": "The code identifies the rule in formulas and reports. Keep it short, in capital letters and without spaces, for example TRANSPORT."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Structure",
+          "title_i18n": {
+            "en_US": "Structure"
+          },
+          "trigger": "[name=\"struct_id\"] input",
+          "content": "Click here to open the list of salary structures.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of salary structures."
+          },
+          "description": "A rule only runs on payslips that use its structure. Choose the structure of the employees who should receive this rule.",
+          "description_i18n": {
+            "en_US": "A rule only runs on payslips that use its structure. Choose the structure of the employees who should receive this rule."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Choose the structure",
+          "title_i18n": {
+            "en_US": "Choose the structure"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the structure for this rule.",
+          "content_i18n": {
+            "en_US": "Click the structure for this rule."
+          },
+          "description": "The rule is added to the chosen structure and appears on its Salary Rules tab.",
+          "description_i18n": {
+            "en_US": "The rule is added to the chosen structure and appears on its Salary Rules tab."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Fixed amount",
+          "title_i18n": {
+            "en_US": "Fixed amount"
+          },
+          "trigger": "[name=\"amount_fix\"] input",
+          "content": "Type the fixed amount, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the fixed amount, then press Tab."
+          },
+          "description": "With the default computation, the rule adds this fixed amount to every payslip that uses it. Other computation types, such as a percentage or a Python formula, are available for more complex rules.",
+          "description_i18n": {
+            "en_US": "With the default computation, the rule adds this fixed amount to every payslip that uses it. Other computation types, such as a percentage or a Python formula, are available for more complex rules."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the rule.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the rule."
+          },
+          "description": "Saving creates the rule. It is used the next time a payslip of this structure is computed.",
+          "description_i18n": {
+            "en_US": "Saving creates the rule. It is used the next time a payslip of this structure is computed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

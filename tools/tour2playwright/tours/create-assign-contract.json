@@ -1,0 +1,292 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Create and Assign a Contract",
+      "name_i18n": {
+        "en_US": "Create and Assign a Contract"
+      },
+      "description": "Learn how to create an employment contract for an employee: give it a reference, assign it to the employee, enter the wage, save it, and start it.",
+      "description_i18n": {
+        "en_US": "Learn how to create an employment contract for an employee: give it a reference, assign it to the employee, enter the wage, save it, and start it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Contracts are managed from the Employees app. A contract links an employee to their pay, working schedule and dates of employment.",
+          "description_i18n": {
+            "en_US": "Contracts are managed from the Employees app. A contract links an employee to their pay, working schedule and dates of employment."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Employees menu",
+          "title_i18n": {
+            "en_US": "Employees menu"
+          },
+          "trigger": ".o_main_navbar .o_menu_sections .dropdown-toggle",
+          "content": "Open the Employees menu.",
+          "content_i18n": {
+            "en_US": "Open the Employees menu."
+          },
+          "description": "The Employees menu groups the lists you use most often, including the list of contracts.",
+          "description_i18n": {
+            "en_US": "The Employees menu groups the lists you use most often, including the list of contracts."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Contracts",
+          "title_i18n": {
+            "en_US": "Contracts"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_contract.hr_menu_contract\"]",
+          "content": "Click Contracts.",
+          "content_i18n": {
+            "en_US": "Click Contracts."
+          },
+          "description": "This list shows every contract in the company, with its status. Use it to check who is covered by a contract and when it ends.",
+          "description_i18n": {
+            "en_US": "This list shows every contract in the company, with its status. Use it to check who is covered by a contract and when it ends."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New contract",
+          "title_i18n": {
+            "en_US": "New contract"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a contract.",
+          "content_i18n": {
+            "en_US": "Click New to create a contract."
+          },
+          "description": "The New button opens a blank contract form. The contract is only stored once you save it.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank contract form. The contract is only stored once you save it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Contract reference",
+          "title_i18n": {
+            "en_US": "Contract reference"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type a reference for the contract, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a reference for the contract, then press Tab."
+          },
+          "description": "The reference identifies the contract in lists and on payslips. A common choice is the employee's name followed by the contract type, for example Jane Doe - Permanent.",
+          "description_i18n": {
+            "en_US": "The reference identifies the contract in lists and on payslips. A common choice is the employee's name followed by the contract type, for example Jane Doe - Permanent."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open Employee",
+          "title_i18n": {
+            "en_US": "Open Employee"
+          },
+          "trigger": "[name=\"employee_id\"] input",
+          "content": "Click here to choose the employee.",
+          "content_i18n": {
+            "en_US": "Click here to choose the employee."
+          },
+          "description": "The contract belongs to one employee. Choosing the employee also fills in their department and job position.",
+          "description_i18n": {
+            "en_US": "The contract belongs to one employee. Choosing the employee also fills in their department and job position."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Choose the employee",
+          "title_i18n": {
+            "en_US": "Choose the employee"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the employee this contract is for.",
+          "content_i18n": {
+            "en_US": "Click the employee this contract is for."
+          },
+          "description": "Pick the employee from the list. If the person is not listed, create their employee record first. Start typing a name to narrow the list.",
+          "description_i18n": {
+            "en_US": "Pick the employee from the list. If the person is not listed, create their employee record first. Start typing a name to narrow the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Monthly wage",
+          "title_i18n": {
+            "en_US": "Monthly wage"
+          },
+          "trigger": "[name=\"wage\"] input",
+          "content": "Type the monthly wage, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the monthly wage, then press Tab."
+          },
+          "description": "The wage is the gross monthly salary used to calculate payslips. Enter the amount before any deductions.",
+          "description_i18n": {
+            "en_US": "The wage is the gross monthly salary used to calculate payslips. Enter the amount before any deductions."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the contract.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the contract."
+          },
+          "description": "Saving stores the contract. A new contract starts in the New status and does not affect payroll until you start it.",
+          "description_i18n": {
+            "en_US": "Saving stores the contract. A new contract starts in the New status and does not affect payroll until you start it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Start the contract",
+          "title_i18n": {
+            "en_US": "Start the contract"
+          },
+          "trigger": ".o_statusbar_status button[data-value=\"open\"]",
+          "content": "Click Running to start the contract.",
+          "content_i18n": {
+            "en_US": "Click Running to start the contract."
+          },
+          "description": "A contract only counts for payroll once it is Running. Starting it tells Odoo to use this wage and working schedule for the employee from the start date.",
+          "description_i18n": {
+            "en_US": "A contract only counts for payroll once it is Running. Starting it tells Odoo to use this wage and working schedule for the employee from the start date."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Contract is running",
+          "title_i18n": {
+            "en_US": "Contract is running"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The contract is now running. Click the contract name to finish.",
+          "content_i18n": {
+            "en_US": "The contract is now running. Click the contract name to finish."
+          },
+          "description": "The status bar now highlights Running, which means the contract is active and you can create payslips for this employee.",
+          "description_i18n": {
+            "en_US": "The status bar now highlights Running, which means the contract is active and you can create payslips for this employee."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

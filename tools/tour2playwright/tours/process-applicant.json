@@ -1,0 +1,292 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Process a Job Applicant",
+      "name_i18n": {
+        "en_US": "Process a Job Applicant"
+      },
+      "description": "Learn how to follow an applicant through recruitment: open the job's applications, review the applicant, move them to the next stage, assign an interviewer, and find where to schedule the interview.",
+      "description_i18n": {
+        "en_US": "Learn how to follow an applicant through recruitment: open the job's applications, review the applicant, move them to the next stage, assign an interviewer, and find where to schedule the interview."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Recruitment",
+          "title_i18n": {
+            "en_US": "Open Recruitment"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_recruitment.menu_hr_recruitment_root\"]",
+          "content": "Open the Recruitment app.",
+          "content_i18n": {
+            "en_US": "Open the Recruitment app."
+          },
+          "description": "The Recruitment app shows one card for every job position, with the number of applications received for it.",
+          "description_i18n": {
+            "en_US": "The Recruitment app shows one card for every job position, with the number of applications received for it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Open the applications",
+          "title_i18n": {
+            "en_US": "Open the applications"
+          },
+          "trigger": ".o_kanban_record button.btn-primary",
+          "content": "Click the applications button on the job card.",
+          "content_i18n": {
+            "en_US": "Click the applications button on the job card."
+          },
+          "description": "This button opens the pipeline of applicants for that job. Each column is a stage of your hiring process.",
+          "description_i18n": {
+            "en_US": "This button opens the pipeline of applicants for that job. Each column is a stage of your hiring process."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Open the applicant",
+          "title_i18n": {
+            "en_US": "Open the applicant"
+          },
+          "trigger": ".o_kanban_view .o_kanban_record",
+          "content": "Click the applicant's card to open it.",
+          "content_i18n": {
+            "en_US": "Click the applicant's card to open it."
+          },
+          "description": "Each card is one applicant. Opening it shows their details, documents and the full history of the application.",
+          "description_i18n": {
+            "en_US": "Each card is one applicant. Opening it shows their details, documents and the full history of the application."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Move to Qualified",
+          "title_i18n": {
+            "en_US": "Move to Qualified"
+          },
+          "trigger": ".o_statusbar_status button[data-value=\"2\"]",
+          "content": "Click Qualified to move the applicant to the next stage.",
+          "content_i18n": {
+            "en_US": "Click Qualified to move the applicant to the next stage."
+          },
+          "description": "The bar at the top shows the stages of your hiring process. Click a stage to move the applicant forward. Later stages such as Interview, Contract Proposal and Contract Signed are moved to in the same way by the users who are allowed to use them.",
+          "description_i18n": {
+            "en_US": "The bar at the top shows the stages of your hiring process. Click a stage to move the applicant forward. Later stages such as Interview, Contract Proposal and Contract Signed are moved to in the same way by the users who are allowed to use them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open Interviewers",
+          "title_i18n": {
+            "en_US": "Open Interviewers"
+          },
+          "trigger": "[name=\"interviewer_ids\"] input",
+          "content": "Click here to choose who will interview the applicant.",
+          "content_i18n": {
+            "en_US": "Click here to choose who will interview the applicant."
+          },
+          "description": "Interviewers are the colleagues who meet the applicant. They get access to the application so they can read it and leave their feedback.",
+          "description_i18n": {
+            "en_US": "Interviewers are the colleagues who meet the applicant. They get access to the application so they can read it and leave their feedback."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose the interviewer",
+          "title_i18n": {
+            "en_US": "Choose the interviewer"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the person who will interview the applicant.",
+          "content_i18n": {
+            "en_US": "Click the person who will interview the applicant."
+          },
+          "description": "Pick the colleague from the list. Start typing a name to narrow the list, and repeat to add more than one interviewer.",
+          "description_i18n": {
+            "en_US": "Pick the colleague from the list. Start typing a name to narrow the list, and repeat to add more than one interviewer."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the changes.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the changes."
+          },
+          "description": "Saving records the new stage and the interviewer on the application, so the whole team sees the same information.",
+          "description_i18n": {
+            "en_US": "Saving records the new stage and the interviewer on the application, so the whole team sees the same information."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Activities",
+          "title_i18n": {
+            "en_US": "Activities"
+          },
+          "trigger": ".o-mail-Chatter-activity",
+          "content": "Click Activities to plan a task for this applicant.",
+          "content_i18n": {
+            "en_US": "Click Activities to plan a task for this applicant."
+          },
+          "description": "Activities are how you plan the next step with an applicant, for example a phone call or an interview. The planned task appears on your to-do list and on the applicant.",
+          "description_i18n": {
+            "en_US": "Activities are how you plan the next step with an applicant, for example a phone call or an interview. The planned task appears on your to-do list and on the applicant."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Schedule an activity",
+          "title_i18n": {
+            "en_US": "Schedule an activity"
+          },
+          "trigger": ".modal-title",
+          "content": "This window is where you plan the activity. Click the title to continue.",
+          "content_i18n": {
+            "en_US": "This window is where you plan the activity. Click the title to continue."
+          },
+          "description": "Choose the type of activity, add a summary and a due date, then assign it to the person responsible. Use the Meeting type to put an interview in the calendar.",
+          "description_i18n": {
+            "en_US": "Choose the type of activity, add a summary and a due date, then assign it to the person responsible. Use the Meeting type to put an interview in the calendar."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Close the window",
+          "title_i18n": {
+            "en_US": "Close the window"
+          },
+          "trigger": ".modal-footer .btn-secondary",
+          "content": "Click Discard to close the window without planning anything.",
+          "content_i18n": {
+            "en_US": "Click Discard to close the window without planning anything."
+          },
+          "description": "In a real application you would fill in the activity and save it. Here you can close the window, because this guide only shows where to plan the interview.",
+          "description_i18n": {
+            "en_US": "In a real application you would fill in the activity and save it. Here you can close the window, because this guide only shows where to plan the interview."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Applicant updated",
+          "title_i18n": {
+            "en_US": "Applicant updated"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The applicant has been updated. Click the name to finish.",
+          "content_i18n": {
+            "en_US": "The applicant has been updated. Click the name to finish."
+          },
+          "description": "When the applicant is hired, a Create Employee button appears on this page. It turns the applicant into an employee record with their details already filled in, so nothing has to be typed again.",
+          "description_i18n": {
+            "en_US": "When the applicant is hired, a Create Employee button appears on this page. It turns the applicant into an employee record with their details already filled in, so nothing has to be typed again."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Export the Bank Payment File for Salaries",
+      "name_i18n": {
+        "en_US": "Export the Bank Payment File for Salaries"
+      },
+      "description": "Learn how to prepare the bank payment file for the salaries: open the bank data report, select the payslips to pay, and export the Paymaster file that is sent to the bank.",
+      "description_i18n": {
+        "en_US": "Learn how to prepare the bank payment file for the salaries: open the bank data report, select the payslips to pay, and export the Paymaster file that is sent to the bank."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "The bank payment file is produced from the Reporting menu of the Payroll app once the payslips are confirmed.",
+          "description_i18n": {
+            "en_US": "The bank payment file is produced from the Reporting menu of the Payroll app once the payslips are confirmed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Reporting menu",
+          "title_i18n": {
+            "en_US": "Reporting menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_report\"]",
+          "content": "Open the Reporting menu.",
+          "content_i18n": {
+            "en_US": "Open the Reporting menu."
+          },
+          "description": "The Reporting menu holds the payroll reports, including the schedules for the tax and pension authorities and the bank data.",
+          "description_i18n": {
+            "en_US": "The Reporting menu holds the payroll reports, including the schedules for the tax and pension authorities and the bank data."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Bank Data",
+          "title_i18n": {
+            "en_US": "Bank Data"
+          },
+          "trigger": "[data-menu-xmlid=\"studio_customization.payroll_bank_data_5b68d01e-c73c-4d77-aca6-32c0d8676dd8\"]",
+          "content": "Click Bank Data.",
+          "content_i18n": {
+            "en_US": "Click Bank Data."
+          },
+          "description": "This list shows, for each payslip, the information the bank needs: the employee bank account, the branch, the net amount and the originating account.",
+          "description_i18n": {
+            "en_US": "This list shows, for each payslip, the information the bank needs: the employee bank account, the branch, the net amount and the originating account."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Select the payslips",
+          "title_i18n": {
+            "en_US": "Select the payslips"
+          },
+          "trigger": ".o_list_view thead .o_list_record_selector input",
+          "content": "Tick the box in the header to select all payslips.",
+          "content_i18n": {
+            "en_US": "Tick the box in the header to select all payslips."
+          },
+          "description": "Select the payslips that should be paid in this transfer. Ticking the header box selects every payslip in the list; use the search bar first to keep only one pay period or batch.",
+          "description_i18n": {
+            "en_US": "Select the payslips that should be paid in this transfer. Ticking the header box selects every payslip in the list; use the search bar first to keep only one pay period or batch."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Actions menu",
+          "title_i18n": {
+            "en_US": "Actions menu"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Once payslips are selected, the Actions menu offers what you can do with them.",
+          "description_i18n": {
+            "en_US": "Once payslips are selected, the Actions menu offers what you can do with them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Export Paymaster file",
+          "title_i18n": {
+            "en_US": "Export Paymaster file"
+          },
+          "trigger": ".o-dropdown--menu span.o_menu_item:last-child",
+          "content": "Click Export Paymaster XLSX.",
+          "content_i18n": {
+            "en_US": "Click Export Paymaster XLSX."
+          },
+          "description": "This creates the Paymaster file from the selected payslips and downloads it. Upload it to your bank portal to pay the salaries, then mark the batch as paid in Odoo.",
+          "description_i18n": {
+            "en_US": "This creates the Paymaster file from the selected payslips and downloads it. Upload it to your bank portal to pay the salaries, then mark the batch as paid in Odoo."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

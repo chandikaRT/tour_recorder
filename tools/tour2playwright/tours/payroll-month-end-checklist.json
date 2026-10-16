@@ -1,0 +1,342 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Payroll Month-End Checklist",
+      "name_i18n": {
+        "en_US": "Payroll Month-End Checklist"
+      },
+      "description": "Learn the checks to complete at the end of each payroll month: work entries, batches and their status, payslips waiting to be paid, and the payroll report.",
+      "description_i18n": {
+        "en_US": "Learn the checks to complete at the end of each payroll month: work entries, batches and their status, payslips waiting to be paid, and the payroll report."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Use this walkthrough every month to make sure nothing is missing before the pay period is closed.",
+          "description_i18n": {
+            "en_US": "Use this walkthrough every month to make sure nothing is missing before the pay period is closed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Work Entries menu",
+          "title_i18n": {
+            "en_US": "Work Entries menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_work_entries_root\"]",
+          "content": "Open the Work Entries menu.",
+          "content_i18n": {
+            "en_US": "Open the Work Entries menu."
+          },
+          "description": "Step 1 is to check the attendance and leave records that the payslips are based on.",
+          "description_i18n": {
+            "en_US": "Step 1 is to check the attendance and leave records that the payslips are based on."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Work Entries",
+          "title_i18n": {
+            "en_US": "Work Entries"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_work_entry\"]",
+          "content": "Click Work Entries.",
+          "content_i18n": {
+            "en_US": "Click Work Entries."
+          },
+          "description": "Work entries record the days and hours each employee worked or was absent. Conflicts must be resolved here, otherwise the payslips will be wrong.",
+          "description_i18n": {
+            "en_US": "Work entries record the days and hours each employee worked or was absent. Conflicts must be resolved here, otherwise the payslips will be wrong."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Review the entries",
+          "title_i18n": {
+            "en_US": "Review the entries"
+          },
+          "trigger": ".o_cp_searchview",
+          "content": "Check there are no conflicts, then click the search bar to continue.",
+          "content_i18n": {
+            "en_US": "Check there are no conflicts, then click the search bar to continue."
+          },
+          "description": "Entries in conflict are shown in red or flagged. Fix them before generating or confirming the payslips.",
+          "description_i18n": {
+            "en_US": "Entries in conflict are shown in red or flagged. Fix them before generating or confirming the payslips."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "Step 2 is to check that every batch of the month is generated and confirmed.",
+          "description_i18n": {
+            "en_US": "Step 2 is to check that every batch of the month is generated and confirmed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Batches",
+          "title_i18n": {
+            "en_US": "Batches"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payslip_run\"]",
+          "content": "Click Batches.",
+          "content_i18n": {
+            "en_US": "Click Batches."
+          },
+          "description": "This list shows each batch with its period, status and number of payslips.",
+          "description_i18n": {
+            "en_US": "This list shows each batch with its period, status and number of payslips."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Batch status",
+          "title_i18n": {
+            "en_US": "Batch status"
+          },
+          "trigger": "th[data-name=\"state\"]",
+          "content": "Look at the Status column, then click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the Status column, then click it to continue."
+          },
+          "description": "A batch moves from New to Confirmed, then Done and finally Paid. At month end, every batch of the period should be Done or Paid.",
+          "description_i18n": {
+            "en_US": "A batch moves from New to Confirmed, then Done and finally Paid. At month end, every batch of the period should be Done or Paid."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Payslips menu again",
+          "title_i18n": {
+            "en_US": "Payslips menu again"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu again.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu again."
+          },
+          "description": "Step 3 is to check the salaries that are still waiting to be paid.",
+          "description_i18n": {
+            "en_US": "Step 3 is to check the salaries that are still waiting to be paid."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "To Pay",
+          "title_i18n": {
+            "en_US": "To Pay"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips_to_pay\"]",
+          "content": "Click To Pay.",
+          "content_i18n": {
+            "en_US": "Click To Pay."
+          },
+          "description": "This list shows the payslips that are confirmed but not yet paid. It should be empty once the salaries have been transferred.",
+          "description_i18n": {
+            "en_US": "This list shows the payslips that are confirmed but not yet paid. It should be empty once the salaries have been transferred."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Review the list",
+          "title_i18n": {
+            "en_US": "Review the list"
+          },
+          "trigger": ".o_cp_searchview",
+          "content": "Check the list, then click the search bar to continue.",
+          "content_i18n": {
+            "en_US": "Check the list, then click the search bar to continue."
+          },
+          "description": "Any payslip still listed needs to be paid or investigated before the month is closed.",
+          "description_i18n": {
+            "en_US": "Any payslip still listed needs to be paid or investigated before the month is closed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Reporting menu",
+          "title_i18n": {
+            "en_US": "Reporting menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_report\"]",
+          "content": "Open the Reporting menu.",
+          "content_i18n": {
+            "en_US": "Open the Reporting menu."
+          },
+          "description": "Step 4 is to review the figures of the month.",
+          "description_i18n": {
+            "en_US": "Step 4 is to review the figures of the month."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Payroll report",
+          "title_i18n": {
+            "en_US": "Payroll report"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_report_payroll\"]",
+          "content": "Click Payroll.",
+          "content_i18n": {
+            "en_US": "Click Payroll."
+          },
+          "description": "The payroll report summarises gross pay, deductions and net pay by month, department or employee, so you can compare it with the previous month.",
+          "description_i18n": {
+            "en_US": "The payroll report summarises gross pay, deductions and net pay by month, department or employee, so you can compare it with the previous month."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 130,
+          "title": "Check the figures",
+          "title_i18n": {
+            "en_US": "Check the figures"
+          },
+          "trigger": ".o_cp_searchview",
+          "content": "Review the totals, then click the search bar to finish.",
+          "content_i18n": {
+            "en_US": "Review the totals, then click the search bar to finish."
+          },
+          "description": "If the totals look unusual compared with last month, open the payslips behind them before closing the month.",
+          "description_i18n": {
+            "en_US": "If the totals look unusual compared with last month, open the payslips behind them before closing the month."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

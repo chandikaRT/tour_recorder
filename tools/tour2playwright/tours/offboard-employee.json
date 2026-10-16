@@ -1,0 +1,292 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Offboard an Employee",
+      "name_i18n": {
+        "en_US": "Offboard an Employee"
+      },
+      "description": "Learn how to register an employee's departure: open their record, choose the departure reason and details, decide what happens to their leave and contract, and archive them.",
+      "description_i18n": {
+        "en_US": "Learn how to register an employee's departure: open their record, choose the departure reason and details, decide what happens to their leave and contract, and archive them."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Offboarding starts from the employee's record in the Employees app.",
+          "description_i18n": {
+            "en_US": "Offboarding starts from the employee's record in the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Open the employee",
+          "title_i18n": {
+            "en_US": "Open the employee"
+          },
+          "trigger": ".o_kanban_view .o_kanban_record",
+          "content": "Click the card of the employee who is leaving.",
+          "content_i18n": {
+            "en_US": "Click the card of the employee who is leaving."
+          },
+          "description": "Each card is one employee. Open the card of the person whose departure you are registering.",
+          "description_i18n": {
+            "en_US": "Each card is one employee. Open the card of the person whose departure you are registering."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Actions menu",
+          "title_i18n": {
+            "en_US": "Actions menu"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click the gear icon to open the Actions menu.",
+          "content_i18n": {
+            "en_US": "Click the gear icon to open the Actions menu."
+          },
+          "description": "The Actions menu holds the operations you can run on this record, such as archive, duplicate and delete.",
+          "description_i18n": {
+            "en_US": "The Actions menu holds the operations you can run on this record, such as archive, duplicate and delete."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Archive",
+          "title_i18n": {
+            "en_US": "Archive"
+          },
+          "trigger": ".o-dropdown--menu span.o_menu_item",
+          "content": "Click Archive.",
+          "content_i18n": {
+            "en_US": "Click Archive."
+          },
+          "description": "Archiving is how Odoo registers a departure. The employee disappears from normal lists but their history is kept, so payslips and past records stay available.",
+          "description_i18n": {
+            "en_US": "Archiving is how Odoo registers a departure. The employee disappears from normal lists but their history is kept, so payslips and past records stay available."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Departure reason",
+          "title_i18n": {
+            "en_US": "Departure reason"
+          },
+          "trigger": "[name=\"departure_reason_id\"] input",
+          "content": "Click here to choose the departure reason.",
+          "content_i18n": {
+            "en_US": "Click here to choose the departure reason."
+          },
+          "description": "The reason, for example resignation or retirement, is kept on the record and used in HR reports.",
+          "description_i18n": {
+            "en_US": "The reason, for example resignation or retirement, is kept on the record and used in HR reports."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose the reason",
+          "title_i18n": {
+            "en_US": "Choose the reason"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the reason the employee is leaving.",
+          "content_i18n": {
+            "en_US": "Click the reason the employee is leaving."
+          },
+          "description": "Pick the reason that best describes the departure. It cannot be left empty.",
+          "description_i18n": {
+            "en_US": "Pick the reason that best describes the departure. It cannot be left empty."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Contract",
+          "title_i18n": {
+            "en_US": "Contract"
+          },
+          "trigger": "[name=\"set_date_end\"] input",
+          "content": "Click the box to end the contract on the departure date.",
+          "content_i18n": {
+            "en_US": "Click the box to end the contract on the departure date."
+          },
+          "description": "When this box is ticked, Odoo closes the employee's running contract on the departure date, so payroll stops at the right moment.",
+          "description_i18n": {
+            "en_US": "When this box is ticked, Odoo closes the employee's running contract on the departure date, so payroll stops at the right moment."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Detailed reason",
+          "title_i18n": {
+            "en_US": "Detailed reason"
+          },
+          "trigger": "[name=\"departure_description\"] .odoo-editor-editable",
+          "content": "Type a short note about the departure, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a short note about the departure, then press Tab."
+          },
+          "description": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements.",
+          "description_i18n": {
+            "en_US": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Departure date",
+          "title_i18n": {
+            "en_US": "Departure date"
+          },
+          "trigger": "[name=\"departure_date\"] input",
+          "content": "Click the date field to check the departure date.",
+          "content_i18n": {
+            "en_US": "Click the date field to check the departure date."
+          },
+          "description": "The departure date is the employee's last day. It starts as today, so change it in the calendar if they leave on another day.",
+          "description_i18n": {
+            "en_US": "The departure date is the employee's last day. It starts as today, so change it in the calendar if they leave on another day."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Apply",
+          "title_i18n": {
+            "en_US": "Apply"
+          },
+          "trigger": "button[name=\"action_register_departure\"]",
+          "content": "Click Apply to register the departure.",
+          "content_i18n": {
+            "en_US": "Click Apply to register the departure."
+          },
+          "description": "Apply archives the employee, records the reason and date, and applies the choices you made about leave and the contract.",
+          "description_i18n": {
+            "en_US": "Apply archives the employee, records the reason and date, and applies the choices you made about leave and the contract."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Departure registered",
+          "title_i18n": {
+            "en_US": "Departure registered"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The employee is now archived. Click the name to finish.",
+          "content_i18n": {
+            "en_US": "The employee is now archived. Click the name to finish."
+          },
+          "description": "An archived employee shows an Archived banner on their record. Nothing is deleted: you can still open the record and restore the employee later if needed.",
+          "description_i18n": {
+            "en_US": "An archived employee shows an Archived banner on their record. Nothing is deleted: you can still open the record and restore the employee later if needed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

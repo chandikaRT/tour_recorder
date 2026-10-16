@@ -1,0 +1,342 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Add or Correct an Attendance Record Manually",
+      "name_i18n": {
+        "en_US": "Add or Correct an Attendance Record Manually"
+      },
+      "description": "Learn how HR creates an attendance record by hand when an employee forgot to check in or out, choosing the employee and the exact check-in and check-out times, then saving the correction.",
+      "description_i18n": {
+        "en_US": "Learn how HR creates an attendance record by hand when an employee forgot to check in or out, choosing the employee and the exact check-in and check-out times, then saving the correction."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Attendances",
+          "title_i18n": {
+            "en_US": "Open Attendances"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_attendance.menu_hr_attendance_root\"]",
+          "content": "Open the Attendances app.",
+          "content_i18n": {
+            "en_US": "Open the Attendances app."
+          },
+          "description": "The Attendances app keeps the check-in and check-out times of every employee. HR administrators can add or correct these records when someone forgets to check in or out.",
+          "description_i18n": {
+            "en_US": "The Attendances app keeps the check-in and check-out times of every employee. HR administrators can add or correct these records when someone forgets to check in or out."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Switch to List",
+          "title_i18n": {
+            "en_US": "Switch to List"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_list",
+          "content": "Click List to see the records as a table.",
+          "content_i18n": {
+            "en_US": "Click List to see the records as a table."
+          },
+          "description": "The list view is the easiest place to add or edit records, and it shows the employee, check-in, check-out and worked hours of each entry.",
+          "description_i18n": {
+            "en_US": "The list view is the easiest place to add or edit records, and it shows the employee, check-in, check-out and worked hours of each entry."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "New record",
+          "title_i18n": {
+            "en_US": "New record"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to add an attendance record.",
+          "content_i18n": {
+            "en_US": "Click New to add an attendance record."
+          },
+          "description": "The New button opens a blank attendance record. Use it when the employee has no entry for the day, for example because the kiosk was not used.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank attendance record. Use it when the employee has no entry for the day, for example because the kiosk was not used."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Employee",
+          "title_i18n": {
+            "en_US": "Employee"
+          },
+          "trigger": "[name=\"employee_id\"] input",
+          "content": "Click here to open the list of employees.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of employees."
+          },
+          "description": "The record is saved against one employee. Opening the field shows the employees you can choose from.",
+          "description_i18n": {
+            "en_US": "The record is saved against one employee. Opening the field shows the employees you can choose from."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Choose the employee",
+          "title_i18n": {
+            "en_US": "Choose the employee"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the employee this record belongs to.",
+          "content_i18n": {
+            "en_US": "Click the employee this record belongs to."
+          },
+          "description": "Pick the employee who forgot to check in or out. You can also type part of the name to narrow down the list.",
+          "description_i18n": {
+            "en_US": "Pick the employee who forgot to check in or out. You can also type part of the name to narrow down the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Check-in time",
+          "title_i18n": {
+            "en_US": "Check-in time"
+          },
+          "trigger": "[name=\"check_in\"] input",
+          "content": "Click the check-in field to open the calendar.",
+          "content_i18n": {
+            "en_US": "Click the check-in field to open the calendar."
+          },
+          "description": "The check-in field holds the date and time the employee started work. It is filled with the current time, so open the calendar to change it to the correct day.",
+          "description_i18n": {
+            "en_US": "The check-in field holds the date and time the employee started work. It is filled with the current time, so open the calendar to change it to the correct day."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Pick the check-in day",
+          "title_i18n": {
+            "en_US": "Pick the check-in day"
+          },
+          "trigger": ".o_datetime_picker",
+          "content": "Click the day the employee started work.",
+          "content_i18n": {
+            "en_US": "Click the day the employee started work."
+          },
+          "description": "Click the correct day in the calendar. The time of day can be changed in the same calendar before you confirm.",
+          "description_i18n": {
+            "en_US": "Click the correct day in the calendar. The time of day can be changed in the same calendar before you confirm."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Apply check-in",
+          "title_i18n": {
+            "en_US": "Apply check-in"
+          },
+          "trigger": ".o_datetime_picker .o_apply",
+          "content": "Click Apply to confirm the check-in.",
+          "content_i18n": {
+            "en_US": "Click Apply to confirm the check-in."
+          },
+          "description": "Apply confirms the check-in date and time and closes the calendar. The field now shows the corrected value.",
+          "description_i18n": {
+            "en_US": "Apply confirms the check-in date and time and closes the calendar. The field now shows the corrected value."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Check-out time",
+          "title_i18n": {
+            "en_US": "Check-out time"
+          },
+          "trigger": "[name=\"check_out\"] input",
+          "content": "Click the check-out field to open the calendar.",
+          "content_i18n": {
+            "en_US": "Click the check-out field to open the calendar."
+          },
+          "description": "The check-out field holds the time the employee finished work. It stays empty while the employee is still checked in, so fill it in to close the record.",
+          "description_i18n": {
+            "en_US": "The check-out field holds the time the employee finished work. It stays empty while the employee is still checked in, so fill it in to close the record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Pick the check-out day",
+          "title_i18n": {
+            "en_US": "Pick the check-out day"
+          },
+          "trigger": ".o_datetime_picker",
+          "content": "Click the day the employee finished work.",
+          "content_i18n": {
+            "en_US": "Click the day the employee finished work."
+          },
+          "description": "The check-out must be later than the check-in, otherwise Odoo refuses to save the record. Pick the day and, if needed, the time.",
+          "description_i18n": {
+            "en_US": "The check-out must be later than the check-in, otherwise Odoo refuses to save the record. Pick the day and, if needed, the time."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Apply check-out",
+          "title_i18n": {
+            "en_US": "Apply check-out"
+          },
+          "trigger": ".o_datetime_picker .o_apply",
+          "content": "Click Apply to confirm the check-out.",
+          "content_i18n": {
+            "en_US": "Click Apply to confirm the check-out."
+          },
+          "description": "Apply confirms the check-out and closes the calendar. Odoo now calculates the worked hours from the two times.",
+          "description_i18n": {
+            "en_US": "Apply confirms the check-out and closes the calendar. Odoo now calculates the worked hours from the two times."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the record.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the record."
+          },
+          "description": "Saving stores the manual attendance record. It now counts in worked hours, overtime and attendance reports.",
+          "description_i18n": {
+            "en_US": "Saving stores the manual attendance record. It now counts in worked hours, overtime and attendance reports."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 130,
+          "title": "Worked hours",
+          "title_i18n": {
+            "en_US": "Worked hours"
+          },
+          "trigger": "[name=\"worked_hours\"]",
+          "content": "Check the worked hours, then click them to finish.",
+          "content_i18n": {
+            "en_US": "Check the worked hours, then click them to finish."
+          },
+          "description": "Worked Hours is calculated from the check-in and check-out you entered. If the figure looks wrong, correct the times and save again.",
+          "description_i18n": {
+            "en_US": "Worked Hours is calculated from the check-in and check-out you entered. If the figure looks wrong, correct the times and save again."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

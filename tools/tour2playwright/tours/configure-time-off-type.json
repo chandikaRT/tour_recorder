@@ -1,0 +1,292 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Configure a Time Off Type",
+      "name_i18n": {
+        "en_US": "Configure a Time Off Type"
+      },
+      "description": "Learn how to set up a type of leave: name it, decide who must approve requests, say whether it needs an allocation, and choose the unit employees request it in.",
+      "description_i18n": {
+        "en_US": "Learn how to set up a type of leave: name it, decide who must approve requests, say whether it needs an allocation, and choose the unit employees request it in."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Leave types are configured in the Time Off app. Each type has its own rules for approval, allocation and counting.",
+          "description_i18n": {
+            "en_US": "Leave types are configured in the Time Off app. Each type has its own rules for approval, allocation and counting."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the settings that define how time off works in your company, such as leave types, accrual plans and public holidays.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the settings that define how time off works in your company, such as leave types, accrual plans and public holidays."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off Types",
+          "title_i18n": {
+            "en_US": "Time Off Types"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_status_menu_configuration\"]",
+          "content": "Click Time Off Types.",
+          "content_i18n": {
+            "en_US": "Click Time Off Types."
+          },
+          "description": "This list shows every type of leave that employees can request, for example Annual Leave or Sick Leave.",
+          "description_i18n": {
+            "en_US": "This list shows every type of leave that employees can request, for example Annual Leave or Sick Leave."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New type",
+          "title_i18n": {
+            "en_US": "New type"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a time off type.",
+          "content_i18n": {
+            "en_US": "Click New to create a time off type."
+          },
+          "description": "The New button opens a blank form for a new type of leave. Nothing is stored until you save it.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank form for a new type of leave. Nothing is stored until you save it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Type name",
+          "title_i18n": {
+            "en_US": "Type name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type the name of the leave type, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the name of the leave type, then press Tab."
+          },
+          "description": "Employees see this name when they request leave, so choose a clear one such as Annual Leave or Study Leave.",
+          "description_i18n": {
+            "en_US": "Employees see this name when they request leave, so choose a clear one such as Annual Leave or Study Leave."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Approval",
+          "title_i18n": {
+            "en_US": "Approval"
+          },
+          "trigger": "[name=\"leave_validation_type\"] .o_radio_item:nth-child(3) input",
+          "content": "Click By Employee's Approver.",
+          "content_i18n": {
+            "en_US": "Click By Employee's Approver."
+          },
+          "description": "This setting decides who approves requests of this type. By Employee's Approver means the person's manager decides. No Validation approves automatically, and the other options also involve the Time Off Officer.",
+          "description_i18n": {
+            "en_US": "This setting decides who approves requests of this type. By Employee's Approver means the person's manager decides. No Validation approves automatically, and the other options also involve the Time Off Officer."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Allocation",
+          "title_i18n": {
+            "en_US": "Allocation"
+          },
+          "trigger": "[name=\"requires_allocation\"] .o_radio_item:nth-child(1) input",
+          "content": "Click Yes if employees need an allocation to take this leave.",
+          "content_i18n": {
+            "en_US": "Click Yes if employees need an allocation to take this leave."
+          },
+          "description": "With an allocation, employees can only take as many days as HR has granted them. Choose No Limit for leave types such as sick leave that are not capped in advance.",
+          "description_i18n": {
+            "en_US": "With an allocation, employees can only take as many days as HR has granted them. Choose No Limit for leave types such as sick leave that are not capped in advance."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Employee requests",
+          "title_i18n": {
+            "en_US": "Employee requests"
+          },
+          "trigger": "[name=\"employee_requests\"] .o_radio_item:nth-child(1) input",
+          "content": "Click Extra Days Requests Allowed if employees may ask for more days.",
+          "content_i18n": {
+            "en_US": "Click Extra Days Requests Allowed if employees may ask for more days."
+          },
+          "description": "This setting lets employees submit a request for additional days of this type. Their request still needs to be approved before it counts.",
+          "description_i18n": {
+            "en_US": "This setting lets employees submit a request for additional days of this type. Their request still needs to be approved before it counts."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Request unit",
+          "title_i18n": {
+            "en_US": "Request unit"
+          },
+          "trigger": "[name=\"request_unit\"] select",
+          "content": "Choose the unit employees request this leave in.",
+          "content_i18n": {
+            "en_US": "Choose the unit employees request this leave in."
+          },
+          "description": "The unit decides whether a request is made in days, half days or hours. For example, Short Leave is usually requested in hours while Annual Leave is requested in days.",
+          "description_i18n": {
+            "en_US": "The unit decides whether a request is made in days, half days or hours. For example, Short Leave is usually requested in hours while Annual Leave is requested in days."
+          },
+          "position": "bottom",
+          "run": "select",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the leave type.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the leave type."
+          },
+          "description": "Saving creates the leave type. It becomes available for requests and allocations straight away.",
+          "description_i18n": {
+            "en_US": "Saving creates the leave type. It becomes available for requests and allocations straight away."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Type saved",
+          "title_i18n": {
+            "en_US": "Type saved"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The time off type is saved. Click its name to finish.",
+          "content_i18n": {
+            "en_US": "The time off type is saved. Click its name to finish."
+          },
+          "description": "The new type now appears in the list of time off types. You can come back to this form at any time to adjust its rules.",
+          "description_i18n": {
+            "en_US": "The new type now appears in the list of time off types. You can come back to this form at any time to adjust its rules."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Add an Extra Input to a Single Payslip",
+      "name_i18n": {
+        "en_US": "Add an Extra Input to a Single Payslip"
+      },
+      "description": "Learn how to add a one-off amount, such as a bonus or an allowance, to one employee's payslip as an extra input and recompute the payslip so the amount is included.",
+      "description_i18n": {
+        "en_US": "Learn how to add a one-off amount, such as a bonus or an allowance, to one employee's payslip as an extra input and recompute the payslip so the amount is included."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "One-off amounts for a single employee are added directly on that employee's payslip in the Payroll app.",
+          "description_i18n": {
+            "en_US": "One-off amounts for a single employee are added directly on that employee's payslip in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu lists the payslips of all employees and the batches they belong to.",
+          "description_i18n": {
+            "en_US": "The Payslips menu lists the payslips of all employees and the batches they belong to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "This list shows every payslip with the employee, period and net amount.",
+          "description_i18n": {
+            "en_US": "This list shows every payslip with the employee, period and net amount."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a batch",
+          "title_i18n": {
+            "en_US": "Open a batch"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a batch name to show its payslips.",
+          "content_i18n": {
+            "en_US": "Click a batch name to show its payslips."
+          },
+          "description": "Payslips are grouped by batch. Expand the batch that contains the payslip you want to change.",
+          "description_i18n": {
+            "en_US": "Payslips are grouped by batch. Expand the batch that contains the payslip you want to change."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the payslip",
+          "title_i18n": {
+            "en_US": "Open the payslip"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"employee_id\"]",
+          "content": "Click the payslip to open it.",
+          "content_i18n": {
+            "en_US": "Click the payslip to open it."
+          },
+          "description": "Extra inputs can only be added while the payslip is not yet done, so open a draft or waiting payslip.",
+          "description_i18n": {
+            "en_US": "Extra inputs can only be added while the payslip is not yet done, so open a draft or waiting payslip."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Worked days and inputs",
+          "title_i18n": {
+            "en_US": "Worked days and inputs"
+          },
+          "trigger": "a[name=\"worked_days_input\"]",
+          "content": "Click the Worked Days & Inputs tab.",
+          "content_i18n": {
+            "en_US": "Click the Worked Days & Inputs tab."
+          },
+          "description": "This tab has two parts: the worked days and, below them, the Other Inputs table where one-off amounts are added.",
+          "description_i18n": {
+            "en_US": "This tab has two parts: the worked days and, below them, the Other Inputs table where one-off amounts are added."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Add a line",
+          "title_i18n": {
+            "en_US": "Add a line"
+          },
+          "trigger": "[name=\"input_line_ids\"] .o_field_x2many_list_row_add a",
+          "content": "Click Add a line in the Other Inputs table.",
+          "content_i18n": {
+            "en_US": "Click Add a line in the Other Inputs table."
+          },
+          "description": "A new line opens in the table so you can describe the extra amount.",
+          "description_i18n": {
+            "en_US": "A new line opens in the table so you can describe the extra amount."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Input type",
+          "title_i18n": {
+            "en_US": "Input type"
+          },
+          "trigger": "[name=\"input_type_id\"] input",
+          "content": "Click here to open the list of input types.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of input types."
+          },
+          "description": "The input type tells payroll what the amount is, for example a bonus or an allowance. Each type is linked to a salary rule that adds it to the payslip.",
+          "description_i18n": {
+            "en_US": "The input type tells payroll what the amount is, for example a bonus or an allowance. Each type is linked to a salary rule that adds it to the payslip."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Choose the type",
+          "title_i18n": {
+            "en_US": "Choose the type"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the input type that matches the amount.",
+          "content_i18n": {
+            "en_US": "Click the input type that matches the amount."
+          },
+          "description": "Choose the type that matches the payment. Only the types allowed for this employee's salary structure are offered.",
+          "description_i18n": {
+            "en_US": "Choose the type that matches the payment. Only the types allowed for this employee's salary structure are offered."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Amount",
+          "title_i18n": {
+            "en_US": "Amount"
+          },
+          "trigger": "[name=\"amount\"] input",
+          "content": "Type the amount, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the amount, then press Tab."
+          },
+          "description": "Enter the amount to add for this payslip. It applies to this payslip only and is not repeated on later months.",
+          "description_i18n": {
+            "en_US": "Enter the amount to add for this payslip. It applies to this payslip only and is not repeated on later months."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the change.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the change."
+          },
+          "description": "Save the payslip so the new input is stored. The pay does not change until the payslip is recomputed.",
+          "description_i18n": {
+            "en_US": "Save the payslip so the new input is stored. The pay does not change until the payslip is recomputed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Compute Sheet",
+          "title_i18n": {
+            "en_US": "Compute Sheet"
+          },
+          "trigger": "button[name=\"compute_sheet\"]",
+          "content": "Click Compute Sheet to include the new amount.",
+          "content_i18n": {
+            "en_US": "Click Compute Sheet to include the new amount."
+          },
+          "description": "Compute Sheet recalculates the payslip. The extra amount now appears as a line on the Salary Computation tab and changes the net salary.",
+          "description_i18n": {
+            "en_US": "Compute Sheet recalculates the payslip. The extra amount now appears as a line on the Salary Computation tab and changes the net salary."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

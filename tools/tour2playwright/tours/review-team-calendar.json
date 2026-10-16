@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review Team Calendar and Leave Conflicts",
+      "name_i18n": {
+        "en_US": "Review Team Calendar and Leave Conflicts"
+      },
+      "description": "Learn how a manager checks who in the team is away, spots days when too many people are off at once, and looks ahead in the calendar before approving leave.",
+      "description_i18n": {
+        "en_US": "Learn how a manager checks who in the team is away, spots days when too many people are off at once, and looks ahead in the calendar before approving leave."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "The Time Off app also shows who in your team is away. Managers use it to plan work around leave and to spot clashes before approving requests.",
+          "description_i18n": {
+            "en_US": "The Time Off app also shows who in your team is away. Managers use it to plan work around leave and to spot clashes before approving requests."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Overview",
+          "title_i18n": {
+            "en_US": "Overview"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_dashboard\"]",
+          "content": "Open the Overview menu.",
+          "content_i18n": {
+            "en_US": "Open the Overview menu."
+          },
+          "description": "Overview shows the leave of your whole team on one screen, instead of one request at a time.",
+          "description_i18n": {
+            "en_US": "Overview shows the leave of your whole team on one screen, instead of one request at a time."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Team timeline",
+          "title_i18n": {
+            "en_US": "Team timeline"
+          },
+          "trigger": ".o_gantt_view .o_gantt_header",
+          "content": "This timeline shows the days of the period. Click it to continue.",
+          "content_i18n": {
+            "en_US": "This timeline shows the days of the period. Click it to continue."
+          },
+          "description": "Each column is a day. The bars below show when people are away, so you can see at a glance who is out and when.",
+          "description_i18n": {
+            "en_US": "Each column is a day. The bars below show when people are away, so you can see at a glance who is out and when."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Team member",
+          "title_i18n": {
+            "en_US": "Team member"
+          },
+          "trigger": ".o_gantt_view .o_gantt_row_title",
+          "content": "Each row belongs to one team member. Click a name to continue.",
+          "content_i18n": {
+            "en_US": "Each row belongs to one team member. Click a name to continue."
+          },
+          "description": "A bar on a person's row marks the days they are on leave. The color of the bar shows its status, for example approved or waiting for approval.",
+          "description_i18n": {
+            "en_US": "A bar on a person's row marks the days they are on leave. The color of the bar shows its status, for example approved or waiting for approval."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Total row",
+          "title_i18n": {
+            "en_US": "Total row"
+          },
+          "trigger": ".o_gantt_row_title.fw-bold",
+          "content": "The Total row adds up how many people are away each day. Click it to continue.",
+          "content_i18n": {
+            "en_US": "The Total row adds up how many people are away each day. Click it to continue."
+          },
+          "description": "Use this row to find conflicts. A day with a high total means many people are away at once, so check that your team can still cover the work before you approve more leave.",
+          "description_i18n": {
+            "en_US": "Use this row to find conflicts. A day with a high total means many people are away at once, so check that your team can still cover the work before you approve more leave."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Calendar view",
+          "title_i18n": {
+            "en_US": "Calendar view"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_calendar",
+          "content": "Click Calendar to see the same leave in a monthly calendar.",
+          "content_i18n": {
+            "en_US": "Click Calendar to see the same leave in a monthly calendar."
+          },
+          "description": "The calendar is easier for planning by date. It shows the same leave requests as the timeline.",
+          "description_i18n": {
+            "en_US": "The calendar is easier for planning by date. It shows the same leave requests as the timeline."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Who is shown",
+          "title_i18n": {
+            "en_US": "Who is shown"
+          },
+          "trigger": ".o_calendar_sidebar",
+          "content": "The side panel chooses whose leave is shown. Click it to continue.",
+          "content_i18n": {
+            "en_US": "The side panel chooses whose leave is shown. Click it to continue."
+          },
+          "description": "Tick or untick team members to focus on the people who matter for your work. The legend explains the colors: validated, to approve and refused.",
+          "description_i18n": {
+            "en_US": "Tick or untick team members to focus on the people who matter for your work. The legend explains the colors: validated, to approve and refused."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Look ahead",
+          "title_i18n": {
+            "en_US": "Look ahead"
+          },
+          "trigger": ".o_calendar_button_next",
+          "content": "Click the arrow to look at the next period.",
+          "content_i18n": {
+            "en_US": "Click the arrow to look at the next period."
+          },
+          "description": "Moving forward lets you check future weeks before you approve leave, so you can see whether other people are already away on those dates.",
+          "description_i18n": {
+            "en_US": "Moving forward lets you check future weeks before you approve leave, so you can see whether other people are already away on those dates."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Back to today",
+          "title_i18n": {
+            "en_US": "Back to today"
+          },
+          "trigger": ".o_calendar_button_today",
+          "content": "Click Today to return to the current period.",
+          "content_i18n": {
+            "en_US": "Click Today to return to the current period."
+          },
+          "description": "Today brings you back to the current date from wherever you have scrolled to.",
+          "description_i18n": {
+            "en_US": "Today brings you back to the current date from wherever you have scrolled to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

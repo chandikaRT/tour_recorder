@@ -1,0 +1,367 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Create a New Employee",
+      "name_i18n": {
+        "en_US": "Create a New Employee"
+      },
+      "description": "Learn how to create an employee record: enter the name and job details, choose the department and manager, add work contact information, review the other tabs, and save.",
+      "description_i18n": {
+        "en_US": "Learn how to create an employee record: enter the name and job details, choose the department and manager, add work contact information, review the other tabs, and save."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "The Employees app holds one record for every person who works for the company. It is where HR keeps contact details, job information and settings.",
+          "description_i18n": {
+            "en_US": "The Employees app holds one record for every person who works for the company. It is where HR keeps contact details, job information and settings."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "New employee",
+          "title_i18n": {
+            "en_US": "New employee"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o-kanban-button-new",
+          "content": "Click New to create an employee.",
+          "content_i18n": {
+            "en_US": "Click New to create an employee."
+          },
+          "description": "The New button opens a blank employee form. Nothing is stored until you save it.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank employee form. Nothing is stored until you save it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Employee name",
+          "title_i18n": {
+            "en_US": "Employee name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type the employee's full name, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the employee's full name, then press Tab."
+          },
+          "description": "The name identifies the employee everywhere in Odoo, for example on leave requests, payslips and attendance records. Use the full legal name.",
+          "description_i18n": {
+            "en_US": "The name identifies the employee everywhere in Odoo, for example on leave requests, payslips and attendance records. Use the full legal name."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Job title",
+          "title_i18n": {
+            "en_US": "Job title"
+          },
+          "trigger": "[name=\"job_title\"] input",
+          "content": "Type the job title, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the job title, then press Tab."
+          },
+          "description": "The job title is shown under the name on the employee card and in the company directory. It is free text, so it can describe the role in your own words.",
+          "description_i18n": {
+            "en_US": "The job title is shown under the name on the employee card and in the company directory. It is free text, so it can describe the role in your own words."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open Department",
+          "title_i18n": {
+            "en_US": "Open Department"
+          },
+          "trigger": "[name=\"department_id\"] input",
+          "content": "Click here to open the list of departments.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of departments."
+          },
+          "description": "The department places the employee in your organisation chart and decides which team reports and approvals they belong to.",
+          "description_i18n": {
+            "en_US": "The department places the employee in your organisation chart and decides which team reports and approvals they belong to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose the department",
+          "title_i18n": {
+            "en_US": "Choose the department"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the employee's department.",
+          "content_i18n": {
+            "en_US": "Click the employee's department."
+          },
+          "description": "Pick the department the employee works in. If you cannot find it, start typing its name to narrow down the list.",
+          "description_i18n": {
+            "en_US": "Pick the department the employee works in. If you cannot find it, start typing its name to narrow down the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Open Manager",
+          "title_i18n": {
+            "en_US": "Open Manager"
+          },
+          "trigger": "[name=\"parent_id\"] input",
+          "content": "Click here to open the list of managers.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of managers."
+          },
+          "description": "The manager is the person the employee reports to. Odoo uses it to route time off and expense approvals.",
+          "description_i18n": {
+            "en_US": "The manager is the person the employee reports to. Odoo uses it to route time off and expense approvals."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Choose the manager",
+          "title_i18n": {
+            "en_US": "Choose the manager"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the employee's manager.",
+          "content_i18n": {
+            "en_US": "Click the employee's manager."
+          },
+          "description": "Choose the person who supervises this employee. Their approvals will appear in their own Time Off and Expenses screens.",
+          "description_i18n": {
+            "en_US": "Choose the person who supervises this employee. Their approvals will appear in their own Time Off and Expenses screens."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Work Information tab",
+          "title_i18n": {
+            "en_US": "Work Information tab"
+          },
+          "trigger": "a[name=\"public\"]",
+          "content": "Open the Work Information tab.",
+          "content_i18n": {
+            "en_US": "Open the Work Information tab."
+          },
+          "description": "This tab holds the contact details and settings that apply while the person is at work, such as work email, phone and working schedule.",
+          "description_i18n": {
+            "en_US": "This tab holds the contact details and settings that apply while the person is at work, such as work email, phone and working schedule."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Work email",
+          "title_i18n": {
+            "en_US": "Work email"
+          },
+          "trigger": "[name=\"work_email\"] input",
+          "content": "Type the work email address, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the work email address, then press Tab."
+          },
+          "description": "Odoo uses the work email to contact the employee, for example to send payslips and notifications. Make sure it is typed correctly.",
+          "description_i18n": {
+            "en_US": "Odoo uses the work email to contact the employee, for example to send payslips and notifications. Make sure it is typed correctly."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Private Information tab",
+          "title_i18n": {
+            "en_US": "Private Information tab"
+          },
+          "trigger": "a[name=\"personal_information\"]",
+          "content": "Open the Private Information tab.",
+          "content_i18n": {
+            "en_US": "Open the Private Information tab."
+          },
+          "description": "This tab stores personal details such as home address, emergency contact and bank account. Only HR users can see it.",
+          "description_i18n": {
+            "en_US": "This tab stores personal details such as home address, emergency contact and bank account. Only HR users can see it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "HR Settings tab",
+          "title_i18n": {
+            "en_US": "HR Settings tab"
+          },
+          "trigger": "a[name=\"hr_settings\"]",
+          "content": "Open the HR Settings tab.",
+          "content_i18n": {
+            "en_US": "Open the HR Settings tab."
+          },
+          "description": "HR Settings holds the technical settings of the record, such as the linked user account, the employee number and attendance options.",
+          "description_i18n": {
+            "en_US": "HR Settings holds the technical settings of the record, such as the linked user account, the employee number and attendance options."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 130,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the employee.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the employee."
+          },
+          "description": "The cloud icon saves the record. Until you save, the employee does not exist and the changes would be lost if you leave the page.",
+          "description_i18n": {
+            "en_US": "The cloud icon saves the record. Until you save, the employee does not exist and the changes would be lost if you leave the page."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 140,
+          "title": "Saved employee",
+          "title_i18n": {
+            "en_US": "Saved employee"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The employee is saved and shown in the breadcrumb. Click it to finish.",
+          "content_i18n": {
+            "en_US": "The employee is saved and shown in the breadcrumb. Click it to finish."
+          },
+          "description": "Once saved, the employee's name appears at the top of the page and the record is ready to receive a contract, time off and other information.",
+          "description_i18n": {
+            "en_US": "Once saved, the employee's name appears at the top of the page and the record is ready to receive a contract, time off and other information."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

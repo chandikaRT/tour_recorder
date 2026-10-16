@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Mark a Payslip Batch as Paid",
+      "name_i18n": {
+        "en_US": "Mark a Payslip Batch as Paid"
+      },
+      "description": "Learn how to record that the salaries of a confirmed batch have been paid to the employees, so the batch and its payslips show as Paid.",
+      "description_i18n": {
+        "en_US": "Learn how to record that the salaries of a confirmed batch have been paid to the employees, so the batch and its payslips show as Paid."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "After the salaries have been transferred to the employees, the payment is recorded in the Payroll app.",
+          "description_i18n": {
+            "en_US": "After the salaries have been transferred to the employees, the payment is recorded in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu gives access to the payslips and to the batches that group them by pay period.",
+          "description_i18n": {
+            "en_US": "The Payslips menu gives access to the payslips and to the batches that group them by pay period."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Batches",
+          "title_i18n": {
+            "en_US": "Batches"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payslip_run\"]",
+          "content": "Click Batches.",
+          "content_i18n": {
+            "en_US": "Click Batches."
+          },
+          "description": "This list shows every batch and its status. Only batches that are Done can be marked as paid.",
+          "description_i18n": {
+            "en_US": "This list shows every batch and its status. Only batches that are Done can be marked as paid."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open the batch",
+          "title_i18n": {
+            "en_US": "Open the batch"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"name\"]",
+          "content": "Click the batch to open it.",
+          "content_i18n": {
+            "en_US": "Click the batch to open it."
+          },
+          "description": "Open the confirmed batch whose salaries have been paid. Its status bar shows Done.",
+          "description_i18n": {
+            "en_US": "Open the confirmed batch whose salaries have been paid. Its status bar shows Done."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Mark as paid",
+          "title_i18n": {
+            "en_US": "Mark as paid"
+          },
+          "trigger": "button[name=\"action_paid\"]",
+          "content": "Click Mark as paid.",
+          "content_i18n": {
+            "en_US": "Click Mark as paid."
+          },
+          "description": "This records that the salaries were paid. The batch and all of its payslips move to Paid, which closes the pay period for payroll.",
+          "description_i18n": {
+            "en_US": "This records that the salaries were paid. The batch and all of its payslips move to Paid, which closes the pay period for payroll."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Check the status",
+          "title_i18n": {
+            "en_US": "Check the status"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "Check that the batch status is now Paid, then click the batch name to finish.",
+          "content_i18n": {
+            "en_US": "Check that the batch status is now Paid, then click the batch name to finish."
+          },
+          "description": "The status bar shows the batch as Paid. Use this status in your month-end review to see which pay periods are fully completed.",
+          "description_i18n": {
+            "en_US": "The status bar shows the batch as Paid. Use this status in your month-end review to see which pay periods are fully completed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

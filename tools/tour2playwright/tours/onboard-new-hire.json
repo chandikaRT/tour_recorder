@@ -1,0 +1,392 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Onboard a New Hire",
+      "name_i18n": {
+        "en_US": "Onboard a New Hire"
+      },
+      "description": "Learn how to prepare a new hire's onboarding: set their manager and user account, launch the onboarding plan that creates their to-do list, and find their documents and equipment.",
+      "description_i18n": {
+        "en_US": "Learn how to prepare a new hire's onboarding: set their manager and user account, launch the onboarding plan that creates their to-do list, and find their documents and equipment."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Onboarding starts from the new hire's employee record, so go to the Employees app first. Create the record beforehand if the person does not exist yet.",
+          "description_i18n": {
+            "en_US": "Onboarding starts from the new hire's employee record, so go to the Employees app first. Create the record beforehand if the person does not exist yet."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Open the new hire",
+          "title_i18n": {
+            "en_US": "Open the new hire"
+          },
+          "trigger": ".o_kanban_view .o_kanban_record",
+          "content": "Click the new hire's card to open the record.",
+          "content_i18n": {
+            "en_US": "Click the new hire's card to open the record."
+          },
+          "description": "Each card is one employee. Click the card of the person you are onboarding to open their form.",
+          "description_i18n": {
+            "en_US": "Each card is one employee. Click the card of the person you are onboarding to open their form."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Open Manager",
+          "title_i18n": {
+            "en_US": "Open Manager"
+          },
+          "trigger": "[name=\"parent_id\"] input",
+          "content": "Click here to choose the manager.",
+          "content_i18n": {
+            "en_US": "Click here to choose the manager."
+          },
+          "description": "The onboarding plan assigns some tasks to the new hire's manager, so a manager must be set before the plan can be launched.",
+          "description_i18n": {
+            "en_US": "The onboarding plan assigns some tasks to the new hire's manager, so a manager must be set before the plan can be launched."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Choose the manager",
+          "title_i18n": {
+            "en_US": "Choose the manager"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the new hire's manager.",
+          "content_i18n": {
+            "en_US": "Click the new hire's manager."
+          },
+          "description": "Pick the person the new hire reports to. Start typing a name to narrow the list.",
+          "description_i18n": {
+            "en_US": "Pick the person the new hire reports to. Start typing a name to narrow the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "HR Settings tab",
+          "title_i18n": {
+            "en_US": "HR Settings tab"
+          },
+          "trigger": "a[name=\"hr_settings\"]",
+          "content": "Open the HR Settings tab.",
+          "content_i18n": {
+            "en_US": "Open the HR Settings tab."
+          },
+          "description": "The related user account is set in this tab. The onboarding plan needs it, because tasks are assigned to the employee's user.",
+          "description_i18n": {
+            "en_US": "The related user account is set in this tab. The onboarding plan needs it, because tasks are assigned to the employee's user."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open Related User",
+          "title_i18n": {
+            "en_US": "Open Related User"
+          },
+          "trigger": "[name=\"user_id\"] input",
+          "content": "Click here to choose the user account.",
+          "content_i18n": {
+            "en_US": "Click here to choose the user account."
+          },
+          "description": "The related user is the login the new hire will use. Linking it lets Odoo assign tasks to them and show them their own records.",
+          "description_i18n": {
+            "en_US": "The related user is the login the new hire will use. Linking it lets Odoo assign tasks to them and show them their own records."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Choose the user",
+          "title_i18n": {
+            "en_US": "Choose the user"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the new hire's user account.",
+          "content_i18n": {
+            "en_US": "Click the new hire's user account."
+          },
+          "description": "Select the user that belongs to this employee. If there is no user yet, create one first from the Settings app.",
+          "description_i18n": {
+            "en_US": "Select the user that belongs to this employee. If there is no user yet, create one first from the Settings app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the changes.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the changes."
+          },
+          "description": "Save the manager and user before you launch the plan, so the plan can read them.",
+          "description_i18n": {
+            "en_US": "Save the manager and user before you launch the plan, so the plan can read them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Launch Plan",
+          "title_i18n": {
+            "en_US": "Launch Plan"
+          },
+          "trigger": ".o_form_statusbar button[name=\"3074\"]",
+          "content": "Click Launch Plan to start the onboarding.",
+          "content_i18n": {
+            "en_US": "Click Launch Plan to start the onboarding."
+          },
+          "description": "A plan is a ready-made checklist. Launching it creates the to-do tasks for the right people, so nothing is forgotten.",
+          "description_i18n": {
+            "en_US": "A plan is a ready-made checklist. Launching it creates the to-do tasks for the right people, so nothing is forgotten."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Plan summary",
+          "title_i18n": {
+            "en_US": "Plan summary"
+          },
+          "trigger": "[name=\"plan_assignation_summary\"]",
+          "content": "Review the tasks the plan will create. Click the list to continue.",
+          "content_i18n": {
+            "en_US": "Review the tasks the plan will create. Click the list to continue."
+          },
+          "description": "The summary shows each to-do and who it will be assigned to. Check it before you launch, because every person listed will receive a task.",
+          "description_i18n": {
+            "en_US": "The summary shows each to-do and who it will be assigned to. Check it before you launch, because every person listed will receive a task."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Schedule the plan",
+          "title_i18n": {
+            "en_US": "Schedule the plan"
+          },
+          "trigger": ".modal-footer .btn-primary:not(.d-none)",
+          "content": "Click Schedule to create the tasks.",
+          "content_i18n": {
+            "en_US": "Click Schedule to create the tasks."
+          },
+          "description": "Schedule creates the tasks and assigns them to the people listed. Each person then finds their task in their activity list.",
+          "description_i18n": {
+            "en_US": "Schedule creates the tasks and assigns them to the people listed. Each person then finds their task in their activity list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "Documents",
+          "title_i18n": {
+            "en_US": "Documents"
+          },
+          "trigger": "button[name=\"action_open_documents\"]",
+          "content": "Click Documents to see the employee's files.",
+          "content_i18n": {
+            "en_US": "Click Documents to see the employee's files."
+          },
+          "description": "The Documents button opens the employee's folder, where contracts, identity papers and other files are kept.",
+          "description_i18n": {
+            "en_US": "The Documents button opens the employee's folder, where contracts, identity papers and other files are kept."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 130,
+          "title": "Back to the employee",
+          "title_i18n": {
+            "en_US": "Back to the employee"
+          },
+          "trigger": ".o_breadcrumb .breadcrumb-item:nth-child(2)",
+          "content": "Click the employee's name to go back.",
+          "content_i18n": {
+            "en_US": "Click the employee's name to go back."
+          },
+          "description": "The path at the top shows where you are. Click the employee's name to return to their record.",
+          "description_i18n": {
+            "en_US": "The path at the top shows where you are. Click the employee's name to return to their record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 140,
+          "title": "Equipment",
+          "title_i18n": {
+            "en_US": "Equipment"
+          },
+          "trigger": "button[name=\"671\"]",
+          "content": "Click Equipment to see what is assigned.",
+          "content_i18n": {
+            "en_US": "Click Equipment to see what is assigned."
+          },
+          "description": "The Equipment button opens the company equipment assigned to this employee, such as a laptop or phone.",
+          "description_i18n": {
+            "en_US": "The Equipment button opens the company equipment assigned to this employee, such as a laptop or phone."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 150,
+          "title": "Equipment list",
+          "title_i18n": {
+            "en_US": "Equipment list"
+          },
+          "trigger": ".o_kanban_view",
+          "content": "This list shows the equipment assigned to the employee. Click it to finish.",
+          "content_i18n": {
+            "en_US": "This list shows the equipment assigned to the employee. Click it to finish."
+          },
+          "description": "Onboarding is prepared: the manager and user are set, the plan has created the tasks, and the documents and equipment are one click away. Use this list to assign a laptop, phone or other equipment to the new hire.",
+          "description_i18n": {
+            "en_US": "Onboarding is prepared: the manager and user are set, the plan has created the tasks, and the documents and equipment are one click away. Use this list to assign a laptop, phone or other equipment to the new hire."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

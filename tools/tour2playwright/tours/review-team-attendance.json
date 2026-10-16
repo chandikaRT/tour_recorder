@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review Team Attendance and Overtime",
+      "name_i18n": {
+        "en_US": "Review Team Attendance and Overtime"
+      },
+      "description": "Learn how a manager checks when the team checks in and out, how many hours each person worked, how much overtime they have, and how attendance trends over recent weeks.",
+      "description_i18n": {
+        "en_US": "Learn how a manager checks when the team checks in and out, how many hours each person worked, how much overtime they have, and how attendance trends over recent weeks."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Attendances",
+          "title_i18n": {
+            "en_US": "Open Attendances"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_attendance.menu_hr_attendance_root\"]",
+          "content": "Open the Attendances app.",
+          "content_i18n": {
+            "en_US": "Open the Attendances app."
+          },
+          "description": "The Attendances app records when each employee checks in and out. Managers use it to review working hours and overtime for the team.",
+          "description_i18n": {
+            "en_US": "The Attendances app records when each employee checks in and out. Managers use it to review working hours and overtime for the team."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Team timeline",
+          "title_i18n": {
+            "en_US": "Team timeline"
+          },
+          "trigger": ".o_gantt_view .o_gantt_header",
+          "content": "This timeline shows each day of the period. Click it to continue.",
+          "content_i18n": {
+            "en_US": "This timeline shows each day of the period. Click it to continue."
+          },
+          "description": "The timeline lays out every person's check-in and check-out times along the days, so you can see who worked when.",
+          "description_i18n": {
+            "en_US": "The timeline lays out every person's check-in and check-out times along the days, so you can see who worked when."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "List view",
+          "title_i18n": {
+            "en_US": "List view"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_list",
+          "content": "Click List to see the attendance records as a table.",
+          "content_i18n": {
+            "en_US": "Click List to see the attendance records as a table."
+          },
+          "description": "The list shows every attendance record in detail. It is the best place to check exact times and totals.",
+          "description_i18n": {
+            "en_US": "The list shows every attendance record in detail. It is the best place to check exact times and totals."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Employee totals",
+          "title_i18n": {
+            "en_US": "Employee totals"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click an employee's name to open their records.",
+          "content_i18n": {
+            "en_US": "Click an employee's name to open their records."
+          },
+          "description": "Records are grouped by employee. The totals on each group line add up that person's work hours and overtime, and the number in brackets is how many records they have.",
+          "description_i18n": {
+            "en_US": "Records are grouped by employee. The totals on each group line add up that person's work hours and overtime, and the number in brackets is how many records they have."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Work Hours",
+          "title_i18n": {
+            "en_US": "Work Hours"
+          },
+          "trigger": ".o_list_view th[data-name=\"worked_hours\"]",
+          "content": "The Work Hours column shows the time between check-in and check-out. Click it to continue.",
+          "content_i18n": {
+            "en_US": "The Work Hours column shows the time between check-in and check-out. Click it to continue."
+          },
+          "description": "Work Hours is calculated for you from the check-in and check-out times. Click the heading to sort the records by hours worked.",
+          "description_i18n": {
+            "en_US": "Work Hours is calculated for you from the check-in and check-out times. Click the heading to sort the records by hours worked."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Over Time",
+          "title_i18n": {
+            "en_US": "Over Time"
+          },
+          "trigger": ".o_list_view th[data-name=\"x_studio_over_time\"]",
+          "content": "The Over Time column shows the extra hours worked. Click it to continue.",
+          "content_i18n": {
+            "en_US": "The Over Time column shows the extra hours worked. Click it to continue."
+          },
+          "description": "Over Time shows the hours an employee worked beyond their normal schedule. Click the heading to sort and find who has the most overtime.",
+          "description_i18n": {
+            "en_US": "Over Time shows the hours an employee worked beyond their normal schedule. Click the heading to sort and find who has the most overtime."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Reporting",
+          "title_i18n": {
+            "en_US": "Reporting"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_attendance.menu_hr_attendance_reporting\"]",
+          "content": "Open Reporting to see attendance trends.",
+          "content_i18n": {
+            "en_US": "Open Reporting to see attendance trends."
+          },
+          "description": "Reporting turns the records into a chart so you can compare employees and weeks instead of reading individual lines.",
+          "description_i18n": {
+            "en_US": "Reporting turns the records into a chart so you can compare employees and weeks instead of reading individual lines."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Chart settings",
+          "title_i18n": {
+            "en_US": "Chart settings"
+          },
+          "trigger": ".o_cp_searchview .o_searchview_facet",
+          "content": "These tags show the period and grouping of the chart. Click one to continue.",
+          "content_i18n": {
+            "en_US": "These tags show the period and grouping of the chart. Click one to continue."
+          },
+          "description": "By default the chart covers the last three months, with a bar per week and employee. You can change the period or grouping from the search options.",
+          "description_i18n": {
+            "en_US": "By default the chart covers the last three months, with a bar per week and employee. You can change the period or grouping from the search options."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Pivot view",
+          "title_i18n": {
+            "en_US": "Pivot view"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_pivot",
+          "content": "Click Pivot to see the same figures in a table.",
+          "content_i18n": {
+            "en_US": "Click Pivot to see the same figures in a table."
+          },
+          "description": "The pivot table shows the numbers behind the chart, which is useful for comparing employees side by side or copying figures into a report.",
+          "description_i18n": {
+            "en_US": "The pivot table shows the numbers behind the chart, which is useful for comparing employees side by side or copying figures into a report."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

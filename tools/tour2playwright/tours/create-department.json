@@ -1,0 +1,267 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Create a Department and Assign a Manager",
+      "name_i18n": {
+        "en_US": "Create a Department and Assign a Manager"
+      },
+      "description": "Learn how to add a department to the company structure: name it, choose its manager and parent department, and save it.",
+      "description_i18n": {
+        "en_US": "Learn how to add a department to the company structure: name it, choose its manager and parent department, and save it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Departments are managed from the Employees app, because they describe how the company's employees are organised.",
+          "description_i18n": {
+            "en_US": "Departments are managed from the Employees app, because they describe how the company's employees are organised."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Departments",
+          "title_i18n": {
+            "en_US": "Departments"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_department_kanban\"]",
+          "content": "Click Departments.",
+          "content_i18n": {
+            "en_US": "Click Departments."
+          },
+          "description": "This screen shows one card per department, with its manager and a summary of its activity. It is the starting point for every department change.",
+          "description_i18n": {
+            "en_US": "This screen shows one card per department, with its manager and a summary of its activity. It is the starting point for every department change."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "New department",
+          "title_i18n": {
+            "en_US": "New department"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o-kanban-button-new",
+          "content": "Click New to create a department.",
+          "content_i18n": {
+            "en_US": "Click New to create a department."
+          },
+          "description": "The New button opens a blank department form. Nothing is stored until you save it.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank department form. Nothing is stored until you save it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Department name",
+          "title_i18n": {
+            "en_US": "Department name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type the department's name, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the department's name, then press Tab."
+          },
+          "description": "The name appears on employee records, in the organisation chart and in reports. Choose a name your team will recognise, for example Sales or Finance.",
+          "description_i18n": {
+            "en_US": "The name appears on employee records, in the organisation chart and in reports. Choose a name your team will recognise, for example Sales or Finance."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open Manager",
+          "title_i18n": {
+            "en_US": "Open Manager"
+          },
+          "trigger": "[name=\"manager_id\"] input",
+          "content": "Click here to choose the department manager.",
+          "content_i18n": {
+            "en_US": "Click here to choose the department manager."
+          },
+          "description": "The manager is the person who leads the department. Odoo uses this person as the default approver for time off and expenses of the department's employees.",
+          "description_i18n": {
+            "en_US": "The manager is the person who leads the department. Odoo uses this person as the default approver for time off and expenses of the department's employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose the manager",
+          "title_i18n": {
+            "en_US": "Choose the manager"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the person who will manage the department.",
+          "content_i18n": {
+            "en_US": "Click the person who will manage the department."
+          },
+          "description": "Pick the employee who leads this department. Start typing a name to narrow the list.",
+          "description_i18n": {
+            "en_US": "Pick the employee who leads this department. Start typing a name to narrow the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Open Parent Department",
+          "title_i18n": {
+            "en_US": "Open Parent Department"
+          },
+          "trigger": "[name=\"parent_id\"] input",
+          "content": "Click here to choose a parent department, if there is one.",
+          "content_i18n": {
+            "en_US": "Click here to choose a parent department, if there is one."
+          },
+          "description": "A parent department places this department under another one in the organisation chart. Leave it empty for a top-level department.",
+          "description_i18n": {
+            "en_US": "A parent department places this department under another one in the organisation chart. Leave it empty for a top-level department."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Choose the parent department",
+          "title_i18n": {
+            "en_US": "Choose the parent department"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the parent department.",
+          "content_i18n": {
+            "en_US": "Click the parent department."
+          },
+          "description": "Pick the department this one belongs to. For example, a Recruitment team could sit under Human Resources.",
+          "description_i18n": {
+            "en_US": "Pick the department this one belongs to. For example, a Recruitment team could sit under Human Resources."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the department.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the department."
+          },
+          "description": "Saving creates the department. It can then be chosen on employee records and used in reports.",
+          "description_i18n": {
+            "en_US": "Saving creates the department. It can then be chosen on employee records and used in reports."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Department saved",
+          "title_i18n": {
+            "en_US": "Department saved"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The department is saved. Click its name to finish.",
+          "content_i18n": {
+            "en_US": "The department is saved. Click its name to finish."
+          },
+          "description": "The department name now appears at the top of the page. To add people to it, open each employee and choose this department.",
+          "description_i18n": {
+            "en_US": "The department name now appears at the top of the page. To add people to it, open each employee and choose this department."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

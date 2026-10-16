@@ -1,0 +1,267 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Create an Off-Cycle Payslip for One Employee",
+      "name_i18n": {
+        "en_US": "Create an Off-Cycle Payslip for One Employee"
+      },
+      "description": "Learn how to create a payslip outside the regular monthly run for a single employee, for example to pay a correction or a late payment, and compute it.",
+      "description_i18n": {
+        "en_US": "Learn how to create a payslip outside the regular monthly run for a single employee, for example to pay a correction or a late payment, and compute it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "An off-cycle payslip is a payslip created by hand for one employee, outside the regular monthly batch.",
+          "description_i18n": {
+            "en_US": "An off-cycle payslip is a payslip created by hand for one employee, outside the regular monthly batch."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu lists the payslips of all employees and is where individual payslips are created.",
+          "description_i18n": {
+            "en_US": "The Payslips menu lists the payslips of all employees and is where individual payslips are created."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "This list shows every payslip. From here you can create a new payslip that is not part of a batch.",
+          "description_i18n": {
+            "en_US": "This list shows every payslip. From here you can create a new payslip that is not part of a batch."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New payslip",
+          "title_i18n": {
+            "en_US": "New payslip"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a payslip.",
+          "content_i18n": {
+            "en_US": "Click New to create a payslip."
+          },
+          "description": "The New button opens a blank payslip. The period starts and ends on the first and last day of the current month and can be changed.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank payslip. The period starts and ends on the first and last day of the current month and can be changed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Employee",
+          "title_i18n": {
+            "en_US": "Employee"
+          },
+          "trigger": "[name=\"employee_id\"] input",
+          "content": "Click here to open the list of employees.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of employees."
+          },
+          "description": "Choose the employee who needs the extra payslip. The contract and the salary structure are filled in from the employee's running contract.",
+          "description_i18n": {
+            "en_US": "Choose the employee who needs the extra payslip. The contract and the salary structure are filled in from the employee's running contract."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose the employee",
+          "title_i18n": {
+            "en_US": "Choose the employee"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the employee.",
+          "content_i18n": {
+            "en_US": "Click the employee."
+          },
+          "description": "Pick the employee concerned. Odoo then loads the employee's contract.",
+          "description_i18n": {
+            "en_US": "Pick the employee concerned. Odoo then loads the employee's contract."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Salary structure",
+          "title_i18n": {
+            "en_US": "Salary structure"
+          },
+          "trigger": "[name=\"struct_id\"] input",
+          "content": "Click here to open the list of salary structures.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of salary structures."
+          },
+          "description": "The structure decides which rules are applied. For a regular payslip use the employee's usual structure. For a one-off payment such as a bonus, choose the structure created for it.",
+          "description_i18n": {
+            "en_US": "The structure decides which rules are applied. For a regular payslip use the employee's usual structure. For a one-off payment such as a bonus, choose the structure created for it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Choose the structure",
+          "title_i18n": {
+            "en_US": "Choose the structure"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the structure to use.",
+          "content_i18n": {
+            "en_US": "Click the structure to use."
+          },
+          "description": "Pick the structure that matches the payment. The payslip will be computed with the rules of this structure.",
+          "description_i18n": {
+            "en_US": "Pick the structure that matches the payment. The payslip will be computed with the rules of this structure."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the payslip.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the payslip."
+          },
+          "description": "Save the payslip so that it can be computed. It stays in Draft until it is computed and confirmed.",
+          "description_i18n": {
+            "en_US": "Save the payslip so that it can be computed. It stays in Draft until it is computed and confirmed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Compute Sheet",
+          "title_i18n": {
+            "en_US": "Compute Sheet"
+          },
+          "trigger": "button[name=\"compute_sheet\"]",
+          "content": "Click Compute Sheet to calculate the payslip.",
+          "content_i18n": {
+            "en_US": "Click Compute Sheet to calculate the payslip."
+          },
+          "description": "Compute Sheet calculates the lines of the payslip from the contract and the structure. After computing, check the Salary Computation tab and confirm the payslip as usual.",
+          "description_i18n": {
+            "en_US": "Compute Sheet calculates the lines of the payslip from the contract and the structure. After computing, check the Salary Computation tab and confirm the payslip as usual."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

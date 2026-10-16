@@ -1,0 +1,292 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Compute, Check and Confirm a Payslip",
+      "name_i18n": {
+        "en_US": "Compute, Check and Confirm a Payslip"
+      },
+      "description": "Learn how to open an employee's payslip, check the worked days it is based on, recompute it, read the salary computation line by line, and confirm it.",
+      "description_i18n": {
+        "en_US": "Learn how to open an employee's payslip, check the worked days it is based on, recompute it, read the salary computation line by line, and confirm it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Individual payslips are reviewed and confirmed in the Payroll app.",
+          "description_i18n": {
+            "en_US": "Individual payslips are reviewed and confirmed in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu lists the payslips of all employees and the batches they belong to.",
+          "description_i18n": {
+            "en_US": "The Payslips menu lists the payslips of all employees and the batches they belong to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "This list shows every payslip with the employee, period and net amount. Use the search bar to find a particular employee or period.",
+          "description_i18n": {
+            "en_US": "This list shows every payslip with the employee, period and net amount. Use the search bar to find a particular employee or period."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a batch",
+          "title_i18n": {
+            "en_US": "Open a batch"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a batch name to show its payslips.",
+          "content_i18n": {
+            "en_US": "Click a batch name to show its payslips."
+          },
+          "description": "Payslips are grouped by batch. Click a batch to expand it and see the payslip of each employee; the figure beside it is the total for the batch.",
+          "description_i18n": {
+            "en_US": "Payslips are grouped by batch. Click a batch to expand it and see the payslip of each employee; the figure beside it is the total for the batch."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open a payslip",
+          "title_i18n": {
+            "en_US": "Open a payslip"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"employee_id\"]",
+          "content": "Click a payslip to open it.",
+          "content_i18n": {
+            "en_US": "Click a payslip to open it."
+          },
+          "description": "Opening a payslip shows the employee, the period, the contract and the salary structure it was computed with.",
+          "description_i18n": {
+            "en_US": "Opening a payslip shows the employee, the period, the contract and the salary structure it was computed with."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Worked days and inputs",
+          "title_i18n": {
+            "en_US": "Worked days and inputs"
+          },
+          "trigger": "a[name=\"worked_days_input\"]",
+          "content": "Click the Worked Days & Inputs tab.",
+          "content_i18n": {
+            "en_US": "Click the Worked Days & Inputs tab."
+          },
+          "description": "This tab shows the days and hours the pay is based on, such as normal working days and unpaid leave, plus any extra inputs. Check it first: a wrong number here gives a wrong payslip.",
+          "description_i18n": {
+            "en_US": "This tab shows the days and hours the pay is based on, such as normal working days and unpaid leave, plus any extra inputs. Check it first: a wrong number here gives a wrong payslip."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Compute Sheet",
+          "title_i18n": {
+            "en_US": "Compute Sheet"
+          },
+          "trigger": "button[name=\"compute_sheet\"]",
+          "content": "Click Compute Sheet to recalculate the payslip.",
+          "content_i18n": {
+            "en_US": "Click Compute Sheet to recalculate the payslip."
+          },
+          "description": "Compute Sheet recalculates every line from the contract, the worked days and the inputs. Click it again whenever you change something that affects the pay.",
+          "description_i18n": {
+            "en_US": "Compute Sheet recalculates every line from the contract, the worked days and the inputs. Click it again whenever you change something that affects the pay."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Salary Computation tab",
+          "title_i18n": {
+            "en_US": "Salary Computation tab"
+          },
+          "trigger": "a[name=\"salary_computation\"]",
+          "content": "Click the Salary Computation tab.",
+          "content_i18n": {
+            "en_US": "Click the Salary Computation tab."
+          },
+          "description": "This tab lists each salary rule that was applied, from the basic salary to the net amount the employee receives.",
+          "description_i18n": {
+            "en_US": "This tab lists each salary rule that was applied, from the basic salary to the net amount the employee receives."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Read the lines",
+          "title_i18n": {
+            "en_US": "Read the lines"
+          },
+          "trigger": "[name=\"line_ids\"] th[data-name=\"total\"]",
+          "content": "Look at the Total column, then click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the Total column, then click it to continue."
+          },
+          "description": "Each line shows a rule, its category and its amount. Allowances add to the pay and deductions reduce it, ending with the Net Salary line.",
+          "description_i18n": {
+            "en_US": "Each line shows a rule, its category and its amount. Allowances add to the pay and deductions reduce it, ending with the Net Salary line."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Confirm the payslip",
+          "title_i18n": {
+            "en_US": "Confirm the payslip"
+          },
+          "trigger": "button[name=\"action_payslip_done\"]",
+          "content": "Click Create Draft Entry to confirm the payslip.",
+          "content_i18n": {
+            "en_US": "Click Create Draft Entry to confirm the payslip."
+          },
+          "description": "Once the figures are correct, confirm the payslip. Odoo asks you to confirm because a payslip that is done can no longer be edited.",
+          "description_i18n": {
+            "en_US": "Once the figures are correct, confirm the payslip. Odoo asks you to confirm because a payslip that is done can no longer be edited."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Confirm in the window",
+          "title_i18n": {
+            "en_US": "Confirm in the window"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Ok to confirm.",
+          "content_i18n": {
+            "en_US": "Click Ok to confirm."
+          },
+          "description": "Ok marks the payslip as Done. It is now locked and ready to be paid and posted to accounting.",
+          "description_i18n": {
+            "en_US": "Ok marks the payslip as Done. It is now locked and ready to be paid and posted to accounting."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

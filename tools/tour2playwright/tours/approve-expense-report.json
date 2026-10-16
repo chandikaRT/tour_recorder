@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Approve an Expense Report",
+      "name_i18n": {
+        "en_US": "Approve an Expense Report"
+      },
+      "description": "Learn how a manager finds the expense reports waiting for approval, checks what the employee claimed, and approves the report so it can be paid back.",
+      "description_i18n": {
+        "en_US": "Learn how a manager finds the expense reports waiting for approval, checks what the employee claimed, and approves the report so it can be paid back."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Expenses",
+          "title_i18n": {
+            "en_US": "Open Expenses"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_expense.menu_hr_expense_root\"]",
+          "content": "Open the Expenses app.",
+          "content_i18n": {
+            "en_US": "Open the Expenses app."
+          },
+          "description": "The Expenses app is where employees submit what they spent and where managers review and approve it.",
+          "description_i18n": {
+            "en_US": "The Expenses app is where employees submit what they spent and where managers review and approve it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Expense Reports",
+          "title_i18n": {
+            "en_US": "Expense Reports"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_expense.menu_hr_expense_report\"]",
+          "content": "Open Expense Reports.",
+          "content_i18n": {
+            "en_US": "Open Expense Reports."
+          },
+          "description": "An expense report bundles the expenses an employee has submitted for payment back. Managers approve or refuse a whole report at a time.",
+          "description_i18n": {
+            "en_US": "An expense report bundles the expenses an employee has submitted for payment back. Managers approve or refuse a whole report at a time."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Open the search options",
+          "title_i18n": {
+            "en_US": "Open the search options"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here to open the search options.",
+          "content_i18n": {
+            "en_US": "Click here to open the search options."
+          },
+          "description": "The search options let you filter the list and group it, so you can quickly find the reports that need your attention.",
+          "description_i18n": {
+            "en_US": "The search options let you filter the list and group it, so you can quickly find the reports that need your attention."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Group by Status",
+          "title_i18n": {
+            "en_US": "Group by Status"
+          },
+          "trigger": ".o_group_by_menu [role=\"menuitemcheckbox\"]:last-of-type",
+          "content": "Choose Status to group the reports by their status.",
+          "content_i18n": {
+            "en_US": "Choose Status to group the reports by their status."
+          },
+          "description": "Grouping by status gathers the reports into groups such as To Approve, Approved and Done, so the ones waiting for you stand together.",
+          "description_i18n": {
+            "en_US": "Grouping by status gathers the reports into groups such as To Approve, Approved and Done, so the ones waiting for you stand together."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Close the search options",
+          "title_i18n": {
+            "en_US": "Close the search options"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here again to close the menu.",
+          "content_i18n": {
+            "en_US": "Click here again to close the menu."
+          },
+          "description": "Close the menu to see the grouped list.",
+          "description_i18n": {
+            "en_US": "Close the menu to see the grouped list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open the Submitted group",
+          "title_i18n": {
+            "en_US": "Open the Submitted group"
+          },
+          "trigger": ".o_list_view tbody .o_group_header:last-child",
+          "content": "Click the Submitted group to see the reports waiting for approval.",
+          "content_i18n": {
+            "en_US": "Click the Submitted group to see the reports waiting for approval."
+          },
+          "description": "Reports waiting for approval are in the Submitted group. Click it to show them. The number in brackets is how many reports the group holds.",
+          "description_i18n": {
+            "en_US": "Reports waiting for approval are in the Submitted group. Click it to show them. The number in brackets is how many reports the group holds."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Open the report",
+          "title_i18n": {
+            "en_US": "Open the report"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"name\"]",
+          "content": "Click the report to open it.",
+          "content_i18n": {
+            "en_US": "Click the report to open it."
+          },
+          "description": "Opening a report shows who submitted it, what they spent, and the total they are asking to be paid back.",
+          "description_i18n": {
+            "en_US": "Opening a report shows who submitted it, what they spent, and the total they are asking to be paid back."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Check the total",
+          "title_i18n": {
+            "en_US": "Check the total"
+          },
+          "trigger": ".o_field_widget[name=\"total_amount\"]",
+          "content": "Check the total amount of the report. Click it to continue.",
+          "content_i18n": {
+            "en_US": "Check the total amount of the report. Click it to continue."
+          },
+          "description": "Compare the total and the expense lines with what you expect before you decide. Open an expense line if you need to see its details or receipt.",
+          "description_i18n": {
+            "en_US": "Compare the total and the expense lines with what you expect before you decide. Open an expense line if you need to see its details or receipt."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Approve",
+          "title_i18n": {
+            "en_US": "Approve"
+          },
+          "trigger": "button[name=\"action_approve_expense_sheets\"]",
+          "content": "Click Approve to accept the report.",
+          "content_i18n": {
+            "en_US": "Click Approve to accept the report."
+          },
+          "description": "Approving confirms that the expenses are valid and can be paid back. To reject the report instead, click Refuse next to Approve, and use Reset to Draft to send it back to the employee for corrections.",
+          "description_i18n": {
+            "en_US": "Approving confirms that the expenses are valid and can be paid back. To reject the report instead, click Refuse next to Approve, and use Reset to Draft to send it back to the employee for corrections."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

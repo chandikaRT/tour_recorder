@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Check the Accounting Information of a Payslip",
+      "name_i18n": {
+        "en_US": "Check the Accounting Information of a Payslip"
+      },
+      "description": "Learn where to find the accounting information of a confirmed payslip: the journal it is posted in, the accounting date and the journal entry that records the salary.",
+      "description_i18n": {
+        "en_US": "Learn where to find the accounting information of a confirmed payslip: the journal it is posted in, the accounting date and the journal entry that records the salary."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "The accounting information of a payslip is shown on the payslip itself in the Payroll app.",
+          "description_i18n": {
+            "en_US": "The accounting information of a payslip is shown on the payslip itself in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu lists the payslips of all employees and the batches they belong to.",
+          "description_i18n": {
+            "en_US": "The Payslips menu lists the payslips of all employees and the batches they belong to."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "This list shows every payslip with the employee, period and net amount.",
+          "description_i18n": {
+            "en_US": "This list shows every payslip with the employee, period and net amount."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a batch",
+          "title_i18n": {
+            "en_US": "Open a batch"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click a batch name to show its payslips.",
+          "content_i18n": {
+            "en_US": "Click a batch name to show its payslips."
+          },
+          "description": "Payslips are grouped by batch. Expand the batch you want to check.",
+          "description_i18n": {
+            "en_US": "Payslips are grouped by batch. Expand the batch you want to check."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the payslip",
+          "title_i18n": {
+            "en_US": "Open the payslip"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell[name=\"employee_id\"]",
+          "content": "Click a confirmed payslip to open it.",
+          "content_i18n": {
+            "en_US": "Click a confirmed payslip to open it."
+          },
+          "description": "Accounting information is available once the payslip is confirmed. Open a payslip that is Done or Paid.",
+          "description_i18n": {
+            "en_US": "Accounting information is available once the payslip is confirmed. Open a payslip that is Done or Paid."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Other Info tab",
+          "title_i18n": {
+            "en_US": "Other Info tab"
+          },
+          "trigger": "a[name=\"account_info\"]",
+          "content": "Click the Other Info tab.",
+          "content_i18n": {
+            "en_US": "Click the Other Info tab."
+          },
+          "description": "The Other Info tab holds the accounting details of the payslip.",
+          "description_i18n": {
+            "en_US": "The Other Info tab holds the accounting details of the payslip."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Journal",
+          "title_i18n": {
+            "en_US": "Journal"
+          },
+          "trigger": "[name=\"journal_id\"]",
+          "content": "Look at the Salary Journal, then click it to finish.",
+          "content_i18n": {
+            "en_US": "Look at the Salary Journal, then click it to finish."
+          },
+          "description": "The journal is the accounting book in which the salary is recorded. Below it, the accounting date and the journal entry link the payslip to the accountant's books. If the journal entry is empty, the payslip has not been posted to accounting yet.",
+          "description_i18n": {
+            "en_US": "The journal is the accounting book in which the salary is recorded. Below it, the accounting date and the journal entry link the payslip to the accountant's books. If the journal entry is empty, the payslip has not been posted to accounting yet."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

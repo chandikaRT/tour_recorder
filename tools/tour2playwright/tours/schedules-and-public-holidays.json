@@ -1,0 +1,392 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Set Up Working Schedules and Public Holidays",
+      "name_i18n": {
+        "en_US": "Set Up Working Schedules and Public Holidays"
+      },
+      "description": "Learn how to define the hours people work by creating a working schedule, and how to record a public holiday so it is excluded from working time and leave.",
+      "description_i18n": {
+        "en_US": "Learn how to define the hours people work by creating a working schedule, and how to record a public holiday so it is excluded from working time and leave."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Working schedules are set up in the Employees app. A schedule describes the hours an employee normally works.",
+          "description_i18n": {
+            "en_US": "Working schedules are set up in the Employees app. A schedule describes the hours an employee normally works."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr.menu_human_resources_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists that define how HR works in your company.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists that define how HR works in your company."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Working Schedules",
+          "title_i18n": {
+            "en_US": "Working Schedules"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_resource_calendar_view\"]",
+          "content": "Click Working Schedules.",
+          "content_i18n": {
+            "en_US": "Click Working Schedules."
+          },
+          "description": "This list shows the schedules already defined, for example Standard 40 hours/week. Contracts and employees are linked to one of them.",
+          "description_i18n": {
+            "en_US": "This list shows the schedules already defined, for example Standard 40 hours/week. Contracts and employees are linked to one of them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New schedule",
+          "title_i18n": {
+            "en_US": "New schedule"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a working schedule.",
+          "content_i18n": {
+            "en_US": "Click New to create a working schedule."
+          },
+          "description": "The New button opens a blank schedule. It starts with Monday to Friday working hours that you can adjust.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank schedule. It starts with Monday to Friday working hours that you can adjust."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Schedule name",
+          "title_i18n": {
+            "en_US": "Schedule name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type a name for the schedule, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a name for the schedule, then press Tab."
+          },
+          "description": "Choose a name that describes the pattern, such as Part-time 30 hours or Factory shift. The name appears when you assign the schedule to a contract.",
+          "description_i18n": {
+            "en_US": "Choose a name that describes the pattern, such as Part-time 30 hours or Factory shift. The name appears when you assign the schedule to a contract."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Full-time hours",
+          "title_i18n": {
+            "en_US": "Full-time hours"
+          },
+          "trigger": "[name=\"full_time_required_hours\"] input",
+          "content": "Type the company's full-time hours per week, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the company's full-time hours per week, then press Tab."
+          },
+          "description": "This is the number of hours a full-time employee works in a week at your company. Odoo compares it with this schedule to work out the work time rate, which matters for part-time schedules.",
+          "description_i18n": {
+            "en_US": "This is the number of hours a full-time employee works in a week at your company. Odoo compares it with this schedule to work out the work time rate, which matters for part-time schedules."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the schedule.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the schedule."
+          },
+          "description": "Saving creates the schedule. It can now be chosen on contracts and employees.",
+          "description_i18n": {
+            "en_US": "Saving creates the schedule. It can now be chosen on contracts and employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Home menu",
+          "title_i18n": {
+            "en_US": "Home menu"
+          },
+          "trigger": ".o_main_navbar a.o_menu_toggle",
+          "content": "Click the home menu icon to go back to your apps.",
+          "content_i18n": {
+            "en_US": "Click the home menu icon to go back to your apps."
+          },
+          "description": "Public holidays are recorded in the Time Off app, so return to the list of apps first.",
+          "description_i18n": {
+            "en_US": "Public holidays are recorded in the Time Off app, so return to the list of apps first."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "The Time Off app holds the public holidays that apply to your employees.",
+          "description_i18n": {
+            "en_US": "The Time Off app holds the public holidays that apply to your employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Time Off configuration",
+          "title_i18n": {
+            "en_US": "Time Off configuration"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "This menu contains the settings of the Time Off app, including the public holidays.",
+          "description_i18n": {
+            "en_US": "This menu contains the settings of the Time Off app, including the public holidays."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Public Holidays",
+          "title_i18n": {
+            "en_US": "Public Holidays"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_public_time_off_menu_configuration\"]",
+          "content": "Click Public Holidays.",
+          "content_i18n": {
+            "en_US": "Click Public Holidays."
+          },
+          "description": "This list shows every public holiday. A public holiday is not counted as a working day, so it is not deducted from anyone's leave balance.",
+          "description_i18n": {
+            "en_US": "This list shows every public holiday. A public holiday is not counted as a working day, so it is not deducted from anyone's leave balance."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 120,
+          "title": "New public holiday",
+          "title_i18n": {
+            "en_US": "New public holiday"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to add a public holiday.",
+          "content_i18n": {
+            "en_US": "Click New to add a public holiday."
+          },
+          "description": "A new line opens in the list so you can fill it in without leaving the page. The start and end dates begin as today.",
+          "description_i18n": {
+            "en_US": "A new line opens in the list so you can fill it in without leaving the page. The start and end dates begin as today."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 130,
+          "title": "Holiday name",
+          "title_i18n": {
+            "en_US": "Holiday name"
+          },
+          "trigger": ".o_selected_row .o_data_cell[name=\"name\"] input",
+          "content": "Type the name of the holiday, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the name of the holiday, then press Tab."
+          },
+          "description": "Use the official name of the holiday, for example New Year's Day. Change the start and end dates on the same line if the holiday is on another day or lasts several days.",
+          "description_i18n": {
+            "en_US": "Use the official name of the holiday, for example New Year's Day. Change the start and end dates on the same line if the holiday is on another day or lasts several days."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 140,
+          "title": "Save the holiday",
+          "title_i18n": {
+            "en_US": "Save the holiday"
+          },
+          "trigger": ".o_control_panel_main_buttons button.btn-primary.o_list_button_save",
+          "content": "Click Save to record the holiday.",
+          "content_i18n": {
+            "en_US": "Click Save to record the holiday."
+          },
+          "description": "Once saved, the holiday applies to the working schedule shown on the line, or to all schedules if that field is left empty.",
+          "description_i18n": {
+            "en_US": "Once saved, the holiday applies to the working schedule shown on the line, or to all schedules if that field is left empty."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 150,
+          "title": "Holiday saved",
+          "title_i18n": {
+            "en_US": "Holiday saved"
+          },
+          "trigger": ".o_list_view",
+          "content": "The holiday is saved. Click anywhere in the list to finish.",
+          "content_i18n": {
+            "en_US": "The holiday is saved. Click anywhere in the list to finish."
+          },
+          "description": "The new holiday appears in the list. Employees can no longer be asked to work on it according to their schedule, and time off requests skip that day.",
+          "description_i18n": {
+            "en_US": "The new holiday appears in the list. Employees can no longer be asked to work on it according to their schedule, and time off requests skip that day."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

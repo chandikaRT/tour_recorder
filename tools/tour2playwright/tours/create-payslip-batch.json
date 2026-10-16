@@ -1,0 +1,292 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Create a Payslip Batch and Generate Payslips",
+      "name_i18n": {
+        "en_US": "Create a Payslip Batch and Generate Payslips"
+      },
+      "description": "Learn how to create a payslip batch for a pay period, choose the salary structure, and generate a draft payslip for every employee in one step.",
+      "description_i18n": {
+        "en_US": "Learn how to create a payslip batch for a pay period, choose the salary structure, and generate a draft payslip for every employee in one step."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Payslips for many employees can be produced at once from a batch in the Payroll app.",
+          "description_i18n": {
+            "en_US": "Payslips for many employees can be produced at once from a batch in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu gives access to individual payslips and to payslip batches.",
+          "description_i18n": {
+            "en_US": "The Payslips menu gives access to individual payslips and to payslip batches."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Batches",
+          "title_i18n": {
+            "en_US": "Batches"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payslip_run\"]",
+          "content": "Click Batches.",
+          "content_i18n": {
+            "en_US": "Click Batches."
+          },
+          "description": "A batch groups the payslips of one pay period, usually a month, so they can be generated, checked and paid together. This list shows the batches already created.",
+          "description_i18n": {
+            "en_US": "A batch groups the payslips of one pay period, usually a month, so they can be generated, checked and paid together. This list shows the batches already created."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New batch",
+          "title_i18n": {
+            "en_US": "New batch"
+          },
+          "trigger": ".o_control_panel_main_buttons .d-xl-inline-flex .o_list_button_add",
+          "content": "Click New to create a batch.",
+          "content_i18n": {
+            "en_US": "Click New to create a batch."
+          },
+          "description": "The New button opens a blank batch. The period starts and ends on the first and last day of the current month.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank batch. The period starts and ends on the first and last day of the current month."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Batch name",
+          "title_i18n": {
+            "en_US": "Batch name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type a name for the batch, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a name for the batch, then press Tab."
+          },
+          "description": "Name the batch after the pay period, for example Salaries October 2026, so it is easy to find later.",
+          "description_i18n": {
+            "en_US": "Name the batch after the pay period, for example Salaries October 2026, so it is easy to find later."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the batch.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the batch."
+          },
+          "description": "The batch must be saved before payslips can be generated. Saving also unlocks the Generate Payslips button.",
+          "description_i18n": {
+            "en_US": "The batch must be saved before payslips can be generated. Saving also unlocks the Generate Payslips button."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Generate Payslips",
+          "title_i18n": {
+            "en_US": "Generate Payslips"
+          },
+          "trigger": "button[name=\"1529\"]",
+          "content": "Click Generate Payslips.",
+          "content_i18n": {
+            "en_US": "Click Generate Payslips."
+          },
+          "description": "This opens a window where you choose which employees receive a payslip in this batch. By default it lists every employee with a running contract.",
+          "description_i18n": {
+            "en_US": "This opens a window where you choose which employees receive a payslip in this batch. By default it lists every employee with a running contract."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Salary structure",
+          "title_i18n": {
+            "en_US": "Salary structure"
+          },
+          "trigger": "[name=\"structure_id\"] input",
+          "content": "Click here to open the list of salary structures.",
+          "content_i18n": {
+            "en_US": "Click here to open the list of salary structures."
+          },
+          "description": "The salary structure decides which rules are used to compute the payslips. It is required: choose the structure that matches the employees you are paying.",
+          "description_i18n": {
+            "en_US": "The salary structure decides which rules are used to compute the payslips. It is required: choose the structure that matches the employees you are paying."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Choose the structure",
+          "title_i18n": {
+            "en_US": "Choose the structure"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the structure to use.",
+          "content_i18n": {
+            "en_US": "Click the structure to use."
+          },
+          "description": "Choose the structure of the employees in this batch. Every selected employee then receives a payslip computed with it.",
+          "description_i18n": {
+            "en_US": "Choose the structure of the employees in this batch. Every selected employee then receives a payslip computed with it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Generate",
+          "title_i18n": {
+            "en_US": "Generate"
+          },
+          "trigger": "[name=\"compute_sheet\"]",
+          "content": "Click Generate to create the payslips.",
+          "content_i18n": {
+            "en_US": "Click Generate to create the payslips."
+          },
+          "description": "Odoo creates one draft payslip per employee for the batch period and computes it from the employee's contract. Generation can take a little while for many employees.",
+          "description_i18n": {
+            "en_US": "Odoo creates one draft payslip per employee for the batch period and computes it from the employee's contract. Generation can take a little while for many employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 110,
+          "title": "Open the payslips",
+          "title_i18n": {
+            "en_US": "Open the payslips"
+          },
+          "trigger": "button[name=\"action_open_payslips\"]",
+          "content": "Click the Payslips button to see the generated payslips.",
+          "content_i18n": {
+            "en_US": "Click the Payslips button to see the generated payslips."
+          },
+          "description": "Every employee in the batch now has a draft payslip. This button opens the list of those payslips so you can review them. The next steps are to check them, confirm them and pay them.",
+          "description_i18n": {
+            "en_US": "Every employee in the batch now has a draft payslip. This button opens the list of those payslips so you can review them. The next steps are to check them, confirm them and pay them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}
