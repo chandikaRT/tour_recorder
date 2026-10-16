@@ -126,9 +126,14 @@ export const tourPlayerService = {
          */
         function queryWithDialogPriority(selector) {
             try {
-                const dialogs = document.querySelectorAll(".o_dialog");
-                for (let i = dialogs.length - 1; i >= 0; i--) {
-                    const el = dialogs[i].querySelector(selector);
+                // Only the frontmost dialog is interactive. With 3+ stacked
+                // wizards, matching in a lower one highlights a hidden element.
+                const dialogs = [...document.querySelectorAll(".o_dialog")].filter(
+                    (d) => d.offsetParent !== null || d.getClientRects().length
+                );
+                const top = dialogs[dialogs.length - 1];
+                if (top) {
+                    const el = top.querySelector(selector);
                     if (el) return el;
                 }
                 return document.querySelector(selector);
@@ -412,6 +417,24 @@ export const tourPlayerService = {
             }
             document.addEventListener("change", onCapturingChange, true);
 
+            // Pressing Enter in a search/autocomplete input (e.g. the "Add more
+            // items" wizard) makes Odoo pick the highlighted result and clear the
+            // field for another entry, without blurring it. No "change" event
+            // reaches the engine, so the step never advances. Fire one ourselves
+            // once Odoo has handled the key.
+            function onEnterKey(e) {
+                if (e.key !== "Enter" || !e.isTrusted || !currentTrigger) return;
+                const targetEl = getTargetEl();
+                const input = e.target;
+                if (!targetEl || !input || input.tagName !== "INPUT") return;
+                if (input !== targetEl && !targetEl.contains(input)) return;
+                if (!input.value) return;
+                setTimeout(() => {
+                    input.dispatchEvent(new Event("change", { bubbles: true }));
+                }, 250);
+            }
+            document.addEventListener("keydown", onEnterKey, true);
+
             rafId = requestAnimationFrame(tick);
 
             return {
@@ -444,6 +467,7 @@ export const tourPlayerService = {
                     document.removeEventListener("mousedown",   onCapturingPointer, true);
                     document.removeEventListener("pointerdown", onCapturingPointer, true);
                     document.removeEventListener("change",      onCapturingChange,  true);
+                    document.removeEventListener("keydown",     onEnterKey,         true);
                     if (div.parentNode) {
                         div.parentNode.removeChild(div);
                     }
