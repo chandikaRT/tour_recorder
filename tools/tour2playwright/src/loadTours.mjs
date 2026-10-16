@@ -79,6 +79,8 @@ function normalizeStep(s, i) {
     trigger: s.trigger || "",
     content: s.content || "",
     content_i18n: s.content_i18n || {},
+    description: s.description || "",
+    description_i18n: s.description_i18n || {},
     position: s.position || "bottom",
     run: s.run || "click",
     is_check: !!s.is_check,
@@ -97,6 +99,7 @@ function collectLangs(tour, steps) {
   for (const s of steps) {
     add(s.title_i18n);
     add(s.content_i18n);
+    add(s.description_i18n);
     add(s.validation_message_i18n);
   }
   return [...set];
