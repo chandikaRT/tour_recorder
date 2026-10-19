@@ -163,31 +163,6 @@
         },
         {
           "sequence": 70,
-          "title": "Contract",
-          "title_i18n": {
-            "en_US": "Contract"
-          },
-          "trigger": "[name=\"set_date_end\"] input",
-          "content": "Click the box to end the contract on the departure date.",
-          "content_i18n": {
-            "en_US": "Click the box to end the contract on the departure date."
-          },
-          "description": "When this box is ticked, Odoo closes the employee's running contract on the departure date, so payroll stops at the right moment.",
-          "description_i18n": {
-            "en_US": "When this box is ticked, Odoo closes the employee's running contract on the departure date, so payroll stops at the right moment."
-          },
-          "position": "bottom",
-          "run": "click",
-          "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
-          "validation_message_i18n": {
-            "en_US": ""
-          }
-        },
-        {
-          "sequence": 80,
           "title": "Detailed reason",
           "title_i18n": {
             "en_US": "Detailed reason"
@@ -212,7 +187,7 @@
           }
         },
         {
-          "sequence": 90,
+          "sequence": 80,
           "title": "Departure date",
           "title_i18n": {
             "en_US": "Departure date"
@@ -237,7 +212,7 @@
           }
         },
         {
-          "sequence": 100,
+          "sequence": 90,
           "title": "Apply",
           "title_i18n": {
             "en_US": "Apply"
@@ -262,7 +237,7 @@
           }
         },
         {
-          "sequence": 110,
+          "sequence": 100,
           "title": "Departure registered",
           "title_i18n": {
             "en_US": "Departure registered"
