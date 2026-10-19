@@ -193,9 +193,9 @@
             "en_US": "Detailed reason"
           },
           "trigger": "[name=\"departure_description\"] .odoo-editor-editable",
-          "content": "Type a short note about the departure, then press Tab.",
+          "content": "Type a short note about the departure.",
           "content_i18n": {
-            "en_US": "Type a short note about the departure, then press Tab."
+            "en_US": "Type a short note about the departure."
           },
           "description": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements.",
           "description_i18n": {
@@ -204,11 +204,11 @@
           "position": "bottom",
           "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{3,}$",
+          "validation_message": "Type at least a few words about the departure.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least a few words about the departure."
           }
         },
         {
