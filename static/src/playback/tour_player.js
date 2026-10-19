@@ -304,6 +304,10 @@ export const tourPlayerService = {
             // allowed through to the tour engine.  Any other selection is silently
             // swallowed so the step cannot advance on the wrong pick.
             let currentRequiredValue = null;
+            // True for steps that finish when the field loses focus (rich-text
+            // editors, where Tab and Enter edit the text instead of leaving it).
+            // The learner must be able to click elsewhere to blur the field.
+            let currentAllowBlur = false;
             let rafId = null;
             let transitionTimer = null;
             // True after a click passes through to the tour engine and before the
@@ -383,6 +387,9 @@ export const tourPlayerService = {
                 // initialising correctly.
                 if (!target) return;
                 if (!target.contains(e.target)) {
+                    // Let the press go through so focus moves away and the field
+                    // blurs; the click that follows is still cancelled below.
+                    if (currentAllowBlur && e.type !== "click") return;
                     e.stopImmediatePropagation();
                     e.preventDefault();
                     return;
@@ -397,7 +404,7 @@ export const tourPlayerService = {
                 // prevent the user from re-opening it to try again after a wrong pick.
                 // The OS manages the dropdown state so the rapid-click issue that
                 // stepLocked guards against does not apply.
-                if (e.type === "click" && target.tagName !== "SELECT") {
+                if (e.type === "click" && target.tagName !== "SELECT" && !currentAllowBlur) {
                     stepLocked = true;
                     div.style.display = "none";
                     // The tour engine only looks for the next step's trigger when
@@ -463,9 +470,10 @@ export const tourPlayerService = {
             rafId = requestAnimationFrame(tick);
 
             return {
-                setTrigger(trigger, requiredValue) {
+                setTrigger(trigger, requiredValue, allowBlur = false) {
                     stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
+                    currentAllowBlur = !!allowBlur;
                     currentRequiredValue = requiredValue || null;
                     // Short CSS transition for the step-change animation.
                     // Removed after 300 ms so the RAF tracking loop stays lag-free
@@ -686,7 +694,7 @@ export const tourPlayerService = {
                                 stepData.run.startsWith("select:")
                                     ? stepData.run.slice(7)
                                     : null;
-                            spotlight.setTrigger(stepData.trigger, reqVal);
+                            spotlight.setTrigger(stepData.trigger, reqVal, stepData.consumeEvent === "blur");
                         }
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
@@ -809,7 +817,7 @@ export const tourPlayerService = {
                     typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
                         ? steps[0].run.slice(7)
                         : null;
-                spotlight.setTrigger(steps[0].trigger, firstReqVal);
+                spotlight.setTrigger(steps[0].trigger, firstReqVal, steps[0].consumeEvent === "blur");
             }
 
             // Stop button — always visible during play/challenge so the user
