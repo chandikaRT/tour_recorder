@@ -138,18 +138,18 @@
         },
         {
           "sequence": 60,
-          "title": "Open Employee",
+          "title": "Open the employee search",
           "title_i18n": {
-            "en_US": "Open Employee"
+            "en_US": "Open the employee search"
           },
           "trigger": "[name=\"employee_id\"] input",
-          "content": "Click here to choose the employee.",
+          "content": "Click here to open the employee search.",
           "content_i18n": {
-            "en_US": "Click here to choose the employee."
+            "en_US": "Click here to open the employee search."
           },
-          "description": "The contract belongs to one employee. Choosing the employee also fills in their department and job position.",
+          "description": "The contract belongs to one employee. Clicking the field opens a short list of employees, and you can start typing to search for the right person.",
           "description_i18n": {
-            "en_US": "The contract belongs to one employee. Choosing the employee also fills in their department and job position."
+            "en_US": "The contract belongs to one employee. Clicking the field opens a short list of employees, and you can start typing to search for the right person."
           },
           "position": "bottom",
           "run": "click",
@@ -163,18 +163,43 @@
         },
         {
           "sequence": 70,
+          "title": "Search the employee",
+          "title_i18n": {
+            "en_US": "Search the employee"
+          },
+          "trigger": "[name=\"employee_id\"] input",
+          "content": "Type the first letters of the employee's name.",
+          "content_i18n": {
+            "en_US": "Type the first letters of the employee's name."
+          },
+          "description": "Typing narrows the list down to matching employees. Three letters are usually enough to find the right person.",
+          "description_i18n": {
+            "en_US": "Typing narrows the list down to matching employees. Three letters are usually enough to find the right person."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "regex",
+          "validation_regex": "^.{3,}$",
+          "validation_message": "Type at least three letters of the employee's name.",
+          "validation_message_i18n": {
+            "en_US": "Type at least three letters of the employee's name."
+          }
+        },
+        {
+          "sequence": 80,
           "title": "Choose the employee",
           "title_i18n": {
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee this contract is for.",
+          "content": "Click the employee this contract is for in the search results.",
           "content_i18n": {
-            "en_US": "Click the employee this contract is for."
+            "en_US": "Click the employee this contract is for in the search results."
           },
-          "description": "Pick the employee from the list. If the person is not listed, create their employee record first. Start typing a name to narrow the list.",
+          "description": "Pick the employee from the results. Choosing the employee also fills in their department and job position. If the person is not listed, create their employee record first.",
           "description_i18n": {
-            "en_US": "Pick the employee from the list. If the person is not listed, create their employee record first. Start typing a name to narrow the list."
+            "en_US": "Pick the employee from the results. Choosing the employee also fills in their department and job position. If the person is not listed, create their employee record first."
           },
           "position": "bottom",
           "run": "click",
@@ -187,7 +212,7 @@
           }
         },
         {
-          "sequence": 80,
+          "sequence": 90,
           "title": "Monthly wage",
           "title_i18n": {
             "en_US": "Monthly wage"
@@ -212,7 +237,7 @@
           }
         },
         {
-          "sequence": 90,
+          "sequence": 100,
           "title": "Save",
           "title_i18n": {
             "en_US": "Save"
@@ -237,7 +262,7 @@
           }
         },
         {
-          "sequence": 100,
+          "sequence": 110,
           "title": "Start the contract",
           "title_i18n": {
             "en_US": "Start the contract"
@@ -262,7 +287,7 @@
           }
         },
         {
-          "sequence": 110,
+          "sequence": 120,
           "title": "Contract is running",
           "title_i18n": {
             "en_US": "Contract is running"
