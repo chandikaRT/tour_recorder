@@ -29,6 +29,19 @@ const POPUP_TRIGGER_RE =
 export const tourPlayerService = {
     dependencies: ["orm", "tour_service", "notification", "overlay"],
     start(env, { orm, tour_service, notification, overlay }) {
+        // Recorded selectors can be pinned to a dialog's position among its
+        // siblings (`div.o_dialog:nth-of-type(2) > div.modal.d-block > ...`). With
+        // 3+ stacked wizards that index points at the wrong dialog, so the target
+        // is never found and the highlight never shows. The player already
+        // searches inside the frontmost dialog, so drop the positional prefix.
+        function normalizeDialogTrigger(trigger) {
+            if (!trigger) return trigger;
+            return trigger.replace(
+                /^(?:div)?\.o_dialog(?::nth-(?:of-type|child)\(\d+\))?\s*>\s*(?:div)?\.modal(?:\.[\w-]+)*\s*>\s*/,
+                ""
+            );
+        }
+
         function buildSteps(steps, { challenge = false } = {}) {
             return steps.map((s) => {
                 // Combine the short tooltip with the optional description as plain
@@ -41,7 +54,7 @@ export const tourPlayerService = {
                         : (s.content || "")
                 );
                 const step = {
-                    trigger: s.trigger,
+                    trigger: normalizeDialogTrigger(s.trigger),
                     content: tooltip,
                     position: s.position || "bottom",
                 };
