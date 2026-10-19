@@ -192,10 +192,10 @@
           "title_i18n": {
             "en_US": "Your allocations"
           },
-          "trigger": ".o_list_view",
-          "content": "This list shows every allocation you received. Click anywhere in it to finish.",
+          "trigger": ".o_list_view .o_list_table thead",
+          "content": "This list shows every allocation you received. Click the column headings to finish.",
           "content_i18n": {
-            "en_US": "This list shows every allocation you received. Click anywhere in it to finish."
+            "en_US": "This list shows every allocation you received. Click the column headings to finish."
           },
           "description": "Each line shows an allocation with its leave type and number of days. Read it together with your request history to understand how your balance is calculated.",
           "description_i18n": {

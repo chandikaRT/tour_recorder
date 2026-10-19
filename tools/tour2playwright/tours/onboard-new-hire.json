@@ -367,10 +367,10 @@
           "title_i18n": {
             "en_US": "Equipment list"
           },
-          "trigger": ".o_kanban_view",
-          "content": "This list shows the equipment assigned to the employee. Click it to finish.",
+          "trigger": ".o_cp_searchview",
+          "content": "This list shows the equipment assigned to the employee. Click the search bar to finish.",
           "content_i18n": {
-            "en_US": "This list shows the equipment assigned to the employee. Click it to finish."
+            "en_US": "This list shows the equipment assigned to the employee. Click the search bar to finish."
           },
           "description": "Onboarding is prepared: the manager and user are set, the plan has created the tasks, and the documents and equipment are one click away. Use this list to assign a laptop, phone or other equipment to the new hire.",
           "description_i18n": {

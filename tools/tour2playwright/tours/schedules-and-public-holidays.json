@@ -367,10 +367,10 @@
           "title_i18n": {
             "en_US": "Holiday saved"
           },
-          "trigger": ".o_list_view",
-          "content": "The holiday is saved. Click anywhere in the list to finish.",
+          "trigger": ".o_list_view .o_list_table thead",
+          "content": "The holiday is saved. Click the column headings of the list to finish.",
           "content_i18n": {
-            "en_US": "The holiday is saved. Click anywhere in the list to finish."
+            "en_US": "The holiday is saved. Click the column headings of the list to finish."
           },
           "description": "The new holiday appears in the list. Employees can no longer be asked to work on it according to their schedule, and time off requests skip that day.",
           "description_i18n": {
