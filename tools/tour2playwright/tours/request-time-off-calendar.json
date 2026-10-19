@@ -68,22 +68,22 @@
             "en_US": "Time Off Type"
           },
           "trigger": "[name=\"holiday_status_id\"] input",
-          "content": "Click here to open the list of time off types.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to open the list of time off types."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "The leave type decides how your days are counted and who has to approve the request. Opening the field shows the types available to you.",
+          "description": "The leave type decides how your days are counted and who has to approve the request. Opening the field shows the types available to you. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "The leave type decides how your days are counted and who has to approve the request. Opening the field shows the types available to you."
+            "en_US": "The leave type decides how your days are counted and who has to approve the request. Opening the field shows the types available to you. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -93,9 +93,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the type of leave you want to take. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the type of leave you want to take. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "The number in brackets next to a type is the balance you have left for it. Pick the type that matches your absence, for example Annual Leave for a holiday.",
           "description_i18n": {

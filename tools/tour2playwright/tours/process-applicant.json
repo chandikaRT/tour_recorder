@@ -113,27 +113,27 @@
         },
         {
           "sequence": 50,
-          "title": "Open Interviewers",
+          "title": "Search Interviewers",
           "title_i18n": {
-            "en_US": "Open Interviewers"
+            "en_US": "Search Interviewers"
           },
           "trigger": "[name=\"interviewer_ids\"] input",
-          "content": "Click here to choose who will interview the applicant.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to choose who will interview the applicant."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "Interviewers are the colleagues who meet the applicant. They get access to the application so they can read it and leave their feedback.",
+          "description": "Interviewers are the colleagues who meet the applicant. They get access to the application so they can read it and leave their feedback. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "Interviewers are the colleagues who meet the applicant. They get access to the application so they can read it and leave their feedback."
+            "en_US": "Interviewers are the colleagues who meet the applicant. They get access to the application so they can read it and leave their feedback. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -143,9 +143,9 @@
             "en_US": "Choose the interviewer"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the person who will interview the applicant. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the person who will interview the applicant. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the colleague from the list. Start typing a name to narrow the list, and repeat to add more than one interviewer.",
           "description_i18n": {

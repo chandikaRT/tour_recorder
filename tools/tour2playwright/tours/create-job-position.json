@@ -138,27 +138,27 @@
         },
         {
           "sequence": 60,
-          "title": "Open Department",
+          "title": "Search Department",
           "title_i18n": {
-            "en_US": "Open Department"
+            "en_US": "Search Department"
           },
           "trigger": "[name=\"department_id\"] input",
-          "content": "Click here to choose the department.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to choose the department."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "The department tells Odoo which team the position belongs to. New employees hired into this position will start in that department.",
+          "description": "The department tells Odoo which team the position belongs to. New employees hired into this position will start in that department. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "The department tells Odoo which team the position belongs to. New employees hired into this position will start in that department."
+            "en_US": "The department tells Odoo which team the position belongs to. New employees hired into this position will start in that department. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -168,9 +168,9 @@
             "en_US": "Choose the department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the department that needs this position. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the department that needs this position. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the team that will hire for the position. Start typing a name to narrow the list.",
           "description_i18n": {

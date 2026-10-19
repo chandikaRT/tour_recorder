@@ -113,27 +113,27 @@
         },
         {
           "sequence": 50,
-          "title": "Open Department",
+          "title": "Search Department",
           "title_i18n": {
-            "en_US": "Open Department"
+            "en_US": "Search Department"
           },
           "trigger": "[name=\"department_id\"] input",
-          "content": "Click here to open the list of departments.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to open the list of departments."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "The department places the employee in your organisation chart and decides which team reports and approvals they belong to.",
+          "description": "The department places the employee in your organisation chart and decides which team reports and approvals they belong to. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "The department places the employee in your organisation chart and decides which team reports and approvals they belong to."
+            "en_US": "The department places the employee in your organisation chart and decides which team reports and approvals they belong to. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -143,9 +143,9 @@
             "en_US": "Choose the department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee's department. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the employee's department. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the department the employee works in. If you cannot find it, start typing its name to narrow down the list.",
           "description_i18n": {

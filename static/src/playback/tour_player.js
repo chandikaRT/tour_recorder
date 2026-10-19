@@ -1,7 +1,6 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
-import { _t } from "@web/core/l10n/translation";
 import { tourState } from "@web_tour/tour_service/tour_state";
 import { TourPointer } from "@web_tour/tour_pointer/tour_pointer";
 import { isValid, validationMessage } from "../validation";
@@ -23,7 +22,6 @@ import { isValid, validationMessage } from "../validation";
  */
 
 const CONSUME_EVENT = "tr_validated";
-const DROPDOWN_TRIGGER_RE = /(^|\s)\.o-autocomplete--dropdown-menu\s*$/;
 
 const POPUP_TRIGGER_RE =
     /o_datetime_picker|o_popover|o-autocomplete|ui-autocomplete|dropdown-menu|o_notification/;
@@ -45,7 +43,7 @@ export const tourPlayerService = {
         }
 
         function buildSteps(steps, { challenge = false } = {}) {
-            return steps.map((s, i) => {
+            return steps.map((s) => {
                 // Combine the short tooltip with the optional description as plain
                 // text: the TourPointer escapes its content, so HTML would show up
                 // as literal markup. A newline separates them (see scss pre-line).
@@ -116,20 +114,6 @@ export const tourPlayerService = {
                             step.consumeEvent = "change";
                         }
                     }
-                }
-                // Dropdown step: clicking "Search More..." opens a window, so a plain
-                // click on the list must not finish the step. The validator finishes
-                // it when a record is really picked, from the list or from that
-                // window. The field's input is the fallback anchor while the list
-                // is gone, so the engine keeps waiting on this step.
-                if (DROPDOWN_TRIGGER_RE.test(s.trigger || "")) {
-                    const prev = steps[i - 1];
-                    step.consumeEvent = CONSUME_EVENT;
-                    if (prev && /input$/.test(prev.trigger || "")) {
-                        step.alt_trigger = normalizeDialogTrigger(prev.trigger);
-                        step.tr_field_trigger = step.alt_trigger;
-                    }
-                    step.tr_dropdown = true;
                 }
                 if (s.validation_type && s.validation_type !== "none") {
                     // Advance only via our validated custom event (see validator).
@@ -288,70 +272,12 @@ export const tourPlayerService = {
                 clearError();
             }
 
-            // ---- Dropdown steps (record picked from the list or from "Search More") ----
-            function dropdownStep() {
-                const step = currentStep();
-                return step && step.tr_dropdown ? step : null;
-            }
-            let wizardPoll = null;
-            function stopWizardPoll() {
-                if (wizardPoll) {
-                    clearInterval(wizardPoll);
-                    wizardPoll = null;
-                }
-            }
-            function onDropdownClick(ev) {
-                if (!ev.isTrusted) return;
-                const step = dropdownStep();
-                if (!step) return;
-                const li = ev.target.closest?.(".o-autocomplete--dropdown-menu li");
-                if (!li) return;
-                const label = (li.textContent || "").trim();
-                if (/search more/i.test(label)) {
-                    const field = step.tr_field_trigger;
-                    const base = document.querySelectorAll(".o_dialog .modal").length;
-                    let opened = false;
-                    stopWizardPoll();
-                    wizardPoll = setInterval(() => {
-                        const now = document.querySelectorAll(".o_dialog .modal").length;
-                        if (now > base) {
-                            opened = true;
-                        } else if (opened) {
-                            // The window closed: advance if a record was chosen.
-                            stopWizardPoll();
-                            // The engine re-anchors on the field a moment after the
-                            // window closes, so retry until the step has moved on.
-                            let tries = 0;
-                            wizardPoll = setInterval(() => {
-                                tries += 1;
-                                const input = field ? queryWithDialogPriority(field) : null;
-                                if (!dropdownStep() || tries > 12) {
-                                    stopWizardPoll();
-                                } else if (input && (input.value || "").trim()) {
-                                    input.dispatchEvent(
-                                        new CustomEvent(CONSUME_EVENT, { bubbles: true })
-                                    );
-                                }
-                            }, 250);
-                        }
-                    }, 250);
-                    return;
-                }
-                if (/^(create|search worldwide|start typing)/i.test(label)) return;
-                // A real record: finish the step now, while the list is still there.
-                const menu = li.closest(".o-autocomplete--dropdown-menu");
-                menu.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
-            }
-            document.addEventListener("click", onDropdownClick, true);
-
             const handler = onInput;
             document.addEventListener("input", handler, true);
             document.addEventListener("change", handler, true);
             document.addEventListener("blur", handler, true);
 
             function teardown() {
-                stopWizardPoll();
-                document.removeEventListener("click", onDropdownClick, true);
                 document.removeEventListener("input", handler, true);
                 document.removeEventListener("change", handler, true);
                 document.removeEventListener("blur", handler, true);
@@ -545,47 +471,6 @@ export const tourPlayerService = {
             }
             document.addEventListener("keydown", onEnterKey, true);
 
-            // "Search More..." in a dropdown opens a list in a window. The tour
-            // has no step for it, so guide the learner inside that window until
-            // it closes (the engine then carries on with the next step).
-            let wizardHintEl = null;
-            let wizardHintTimer = null;
-            function clearWizardHint() {
-                if (wizardHintTimer) {
-                    clearInterval(wizardHintTimer);
-                    wizardHintTimer = null;
-                }
-                if (wizardHintEl) {
-                    wizardHintEl.remove();
-                    wizardHintEl = null;
-                }
-            }
-            function onSearchMoreClick(e) {
-                if (!e.isTrusted) return;
-                const item = e.target.closest?.(".o-autocomplete--dropdown-menu li");
-                if (!item || !/search more/i.test(item.textContent || "")) return;
-                clearWizardHint();
-                const baseDialogs = document.querySelectorAll(".o_dialog .modal").length;
-                let opened = false;
-                wizardHintTimer = setInterval(() => {
-                    const dialogs = document.querySelectorAll(".o_dialog .modal");
-                    if (dialogs.length > baseDialogs) {
-                        opened = true;
-                        if (!wizardHintEl) {
-                            wizardHintEl = document.createElement("div");
-                            wizardHintEl.className = "o_tr_wizard_hint";
-                            wizardHintEl.textContent = _t(
-                                "Search or scroll the list in this window, then click the record you want."
-                            );
-                            document.body.appendChild(wizardHintEl);
-                        }
-                    } else if (opened) {
-                        clearWizardHint();
-                    }
-                }, 300);
-            }
-            document.addEventListener("click", onSearchMoreClick, true);
-
             rafId = requestAnimationFrame(tick);
 
             return {
@@ -620,8 +505,6 @@ export const tourPlayerService = {
                     document.removeEventListener("pointerdown", onCapturingPointer, true);
                     document.removeEventListener("change",      onCapturingChange,  true);
                     document.removeEventListener("keydown",     onEnterKey,         true);
-                    document.removeEventListener("click",       onSearchMoreClick,  true);
-                    clearWizardHint();
                     if (div.parentNode) {
                         div.parentNode.removeChild(div);
                     }

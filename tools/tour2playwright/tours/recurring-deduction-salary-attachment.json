@@ -118,22 +118,22 @@
             "en_US": "Employee"
           },
           "trigger": "[name=\"employee_ids\"] input",
-          "content": "Click here to open the list of employees.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to open the list of employees."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "An attachment can apply to one or several employees. Opening the field shows the employees you can choose from.",
+          "description": "An attachment can apply to one or several employees. Opening the field shows the employees you can choose from. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "An attachment can apply to one or several employees. Opening the field shows the employees you can choose from."
+            "en_US": "An attachment can apply to one or several employees. Opening the field shows the employees you can choose from. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -143,9 +143,9 @@
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee concerned. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the employee concerned. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the employee whose salary the amount will be taken from.",
           "description_i18n": {
@@ -193,22 +193,22 @@
             "en_US": "Deduction type"
           },
           "trigger": "[name=\"deduction_type_id\"] input",
-          "content": "Click here to open the list of deduction types.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to open the list of deduction types."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "The type decides how the amount appears on the payslip, for example as a loan repayment or an attachment of salary.",
+          "description": "The type decides how the amount appears on the payslip, for example as a loan repayment or an attachment of salary. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "The type decides how the amount appears on the payslip, for example as a loan repayment or an attachment of salary."
+            "en_US": "The type decides how the amount appears on the payslip, for example as a loan repayment or an attachment of salary. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -218,9 +218,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the type of deduction. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the type of deduction. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Choose the type that matches the reason for the deduction.",
           "description_i18n": {

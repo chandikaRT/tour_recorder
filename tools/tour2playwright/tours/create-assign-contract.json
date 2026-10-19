@@ -138,31 +138,6 @@
         },
         {
           "sequence": 60,
-          "title": "Open the employee search",
-          "title_i18n": {
-            "en_US": "Open the employee search"
-          },
-          "trigger": "[name=\"employee_id\"] input",
-          "content": "Click here to open the employee search.",
-          "content_i18n": {
-            "en_US": "Click here to open the employee search."
-          },
-          "description": "The contract belongs to one employee. Clicking the field opens a short list of employees, and you can start typing to search for the right person.",
-          "description_i18n": {
-            "en_US": "The contract belongs to one employee. Clicking the field opens a short list of employees, and you can start typing to search for the right person."
-          },
-          "position": "bottom",
-          "run": "click",
-          "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
-          "validation_message_i18n": {
-            "en_US": ""
-          }
-        },
-        {
-          "sequence": 70,
           "title": "Search the employee",
           "title_i18n": {
             "en_US": "Search the employee"
@@ -187,15 +162,15 @@
           }
         },
         {
-          "sequence": 80,
+          "sequence": 70,
           "title": "Choose the employee",
           "title_i18n": {
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee this contract is for in the search results. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the employee this contract is for in the search results. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the employee from the results. Choosing the employee also fills in their department and job position. If the person is not listed, create their employee record first.",
           "description_i18n": {
@@ -212,7 +187,7 @@
           }
         },
         {
-          "sequence": 90,
+          "sequence": 80,
           "title": "Monthly wage",
           "title_i18n": {
             "en_US": "Monthly wage"
@@ -237,7 +212,7 @@
           }
         },
         {
-          "sequence": 100,
+          "sequence": 90,
           "title": "Save",
           "title_i18n": {
             "en_US": "Save"
@@ -262,7 +237,7 @@
           }
         },
         {
-          "sequence": 110,
+          "sequence": 100,
           "title": "Start the contract",
           "title_i18n": {
             "en_US": "Start the contract"
@@ -287,7 +262,7 @@
           }
         },
         {
-          "sequence": 120,
+          "sequence": 110,
           "title": "Contract is running",
           "title_i18n": {
             "en_US": "Contract is running"

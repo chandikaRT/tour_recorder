@@ -138,27 +138,27 @@
         },
         {
           "sequence": 60,
-          "title": "Open Time Off Type",
+          "title": "Search Time Off Type",
           "title_i18n": {
-            "en_US": "Open Time Off Type"
+            "en_US": "Search Time Off Type"
           },
           "trigger": "[name=\"holiday_status_id\"] input",
-          "content": "Click here to choose the leave type.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to choose the leave type."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list.",
+          "description": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list."
+            "en_US": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -168,9 +168,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the leave type you are allocating. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the leave type you are allocating. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the type of leave the days belong to, for example Annual Leave. The days will only be usable for that type.",
           "description_i18n": {
@@ -238,27 +238,27 @@
         },
         {
           "sequence": 100,
-          "title": "Open Department",
+          "title": "Search Department",
           "title_i18n": {
-            "en_US": "Open Department"
+            "en_US": "Search Department"
           },
           "trigger": "[name=\"department_id\"] input",
-          "content": "Click here to choose the department.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to choose the department."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "Every employee in the chosen department receives the same allocation. One allocation record is created for each of them.",
+          "description": "Every employee in the chosen department receives the same allocation. One allocation record is created for each of them. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "Every employee in the chosen department receives the same allocation. One allocation record is created for each of them."
+            "en_US": "Every employee in the chosen department receives the same allocation. One allocation record is created for each of them. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -268,9 +268,9 @@
             "en_US": "Choose the department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the department that receives the leave. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the department that receives the leave. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Pick the department. Start typing a name to narrow the list.",
           "description_i18n": {

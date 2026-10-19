@@ -193,22 +193,22 @@
             "en_US": "Input type"
           },
           "trigger": "[name=\"input_type_id\"] input",
-          "content": "Click here to open the list of input types.",
+          "content": "Click the field and type the first letters of what you are looking for.",
           "content_i18n": {
-            "en_US": "Click here to open the list of input types."
+            "en_US": "Click the field and type the first letters of what you are looking for."
           },
-          "description": "The input type tells payroll what the amount is, for example a bonus or an allowance. Each type is linked to a salary rule that adds it to the payslip.",
+          "description": "The input type tells payroll what the amount is, for example a bonus or an allowance. Each type is linked to a salary rule that adds it to the payslip. Typing narrows the list down; you pick the result in the next step.",
           "description_i18n": {
-            "en_US": "The input type tells payroll what the amount is, for example a bonus or an allowance. Each type is linked to a salary rule that adds it to the payslip."
+            "en_US": "The input type tells payroll what the amount is, for example a bonus or an allowance. Each type is linked to a salary rule that adds it to the payslip. Typing narrows the list down; you pick the result in the next step."
           },
           "position": "bottom",
-          "run": "click",
+          "run": "edit",
           "is_check": false,
-          "validation_type": "none",
-          "validation_regex": "",
-          "validation_message": "",
+          "validation_type": "regex",
+          "validation_regex": "^.{2,}$",
+          "validation_message": "Type at least two letters of what you are looking for.",
           "validation_message_i18n": {
-            "en_US": ""
+            "en_US": "Type at least two letters of what you are looking for."
           }
         },
         {
@@ -218,9 +218,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the input type that matches the amount. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
+          "content": "Click the result you want in the list.",
           "content_i18n": {
-            "en_US": "Click the input type that matches the amount. If you do not see it in the short list, click Search More... and pick it in the window that opens."
+            "en_US": "Click the result you want in the list."
           },
           "description": "Choose the type that matches the payment. Only the types allowed for this employee's salary structure are offered.",
           "description_i18n": {
