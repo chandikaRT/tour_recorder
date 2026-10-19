@@ -386,10 +386,14 @@ export const tourPlayerService = {
                 // here would prevent the new wizard/page from receiving focus and
                 // initialising correctly.
                 if (!target) return;
+                // Rich-text targets finish on blur. Decide from the element itself so
+                // this does not depend on how the step's consume event was derived.
+                const blurStep = currentAllowBlur || !!target.isContentEditable
+                    || !!target.querySelector?.("[contenteditable='true']");
                 if (!target.contains(e.target)) {
                     // Let the press go through so focus moves away and the field
                     // blurs; the click that follows is still cancelled below.
-                    if (currentAllowBlur && e.type !== "click") return;
+                    if (blurStep && e.type !== "click") return;
                     e.stopImmediatePropagation();
                     e.preventDefault();
                     return;
@@ -404,7 +408,7 @@ export const tourPlayerService = {
                 // prevent the user from re-opening it to try again after a wrong pick.
                 // The OS manages the dropdown state so the rapid-click issue that
                 // stepLocked guards against does not apply.
-                if (e.type === "click" && target.tagName !== "SELECT" && !currentAllowBlur) {
+                if (e.type === "click" && target.tagName !== "SELECT" && !blurStep) {
                     stepLocked = true;
                     div.style.display = "none";
                     // The tour engine only looks for the next step's trigger when
