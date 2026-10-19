@@ -193,22 +193,22 @@
             "en_US": "Detailed reason"
           },
           "trigger": "[name=\"departure_description\"] .odoo-editor-editable",
-          "content": "Type a short note about the departure.",
+          "content": "Click the note box and write a short note about the departure.",
           "content_i18n": {
-            "en_US": "Type a short note about the departure."
+            "en_US": "Click the note box and write a short note about the departure."
           },
-          "description": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements.",
+          "description": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements. Take your time to write it: the next step starts when you click the date field below.",
           "description_i18n": {
-            "en_US": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements."
+            "en_US": "Use this note to record details that the reason alone does not give, such as the agreed last working day or handover arrangements. Take your time to write it: the next step starts when you click the date field below."
           },
           "position": "bottom",
-          "run": "edit",
+          "run": "click",
           "is_check": false,
-          "validation_type": "regex",
-          "validation_regex": "^.{3,}$",
-          "validation_message": "Type at least a few words about the departure.",
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
           "validation_message_i18n": {
-            "en_US": "Type at least a few words about the departure."
+            "en_US": ""
           }
         },
         {
@@ -218,9 +218,9 @@
             "en_US": "Departure date"
           },
           "trigger": "[name=\"departure_date\"] input",
-          "content": "Click the date field to check the departure date.",
+          "content": "When your note is finished, click the date field to check the departure date.",
           "content_i18n": {
-            "en_US": "Click the date field to check the departure date."
+            "en_US": "When your note is finished, click the date field to check the departure date."
           },
           "description": "The departure date is the employee's last day. It starts as today, so change it in the calendar if they leave on another day.",
           "description_i18n": {
