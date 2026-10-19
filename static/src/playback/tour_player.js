@@ -400,6 +400,18 @@ export const tourPlayerService = {
                 if (e.type === "click" && target.tagName !== "SELECT") {
                     stepLocked = true;
                     div.style.display = "none";
+                    // The tour engine only looks for the next step's trigger when
+                    // the DOM mutates. A click on a static element (a read-only card,
+                    // a column header) changes nothing, so the engine would sit on
+                    // the finished step. Poke the DOM so it re-evaluates.
+                    for (const delay of [60, 250, 800]) {
+                        setTimeout(() => {
+                            const nudge = document.createElement("span");
+                            nudge.style.display = "none";
+                            document.body.appendChild(nudge);
+                            nudge.remove();
+                        }, delay);
+                    }
                 }
             }
             document.addEventListener("click",       onCapturingPointer, true);
