@@ -168,9 +168,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the leave type you are allocating.",
+          "content": "Click the leave type you are allocating. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the leave type you are allocating."
+            "en_US": "Click the leave type you are allocating. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the type of leave the days belong to, for example Annual Leave. The days will only be usable for that type.",
           "description_i18n": {
@@ -268,9 +268,9 @@
             "en_US": "Choose the department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the department that receives the leave.",
+          "content": "Click the department that receives the leave. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the department that receives the leave."
+            "en_US": "Click the department that receives the leave. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the department. Start typing a name to narrow the list.",
           "description_i18n": {

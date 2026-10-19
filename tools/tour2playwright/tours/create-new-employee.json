@@ -143,9 +143,9 @@
             "en_US": "Choose the department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee's department.",
+          "content": "Click the employee's department. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the employee's department."
+            "en_US": "Click the employee's department. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the department the employee works in. If you cannot find it, start typing its name to narrow down the list.",
           "description_i18n": {

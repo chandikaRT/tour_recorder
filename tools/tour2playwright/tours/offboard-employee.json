@@ -143,9 +143,9 @@
             "en_US": "Choose the reason"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the reason the employee is leaving.",
+          "content": "Click the reason the employee is leaving. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the reason the employee is leaving."
+            "en_US": "Click the reason the employee is leaving. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the reason that best describes the departure. It cannot be left empty.",
           "description_i18n": {

@@ -168,9 +168,9 @@
             "en_US": "Choose the department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the department that needs this position.",
+          "content": "Click the department that needs this position. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the department that needs this position."
+            "en_US": "Click the department that needs this position. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the team that will hire for the position. Start typing a name to narrow the list.",
           "description_i18n": {

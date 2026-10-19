@@ -143,9 +143,9 @@
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee concerned.",
+          "content": "Click the employee concerned. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the employee concerned."
+            "en_US": "Click the employee concerned. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the employee whose salary the amount will be taken from.",
           "description_i18n": {
@@ -218,9 +218,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the type of deduction.",
+          "content": "Click the type of deduction. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the type of deduction."
+            "en_US": "Click the type of deduction. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Choose the type that matches the reason for the deduction.",
           "description_i18n": {

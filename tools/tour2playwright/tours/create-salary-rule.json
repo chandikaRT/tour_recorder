@@ -168,9 +168,9 @@
             "en_US": "Choose the category"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the category of this rule.",
+          "content": "Click the category of this rule. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the category of this rule."
+            "en_US": "Click the category of this rule. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick Allowance for an amount added to the salary, or a deduction category for an amount taken off.",
           "description_i18n": {
@@ -243,9 +243,9 @@
             "en_US": "Choose the structure"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the structure for this rule.",
+          "content": "Click the structure for this rule. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the structure for this rule."
+            "en_US": "Click the structure for this rule. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "The rule is added to the chosen structure and appears on its Salary Rules tab.",
           "description_i18n": {

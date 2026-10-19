@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { registry } from "@web/core/registry";
+import { _t } from "@web/core/l10n/translation";
 import { tourState } from "@web_tour/tour_service/tour_state";
 import { TourPointer } from "@web_tour/tour_pointer/tour_pointer";
 import { isValid, validationMessage } from "../validation";
@@ -471,6 +472,47 @@ export const tourPlayerService = {
             }
             document.addEventListener("keydown", onEnterKey, true);
 
+            // "Search More..." in a dropdown opens a list in a window. The tour
+            // has no step for it, so guide the learner inside that window until
+            // it closes (the engine then carries on with the next step).
+            let wizardHintEl = null;
+            let wizardHintTimer = null;
+            function clearWizardHint() {
+                if (wizardHintTimer) {
+                    clearInterval(wizardHintTimer);
+                    wizardHintTimer = null;
+                }
+                if (wizardHintEl) {
+                    wizardHintEl.remove();
+                    wizardHintEl = null;
+                }
+            }
+            function onSearchMoreClick(e) {
+                if (!e.isTrusted) return;
+                const item = e.target.closest?.(".o-autocomplete--dropdown-menu li");
+                if (!item || !/search more/i.test(item.textContent || "")) return;
+                clearWizardHint();
+                const baseDialogs = document.querySelectorAll(".o_dialog .modal").length;
+                let opened = false;
+                wizardHintTimer = setInterval(() => {
+                    const dialogs = document.querySelectorAll(".o_dialog .modal");
+                    if (dialogs.length > baseDialogs) {
+                        opened = true;
+                        if (!wizardHintEl) {
+                            wizardHintEl = document.createElement("div");
+                            wizardHintEl.className = "o_tr_wizard_hint";
+                            wizardHintEl.textContent = _t(
+                                "Search or scroll the list in this window, then click the record you want."
+                            );
+                            document.body.appendChild(wizardHintEl);
+                        }
+                    } else if (opened) {
+                        clearWizardHint();
+                    }
+                }, 300);
+            }
+            document.addEventListener("click", onSearchMoreClick, true);
+
             rafId = requestAnimationFrame(tick);
 
             return {
@@ -505,6 +547,8 @@ export const tourPlayerService = {
                     document.removeEventListener("pointerdown", onCapturingPointer, true);
                     document.removeEventListener("change",      onCapturingChange,  true);
                     document.removeEventListener("keydown",     onEnterKey,         true);
+                    document.removeEventListener("click",       onSearchMoreClick,  true);
+                    clearWizardHint();
                     if (div.parentNode) {
                         div.parentNode.removeChild(div);
                     }

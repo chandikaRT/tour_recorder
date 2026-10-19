@@ -93,9 +93,9 @@
             "en_US": "Choose the manager"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the new hire's manager.",
+          "content": "Click the new hire's manager. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the new hire's manager."
+            "en_US": "Click the new hire's manager. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the person the new hire reports to. Start typing a name to narrow the list.",
           "description_i18n": {
@@ -168,9 +168,9 @@
             "en_US": "Choose the user"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the new hire's user account.",
+          "content": "Click the new hire's user account. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the new hire's user account."
+            "en_US": "Click the new hire's user account. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Select the user that belongs to this employee. If there is no user yet, create one first from the Settings app.",
           "description_i18n": {

@@ -143,9 +143,9 @@
             "en_US": "Choose the manager"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the person who will manage the department.",
+          "content": "Click the person who will manage the department. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the person who will manage the department."
+            "en_US": "Click the person who will manage the department. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the employee who leads this department. Start typing a name to narrow the list.",
           "description_i18n": {
@@ -193,9 +193,9 @@
             "en_US": "Choose the parent department"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the parent department.",
+          "content": "Click the parent department. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the parent department."
+            "en_US": "Click the parent department. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the department this one belongs to. For example, a Recruitment team could sit under Human Resources.",
           "description_i18n": {

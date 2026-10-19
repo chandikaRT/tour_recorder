@@ -143,9 +143,9 @@
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee.",
+          "content": "Click the employee. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the employee."
+            "en_US": "Click the employee. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the employee concerned. Odoo then loads the employee's contract.",
           "description_i18n": {
@@ -193,9 +193,9 @@
             "en_US": "Choose the structure"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the structure to use.",
+          "content": "Click the structure to use. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the structure to use."
+            "en_US": "Click the structure to use. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the structure that matches the payment. The payslip will be computed with the rules of this structure.",
           "description_i18n": {

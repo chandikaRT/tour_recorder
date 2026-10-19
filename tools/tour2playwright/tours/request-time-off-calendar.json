@@ -93,9 +93,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the type of leave you want to take.",
+          "content": "Click the type of leave you want to take. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the type of leave you want to take."
+            "en_US": "Click the type of leave you want to take. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "The number in brackets next to a type is the balance you have left for it. Pick the type that matches your absence, for example Annual Leave for a holiday.",
           "description_i18n": {

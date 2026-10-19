@@ -193,9 +193,9 @@
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the employee this contract is for in the search results.",
+          "content": "Click the employee this contract is for in the search results. If you do not see it in the short list, click Search More... and pick it in the window that opens.",
           "content_i18n": {
-            "en_US": "Click the employee this contract is for in the search results."
+            "en_US": "Click the employee this contract is for in the search results. If you do not see it in the short list, click Search More... and pick it in the window that opens."
           },
           "description": "Pick the employee from the results. Choosing the employee also fills in their department and job position. If the person is not listed, create their employee record first.",
           "description_i18n": {
