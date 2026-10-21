@@ -361,6 +361,10 @@ export const tourPlayerService = {
             // editors, where Tab and Enter edit the text instead of leaving it).
             // The learner must be able to click elsewhere to blur the field.
             let currentAllowBlur = false;
+            // True for steps finished by a custom signal (picker Apply, Enter key,
+            // validated input): a click inside the target does not end them, so it
+            // must not lock the step.
+            let currentNoLock = false;
             let rafId = null;
             let transitionTimer = null;
             // True after a click passes through to the tour engine and before the
@@ -461,7 +465,7 @@ export const tourPlayerService = {
                 // prevent the user from re-opening it to try again after a wrong pick.
                 // The OS manages the dropdown state so the rapid-click issue that
                 // stepLocked guards against does not apply.
-                if (e.type === "click" && target.tagName !== "SELECT" && !blurStep) {
+                if (e.type === "click" && target.tagName !== "SELECT" && !blurStep && !currentNoLock) {
                     stepLocked = true;
                     div.style.display = "none";
                     // The tour engine only looks for the next step's trigger when
@@ -527,10 +531,11 @@ export const tourPlayerService = {
             rafId = requestAnimationFrame(tick);
 
             return {
-                setTrigger(trigger, requiredValue, allowBlur = false) {
+                setTrigger(trigger, requiredValue, allowBlur = false, noLock = false) {
                     stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
                     currentAllowBlur = !!allowBlur;
+                    currentNoLock = !!noLock;
                     currentRequiredValue = requiredValue || null;
                     // Short CSS transition for the step-change animation.
                     // Removed after 300 ms so the RAF tracking loop stays lag-free
@@ -751,7 +756,12 @@ export const tourPlayerService = {
                                 stepData.run.startsWith("select:")
                                     ? stepData.run.slice(7)
                                     : null;
-                            spotlight.setTrigger(stepData.trigger, reqVal, stepData.consumeEvent === "blur");
+                            spotlight.setTrigger(
+                                stepData.trigger,
+                                reqVal,
+                                stepData.consumeEvent === "blur",
+                                stepData.consumeEvent === CONSUME_EVENT
+                            );
                         }
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
@@ -874,7 +884,12 @@ export const tourPlayerService = {
                     typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
                         ? steps[0].run.slice(7)
                         : null;
-                spotlight.setTrigger(steps[0].trigger, firstReqVal, steps[0].consumeEvent === "blur");
+                spotlight.setTrigger(
+                    steps[0].trigger,
+                    firstReqVal,
+                    steps[0].consumeEvent === "blur",
+                    steps[0].consumeEvent === CONSUME_EVENT
+                );
             }
 
             // Stop button — always visible during play/challenge so the user

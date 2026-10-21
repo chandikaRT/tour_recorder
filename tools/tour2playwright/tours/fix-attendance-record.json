@@ -88,27 +88,27 @@
         },
         {
           "sequence": 40,
-          "title": "Employee",
+          "title": "Open Employee",
           "title_i18n": {
-            "en_US": "Employee"
+            "en_US": "Open Employee"
           },
           "trigger": "[name=\"employee_id\"] input",
-          "content": "Click the field and type the first letters of what you are looking for.",
+          "content": "Click here to open the list of employees.",
           "content_i18n": {
-            "en_US": "Click the field and type the first letters of what you are looking for."
+            "en_US": "Click here to open the list of employees."
           },
-          "description": "The record is saved against one employee. Opening the field shows the employees you can choose from. Typing narrows the list down; you pick the result in the next step.",
+          "description": "Odoo suggests the current user, so open the list to choose the employee the record belongs to. Opening the field shows the employees you can choose from.",
           "description_i18n": {
-            "en_US": "The record is saved against one employee. Opening the field shows the employees you can choose from. Typing narrows the list down; you pick the result in the next step."
+            "en_US": "Odoo suggests the current user, so open the list to choose the employee the record belongs to. Opening the field shows the employees you can choose from."
           },
           "position": "bottom",
-          "run": "edit",
+          "run": "click",
           "is_check": false,
-          "validation_type": "regex",
-          "validation_regex": "^.{2,}$",
-          "validation_message": "Type at least two letters of what you are looking for.",
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
           "validation_message_i18n": {
-            "en_US": "Type at least two letters of what you are looking for."
+            "en_US": ""
           }
         },
         {
@@ -118,9 +118,9 @@
             "en_US": "Choose the employee"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the result you want in the list.",
+          "content": "Click the employee this record belongs to.",
           "content_i18n": {
-            "en_US": "Click the result you want in the list."
+            "en_US": "Click the employee this record belongs to."
           },
           "description": "Pick the employee who forgot to check in or out. You can also type part of the name to narrow down the list.",
           "description_i18n": {
