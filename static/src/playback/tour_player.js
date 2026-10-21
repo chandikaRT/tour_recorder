@@ -73,6 +73,13 @@ export const tourPlayerService = {
                     step.run = () => {};
                     step.consumeEvent = CONSUME_EVENT;
                     step.tr_enter = true;
+                } else if (typeof s.run === "string" && s.run.trim() === "apply-picker") {
+                    // Date/time picker: the learner picks the day and the time inside
+                    // the popup, and the step finishes when Apply is clicked (see the
+                    // validator). A click on the day alone must not finish it.
+                    step.run = () => {};
+                    step.consumeEvent = CONSUME_EVENT;
+                    step.tr_apply = true;
                 } else if (typeof s.run === "string" && s.run.trim() === "edit-any") {
                     // Input that may already hold a value, so "change" might never
                     // fire. Finish when the learner leaves the field (Tab or a click).
@@ -291,6 +298,19 @@ export const tourPlayerService = {
             }
 
             const handler = onInput;
+            // "apply-picker" steps: finish when Apply is clicked in the picker.
+            function onPickerApplyClick(ev) {
+                if (!ev.isTrusted) return;
+                const step = currentStep();
+                if (!step || !step.tr_apply) return;
+                const apply = ev.target.closest?.(".o_datetime_picker .o_apply");
+                if (!apply) return;
+                const picker = apply.closest(".o_datetime_picker");
+                // Dispatch now, while the picker (the engine's anchor) still exists.
+                picker.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
+            }
+            document.addEventListener("click", onPickerApplyClick, true);
+
             // "press Enter" steps: finish on the Enter key inside the target field.
             function onEnterStepKey(ev) {
                 if (ev.key !== "Enter" || !ev.isTrusted) return;
@@ -309,6 +329,7 @@ export const tourPlayerService = {
             document.addEventListener("blur", handler, true);
 
             function teardown() {
+                document.removeEventListener("click", onPickerApplyClick, true);
                 document.removeEventListener("keydown", onEnterStepKey, true);
                 document.removeEventListener("input", handler, true);
                 document.removeEventListener("change", handler, true);
