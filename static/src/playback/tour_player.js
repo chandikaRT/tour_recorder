@@ -846,7 +846,19 @@ export const tourPlayerService = {
             const challengeMode = !!options.challenge;
             const tour = await orm.call("tour.recorder", "get_tour_for_play", [tourId, lang]);
             const tourKey = tour.tour_key;
-            const steps = tour.steps || [];
+            const rawSteps = tour.steps || [];
+            // Steps the engine runs (consume events, normalized triggers) merged
+            // with the raw fields the overlays still read (run, validation_*).
+            // The spotlight and validator must see the consume event, otherwise
+            // flags derived from it (blur, no-lock, apply-picker) are never set.
+            const builtSteps = buildSteps(rawSteps, { challenge: !!options.challenge });
+            const steps = rawSteps.map((raw, i) => ({
+                ...raw,
+                trigger: builtSteps[i].trigger,
+                consumeEvent: builtSteps[i].consumeEvent,
+                tr_enter: builtSteps[i].tr_enter,
+                tr_apply: builtSteps[i].tr_apply,
+            }));
             const total = steps.length;
             if (!total) {
                 return;
@@ -864,7 +876,7 @@ export const tourPlayerService = {
             registry.category("web_tour.tours").add(
                 tourKey,
                 {
-                    steps: () => buildSteps(steps, { challenge: challengeMode }),
+                    steps: () => buildSteps(rawSteps, { challenge: challengeMode }),
                 },
                 { force: true }
             );
