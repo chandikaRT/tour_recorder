@@ -73,6 +73,12 @@ export const tourPlayerService = {
                     step.run = () => {};
                     step.consumeEvent = CONSUME_EVENT;
                     step.tr_enter = true;
+                } else if (typeof s.run === "string" && s.run.trim() === "select-any") {
+                    // Dropdown where any choice is fine, including the one already
+                    // selected (which fires no "change"). Finish when the field
+                    // loses focus, e.g. after the learner presses Tab.
+                    step.run = () => {};
+                    step.consumeEvent = "blur";
                 } else if (s.run) {
                     step.run = s.run;
                     // When the intended action is a click, tell the engine to
