@@ -138,27 +138,27 @@
         },
         {
           "sequence": 60,
-          "title": "Search Time Off Type",
+          "title": "Open Time Off Type",
           "title_i18n": {
-            "en_US": "Search Time Off Type"
+            "en_US": "Open Time Off Type"
           },
           "trigger": "[name=\"holiday_status_id\"] input",
-          "content": "Click the field and type the first letters of what you are looking for.",
+          "content": "Click here to open the list of time off types.",
           "content_i18n": {
-            "en_US": "Click the field and type the first letters of what you are looking for."
+            "en_US": "Click here to open the list of time off types."
           },
-          "description": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list. Typing narrows the list down; you pick the result in the next step.",
+          "description": "Odoo suggests a leave type, usually Annual Leave. Open the list to confirm it or to choose a different type.",
           "description_i18n": {
-            "en_US": "The leave type decides which balance the days are added to. Only types that require an allocation appear in this list. Typing narrows the list down; you pick the result in the next step."
+            "en_US": "Odoo suggests a leave type, usually Annual Leave. Open the list to confirm it or to choose a different type."
           },
           "position": "bottom",
-          "run": "edit",
+          "run": "click",
           "is_check": false,
-          "validation_type": "regex",
-          "validation_regex": "^.{2,}$",
-          "validation_message": "Type at least two letters of what you are looking for.",
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
           "validation_message_i18n": {
-            "en_US": "Type at least two letters of what you are looking for."
+            "en_US": ""
           }
         },
         {
@@ -168,9 +168,9 @@
             "en_US": "Choose the type"
           },
           "trigger": ".o-autocomplete--dropdown-menu",
-          "content": "Click the result you want in the list.",
+          "content": "Click the leave type you want to allocate.",
           "content_i18n": {
-            "en_US": "Click the result you want in the list."
+            "en_US": "Click the leave type you want to allocate."
           },
           "description": "Pick the type of leave the days belong to, for example Annual Leave. The days will only be usable for that type.",
           "description_i18n": {
@@ -202,7 +202,7 @@
             "en_US": "This is the length of the allocation. The unit (days or hours) follows the leave type you chose."
           },
           "position": "bottom",
-          "run": "edit",
+          "run": "edit-any",
           "is_check": false,
           "validation_type": "none",
           "validation_regex": "",

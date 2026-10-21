@@ -73,6 +73,11 @@ export const tourPlayerService = {
                     step.run = () => {};
                     step.consumeEvent = CONSUME_EVENT;
                     step.tr_enter = true;
+                } else if (typeof s.run === "string" && s.run.trim() === "edit-any") {
+                    // Input that may already hold a value, so "change" might never
+                    // fire. Finish when the learner leaves the field (Tab or a click).
+                    step.run = () => {};
+                    step.consumeEvent = "blur";
                 } else if (typeof s.run === "string" && s.run.trim() === "select-any") {
                     // Dropdown where any choice is fine, including the one already
                     // selected (which fires no "change"). Finish when the field
