@@ -66,6 +66,13 @@ export const tourPlayerService = {
                 if (s.is_check) {
                     // Emulate isCheck on Odoo 17: assert visibility, no interaction.
                     step.run = () => {};
+                } else if (typeof s.run === "string" && /^press\s+enter$/i.test(s.run.trim())) {
+                    // Finish only when the learner presses Enter in the field. The
+                    // default consume event for an input is "input", which fires on
+                    // every typed character instead.
+                    step.run = () => {};
+                    step.consumeEvent = CONSUME_EVENT;
+                    step.tr_enter = true;
                 } else if (s.run) {
                     step.run = s.run;
                     // When the intended action is a click, tell the engine to
@@ -273,11 +280,25 @@ export const tourPlayerService = {
             }
 
             const handler = onInput;
+            // "press Enter" steps: finish on the Enter key inside the target field.
+            function onEnterStepKey(ev) {
+                if (ev.key !== "Enter" || !ev.isTrusted) return;
+                const step = currentStep();
+                if (!step || !step.tr_enter) return;
+                const el = resolveElement(step, ev.target);
+                if (!el || (el !== ev.target && !el.contains(ev.target))) return;
+                // Let Odoo handle the key first, then finish the step.
+                setTimeout(() => {
+                    el.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
+                }, 150);
+            }
+            document.addEventListener("keydown", onEnterStepKey, true);
             document.addEventListener("input", handler, true);
             document.addEventListener("change", handler, true);
             document.addEventListener("blur", handler, true);
 
             function teardown() {
+                document.removeEventListener("keydown", onEnterStepKey, true);
                 document.removeEventListener("input", handler, true);
                 document.removeEventListener("change", handler, true);
                 document.removeEventListener("blur", handler, true);
