@@ -218,16 +218,16 @@
             "en_US": "Request unit"
           },
           "trigger": "[name=\"request_unit\"] select",
-          "content": "Choose the unit employees request this leave in.",
+          "content": "Click the field and choose the unit employees request this leave in.",
           "content_i18n": {
-            "en_US": "Choose the unit employees request this leave in."
+            "en_US": "Click the field and choose the unit employees request this leave in."
           },
-          "description": "The unit decides whether a request is made in days, half days or hours. For example, Short Leave is usually requested in hours while Annual Leave is requested in days.",
+          "description": "The unit decides whether a request is made in days, half days or hours. For example, Short Leave is usually requested in hours while Annual Leave is requested in days. Keep the current unit if it already suits you; the tour moves on as soon as you open the list.",
           "description_i18n": {
-            "en_US": "The unit decides whether a request is made in days, half days or hours. For example, Short Leave is usually requested in hours while Annual Leave is requested in days."
+            "en_US": "The unit decides whether a request is made in days, half days or hours. For example, Short Leave is usually requested in hours while Annual Leave is requested in days. Keep the current unit if it already suits you; the tour moves on as soon as you open the list."
           },
           "position": "bottom",
-          "run": "select",
+          "run": "click",
           "is_check": false,
           "validation_type": "none",
           "validation_regex": "",
