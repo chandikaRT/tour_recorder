@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review Time Off by Employee",
+      "name_i18n": {
+        "en_US": "Review Time Off by Employee"
+      },
+      "description": "Learn how to read the time off analysis per employee, filter it and group it, for example by employee or type.",
+      "description_i18n": {
+        "en_US": "Learn how to read the time off analysis per employee, filter it and group it, for example by employee or type."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "The time off reports are in the Time Off app.",
+          "description_i18n": {
+            "en_US": "The time off reports are in the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Reporting menu",
+          "title_i18n": {
+            "en_US": "Reporting menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_report\"]",
+          "content": "Open the Reporting menu.",
+          "content_i18n": {
+            "en_US": "Open the Reporting menu."
+          },
+          "description": "The Reporting menu of the Time Off app holds its analysis screens. They only read data, so you can explore them safely.",
+          "description_i18n": {
+            "en_US": "The Reporting menu of the Time Off app holds its analysis screens. They only read data, so you can explore them safely."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "by Employee",
+          "title_i18n": {
+            "en_US": "by Employee"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_available_holidays_report_tree\"]",
+          "content": "Click by Employee.",
+          "content_i18n": {
+            "en_US": "Click by Employee."
+          },
+          "description": "This list shows the time off of each employee with its type, dates and status.",
+          "description_i18n": {
+            "en_US": "This list shows the time off of each employee with its type, dates and status."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Search options",
+          "title_i18n": {
+            "en_US": "Search options"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here to open the search options.",
+          "content_i18n": {
+            "en_US": "Click here to open the search options."
+          },
+          "description": "Filters and groupings are in this menu. They change what you see, not the data itself.",
+          "description_i18n": {
+            "en_US": "Filters and groupings are in this menu. They change what you see, not the data itself."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Pick a filter",
+          "title_i18n": {
+            "en_US": "Pick a filter"
+          },
+          "trigger": ".o_search_bar_menu [role=\"menuitemcheckbox\"]",
+          "content": "Click a filter to narrow the figures.",
+          "content_i18n": {
+            "en_US": "Click a filter to narrow the figures."
+          },
+          "description": "A filter keeps only the records that match, for example a period or a status. Click it again to remove it.",
+          "description_i18n": {
+            "en_US": "A filter keeps only the records that match, for example a period or a status. Click it again to remove it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Group the figures",
+          "title_i18n": {
+            "en_US": "Group the figures"
+          },
+          "trigger": ".o_group_by_menu [role=\"menuitemcheckbox\"]",
+          "content": "Click a grouping to split the figures.",
+          "content_i18n": {
+            "en_US": "Click a grouping to split the figures."
+          },
+          "description": "Grouping splits the figures by employee, type, department or period. Several groupings can be combined.",
+          "description_i18n": {
+            "en_US": "Grouping splits the figures by employee, type, department or period. Several groupings can be combined."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Change the view",
+          "title_i18n": {
+            "en_US": "Change the view"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_pivot",
+          "content": "Click Pivot to see the same figures as a pivot.",
+          "content_i18n": {
+            "en_US": "Click Pivot to see the same figures as a pivot."
+          },
+          "description": "The pivot table totals the days per employee and per type, which is handy for month-end checks.",
+          "description_i18n": {
+            "en_US": "The pivot table totals the days per employee and per type, which is handy for month-end checks."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

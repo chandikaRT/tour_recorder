@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Archive a Time Off Type",
+      "name_i18n": {
+        "en_US": "Archive a Time Off Type"
+      },
+      "description": "Learn how to archive a time off type that is no longer used, so employees can no longer request it.",
+      "description_i18n": {
+        "en_US": "Learn how to archive a time off type that is no longer used, so employees can no longer request it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Time off types are managed in the Time Off app.",
+          "description_i18n": {
+            "en_US": "Time off types are managed in the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists used by the Time Off app.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists used by the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off Types",
+          "title_i18n": {
+            "en_US": "Time Off Types"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_status_menu_configuration\"]",
+          "content": "Click Time Off Types.",
+          "content_i18n": {
+            "en_US": "Click Time Off Types."
+          },
+          "description": "Each type is a kind of leave that employees can request, such as Paid Time Off or Sick Time Off.",
+          "description_i18n": {
+            "en_US": "Each type is a kind of leave that employees can request, such as Paid Time Off or Sick Time Off."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find the time off type",
+          "title_i18n": {
+            "en_US": "Find the time off type"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the name of the time off type and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the name of the time off type and press Enter."
+          },
+          "description": "Search first so you select the right record. Only select a record you no longer need.",
+          "description_i18n": {
+            "en_US": "Search first so you select the right record. Only select a record you no longer need."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Select it",
+          "title_i18n": {
+            "en_US": "Select it"
+          },
+          "trigger": ".o_list_view .o_data_row .o_list_record_selector input",
+          "content": "Tick the box in front of the time off type.",
+          "content_i18n": {
+            "en_US": "Tick the box in front of the time off type."
+          },
+          "description": "The Actions menu appears as soon as a record is ticked. You can tick several records to archive them together.",
+          "description_i18n": {
+            "en_US": "The Actions menu appears as soon as a record is ticked. You can tick several records to archive them together."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to the ticked records is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to the ticked records is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Archive",
+          "title_i18n": {
+            "en_US": "Archive"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:nth-child(2)",
+          "content": "Click Archive.",
+          "content_i18n": {
+            "en_US": "Click Archive."
+          },
+          "description": "Archiving hides the record from lists and from the choices in other forms, but keeps all its history. An archived record can be restored later from the Archived filter.",
+          "description_i18n": {
+            "en_US": "Archiving hides the record from lists and from the choices in other forms, but keeps all its history. An archived record can be restored later from the Archived filter."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Archive in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Archive in the window to confirm."
+          },
+          "description": "Odoo asks once more because the change affects every ticked record.",
+          "description_i18n": {
+            "en_US": "Odoo asks once more because the change affects every ticked record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

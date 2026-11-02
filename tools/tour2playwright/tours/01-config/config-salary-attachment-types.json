@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Add a Salary Attachment Type",
+      "name_i18n": {
+        "en_US": "Add a Salary Attachment Type"
+      },
+      "description": "Learn how to add a type of recurring deduction, such as a loan or an advance, that can be attached to an employee salary.",
+      "description_i18n": {
+        "en_US": "Learn how to add a type of recurring deduction, such as a loan or an advance, that can be attached to an employee salary."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Attachment types are configured in the Payroll app.",
+          "description_i18n": {
+            "en_US": "Attachment types are configured in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists of master data used across the Payroll app, such as salary structures, rules and attachment types.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists of master data used across the Payroll app, such as salary structures, rules and attachment types."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Salary Attachment Types",
+          "title_i18n": {
+            "en_US": "Salary Attachment Types"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_salary_attachment_type\"]",
+          "content": "Click Salary Attachment Types.",
+          "content_i18n": {
+            "en_US": "Click Salary Attachment Types."
+          },
+          "description": "Attachment types are the kinds of recurring deduction taken from salary, for example Loan repayment or Court order. They are chosen on every salary attachment.",
+          "description_i18n": {
+            "en_US": "Attachment types are the kinds of recurring deduction taken from salary, for example Loan repayment or Court order. They are chosen on every salary attachment."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o_list_button_add",
+          "content": "Click New to create a record.",
+          "content_i18n": {
+            "en_US": "Click New to create a record."
+          },
+          "description": "The New button opens a blank form.",
+          "description_i18n": {
+            "en_US": "The New button opens a blank form."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Name",
+          "title_i18n": {
+            "en_US": "Name"
+          },
+          "trigger": "[name=\"name\"] input",
+          "content": "Type the name, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the name, then press Tab."
+          },
+          "description": "Name the type after the deduction, for example Staff loan. The name is shown on the attachment and on the payslip.",
+          "description_i18n": {
+            "en_US": "Name the type after the deduction, for example Staff loan. The name is shown on the attachment and on the payslip."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Code",
+          "title_i18n": {
+            "en_US": "Code"
+          },
+          "trigger": "[name=\"code\"] input",
+          "content": "Type the code, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the code, then press Tab."
+          },
+          "description": "The code identifies the deduction in salary rules. Keep it short, in capital letters, for example LOAN.",
+          "description_i18n": {
+            "en_US": "The code identifies the deduction in salary rules. Keep it short, in capital letters, for example LOAN."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the record.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the record."
+          },
+          "description": "Saving creates the type. It can now be chosen on salary attachments.",
+          "description_i18n": {
+            "en_US": "Saving creates the type. It can now be chosen on salary attachments."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Saved",
+          "title_i18n": {
+            "en_US": "Saved"
+          },
+          "trigger": ".o_breadcrumb .active",
+          "content": "The record is saved. Click its name in the breadcrumb to finish.",
+          "content_i18n": {
+            "en_US": "The record is saved. Click its name in the breadcrumb to finish."
+          },
+          "description": "The breadcrumb shows where you are. Use it to go back to the list.",
+          "description_i18n": {
+            "en_US": "The breadcrumb shows where you are. Use it to go back to the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

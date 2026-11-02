@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Export Employees to a File",
+      "name_i18n": {
+        "en_US": "Export Employees to a File"
+      },
+      "description": "Learn how to open the export window for selected employees and choose the fields to include, so the list can be opened in a spreadsheet.",
+      "description_i18n": {
+        "en_US": "Learn how to open the export window for selected employees and choose the fields to include, so the list can be opened in a spreadsheet."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "The employee list is the main place to filter, group and export people.",
+          "description_i18n": {
+            "en_US": "The employee list is the main place to filter, group and export people."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Switch to List",
+          "title_i18n": {
+            "en_US": "Switch to List"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_list",
+          "content": "Click List to see the employees as a table.",
+          "content_i18n": {
+            "en_US": "Click List to see the employees as a table."
+          },
+          "description": "The list shows one line per employee with the columns you can filter, group and export.",
+          "description_i18n": {
+            "en_US": "The list shows one line per employee with the columns you can filter, group and export."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Select employees",
+          "title_i18n": {
+            "en_US": "Select employees"
+          },
+          "trigger": ".o_list_view .o_data_row .o_list_record_selector input",
+          "content": "Tick the box in front of an employee.",
+          "content_i18n": {
+            "en_US": "Tick the box in front of an employee."
+          },
+          "description": "Only ticked employees are exported. Tick the box in the heading to select every employee of the list.",
+          "description_i18n": {
+            "en_US": "Only ticked employees are exported. Tick the box in the heading to select every employee of the list."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown:last-child > .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to the ticked employees is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to the ticked employees is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Export",
+          "title_i18n": {
+            "en_US": "Export"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:nth-child(1)",
+          "content": "Click Export.",
+          "content_i18n": {
+            "en_US": "Click Export."
+          },
+          "description": "The export window lets you choose which fields become columns of the file.",
+          "description_i18n": {
+            "en_US": "The export window lets you choose which fields become columns of the file."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Choose a field",
+          "title_i18n": {
+            "en_US": "Choose a field"
+          },
+          "trigger": ".o_export_tree_item",
+          "content": "Click a field on the left to add it to the file.",
+          "content_i18n": {
+            "en_US": "Click a field on the left to add it to the file."
+          },
+          "description": "The list on the left holds every field of the employee. The fields on the right become the columns. Use the search box to find a field quickly.",
+          "description_i18n": {
+            "en_US": "The list on the left holds every field of the employee. The fields on the right become the columns. Use the search box to find a field quickly."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Close",
+          "title_i18n": {
+            "en_US": "Close"
+          },
+          "trigger": ".modal-footer .o_form_button_cancel",
+          "content": "Click Close to leave without exporting.",
+          "content_i18n": {
+            "en_US": "Click Close to leave without exporting."
+          },
+          "description": "The Export button would download the file as Excel or CSV. The Close button leaves the window without downloading anything.",
+          "description_i18n": {
+            "en_US": "The Export button would download the file as Excel or CSV. The Close button leaves the window without downloading anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

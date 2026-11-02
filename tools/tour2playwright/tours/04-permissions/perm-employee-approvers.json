@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Set an Employee's Approvers",
+      "name_i18n": {
+        "en_US": "Set an Employee's Approvers"
+      },
+      "description": "Learn how to choose who approves an employee's time off requests, by setting the approver on the employee record.",
+      "description_i18n": {
+        "en_US": "Learn how to choose who approves an employee's time off requests, by setting the approver on the employee record."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Approvers are chosen on the employee record. They decide who can approve this person's requests.",
+          "description_i18n": {
+            "en_US": "Approvers are chosen on the employee record. They decide who can approve this person's requests."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Open an employee",
+          "title_i18n": {
+            "en_US": "Open an employee"
+          },
+          "trigger": ".o_kanban_view .o_kanban_record",
+          "content": "Click an employee to open the record.",
+          "content_i18n": {
+            "en_US": "Click an employee to open the record."
+          },
+          "description": "Every employee has their own approvers for time off, expenses, timesheets and attendance.",
+          "description_i18n": {
+            "en_US": "Every employee has their own approvers for time off, expenses, timesheets and attendance."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Work Information tab",
+          "title_i18n": {
+            "en_US": "Work Information tab"
+          },
+          "trigger": ".o_notebook .nav-link[name=\"public\"]",
+          "content": "Click the Work Information tab.",
+          "content_i18n": {
+            "en_US": "Click the Work Information tab."
+          },
+          "description": "The Approvers section is on this tab, under the work address and location.",
+          "description_i18n": {
+            "en_US": "The Approvers section is on this tab, under the work address and location."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Time Off approver",
+          "title_i18n": {
+            "en_US": "Time Off approver"
+          },
+          "trigger": ".o_field_widget[name=\"leave_manager_id\"] input",
+          "content": "Click the Time Off field to open the list of users.",
+          "content_i18n": {
+            "en_US": "Click the Time Off field to open the list of users."
+          },
+          "description": "The Time Off approver is the person who receives and approves this employee's leave requests. Only users with the right to approve can be chosen.",
+          "description_i18n": {
+            "en_US": "The Time Off approver is the person who receives and approves this employee's leave requests. Only users with the right to approve can be chosen."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Choose the approver",
+          "title_i18n": {
+            "en_US": "Choose the approver"
+          },
+          "trigger": ".o-autocomplete--dropdown-menu",
+          "content": "Click the user you want as approver.",
+          "content_i18n": {
+            "en_US": "Click the user you want as approver."
+          },
+          "description": "Pick the employee's manager or the person responsible for approving their leave. The same approver does not have to be used for expenses or timesheets.",
+          "description_i18n": {
+            "en_US": "Pick the employee's manager or the person responsible for approving their leave. The same approver does not have to be used for expenses or timesheets."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the approver.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the approver."
+          },
+          "description": "From now on the leave requests of this employee are sent to this approver.",
+          "description_i18n": {
+            "en_US": "From now on the leave requests of this employee are sent to this approver."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

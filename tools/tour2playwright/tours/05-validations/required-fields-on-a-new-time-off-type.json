@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Required Fields on a New Time Off Type",
+      "name_i18n": {
+        "en_US": "Required Fields on a New Time Off Type"
+      },
+      "description": "Learn what happens when you save a time off type without a name.",
+      "description_i18n": {
+        "en_US": "Learn what happens when you save a time off type without a name."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Time off types are managed in the Time Off app.",
+          "description_i18n": {
+            "en_US": "Time off types are managed in the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists used by the Time Off app.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists used by the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off Types",
+          "title_i18n": {
+            "en_US": "Time Off Types"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_status_menu_configuration\"]",
+          "content": "Click Time Off Types.",
+          "content_i18n": {
+            "en_US": "Click Time Off Types."
+          },
+          "description": "Each type is a kind of leave that employees can request.",
+          "description_i18n": {
+            "en_US": "Each type is a kind of leave that employees can request."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o_list_button_add",
+          "content": "Click New to start a time off type.",
+          "content_i18n": {
+            "en_US": "Click New to start a time off type."
+          },
+          "description": "The form opens empty. Leave the required fields empty on purpose to see how Odoo protects the data.",
+          "description_i18n": {
+            "en_US": "The form opens empty. Leave the required fields empty on purpose to see how Odoo protects the data."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon without filling anything in.",
+          "content_i18n": {
+            "en_US": "Click the save icon without filling anything in."
+          },
+          "description": "Odoo checks the required fields when you save. A record with a required field left empty can never be stored.",
+          "description_i18n": {
+            "en_US": "Odoo checks the required fields when you save. A record with a required field left empty can never be stored."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Read the message",
+          "title_i18n": {
+            "en_US": "Read the message"
+          },
+          "trigger": ".o_notification",
+          "content": "Read the red message. Click it to continue.",
+          "content_i18n": {
+            "en_US": "Read the red message. Click it to continue."
+          },
+          "description": "The message names the type name, which is required. Employees choose a type by its name when they request leave, so it cannot be empty.",
+          "description_i18n": {
+            "en_US": "The message names the type name, which is required. Employees choose a type by its name when they request leave, so it cannot be empty."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Discard",
+          "title_i18n": {
+            "en_US": "Discard"
+          },
+          "trigger": ".o_form_button_cancel",
+          "content": "Click the discard icon to leave without saving.",
+          "content_i18n": {
+            "en_US": "Click the discard icon to leave without saving."
+          },
+          "description": "Nothing was stored. The red outline on the field shows what is missing. Fill it in and save again to create a real time off type.",
+          "description_i18n": {
+            "en_US": "Nothing was stored. The red outline on the field shows what is missing. Fill it in and save again to create a real time off type."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

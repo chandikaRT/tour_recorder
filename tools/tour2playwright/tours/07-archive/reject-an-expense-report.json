@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Reject an Expense Report",
+      "name_i18n": {
+        "en_US": "Reject an Expense Report"
+      },
+      "description": "Learn how to reject an expense report that should not be paid. Expense reports cannot be archived, so rejecting is how they are taken out of the flow.",
+      "description_i18n": {
+        "en_US": "Learn how to reject an expense report that should not be paid. Expense reports cannot be archived, so rejecting is how they are taken out of the flow."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Expenses",
+          "title_i18n": {
+            "en_US": "Open Expenses"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_expense.menu_hr_expense_root\"]",
+          "content": "Open the Expenses app.",
+          "content_i18n": {
+            "en_US": "Open the Expenses app."
+          },
+          "description": "Expense reports are managed in the Expenses app.",
+          "description_i18n": {
+            "en_US": "Expense reports are managed in the Expenses app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Expense Reports",
+          "title_i18n": {
+            "en_US": "Expense Reports"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_expense.menu_hr_expense_report\"]",
+          "content": "Open Expense Reports.",
+          "content_i18n": {
+            "en_US": "Open Expense Reports."
+          },
+          "description": "Every expense report is listed here, with its status.",
+          "description_i18n": {
+            "en_US": "Every expense report is listed here, with its status."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Find the employee",
+          "title_i18n": {
+            "en_US": "Find the employee"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the employee's name and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the employee's name and press Enter."
+          },
+          "description": "Search first so you open the right report. Only reject a report you are sure should not be paid.",
+          "description_i18n": {
+            "en_US": "Search first so you open the right report. Only reject a report you are sure should not be paid."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open the report",
+          "title_i18n": {
+            "en_US": "Open the report"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell",
+          "content": "Click the report to open it.",
+          "content_i18n": {
+            "en_US": "Click the report to open it."
+          },
+          "description": "The report form shows the expenses, the total and the status.",
+          "description_i18n": {
+            "en_US": "The report form shows the expenses, the total and the status."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Refuse",
+          "title_i18n": {
+            "en_US": "Refuse"
+          },
+          "trigger": ".o_form_statusbar button[name=\"action_refuse_expense_sheets\"]",
+          "content": "Click Refuse.",
+          "content_i18n": {
+            "en_US": "Click Refuse."
+          },
+          "description": "A report that was submitted but should not be paid is refused. Odoo asks for a reason so the employee understands why.",
+          "description_i18n": {
+            "en_US": "A report that was submitted but should not be paid is refused. Odoo asks for a reason so the employee understands why."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Reason",
+          "title_i18n": {
+            "en_US": "Reason"
+          },
+          "trigger": "[name=\"reason\"] input",
+          "content": "Type the reason, for example Duplicate of an earlier report.",
+          "content_i18n": {
+            "en_US": "Type the reason, for example Duplicate of an earlier report."
+          },
+          "description": "The reason is sent to the employee. Write it clearly, because the report cannot be approved again once refused.",
+          "description_i18n": {
+            "en_US": "The reason is sent to the employee. Write it clearly, because the report cannot be approved again once refused."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Confirm refusal",
+          "title_i18n": {
+            "en_US": "Confirm refusal"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Refuse in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Refuse in the window to confirm."
+          },
+          "description": "The report moves to the Refused status. It can be set back to draft if it was refused by mistake.",
+          "description_i18n": {
+            "en_US": "The report moves to the Refused status. It can be set back to draft if it was refused by mistake."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

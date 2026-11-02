@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review Record Rules for a User",
+      "name_i18n": {
+        "en_US": "Review Record Rules for a User"
+      },
+      "description": "Learn how to open the record rules that apply to a user and read which records that person is allowed to see.",
+      "description_i18n": {
+        "en_US": "Learn how to open the record rules that apply to a user and read which records that person is allowed to see."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Settings",
+          "title_i18n": {
+            "en_US": "Open Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_administration\"]",
+          "content": "Open the Settings app.",
+          "content_i18n": {
+            "en_US": "Open the Settings app."
+          },
+          "description": "Users, groups and access rules are managed in the Settings app. Only administrators can open it.",
+          "description_i18n": {
+            "en_US": "Users, groups and access rules are managed in the Settings app. Only administrators can open it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Users & Companies",
+          "title_i18n": {
+            "en_US": "Users & Companies"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"base.menu_users\"]",
+          "content": "Open the Users & Companies menu.",
+          "content_i18n": {
+            "en_US": "Open the Users & Companies menu."
+          },
+          "description": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in.",
+          "description_i18n": {
+            "en_US": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Users",
+          "title_i18n": {
+            "en_US": "Users"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_action_res_users\"]",
+          "content": "Click Users.",
+          "content_i18n": {
+            "en_US": "Click Users."
+          },
+          "description": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do.",
+          "description_i18n": {
+            "en_US": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a user",
+          "title_i18n": {
+            "en_US": "Open a user"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell",
+          "content": "Click a user to open the record.",
+          "content_i18n": {
+            "en_US": "Click a user to open the record."
+          },
+          "description": "Record rules are shown per user, so start from the person whose access you want to check.",
+          "description_i18n": {
+            "en_US": "Record rules are shown per user, so start from the person whose access you want to check."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Record Rules",
+          "title_i18n": {
+            "en_US": "Record Rules"
+          },
+          "trigger": ".oe_stat_button[name=\"action_show_rules\"]",
+          "content": "Click Record Rules to see the rules that apply to this user.",
+          "content_i18n": {
+            "en_US": "Click Record Rules to see the rules that apply to this user."
+          },
+          "description": "Record rules limit which records the user can see, for example only the employees of their own company or department. The number is how many rules apply.",
+          "description_i18n": {
+            "en_US": "Record rules limit which records the user can see, for example only the employees of their own company or department. The number is how many rules apply."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open the rule",
+          "title_i18n": {
+            "en_US": "Open the rule"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell",
+          "content": "Click a rule to open it.",
+          "content_i18n": {
+            "en_US": "Click a rule to open it."
+          },
+          "description": "Use the search box above the list to narrow it to one app. Check the Domain, the Groups it applies to, and which of read, write, create and delete it limits.",
+          "description_i18n": {
+            "en_US": "Use the search box above the list to narrow it to one app. Check the Domain, the Groups it applies to, and which of read, write, create and delete it limits."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Domain",
+          "title_i18n": {
+            "en_US": "Domain"
+          },
+          "trigger": ".o_form_view .o_form_sheet",
+          "content": "Read the domain. Click inside the form to continue.",
+          "content_i18n": {
+            "en_US": "Read the domain. Click inside the form to continue."
+          },
+          "description": "The domain is the filter. For example a domain on the company means users only see records of their own company.",
+          "description_i18n": {
+            "en_US": "The domain is the filter. For example a domain on the company means users only see records of their own company."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

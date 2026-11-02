@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review the Work Entry Analysis",
+      "name_i18n": {
+        "en_US": "Review the Work Entry Analysis"
+      },
+      "description": "Learn how to read the work entry analysis to see how many hours each type of work entry represents.",
+      "description_i18n": {
+        "en_US": "Learn how to read the work entry analysis to see how many hours each type of work entry represents."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "The payroll reports are in the Payroll app.",
+          "description_i18n": {
+            "en_US": "The payroll reports are in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Reporting menu",
+          "title_i18n": {
+            "en_US": "Reporting menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_report\"]",
+          "content": "Open the Reporting menu.",
+          "content_i18n": {
+            "en_US": "Open the Reporting menu."
+          },
+          "description": "The Reporting menu of the Payroll app holds its analysis screens. They only read data, so you can explore them safely.",
+          "description_i18n": {
+            "en_US": "The Reporting menu of the Payroll app holds its analysis screens. They only read data, so you can explore them safely."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Work Entry Analysis",
+          "title_i18n": {
+            "en_US": "Work Entry Analysis"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_work_entry_report\"]",
+          "content": "Click Work Entry Analysis.",
+          "content_i18n": {
+            "en_US": "Click Work Entry Analysis."
+          },
+          "description": "This report shows the hours of each work entry type per employee and period.",
+          "description_i18n": {
+            "en_US": "This report shows the hours of each work entry type per employee and period."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Search options",
+          "title_i18n": {
+            "en_US": "Search options"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here to open the search options.",
+          "content_i18n": {
+            "en_US": "Click here to open the search options."
+          },
+          "description": "Filters and groupings are in this menu. They change what you see, not the data itself.",
+          "description_i18n": {
+            "en_US": "Filters and groupings are in this menu. They change what you see, not the data itself."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Pick a filter",
+          "title_i18n": {
+            "en_US": "Pick a filter"
+          },
+          "trigger": ".o_search_bar_menu [role=\"menuitemcheckbox\"]",
+          "content": "Click a filter to narrow the figures.",
+          "content_i18n": {
+            "en_US": "Click a filter to narrow the figures."
+          },
+          "description": "A filter keeps only the records that match, for example a period or a status. Click it again to remove it.",
+          "description_i18n": {
+            "en_US": "A filter keeps only the records that match, for example a period or a status. Click it again to remove it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Group the figures",
+          "title_i18n": {
+            "en_US": "Group the figures"
+          },
+          "trigger": ".o_group_by_menu [role=\"menuitemcheckbox\"]",
+          "content": "Click a grouping to split the figures.",
+          "content_i18n": {
+            "en_US": "Click a grouping to split the figures."
+          },
+          "description": "Grouping splits the figures by employee, type, department or period. Several groupings can be combined.",
+          "description_i18n": {
+            "en_US": "Grouping splits the figures by employee, type, department or period. Several groupings can be combined."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Read the table",
+          "title_i18n": {
+            "en_US": "Read the table"
+          },
+          "trigger": ".o_pivot",
+          "content": "This is the result. Click anywhere in the table to finish.",
+          "content_i18n": {
+            "en_US": "This is the result. Click anywhere in the table to finish."
+          },
+          "description": "The pivot table totals the hours. Click a heading to expand or collapse a group, or click a cell to see its work entries.",
+          "description_i18n": {
+            "en_US": "The pivot table totals the hours. Click a heading to expand or collapse a group, or click a cell to see its work entries."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

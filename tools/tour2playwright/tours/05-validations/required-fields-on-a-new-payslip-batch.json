@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Required Fields on a New Payslip Batch",
+      "name_i18n": {
+        "en_US": "Required Fields on a New Payslip Batch"
+      },
+      "description": "Learn what happens when you save a payslip batch without its name or period.",
+      "description_i18n": {
+        "en_US": "Learn what happens when you save a payslip batch without its name or period."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Batches are managed in the Payroll app.",
+          "description_i18n": {
+            "en_US": "Batches are managed in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu holds the payslips and the batches that group them.",
+          "description_i18n": {
+            "en_US": "The Payslips menu holds the payslips and the batches that group them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Batches",
+          "title_i18n": {
+            "en_US": "Batches"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payslip_run\"]",
+          "content": "Click Batches.",
+          "content_i18n": {
+            "en_US": "Click Batches."
+          },
+          "description": "A batch groups the payslips of one pay period.",
+          "description_i18n": {
+            "en_US": "A batch groups the payslips of one pay period."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o_list_button_add",
+          "content": "Click New to start a payslip batch.",
+          "content_i18n": {
+            "en_US": "Click New to start a payslip batch."
+          },
+          "description": "The form opens empty. Leave the required fields empty on purpose to see how Odoo protects the data.",
+          "description_i18n": {
+            "en_US": "The form opens empty. Leave the required fields empty on purpose to see how Odoo protects the data."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon without filling anything in.",
+          "content_i18n": {
+            "en_US": "Click the save icon without filling anything in."
+          },
+          "description": "Odoo checks the required fields when you save. A record with a required field left empty can never be stored.",
+          "description_i18n": {
+            "en_US": "Odoo checks the required fields when you save. A record with a required field left empty can never be stored."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Read the message",
+          "title_i18n": {
+            "en_US": "Read the message"
+          },
+          "trigger": ".o_notification",
+          "content": "Read the red message. Click it to continue.",
+          "content_i18n": {
+            "en_US": "Read the red message. Click it to continue."
+          },
+          "description": "The message names the missing fields, such as the batch name or the period. A batch needs a period so Odoo knows which payslips to generate.",
+          "description_i18n": {
+            "en_US": "The message names the missing fields, such as the batch name or the period. A batch needs a period so Odoo knows which payslips to generate."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Discard",
+          "title_i18n": {
+            "en_US": "Discard"
+          },
+          "trigger": ".o_form_button_cancel",
+          "content": "Click the discard icon to leave without saving.",
+          "content_i18n": {
+            "en_US": "Click the discard icon to leave without saving."
+          },
+          "description": "Nothing was stored. The red outline on the field shows what is missing. Fill it in and save again to create a real payslip batch.",
+          "description_i18n": {
+            "en_US": "Nothing was stored. The red outline on the field shows what is missing. Fill it in and save again to create a real payslip batch."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

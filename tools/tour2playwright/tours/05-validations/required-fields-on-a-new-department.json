@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Required Fields on a New Department",
+      "name_i18n": {
+        "en_US": "Required Fields on a New Department"
+      },
+      "description": "Learn what happens when you save a department without a name.",
+      "description_i18n": {
+        "en_US": "Learn what happens when you save a department without a name."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Departments are managed in the Employees app.",
+          "description_i18n": {
+            "en_US": "Departments are managed in the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Departments",
+          "title_i18n": {
+            "en_US": "Departments"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_department_kanban\"]",
+          "content": "Click Departments.",
+          "content_i18n": {
+            "en_US": "Click Departments."
+          },
+          "description": "Every department is shown as a card.",
+          "description_i18n": {
+            "en_US": "Every department is shown as a card."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o-kanban-button-new",
+          "content": "Click New to start a department.",
+          "content_i18n": {
+            "en_US": "Click New to start a department."
+          },
+          "description": "The form opens empty. Leave the required fields empty on purpose to see how Odoo protects the data.",
+          "description_i18n": {
+            "en_US": "The form opens empty. Leave the required fields empty on purpose to see how Odoo protects the data."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon without filling anything in.",
+          "content_i18n": {
+            "en_US": "Click the save icon without filling anything in."
+          },
+          "description": "Odoo checks the required fields when you save. A record with a required field left empty can never be stored.",
+          "description_i18n": {
+            "en_US": "Odoo checks the required fields when you save. A record with a required field left empty can never be stored."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Read the message",
+          "title_i18n": {
+            "en_US": "Read the message"
+          },
+          "trigger": ".o_notification",
+          "content": "Read the red message. Click it to continue.",
+          "content_i18n": {
+            "en_US": "Read the red message. Click it to continue."
+          },
+          "description": "The department name is the only required field, so the message names it. Every department needs a name so people can recognise it in lists and reports.",
+          "description_i18n": {
+            "en_US": "The department name is the only required field, so the message names it. Every department needs a name so people can recognise it in lists and reports."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Discard",
+          "title_i18n": {
+            "en_US": "Discard"
+          },
+          "trigger": ".o_form_button_cancel",
+          "content": "Click the discard icon to leave without saving.",
+          "content_i18n": {
+            "en_US": "Click the discard icon to leave without saving."
+          },
+          "description": "Nothing was stored. The red outline on the field shows what is missing. Fill it in and save again to create a real department.",
+          "description_i18n": {
+            "en_US": "Nothing was stored. The red outline on the field shows what is missing. Fill it in and save again to create a real department."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

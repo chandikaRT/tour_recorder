@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Cancel a Payslip",
+      "name_i18n": {
+        "en_US": "Cancel a Payslip"
+      },
+      "description": "Learn how to cancel a payslip that was created by mistake or computed with wrong data. Payslips cannot be archived, so cancelling is how they are taken out of the payroll.",
+      "description_i18n": {
+        "en_US": "Learn how to cancel a payslip that was created by mistake or computed with wrong data. Payslips cannot be archived, so cancelling is how they are taken out of the payroll."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "Payslips are managed in the Payroll app.",
+          "description_i18n": {
+            "en_US": "Payslips are managed in the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Payslips menu",
+          "title_i18n": {
+            "en_US": "Payslips menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_payroll.menu_hr_payroll_payslips\"]",
+          "content": "Open the Payslips menu.",
+          "content_i18n": {
+            "en_US": "Open the Payslips menu."
+          },
+          "description": "The Payslips menu holds the payslips and the batches that group them.",
+          "description_i18n": {
+            "en_US": "The Payslips menu holds the payslips and the batches that group them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "All Payslips",
+          "title_i18n": {
+            "en_US": "All Payslips"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_employee_payslips\"]",
+          "content": "Click All Payslips.",
+          "content_i18n": {
+            "en_US": "Click All Payslips."
+          },
+          "description": "Every payslip of every employee is listed here, grouped by batch.",
+          "description_i18n": {
+            "en_US": "Every payslip of every employee is listed here, grouped by batch."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find the employee",
+          "title_i18n": {
+            "en_US": "Find the employee"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the employee's name and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the employee's name and press Enter."
+          },
+          "description": "Search first so you open the right payslip. Only cancel a payslip you no longer need.",
+          "description_i18n": {
+            "en_US": "Search first so you open the right payslip. Only cancel a payslip you no longer need."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the group",
+          "title_i18n": {
+            "en_US": "Open the group"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click the group to show the payslips inside it.",
+          "content_i18n": {
+            "en_US": "Click the group to show the payslips inside it."
+          },
+          "description": "Payslips are grouped by batch. Payslips that belong to no batch are in the group called None.",
+          "description_i18n": {
+            "en_US": "Payslips are grouped by batch. Payslips that belong to no batch are in the group called None."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open the payslip",
+          "title_i18n": {
+            "en_US": "Open the payslip"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell",
+          "content": "Click the payslip to open it.",
+          "content_i18n": {
+            "en_US": "Click the payslip to open it."
+          },
+          "description": "The payslip form shows the lines, the worked days and the status.",
+          "description_i18n": {
+            "en_US": "The payslip form shows the lines, the worked days and the status."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Cancel",
+          "title_i18n": {
+            "en_US": "Cancel"
+          },
+          "trigger": ".o_form_statusbar button[name=\"action_payslip_cancel\"]",
+          "content": "Click Cancel.",
+          "content_i18n": {
+            "en_US": "Click Cancel."
+          },
+          "description": "A payslip cannot be archived or deleted once it has been confirmed. Cancelling puts it in the Cancelled status, where it no longer counts in the payroll. A cancelled payslip can be set back to draft if it was cancelled by mistake.",
+          "description_i18n": {
+            "en_US": "A payslip cannot be archived or deleted once it has been confirmed. Cancelling puts it in the Cancelled status, where it no longer counts in the payroll. A cancelled payslip can be set back to draft if it was cancelled by mistake."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

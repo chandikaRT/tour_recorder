@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review the Payroll App Settings",
+      "name_i18n": {
+        "en_US": "Review the Payroll App Settings"
+      },
+      "description": "Learn where payroll is configured and what the Payroll, Accounting and Time Off settings control. This is a read-only walkthrough: nothing is changed or saved.",
+      "description_i18n": {
+        "en_US": "Learn where payroll is configured and what the Payroll, Accounting and Time Off settings control. This is a read-only walkthrough: nothing is changed or saved."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Payroll",
+          "title_i18n": {
+            "en_US": "Open Payroll"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_root\"]",
+          "content": "Open the Payroll app.",
+          "content_i18n": {
+            "en_US": "Open the Payroll app."
+          },
+          "description": "The payroll settings are reached from inside the Payroll app.",
+          "description_i18n": {
+            "en_US": "The payroll settings are reached from inside the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_work_entry_contract_enterprise.menu_hr_payroll_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the settings and the salary master data, such as structures, rules and input types.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the settings and the salary master data, such as structures, rules and input types."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Settings",
+          "title_i18n": {
+            "en_US": "Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_payroll.menu_hr_payroll_global_settings\"]",
+          "content": "Click Settings.",
+          "content_i18n": {
+            "en_US": "Click Settings."
+          },
+          "description": "This opens the settings page of the Payroll app.",
+          "description_i18n": {
+            "en_US": "This opens the settings page of the Payroll app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Payroll Rules section",
+          "title_i18n": {
+            "en_US": "Payroll Rules section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr_payroll\"] h2:nth-of-type(1)",
+          "content": "This is the Payroll section. Click its title to continue.",
+          "content_i18n": {
+            "en_US": "This is the Payroll section. Click its title to continue."
+          },
+          "description": "Payroll Rules shows the set of salary rules that apply to your country. They are installed with the localisation and form the base of every payslip. Read it without changing anything.",
+          "description_i18n": {
+            "en_US": "Payroll Rules shows the set of salary rules that apply to your country. They are installed with the localisation and form the base of every payslip. Read it without changing anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Accounting section",
+          "title_i18n": {
+            "en_US": "Accounting section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr_payroll\"] h2:nth-of-type(2)",
+          "content": "This is the Accounting section. Click its title to continue.",
+          "content_i18n": {
+            "en_US": "This is the Accounting section. Click its title to continue."
+          },
+          "description": "These settings decide whether payslips are posted to accounting. Payroll Entries creates the journal entries, Payroll SEPA prepares bank payments, and Batch Account Move Lines merges the entries of a period into one.",
+          "description_i18n": {
+            "en_US": "These settings decide whether payslips are posted to accounting. Payroll Entries creates the journal entries, Payroll SEPA prepares bank payments, and Batch Account Move Lines merges the entries of a period into one."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Time Off section",
+          "title_i18n": {
+            "en_US": "Time Off section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr_payroll\"] h2:nth-of-type(3)",
+          "content": "This is the Time Off section. Click its title to continue.",
+          "content_i18n": {
+            "en_US": "This is the Time Off section. Click its title to continue."
+          },
+          "description": "This setting decides whether time off is postponed after a payslip is validated, so that a leave entered after payroll closes does not change a payslip that is already confirmed.",
+          "description_i18n": {
+            "en_US": "This setting decides whether time off is postponed after a payslip is validated, so that a leave entered after payroll closes does not change a payslip that is already confirmed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Payroll notices",
+          "title_i18n": {
+            "en_US": "Payroll notices"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr_payroll\"] h2:nth-of-type(4)",
+          "content": "This is the second Payroll section. Click its title to finish. Do not click Save.",
+          "content_i18n": {
+            "en_US": "This is the second Payroll section. Click its title to finish. Do not click Save."
+          },
+          "description": "Here you set how many days before a contract or work permit expires a notice is raised, and whether the payslip PDF is shown on the payslip form. Settings are only stored when you click Save, so you can leave this page without changing anything.",
+          "description_i18n": {
+            "en_US": "Here you set how many days before a contract or work permit expires a notice is raised, and whether the payslip PDF is shown on the payslip form. Settings are only stored when you click Save, so you can leave this page without changing anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

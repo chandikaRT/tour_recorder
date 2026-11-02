@@ -1,0 +1,267 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Give a User Attendance Access",
+      "name_i18n": {
+        "en_US": "Give a User Attendance Access"
+      },
+      "description": "Learn how to give a user officer access to the Attendances app by adding the right group to their record.",
+      "description_i18n": {
+        "en_US": "Learn how to give a user officer access to the Attendances app by adding the right group to their record."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Settings",
+          "title_i18n": {
+            "en_US": "Open Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_administration\"]",
+          "content": "Open the Settings app.",
+          "content_i18n": {
+            "en_US": "Open the Settings app."
+          },
+          "description": "Users, groups and access rules are managed in the Settings app. Only administrators can open it.",
+          "description_i18n": {
+            "en_US": "Users, groups and access rules are managed in the Settings app. Only administrators can open it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Users & Companies",
+          "title_i18n": {
+            "en_US": "Users & Companies"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"base.menu_users\"]",
+          "content": "Open the Users & Companies menu.",
+          "content_i18n": {
+            "en_US": "Open the Users & Companies menu."
+          },
+          "description": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in.",
+          "description_i18n": {
+            "en_US": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Users",
+          "title_i18n": {
+            "en_US": "Users"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_action_res_users\"]",
+          "content": "Click Users.",
+          "content_i18n": {
+            "en_US": "Click Users."
+          },
+          "description": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do.",
+          "description_i18n": {
+            "en_US": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find the user",
+          "title_i18n": {
+            "en_US": "Find the user"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the user's name and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the user's name and press Enter."
+          },
+          "description": "Search first so you open the right person. You can type part of the name or the login.",
+          "description_i18n": {
+            "en_US": "Search first so you open the right person. You can type part of the name or the login."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the user",
+          "title_i18n": {
+            "en_US": "Open the user"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell",
+          "content": "Click the user to open the record.",
+          "content_i18n": {
+            "en_US": "Click the user to open the record."
+          },
+          "description": "The user form shows the sign-in details and the Access Rights tab.",
+          "description_i18n": {
+            "en_US": "The user form shows the sign-in details and the Access Rights tab."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Add a line",
+          "title_i18n": {
+            "en_US": "Add a line"
+          },
+          "trigger": ".o_field_many2many[name=\"groups_id\"] .o_field_x2many_list_row_add a",
+          "content": "Click Add a line to give the user another group.",
+          "content_i18n": {
+            "en_US": "Click Add a line to give the user another group."
+          },
+          "description": "Each line is a group the user belongs to. A group opens menus and allows actions. Attendance officers can see and correct everyone's attendance.",
+          "description_i18n": {
+            "en_US": "Each line is a group the user belongs to. A group opens menus and allows actions. Attendance officers can see and correct everyone's attendance."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Find the group",
+          "title_i18n": {
+            "en_US": "Find the group"
+          },
+          "trigger": ".o_searchview_input",
+          "content": "Type \"Manage attendances\" and press Enter.",
+          "content_i18n": {
+            "en_US": "Type \"Manage attendances\" and press Enter."
+          },
+          "description": "The list is long, so search for the group. The name of the Attendances group that gives officer access contains these words.",
+          "description_i18n": {
+            "en_US": "The list is long, so search for the group. The name of the Attendances group that gives officer access contains these words."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Select the group",
+          "title_i18n": {
+            "en_US": "Select the group"
+          },
+          "trigger": ".o_data_row:first-child .o_list_record_selector input",
+          "content": "Tick the group in the list.",
+          "content_i18n": {
+            "en_US": "Tick the group in the list."
+          },
+          "description": "Only tick the group that matches the job of this person. Higher groups include the rights of the lower ones.",
+          "description_i18n": {
+            "en_US": "Only tick the group that matches the job of this person. Higher groups include the rights of the lower ones."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .o_select_button",
+          "content": "Click Select to add it.",
+          "content_i18n": {
+            "en_US": "Click Select to add it."
+          },
+          "description": "The group is added to the user's lines but is not stored yet.",
+          "description_i18n": {
+            "en_US": "The group is added to the user's lines but is not stored yet."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 100,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_form_button_save",
+          "content": "Click the save icon to keep the change.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the change."
+          },
+          "description": "The rights apply as soon as you save. The user may need to reload the page to see the new menus.",
+          "description_i18n": {
+            "en_US": "The rights apply as soon as you save. The user may need to reload the page to see the new menus."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

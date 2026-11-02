@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Archive a Department",
+      "name_i18n": {
+        "en_US": "Archive a Department"
+      },
+      "description": "Learn how to archive a department that no longer exists, so it disappears from the lists and the organisation chart but its history is kept.",
+      "description_i18n": {
+        "en_US": "Learn how to archive a department that no longer exists, so it disappears from the lists and the organisation chart but its history is kept."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Departments are managed in the Employees app.",
+          "description_i18n": {
+            "en_US": "Departments are managed in the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Departments",
+          "title_i18n": {
+            "en_US": "Departments"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_department_kanban\"]",
+          "content": "Click Departments.",
+          "content_i18n": {
+            "en_US": "Click Departments."
+          },
+          "description": "Every department is shown as a card with the number of employees in it.",
+          "description_i18n": {
+            "en_US": "Every department is shown as a card with the number of employees in it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Find the department",
+          "title_i18n": {
+            "en_US": "Find the department"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the name of the department and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the name of the department and press Enter."
+          },
+          "description": "Search first so you open the right card. Only archive a department you no longer need.",
+          "description_i18n": {
+            "en_US": "Search first so you open the right card. Only archive a department you no longer need."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Card menu",
+          "title_i18n": {
+            "en_US": "Card menu"
+          },
+          "trigger": ".o_kanban_view .o_kanban_record .o_dropdown_kanban .dropdown-toggle",
+          "content": "Click the three dots on the department card.",
+          "content_i18n": {
+            "en_US": "Click the three dots on the department card."
+          },
+          "description": "The menu on the card opens the department's related lists and its settings.",
+          "description_i18n": {
+            "en_US": "The menu on the card opens the department's related lists and its settings."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Configuration",
+          "title_i18n": {
+            "en_US": "Configuration"
+          },
+          "trigger": ".o_kanban_record .dropdown-menu .dropdown-item:not([name])",
+          "content": "Click Configuration to open the department form.",
+          "content_i18n": {
+            "en_US": "Click Configuration to open the department form."
+          },
+          "description": "The form is where the department can be archived.",
+          "description_i18n": {
+            "en_US": "The form is where the department can be archived."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to this department is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to this department is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Archive",
+          "title_i18n": {
+            "en_US": "Archive"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:nth-child(2)",
+          "content": "Click Archive.",
+          "content_i18n": {
+            "en_US": "Click Archive."
+          },
+          "description": "Archiving hides the record from lists and from the choices in other forms, but keeps all its history. An archived record can be restored later from the Archived filter.",
+          "description_i18n": {
+            "en_US": "Archiving hides the record from lists and from the choices in other forms, but keeps all its history. An archived record can be restored later from the Archived filter."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Archive in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Archive in the window to confirm."
+          },
+          "description": "Employees keep their department name in their history. Move them to another department first if they should still appear in a team.",
+          "description_i18n": {
+            "en_US": "Employees keep their department name in their history. Move them to another department first if they should still appear in a team."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

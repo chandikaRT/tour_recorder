@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review What a Group Allows",
+      "name_i18n": {
+        "en_US": "Review What a Group Allows"
+      },
+      "description": "Learn how to open a group and see which users, menus and access rights it gives, before you add anyone to it.",
+      "description_i18n": {
+        "en_US": "Learn how to open a group and see which users, menus and access rights it gives, before you add anyone to it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Settings",
+          "title_i18n": {
+            "en_US": "Open Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_administration\"]",
+          "content": "Open the Settings app.",
+          "content_i18n": {
+            "en_US": "Open the Settings app."
+          },
+          "description": "Users, groups and access rules are managed in the Settings app. Only administrators can open it.",
+          "description_i18n": {
+            "en_US": "Users, groups and access rules are managed in the Settings app. Only administrators can open it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Users & Companies",
+          "title_i18n": {
+            "en_US": "Users & Companies"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"base.menu_users\"]",
+          "content": "Open the Users & Companies menu.",
+          "content_i18n": {
+            "en_US": "Open the Users & Companies menu."
+          },
+          "description": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in.",
+          "description_i18n": {
+            "en_US": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Groups",
+          "title_i18n": {
+            "en_US": "Groups"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_action_res_groups\"]",
+          "content": "Click Groups.",
+          "content_i18n": {
+            "en_US": "Click Groups."
+          },
+          "description": "A group is a set of rights. Users get rights only by being in groups, so this list is where you check what a role can do.",
+          "description_i18n": {
+            "en_US": "A group is a set of rights. Users get rights only by being in groups, so this list is where you check what a role can do."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find a group",
+          "title_i18n": {
+            "en_US": "Find a group"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type a word such as Payroll and press Enter.",
+          "content_i18n": {
+            "en_US": "Type a word such as Payroll and press Enter."
+          },
+          "description": "Search by the app or role name, for example Payroll or Time Off.",
+          "description_i18n": {
+            "en_US": "Search by the app or role name, for example Payroll or Time Off."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the group",
+          "title_i18n": {
+            "en_US": "Open the group"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell",
+          "content": "Click a group to open it.",
+          "content_i18n": {
+            "en_US": "Click a group to open it."
+          },
+          "description": "The group form lists its users, the menus it opens and the access rights it gives.",
+          "description_i18n": {
+            "en_US": "The group form lists its users, the menus it opens and the access rights it gives."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Group name",
+          "title_i18n": {
+            "en_US": "Group name"
+          },
+          "trigger": ".o_form_view .o_form_sheet",
+          "content": "This is the group. Click inside the form to continue.",
+          "content_i18n": {
+            "en_US": "This is the group. Click inside the form to continue."
+          },
+          "description": "The tabs on this form show the users, the menus, the models the group can read or change, and the record rules.",
+          "description_i18n": {
+            "en_US": "The tabs on this form show the users, the menus, the models the group can read or change, and the record rules."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

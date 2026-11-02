@@ -1,0 +1,142 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "A Very Long Job Title on an Employee",
+      "name_i18n": {
+        "en_US": "A Very Long Job Title on an Employee"
+      },
+      "description": "Learn how a very long text in the job title field behaves on the employee form, without saving anything.",
+      "description_i18n": {
+        "en_US": "Learn how a very long text in the job title field behaves on the employee form, without saving anything."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Employees are created in the Employees app.",
+          "description_i18n": {
+            "en_US": "Employees are created in the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o-kanban-button-new",
+          "content": "Click New to start an employee.",
+          "content_i18n": {
+            "en_US": "Click New to start an employee."
+          },
+          "description": "The form opens empty. This practice is never saved.",
+          "description_i18n": {
+            "en_US": "The form opens empty. This practice is never saved."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Type a long job title",
+          "title_i18n": {
+            "en_US": "Type a long job title"
+          },
+          "trigger": "[name=\"job_title\"] input",
+          "content": "Type a very long job title, about 100 characters, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type a very long job title, about 100 characters, then press Tab."
+          },
+          "description": "A job title may be long, for example for a combined role. Odoo accepts it, but lists and badges cut long text, so keep titles short in real data.",
+          "description_i18n": {
+            "en_US": "A job title may be long, for example for a combined role. Odoo accepts it, but lists and badges cut long text, so keep titles short in real data."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Check the field",
+          "title_i18n": {
+            "en_US": "Check the field"
+          },
+          "trigger": "[name=\"job_title\"] input",
+          "content": "Look at the field. Click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the field. Click it to continue."
+          },
+          "description": "The field keeps the whole text, even if it does not all fit on the screen.",
+          "description_i18n": {
+            "en_US": "The field keeps the whole text, even if it does not all fit on the screen."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Discard",
+          "title_i18n": {
+            "en_US": "Discard"
+          },
+          "trigger": ".o_form_button_cancel",
+          "content": "Click the discard icon to leave without saving.",
+          "content_i18n": {
+            "en_US": "Click the discard icon to leave without saving."
+          },
+          "description": "Nothing was stored, so this practice leaves no trace. Fill in the required fields and save if you want to keep a real record.",
+          "description_i18n": {
+            "en_US": "Nothing was stored, so this practice leaves no trace. Fill in the required fields and save if you want to keep a real record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Delete a Departure Reason",
+      "name_i18n": {
+        "en_US": "Delete a Departure Reason"
+      },
+      "description": "Learn how to delete a departure reason that was added by mistake. Reasons cannot be archived, only deleted.",
+      "description_i18n": {
+        "en_US": "Learn how to delete a departure reason that was added by mistake. Reasons cannot be archived, only deleted."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Departure reasons are managed in the Employees app.",
+          "description_i18n": {
+            "en_US": "Departure reasons are managed in the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr.menu_human_resources_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists used across the Employees app.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists used across the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Departure Reasons",
+          "title_i18n": {
+            "en_US": "Departure Reasons"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_departure_reason_tree\"]",
+          "content": "Click Departure Reasons.",
+          "content_i18n": {
+            "en_US": "Click Departure Reasons."
+          },
+          "description": "These reasons are offered when an employee is archived. A reason that is already used on a departure cannot be deleted.",
+          "description_i18n": {
+            "en_US": "These reasons are offered when an employee is archived. A reason that is already used on a departure cannot be deleted."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find the departure reason",
+          "title_i18n": {
+            "en_US": "Find the departure reason"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the name of the departure reason and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the name of the departure reason and press Enter."
+          },
+          "description": "Search first so you select the right record. Only select a record you no longer need.",
+          "description_i18n": {
+            "en_US": "Search first so you select the right record. Only select a record you no longer need."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Select it",
+          "title_i18n": {
+            "en_US": "Select it"
+          },
+          "trigger": ".o_list_view .o_data_row .o_list_record_selector input",
+          "content": "Tick the box in front of the departure reason.",
+          "content_i18n": {
+            "en_US": "Tick the box in front of the departure reason."
+          },
+          "description": "The Actions menu appears as soon as a record is ticked. You can tick several records to delete them together.",
+          "description_i18n": {
+            "en_US": "The Actions menu appears as soon as a record is ticked. You can tick several records to delete them together."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to the ticked records is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to the ticked records is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Delete",
+          "title_i18n": {
+            "en_US": "Delete"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:last-child",
+          "content": "Click Delete.",
+          "content_i18n": {
+            "en_US": "Click Delete."
+          },
+          "description": "Deleting removes the record for good. Odoo only allows it when nothing else uses the record; if it is in use, archive it instead where that is offered.",
+          "description_i18n": {
+            "en_US": "Deleting removes the record for good. Odoo only allows it when nothing else uses the record; if it is in use, archive it instead where that is offered."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Delete in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Delete in the window to confirm."
+          },
+          "description": "Odoo asks once more because the change affects every ticked record.",
+          "description_i18n": {
+            "en_US": "Odoo asks once more because the change affects every ticked record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

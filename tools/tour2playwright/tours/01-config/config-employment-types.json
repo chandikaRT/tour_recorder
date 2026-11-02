@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Add an Employment Type",
+      "name_i18n": {
+        "en_US": "Add an Employment Type"
+      },
+      "description": "Learn how to add an employment type, such as Permanent or Contractor, so that it can be chosen on employee and contract records.",
+      "description_i18n": {
+        "en_US": "Learn how to add an employment type, such as Permanent or Contractor, so that it can be chosen on employee and contract records."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Employment types are configured in the Employees app and reused on employee and contract records.",
+          "description_i18n": {
+            "en_US": "Employment types are configured in the Employees app and reused on employee and contract records."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr.menu_human_resources_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists of master data used across the Employees app, such as employment types, departments and work locations.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists of master data used across the Employees app, such as employment types, departments and work locations."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Employment Types",
+          "title_i18n": {
+            "en_US": "Employment Types"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_view_hr_contract_type\"]",
+          "content": "Click Employment Types.",
+          "content_i18n": {
+            "en_US": "Click Employment Types."
+          },
+          "description": "Employment types describe the kind of job an employee has, for example Permanent, Fixed term or Intern. They are chosen on the employee and on the contract.",
+          "description_i18n": {
+            "en_US": "Employment types describe the kind of job an employee has, for example Permanent, Fixed term or Intern. They are chosen on the employee and on the contract."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o_list_button_add",
+          "content": "Click New to add a line.",
+          "content_i18n": {
+            "en_US": "Click New to add a line."
+          },
+          "description": "The New button adds an empty line at the bottom of the list, ready to type in.",
+          "description_i18n": {
+            "en_US": "The New button adds an empty line at the bottom of the list, ready to type in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Name",
+          "title_i18n": {
+            "en_US": "Name"
+          },
+          "trigger": ".o_selected_row [name=\"name\"] input",
+          "content": "Type the name, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type the name, then press Tab."
+          },
+          "description": "Use the wording your company uses in contracts, for example Fixed term. It is shown in lists and on contracts.",
+          "description_i18n": {
+            "en_US": "Use the wording your company uses in contracts, for example Fixed term. It is shown in lists and on contracts."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Save",
+          "title_i18n": {
+            "en_US": "Save"
+          },
+          "trigger": ".o_control_panel_main_buttons button.btn-primary.o_list_button_save",
+          "content": "Click the save icon to keep the line.",
+          "content_i18n": {
+            "en_US": "Click the save icon to keep the line."
+          },
+          "description": "The line is only stored once you save it. After saving it is available everywhere this list is used.",
+          "description_i18n": {
+            "en_US": "The line is only stored once you save it. After saving it is available everywhere this list is used."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "The list",
+          "title_i18n": {
+            "en_US": "The list"
+          },
+          "trigger": ".o_list_view .o_list_table thead",
+          "content": "The new line is now part of the list. Click the column headings to finish.",
+          "content_i18n": {
+            "en_US": "The new line is now part of the list. Click the column headings to finish."
+          },
+          "description": "Lines can be edited later by clicking them, and removed or archived when they are no longer needed.",
+          "description_i18n": {
+            "en_US": "Lines can be edited later by clicking them, and removed or archived when they are no longer needed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

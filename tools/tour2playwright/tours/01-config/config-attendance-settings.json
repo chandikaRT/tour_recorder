@@ -1,0 +1,117 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review the Attendance App Settings",
+      "name_i18n": {
+        "en_US": "Review the Attendance App Settings"
+      },
+      "description": "Learn where attendance is configured and what the Modes and Extra Hours settings control. This is a read-only walkthrough: nothing is changed or saved.",
+      "description_i18n": {
+        "en_US": "Learn where attendance is configured and what the Modes and Extra Hours settings control. This is a read-only walkthrough: nothing is changed or saved."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Attendances",
+          "title_i18n": {
+            "en_US": "Open Attendances"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_attendance.menu_hr_attendance_root\"]",
+          "content": "Open the Attendances app.",
+          "content_i18n": {
+            "en_US": "Open the Attendances app."
+          },
+          "description": "The attendance settings are reached from inside the Attendances app.",
+          "description_i18n": {
+            "en_US": "The attendance settings are reached from inside the Attendances app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration",
+          "title_i18n": {
+            "en_US": "Configuration"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_attendance.menu_hr_attendance_settings\"]",
+          "content": "Click Configuration.",
+          "content_i18n": {
+            "en_US": "Click Configuration."
+          },
+          "description": "In the Attendances app the Configuration menu opens the settings page directly.",
+          "description_i18n": {
+            "en_US": "In the Attendances app the Configuration menu opens the settings page directly."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Modes section",
+          "title_i18n": {
+            "en_US": "Modes section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr_attendance\"] h2:nth-of-type(1)",
+          "content": "This is the Modes section. Click its title to continue.",
+          "content_i18n": {
+            "en_US": "This is the Modes section. Click its title to continue."
+          },
+          "description": "The Modes group decides how employees record their attendance. Attendances from Backend lets users check in and out from Odoo itself. Read it without changing anything.",
+          "description_i18n": {
+            "en_US": "The Modes group decides how employees record their attendance. Attendances from Backend lets users check in and out from Odoo itself. Read it without changing anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Extra Hours section",
+          "title_i18n": {
+            "en_US": "Extra Hours section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr_attendance\"] h2:nth-of-type(3)",
+          "content": "This is the Extra Hours section. Click its title to finish. Do not click Save.",
+          "content_i18n": {
+            "en_US": "This is the Extra Hours section. Click its title to finish. Do not click Save."
+          },
+          "description": "Count of Extra Hours compares the time attended with the working hours set on the employee, and Display Extra Hours shows the result on the employee profile. These settings feed the overtime figures used in reports and payroll. Settings are only stored when you click Save, so you can leave this page without changing anything.",
+          "description_i18n": {
+            "en_US": "Count of Extra Hours compares the time attended with the working hours set on the employee, and Display Extra Hours shows the result on the employee profile. These settings feed the overtime figures used in reports and payroll. Settings are only stored when you click Save, so you can leave this page without changing anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Half a Day in a Leave Allocation",
+      "name_i18n": {
+        "en_US": "Half a Day in a Leave Allocation"
+      },
+      "description": "Learn how to give half a day or other fractions of a day in an allocation, without saving anything.",
+      "description_i18n": {
+        "en_US": "Learn how to give half a day or other fractions of a day in an allocation, without saving anything."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Allocations are managed in the Time Off app.",
+          "description_i18n": {
+            "en_US": "Allocations are managed in the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Management menu",
+          "title_i18n": {
+            "en_US": "Management menu"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_management\"]",
+          "content": "Open the Management menu.",
+          "content_i18n": {
+            "en_US": "Open the Management menu."
+          },
+          "description": "The Management menu holds the requests and allocations of all employees.",
+          "description_i18n": {
+            "en_US": "The Management menu holds the requests and allocations of all employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Allocations",
+          "title_i18n": {
+            "en_US": "Allocations"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_menu_manager_approve_allocations\"]",
+          "content": "Click Allocations.",
+          "content_i18n": {
+            "en_US": "Click Allocations."
+          },
+          "description": "Each line gives an employee, department or company a number of leave days.",
+          "description_i18n": {
+            "en_US": "Each line gives an employee, department or company a number of leave days."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o_list_button_add",
+          "content": "Click New to create an allocation.",
+          "content_i18n": {
+            "en_US": "Click New to create an allocation."
+          },
+          "description": "The form opens empty. This practice is never saved.",
+          "description_i18n": {
+            "en_US": "The form opens empty. This practice is never saved."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Type half a day",
+          "title_i18n": {
+            "en_US": "Type half a day"
+          },
+          "trigger": "[name=\"number_of_days_display\"] input",
+          "content": "Type 0.5, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type 0.5, then press Tab."
+          },
+          "description": "Allocations accept fractions of a day. Half a day gives an employee one half-day request. Use a point as the decimal separator.",
+          "description_i18n": {
+            "en_US": "Allocations accept fractions of a day. Half a day gives an employee one half-day request. Use a point as the decimal separator."
+          },
+          "position": "bottom",
+          "run": "edit-any",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Check the days",
+          "title_i18n": {
+            "en_US": "Check the days"
+          },
+          "trigger": "[name=\"number_of_days_display\"] input",
+          "content": "Look at the duration. Click the field to continue.",
+          "content_i18n": {
+            "en_US": "Look at the duration. Click the field to continue."
+          },
+          "description": "The duration keeps the decimals. A value of zero is accepted too, but gives the employee nothing.",
+          "description_i18n": {
+            "en_US": "The duration keeps the decimals. A value of zero is accepted too, but gives the employee nothing."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Discard",
+          "title_i18n": {
+            "en_US": "Discard"
+          },
+          "trigger": ".o_form_button_cancel",
+          "content": "Click the discard icon to leave without saving.",
+          "content_i18n": {
+            "en_US": "Click the discard icon to leave without saving."
+          },
+          "description": "Nothing was stored, so this practice leaves no trace. Fill in the required fields and save if you want to keep a real record.",
+          "description_i18n": {
+            "en_US": "Nothing was stored, so this practice leaves no trace. Fill in the required fields and save if you want to keep a real record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Restore an Archived Record",
+      "name_i18n": {
+        "en_US": "Restore an Archived Record"
+      },
+      "description": "Learn how to find an archived record with the Archived filter and bring it back, using a time off type as the example.",
+      "description_i18n": {
+        "en_US": "Learn how to find an archived record with the Archived filter and bring it back, using a time off type as the example."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Any archived record can be restored from the list it was archived from. Time off types are used as the example here.",
+          "description_i18n": {
+            "en_US": "Any archived record can be restored from the list it was archived from. Time off types are used as the example here."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr_holidays.menu_hr_holidays_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the lists used by the Time Off app.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the lists used by the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off Types",
+          "title_i18n": {
+            "en_US": "Time Off Types"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.hr_holidays_status_menu_configuration\"]",
+          "content": "Click Time Off Types.",
+          "content_i18n": {
+            "en_US": "Click Time Off Types."
+          },
+          "description": "Archived records are hidden from the list by default, so you will not see them yet.",
+          "description_i18n": {
+            "en_US": "Archived records are hidden from the list by default, so you will not see them yet."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Search options",
+          "title_i18n": {
+            "en_US": "Search options"
+          },
+          "trigger": ".o_searchview_dropdown_toggler",
+          "content": "Click here to open the search options.",
+          "content_i18n": {
+            "en_US": "Click here to open the search options."
+          },
+          "description": "The filters of the list are in this menu.",
+          "description_i18n": {
+            "en_US": "The filters of the list are in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Archived filter",
+          "title_i18n": {
+            "en_US": "Archived filter"
+          },
+          "trigger": ".o_search_bar_menu [role=\"menuitemcheckbox\"]",
+          "content": "Click Archived to show only the archived records.",
+          "content_i18n": {
+            "en_US": "Click Archived to show only the archived records."
+          },
+          "description": "The list now shows the records that were archived, which are normally hidden.",
+          "description_i18n": {
+            "en_US": "The list now shows the records that were archived, which are normally hidden."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Find the record",
+          "title_i18n": {
+            "en_US": "Find the record"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the name of the record and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the name of the record and press Enter."
+          },
+          "description": "Search to find the archived record you want to bring back.",
+          "description_i18n": {
+            "en_US": "Search to find the archived record you want to bring back."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Select it",
+          "title_i18n": {
+            "en_US": "Select it"
+          },
+          "trigger": ".o_list_view .o_data_row .o_list_record_selector input",
+          "content": "Tick the box in front of the record.",
+          "content_i18n": {
+            "en_US": "Tick the box in front of the record."
+          },
+          "description": "The Actions menu appears as soon as a record is ticked.",
+          "description_i18n": {
+            "en_US": "The Actions menu appears as soon as a record is ticked."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to the ticked records is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to the ticked records is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Unarchive",
+          "title_i18n": {
+            "en_US": "Unarchive"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:nth-child(3)",
+          "content": "Click Unarchive.",
+          "content_i18n": {
+            "en_US": "Click Unarchive."
+          },
+          "description": "The record is active again. It returns to the normal lists and to the choices in other forms, with all its history intact.",
+          "description_i18n": {
+            "en_US": "The record is active again. It returns to the normal lists and to the choices in other forms, with all its history intact."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

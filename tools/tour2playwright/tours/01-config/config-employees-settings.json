@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review the Employees App Settings",
+      "name_i18n": {
+        "en_US": "Review the Employees App Settings"
+      },
+      "description": "Learn where the Employees app is configured and what each group of settings controls. This is a read-only walkthrough: nothing is changed or saved.",
+      "description_i18n": {
+        "en_US": "Learn where the Employees app is configured and what each group of settings controls. This is a read-only walkthrough: nothing is changed or saved."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "The settings of the Employees app are reached from inside the app itself.",
+          "description_i18n": {
+            "en_US": "The settings of the Employees app are reached from inside the app itself."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Configuration menu",
+          "title_i18n": {
+            "en_US": "Configuration menu"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"hr.menu_human_resources_configuration\"]",
+          "content": "Open the Configuration menu.",
+          "content_i18n": {
+            "en_US": "Open the Configuration menu."
+          },
+          "description": "The Configuration menu holds the settings and the master data lists, such as departments, work locations and departure reasons.",
+          "description_i18n": {
+            "en_US": "The Configuration menu holds the settings and the master data lists, such as departments, work locations and departure reasons."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Settings",
+          "title_i18n": {
+            "en_US": "Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.hr_menu_configuration\"]",
+          "content": "Click Settings.",
+          "content_i18n": {
+            "en_US": "Click Settings."
+          },
+          "description": "This opens the settings page of the Employees app. Other apps have their own tab on the left, and a change made here applies to the whole company.",
+          "description_i18n": {
+            "en_US": "This opens the settings page of the Employees app. Other apps have their own tab on the left, and a change made here applies to the whole company."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Employees section",
+          "title_i18n": {
+            "en_US": "Employees section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr\"] h2:nth-of-type(1)",
+          "content": "This is the Employees section. Click its title to continue.",
+          "content_i18n": {
+            "en_US": "This is the Employees section. Click its title to continue."
+          },
+          "description": "This group controls how presence and skills are handled for employees, for example whether presence is based on attendance, and whether the Skills and Home Working features are active. Read it without changing anything.",
+          "description_i18n": {
+            "en_US": "This group controls how presence and skills are handled for employees, for example whether presence is based on attendance, and whether the Skills and Home Working features are active. Read it without changing anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Work Organization section",
+          "title_i18n": {
+            "en_US": "Work Organization section"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr\"] h2:nth-of-type(2)",
+          "content": "This is the Work Organization section. Click its title to continue.",
+          "content_i18n": {
+            "en_US": "This is the Work Organization section. Click its title to continue."
+          },
+          "description": "Here you set the Company Working Hours, the default working schedule given to new employees and contracts. Every payslip and time off calculation starts from the working schedule, so check it before the first payroll.",
+          "description_i18n": {
+            "en_US": "Here you set the Company Working Hours, the default working schedule given to new employees and contracts. Every payslip and time off calculation starts from the working schedule, so check it before the first payroll."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Employee Update Rights",
+          "title_i18n": {
+            "en_US": "Employee Update Rights"
+          },
+          "trigger": ".app_settings_block[data-key=\"hr\"] h2:nth-of-type(3)",
+          "content": "This is the Employee Update Rights section. Click its title to finish. Do not click Save.",
+          "content_i18n": {
+            "en_US": "This is the Employee Update Rights section. Click its title to finish. Do not click Save."
+          },
+          "description": "This group decides whether employees may edit their own profile. Settings are only stored when you click Save at the top of the page, so you can leave this page at any time without changing anything.",
+          "description_i18n": {
+            "en_US": "This group decides whether employees may edit their own profile. Settings are only stored when you click Save at the top of the page, so you can leave this page at any time without changing anything."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Delete an Attendance Record",
+      "name_i18n": {
+        "en_US": "Delete an Attendance Record"
+      },
+      "description": "Learn how to delete a wrong or duplicate attendance record. Attendance records cannot be archived, only deleted.",
+      "description_i18n": {
+        "en_US": "Learn how to delete a wrong or duplicate attendance record. Attendance records cannot be archived, only deleted."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Attendances",
+          "title_i18n": {
+            "en_US": "Open Attendances"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_attendance.menu_hr_attendance_root\"]",
+          "content": "Open the Attendances app.",
+          "content_i18n": {
+            "en_US": "Open the Attendances app."
+          },
+          "description": "Attendance records are managed in the Attendances app.",
+          "description_i18n": {
+            "en_US": "Attendance records are managed in the Attendances app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Switch to List",
+          "title_i18n": {
+            "en_US": "Switch to List"
+          },
+          "trigger": ".o_cp_switch_buttons .o_switch_view.o_list",
+          "content": "Click List to see the records as a table.",
+          "content_i18n": {
+            "en_US": "Click List to see the records as a table."
+          },
+          "description": "The list is the easiest way to select one record to remove.",
+          "description_i18n": {
+            "en_US": "The list is the easiest way to select one record to remove."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Find the employee",
+          "title_i18n": {
+            "en_US": "Find the employee"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the employee's name and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the employee's name and press Enter."
+          },
+          "description": "Search first so you select the right record. Only delete a record you are sure is wrong or duplicated.",
+          "description_i18n": {
+            "en_US": "Search first so you select the right record. Only delete a record you are sure is wrong or duplicated."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open the group",
+          "title_i18n": {
+            "en_US": "Open the group"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click the employee's group to show the attendance records.",
+          "content_i18n": {
+            "en_US": "Click the employee's group to show the attendance records."
+          },
+          "description": "Attendance is grouped by employee. Click the group heading to show the records inside it.",
+          "description_i18n": {
+            "en_US": "Attendance is grouped by employee. Click the group heading to show the records inside it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Select it",
+          "title_i18n": {
+            "en_US": "Select it"
+          },
+          "trigger": ".o_list_view .o_data_row .o_list_record_selector input",
+          "content": "Tick the box in front of the attendance record.",
+          "content_i18n": {
+            "en_US": "Tick the box in front of the attendance record."
+          },
+          "description": "The Actions menu appears as soon as a record is ticked.",
+          "description_i18n": {
+            "en_US": "The Actions menu appears as soon as a record is ticked."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to the ticked records is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to the ticked records is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Delete",
+          "title_i18n": {
+            "en_US": "Delete"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:last-child",
+          "content": "Click Delete.",
+          "content_i18n": {
+            "en_US": "Click Delete."
+          },
+          "description": "Deleting removes the record for good. Odoo only allows it when nothing else uses the record; if it is in use, archive it instead where that is offered.",
+          "description_i18n": {
+            "en_US": "Deleting removes the record for good. Odoo only allows it when nothing else uses the record; if it is in use, archive it instead where that is offered."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Delete in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Delete in the window to confirm."
+          },
+          "description": "Deleting an attendance record changes the hours counted for the employee, so overtime and payroll figures are recomputed.",
+          "description_i18n": {
+            "en_US": "Deleting an attendance record changes the hours counted for the employee, so overtime and payroll figures are recomputed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

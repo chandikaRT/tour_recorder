@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review a User's Access Rights",
+      "name_i18n": {
+        "en_US": "Review a User's Access Rights"
+      },
+      "description": "Learn how to see which groups a user belongs to and so which apps and actions that person is allowed to use.",
+      "description_i18n": {
+        "en_US": "Learn how to see which groups a user belongs to and so which apps and actions that person is allowed to use."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Settings",
+          "title_i18n": {
+            "en_US": "Open Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_administration\"]",
+          "content": "Open the Settings app.",
+          "content_i18n": {
+            "en_US": "Open the Settings app."
+          },
+          "description": "Users, groups and access rules are managed in the Settings app. Only administrators can open it.",
+          "description_i18n": {
+            "en_US": "Users, groups and access rules are managed in the Settings app. Only administrators can open it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Users & Companies",
+          "title_i18n": {
+            "en_US": "Users & Companies"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"base.menu_users\"]",
+          "content": "Open the Users & Companies menu.",
+          "content_i18n": {
+            "en_US": "Open the Users & Companies menu."
+          },
+          "description": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in.",
+          "description_i18n": {
+            "en_US": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Users",
+          "title_i18n": {
+            "en_US": "Users"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_action_res_users\"]",
+          "content": "Click Users.",
+          "content_i18n": {
+            "en_US": "Click Users."
+          },
+          "description": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do.",
+          "description_i18n": {
+            "en_US": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a user",
+          "title_i18n": {
+            "en_US": "Open a user"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell",
+          "content": "Click any user to open the record.",
+          "content_i18n": {
+            "en_US": "Click any user to open the record."
+          },
+          "description": "The form shows how many groups, access rights and record rules the user ends up with.",
+          "description_i18n": {
+            "en_US": "The form shows how many groups, access rights and record rules the user ends up with."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Access rights tab",
+          "title_i18n": {
+            "en_US": "Access rights tab"
+          },
+          "trigger": ".o_notebook .nav-link",
+          "content": "Look at the Access Rights tab. Click it to continue.",
+          "content_i18n": {
+            "en_US": "Look at the Access Rights tab. Click it to continue."
+          },
+          "description": "This tab lists every group of the user. The apps the user sees in the menu come from these groups.",
+          "description_i18n": {
+            "en_US": "This tab lists every group of the user. The apps the user sees in the menu come from these groups."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Groups count",
+          "title_i18n": {
+            "en_US": "Groups count"
+          },
+          "trigger": ".oe_stat_button[name=\"action_show_groups\"]",
+          "content": "Click Groups to open the full list of groups.",
+          "content_i18n": {
+            "en_US": "Click Groups to open the full list of groups."
+          },
+          "description": "The number is the groups the user belongs to, including the ones inherited from higher groups.",
+          "description_i18n": {
+            "en_US": "The number is the groups the user belongs to, including the ones inherited from higher groups."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Groups list",
+          "title_i18n": {
+            "en_US": "Groups list"
+          },
+          "trigger": ".o_list_view .o_list_table thead",
+          "content": "These are all the groups. Click the column headings to finish.",
+          "content_i18n": {
+            "en_US": "These are all the groups. Click the column headings to finish."
+          },
+          "description": "Use this list to check why a user can or cannot open an app.",
+          "description_i18n": {
+            "en_US": "Use this list to check why a user can or cannot open an app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

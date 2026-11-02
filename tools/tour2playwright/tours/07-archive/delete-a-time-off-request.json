@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Delete a Time Off Request",
+      "name_i18n": {
+        "en_US": "Delete a Time Off Request"
+      },
+      "description": "Learn how to remove a time off request that was entered by mistake and is still waiting for approval. Requests cannot be archived, only deleted.",
+      "description_i18n": {
+        "en_US": "Learn how to remove a time off request that was entered by mistake and is still waiting for approval. Requests cannot be archived, only deleted."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Time Off",
+          "title_i18n": {
+            "en_US": "Open Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_root\"]",
+          "content": "Open the Time Off app.",
+          "content_i18n": {
+            "en_US": "Open the Time Off app."
+          },
+          "description": "Requests of all employees are managed in the Time Off app.",
+          "description_i18n": {
+            "en_US": "Requests of all employees are managed in the Time Off app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Management menu",
+          "title_i18n": {
+            "en_US": "Management menu"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_hr_holidays_management\"]",
+          "content": "Open the Management menu.",
+          "content_i18n": {
+            "en_US": "Open the Management menu."
+          },
+          "description": "The Management menu holds the requests and allocations of all employees.",
+          "description_i18n": {
+            "en_US": "The Management menu holds the requests and allocations of all employees."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Time Off",
+          "title_i18n": {
+            "en_US": "Time Off"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_holidays.menu_open_department_leave_approve\"]",
+          "content": "Click Time Off.",
+          "content_i18n": {
+            "en_US": "Click Time Off."
+          },
+          "description": "Every request of every employee is listed here, grouped by status.",
+          "description_i18n": {
+            "en_US": "Every request of every employee is listed here, grouped by status."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find the employee",
+          "title_i18n": {
+            "en_US": "Find the employee"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the employee's name and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the employee's name and press Enter."
+          },
+          "description": "Search first so you open the right request. Only delete a request you no longer need.",
+          "description_i18n": {
+            "en_US": "Search first so you open the right request. Only delete a request you no longer need."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the group",
+          "title_i18n": {
+            "en_US": "Open the group"
+          },
+          "trigger": ".o_list_view .o_group_header",
+          "content": "Click the group to show the requests inside it.",
+          "content_i18n": {
+            "en_US": "Click the group to show the requests inside it."
+          },
+          "description": "Requests are grouped, for example by status or period. Click the heading to show them.",
+          "description_i18n": {
+            "en_US": "Requests are grouped, for example by status or period. Click the heading to show them."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Open the request",
+          "title_i18n": {
+            "en_US": "Open the request"
+          },
+          "trigger": ".o_list_view .o_data_row .o_data_cell",
+          "content": "Click the request to open it.",
+          "content_i18n": {
+            "en_US": "Click the request to open it."
+          },
+          "description": "The request form shows the dates, the type and the status.",
+          "description_i18n": {
+            "en_US": "The request form shows the dates, the type and the status."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to this request is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to this request is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Delete",
+          "title_i18n": {
+            "en_US": "Delete"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:nth-child(3)",
+          "content": "Click Delete.",
+          "content_i18n": {
+            "en_US": "Click Delete."
+          },
+          "description": "Odoo only lets you delete a request that is still a draft or waiting for approval. An approved or refused request must first be set back to draft with the Mark as Draft button. Deleting removes the request for good, so only do it for requests made by mistake.",
+          "description_i18n": {
+            "en_US": "Odoo only lets you delete a request that is still a draft or waiting for approval. An approved or refused request must first be set back to draft with the Mark as Draft button. Deleting removes the request for good, so only do it for requests made by mistake."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Delete in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Delete in the window to confirm."
+          },
+          "description": "Odoo asks once more because deleting cannot be undone.",
+          "description_i18n": {
+            "en_US": "Odoo asks once more because deleting cannot be undone."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

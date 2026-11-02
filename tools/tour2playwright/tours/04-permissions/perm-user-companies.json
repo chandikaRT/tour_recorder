@@ -1,0 +1,167 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Review Which Companies a User Can Access",
+      "name_i18n": {
+        "en_US": "Review Which Companies a User Can Access"
+      },
+      "description": "Learn how to check the companies a user is allowed to work in and which one is their default.",
+      "description_i18n": {
+        "en_US": "Learn how to check the companies a user is allowed to work in and which one is their default."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Settings",
+          "title_i18n": {
+            "en_US": "Open Settings"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_administration\"]",
+          "content": "Open the Settings app.",
+          "content_i18n": {
+            "en_US": "Open the Settings app."
+          },
+          "description": "Users, groups and access rules are managed in the Settings app. Only administrators can open it.",
+          "description_i18n": {
+            "en_US": "Users, groups and access rules are managed in the Settings app. Only administrators can open it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Users & Companies",
+          "title_i18n": {
+            "en_US": "Users & Companies"
+          },
+          "trigger": ".o_main_navbar [data-menu-xmlid=\"base.menu_users\"]",
+          "content": "Open the Users & Companies menu.",
+          "content_i18n": {
+            "en_US": "Open the Users & Companies menu."
+          },
+          "description": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in.",
+          "description_i18n": {
+            "en_US": "This menu holds the users who can sign in, the groups that give them rights, and the companies they can work in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Users",
+          "title_i18n": {
+            "en_US": "Users"
+          },
+          "trigger": "[data-menu-xmlid=\"base.menu_action_res_users\"]",
+          "content": "Click Users.",
+          "content_i18n": {
+            "en_US": "Click Users."
+          },
+          "description": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do.",
+          "description_i18n": {
+            "en_US": "Every person who can sign in to Odoo is listed here. Open a user to see or change what that person is allowed to do."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Open a user",
+          "title_i18n": {
+            "en_US": "Open a user"
+          },
+          "trigger": ".o_list_view .o_data_row:first-child .o_data_cell",
+          "content": "Click a user to open the record.",
+          "content_i18n": {
+            "en_US": "Click a user to open the record."
+          },
+          "description": "The Multi Companies section of the user shows which companies this person can work in.",
+          "description_i18n": {
+            "en_US": "The Multi Companies section of the user shows which companies this person can work in."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Allowed Companies",
+          "title_i18n": {
+            "en_US": "Allowed Companies"
+          },
+          "trigger": "label[for^=\"company_ids\"]",
+          "content": "Click Allowed Companies to look at it.",
+          "content_i18n": {
+            "en_US": "Click Allowed Companies to look at it."
+          },
+          "description": "A user can only see data of the companies listed here. Records of other companies stay hidden from them. Add a company here to give the user access to it.",
+          "description_i18n": {
+            "en_US": "A user can only see data of the companies listed here. Records of other companies stay hidden from them. Add a company here to give the user access to it."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Default Company",
+          "title_i18n": {
+            "en_US": "Default Company"
+          },
+          "trigger": "label[for^=\"company_id_\"]",
+          "content": "Click Default Company to look at it.",
+          "content_i18n": {
+            "en_US": "Click Default Company to look at it."
+          },
+          "description": "The default company is the one selected when the user signs in. It must be one of the allowed companies.",
+          "description_i18n": {
+            "en_US": "The default company is the one selected when the user signs in. It must be one of the allowed companies."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

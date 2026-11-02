@@ -1,0 +1,242 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "Archive a Contract",
+      "name_i18n": {
+        "en_US": "Archive a Contract"
+      },
+      "description": "Learn how to archive a contract that is no longer needed, for example one created by mistake, without losing the payslips linked to it.",
+      "description_i18n": {
+        "en_US": "Learn how to archive a contract that is no longer needed, for example one created by mistake, without losing the payslips linked to it."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Contracts are managed from the Employees app.",
+          "description_i18n": {
+            "en_US": "Contracts are managed from the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Employees menu",
+          "title_i18n": {
+            "en_US": "Employees menu"
+          },
+          "trigger": ".o_main_navbar .o_menu_sections .dropdown-toggle",
+          "content": "Open the Employees menu.",
+          "content_i18n": {
+            "en_US": "Open the Employees menu."
+          },
+          "description": "The Employees menu holds the employee list and the contracts.",
+          "description_i18n": {
+            "en_US": "The Employees menu holds the employee list and the contracts."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Contracts",
+          "title_i18n": {
+            "en_US": "Contracts"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_contract.hr_menu_contract\"]",
+          "content": "Click Contracts.",
+          "content_i18n": {
+            "en_US": "Click Contracts."
+          },
+          "description": "Every contract of every employee is listed here. Use this list to find the one you want to archive.",
+          "description_i18n": {
+            "en_US": "Every contract of every employee is listed here. Use this list to find the one you want to archive."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "Find the contract",
+          "title_i18n": {
+            "en_US": "Find the contract"
+          },
+          "trigger": ".o_control_panel .o_searchview_input",
+          "content": "Type the name of the contract and press Enter.",
+          "content_i18n": {
+            "en_US": "Type the name of the contract and press Enter."
+          },
+          "description": "Search first so you select the right record. Only select a record you no longer need.",
+          "description_i18n": {
+            "en_US": "Search first so you select the right record. Only select a record you no longer need."
+          },
+          "position": "bottom",
+          "run": "press Enter",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Open the group",
+          "title_i18n": {
+            "en_US": "Open the group"
+          },
+          "trigger": ".o_list_view tr.o_group_header:nth-of-type(2)",
+          "content": "Click the Running group to show its contracts.",
+          "content_i18n": {
+            "en_US": "Click the Running group to show its contracts."
+          },
+          "description": "Contracts are grouped by status: New, Running, Expired and Cancelled. Open the group that holds the contract you want to archive.",
+          "description_i18n": {
+            "en_US": "Contracts are grouped by status: New, Running, Expired and Cancelled. Open the group that holds the contract you want to archive."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Select it",
+          "title_i18n": {
+            "en_US": "Select it"
+          },
+          "trigger": ".o_list_view .o_data_row .o_list_record_selector input",
+          "content": "Tick the box in front of the contract.",
+          "content_i18n": {
+            "en_US": "Tick the box in front of the contract."
+          },
+          "description": "The Actions menu appears as soon as a record is ticked. You can tick several records to archive them together.",
+          "description_i18n": {
+            "en_US": "The Actions menu appears as soon as a record is ticked. You can tick several records to archive them together."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Actions",
+          "title_i18n": {
+            "en_US": "Actions"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-toggle",
+          "content": "Click Actions.",
+          "content_i18n": {
+            "en_US": "Click Actions."
+          },
+          "description": "Everything you can do to the ticked records is in this menu.",
+          "description_i18n": {
+            "en_US": "Everything you can do to the ticked records is in this menu."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 80,
+          "title": "Archive",
+          "title_i18n": {
+            "en_US": "Archive"
+          },
+          "trigger": ".o_cp_action_menus .dropdown-item:nth-child(2)",
+          "content": "Click Archive.",
+          "content_i18n": {
+            "en_US": "Click Archive."
+          },
+          "description": "Archiving hides the record from lists and from the choices in other forms, but keeps all its history. An archived record can be restored later from the Archived filter.",
+          "description_i18n": {
+            "en_US": "Archiving hides the record from lists and from the choices in other forms, but keeps all its history. An archived record can be restored later from the Archived filter."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 90,
+          "title": "Confirm",
+          "title_i18n": {
+            "en_US": "Confirm"
+          },
+          "trigger": ".modal-footer .btn-primary",
+          "content": "Click Archive in the window to confirm.",
+          "content_i18n": {
+            "en_US": "Click Archive in the window to confirm."
+          },
+          "description": "Archive a contract only if it was never used. A contract that has payslips should be set to Expired or Cancelled instead of being removed.",
+          "description_i18n": {
+            "en_US": "Archive a contract only if it was never used. A contract that has payslips should be set to Expired or Cancelled instead of being removed."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}

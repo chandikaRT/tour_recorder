@@ -1,0 +1,192 @@
+{
+  "version": 2,
+  "tours": [
+    {
+      "name": "A Negative Wage on a Contract",
+      "name_i18n": {
+        "en_US": "A Negative Wage on a Contract"
+      },
+      "description": "Learn what the contract form does with a negative wage, without saving anything.",
+      "description_i18n": {
+        "en_US": "Learn what the contract form does with a negative wage, without saving anything."
+      },
+      "steps": [
+        {
+          "sequence": 10,
+          "title": "Open Employees",
+          "title_i18n": {
+            "en_US": "Open Employees"
+          },
+          "trigger": "[data-menu-xmlid=\"hr.menu_hr_root\"]",
+          "content": "Open the Employees app.",
+          "content_i18n": {
+            "en_US": "Open the Employees app."
+          },
+          "description": "Contracts are managed from the Employees app.",
+          "description_i18n": {
+            "en_US": "Contracts are managed from the Employees app."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 20,
+          "title": "Employees menu",
+          "title_i18n": {
+            "en_US": "Employees menu"
+          },
+          "trigger": ".o_main_navbar .o_menu_sections .dropdown-toggle",
+          "content": "Open the Employees menu.",
+          "content_i18n": {
+            "en_US": "Open the Employees menu."
+          },
+          "description": "The Employees menu holds the employee list and the contracts.",
+          "description_i18n": {
+            "en_US": "The Employees menu holds the employee list and the contracts."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 30,
+          "title": "Contracts",
+          "title_i18n": {
+            "en_US": "Contracts"
+          },
+          "trigger": "[data-menu-xmlid=\"hr_contract.hr_menu_contract\"]",
+          "content": "Click Contracts.",
+          "content_i18n": {
+            "en_US": "Click Contracts."
+          },
+          "description": "Every contract of every employee is listed here.",
+          "description_i18n": {
+            "en_US": "Every contract of every employee is listed here."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 40,
+          "title": "New",
+          "title_i18n": {
+            "en_US": "New"
+          },
+          "trigger": ".o_control_panel_main_buttons .o_list_button_add",
+          "content": "Click New to start a contract.",
+          "content_i18n": {
+            "en_US": "Click New to start a contract."
+          },
+          "description": "The form opens empty. This practice is never saved.",
+          "description_i18n": {
+            "en_US": "The form opens empty. This practice is never saved."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 50,
+          "title": "Type a negative wage",
+          "title_i18n": {
+            "en_US": "Type a negative wage"
+          },
+          "trigger": "[name=\"wage\"] input",
+          "content": "Type -500, then press Tab.",
+          "content_i18n": {
+            "en_US": "Type -500, then press Tab."
+          },
+          "description": "Odoo does not stop you from typing a negative amount in the field, because the wage is only a number. Always check the figure before you save: a negative wage would produce a negative payslip.",
+          "description_i18n": {
+            "en_US": "Odoo does not stop you from typing a negative amount in the field, because the wage is only a number. Always check the figure before you save: a negative wage would produce a negative payslip."
+          },
+          "position": "bottom",
+          "run": "edit",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 60,
+          "title": "Check the wage",
+          "title_i18n": {
+            "en_US": "Check the wage"
+          },
+          "trigger": "[name=\"wage\"] input",
+          "content": "Look at the wage. Click the field to continue.",
+          "content_i18n": {
+            "en_US": "Look at the wage. Click the field to continue."
+          },
+          "description": "The minus sign is kept. In real data the wage should be positive.",
+          "description_i18n": {
+            "en_US": "The minus sign is kept. In real data the wage should be positive."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        },
+        {
+          "sequence": 70,
+          "title": "Discard",
+          "title_i18n": {
+            "en_US": "Discard"
+          },
+          "trigger": ".o_form_button_cancel",
+          "content": "Click the discard icon to leave without saving.",
+          "content_i18n": {
+            "en_US": "Click the discard icon to leave without saving."
+          },
+          "description": "Nothing was stored, so this practice leaves no trace. Fill in the required fields and save if you want to keep a real record.",
+          "description_i18n": {
+            "en_US": "Nothing was stored, so this practice leaves no trace. Fill in the required fields and save if you want to keep a real record."
+          },
+          "position": "bottom",
+          "run": "click",
+          "is_check": false,
+          "validation_type": "none",
+          "validation_regex": "",
+          "validation_message": "",
+          "validation_message_i18n": {
+            "en_US": ""
+          }
+        }
+      ]
+    }
+  ]
+}
