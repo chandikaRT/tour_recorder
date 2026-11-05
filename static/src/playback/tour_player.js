@@ -22,6 +22,9 @@ import { isValid, validationMessage } from "../validation";
  */
 
 const CONSUME_EVENT = "tr_validated";
+// Custom event used to gate "press <key>" steps: the step advances only when
+// the user presses the expected key on the trigger (see createValidator.onKeyDown).
+const PRESS_EVENT = "tr_pressed";
 
 export const tourPlayerService = {
     dependencies: ["orm", "tour_service", "notification", "overlay"],
@@ -47,6 +50,15 @@ export const tourPlayerService = {
                     // on a click and leaves the tour stuck on that step.
                     if (s.run === "click") {
                         step.consumeEvent = "click";
+                    } else if (/^press\s+/i.test(s.run)) {
+                        // "press Enter" / "press Escape" / "press Tab": advance only
+                        // when the user presses that exact key on the trigger. Gated
+                        // via a custom event dispatched from createValidator.onKeyDown.
+                        // Without this, a press step has no consumeEvent and would
+                        // advance on the input element's default "input" event — i.e.
+                        // before the user has pressed (or even typed) anything.
+                        step.consumeEvent = PRESS_EVENT;
+                        step.run = () => {};
                     } else if (s.run === "dblclick") {
                         step.consumeEvent = "dblclick";
                     } else if (s.run === "select" || s.run.startsWith("select:")) {
@@ -239,15 +251,54 @@ export const tourPlayerService = {
                 clearError();
             }
 
+            // --- "press <key>" step gating ---------------------------------
+            // The key a "press X" step waits for, or null for any other step.
+            function expectedKey(step) {
+                if (!step || typeof step.run !== "string") {
+                    return null;
+                }
+                const m = step.run.match(/^press\s+(.+)$/i);
+                return m ? m[1].trim() : null;
+            }
+
+            function keyMatches(ev, expected) {
+                const want = (expected || "").toLowerCase();
+                const key = (ev.key || "").toLowerCase();
+                if (want === "enter") return key === "enter";
+                if (want === "escape" || want === "esc") return key === "escape";
+                if (want === "tab") return key === "tab";
+                if (want === "space" || want === "spacebar") {
+                    return key === " " || key === "spacebar";
+                }
+                return key === want;
+            }
+
+            // On the expected keypress, dispatch PRESS_EVENT on the trigger so the
+            // engine consumes the step. Other keys (ordinary typing) are ignored,
+            // so the step cannot advance until the user actually presses the key.
+            function onKeyDown(ev) {
+                const step = currentStep();
+                const key = expectedKey(step);
+                if (!key || !keyMatches(ev, key)) {
+                    return;
+                }
+                const el = resolveElement(step, ev.target) || ev.target;
+                if (el) {
+                    el.dispatchEvent(new CustomEvent(PRESS_EVENT, { bubbles: true }));
+                }
+            }
+
             const handler = onInput;
             document.addEventListener("input", handler, true);
             document.addEventListener("change", handler, true);
             document.addEventListener("blur", handler, true);
+            document.addEventListener("keydown", onKeyDown, true);
 
             function teardown() {
                 document.removeEventListener("input", handler, true);
                 document.removeEventListener("change", handler, true);
                 document.removeEventListener("blur", handler, true);
+                document.removeEventListener("keydown", onKeyDown, true);
                 if (errorEl && errorEl.parentNode) {
                     errorEl.parentNode.removeChild(errorEl);
                 }

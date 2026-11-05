@@ -22,6 +22,9 @@ screenshots and description.
   (Not Started / In Progress / Completed with step counts).
 - **Native playback**: guides run in Odoo's manual tour mode, ending with the
   usual rainbow-man "Tour completed!" effect.
+- **Key-press steps**: a step with Run = *press Enter* / *press Escape* / *press Tab*
+  advances only when the user actually presses that key on the target — not on focus
+  or the first keystroke. Useful after a "type a value" step (e.g. type → press Enter).
 - **Data-type validation**: a step can require the user's input to be a valid
   type before the tour will advance — *required, whole number, decimal, email,
   phone, URL, date, letters, letters+numbers,* or a **custom regex**. Wrong input
