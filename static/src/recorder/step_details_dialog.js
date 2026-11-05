@@ -14,6 +14,8 @@ export class StepDetailsDialog extends Component {
     static props = {
         selector: { type: String, optional: true },
         title: { type: String, optional: true },
+        /** Pre-filled tooltip text read from the element's data-tooltip / title / aria-label. */
+        suggestedContent: { type: String, optional: true },
         run: { type: String, optional: true },
         /** Array of { value, label } objects for native <select> option pickers. */
         selectOptions: { type: Array, optional: true },
@@ -24,7 +26,8 @@ export class StepDetailsDialog extends Component {
     setup() {
         this.state = useState({
             title: this.props.title || "",
-            content: "",
+            content: this.props.suggestedContent || "",
+            description: "",
             position: "bottom",
             run: this.props.run || "click",
             /** Which <option> value the user chose (only used when selectOptions provided). */
@@ -94,6 +97,7 @@ export class StepDetailsDialog extends Component {
         this.props.onAdd({
             title: this.state.title,
             content: this.state.content,
+            description: this.state.description,
             position: this.state.position,
             run,
             is_check: this.state.is_check,

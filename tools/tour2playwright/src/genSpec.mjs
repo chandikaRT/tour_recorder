@@ -51,7 +51,7 @@ export function genSpec(tour) {
     const { expr, todos: selTodos } = selectorToLocator(step.trigger);
     const { code, todos: actTodos } = actionFor(expr, step);
     const file = shotFile(step.number, total);
-    const label = `${String(step.number).padStart(2, "0")}. ${step.title || step.trigger || "step"}`;
+    const label = `${String(step.number).padStart(2, "0")}. ${step.title || step.content || `Step ${step.number}`}`;
 
     for (const t of [...selTodos, ...actTodos]) {
       allTodos.push({ step: step.number, msg: t });
@@ -64,6 +64,9 @@ export function genSpec(tour) {
       .join("\n");
 
     lines.push(`  await test.step(${jsString(label)}, async () => {`);
+    for (const text of [step.content, step.description]) {
+      if (text) lines.push(`    // ${text.replace(/\s*\n\s*/g, " ")}`);
+    }
     for (const t of [...selTodos, ...actTodos]) {
       lines.push(`    // TODO: ${t}`);
     }
