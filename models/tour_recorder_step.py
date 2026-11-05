@@ -28,6 +28,11 @@ class TourRecorderStep(models.Model):
         help='Tour action to run, e.g. "click" or "edit some text".',
     )
     content = fields.Text(string="Content / Tooltip", translate=True)
+    description = fields.Text(
+        string="Step Description",
+        translate=True,
+        help="Optional longer explanation shown below the main instruction in the tour bubble.",
+    )
     is_check = fields.Boolean(
         string="Check only",
         help="Only assert the element is visible, do not interact with it.",

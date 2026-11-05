@@ -23,21 +23,74 @@ import { isValid, validationMessage } from "../validation";
 
 const CONSUME_EVENT = "tr_validated";
 
+const POPUP_TRIGGER_RE =
+    /o_datetime_picker|o_popover|o-autocomplete|ui-autocomplete|dropdown-menu|o_notification/;
+
 export const tourPlayerService = {
     dependencies: ["orm", "tour_service", "notification", "overlay"],
     start(env, { orm, tour_service, notification, overlay }) {
+        // Recorded selectors can be pinned to a dialog's position among its
+        // siblings (`div.o_dialog:nth-of-type(2) > div.modal.d-block > ...`). With
+        // 3+ stacked wizards that index points at the wrong dialog, so the target
+        // is never found and the highlight never shows. The player already
+        // searches inside the frontmost dialog, so drop the positional prefix.
+        function normalizeDialogTrigger(trigger) {
+            if (!trigger) return trigger;
+            return trigger.replace(
+                /^(?:div)?\.o_dialog(?::nth-(?:of-type|child)\(\d+\))?\s*>\s*(?:div)?\.modal(?:\.[\w-]+)*\s*>\s*/,
+                ""
+            );
+        }
+
         function buildSteps(steps, { challenge = false } = {}) {
             return steps.map((s) => {
+                // Combine the short tooltip with the optional description as plain
+                // text: the TourPointer escapes its content, so HTML would show up
+                // as literal markup. A newline separates them (see scss pre-line).
+                // Challenge mode hides both.
+                const tooltip = challenge ? "" : (
+                    s.content && s.description
+                        ? `${s.content}\n${s.description}`
+                        : (s.content || "")
+                );
                 const step = {
-                    trigger: s.trigger,
-                    // Challenge mode hides all hints: no tooltip text (the location
-                    // pointer is hidden via injected CSS in createChallenge).
-                    content: challenge ? "" : s.content,
+                    trigger: normalizeDialogTrigger(s.trigger),
+                    content: tooltip,
                     position: s.position || "bottom",
                 };
+                // With a modal open the engine only searches inside it, so popups
+                // rendered outside the modal (date picker, dropdowns) are never found.
+                if (POPUP_TRIGGER_RE.test(s.trigger || "")) {
+                    step.in_modal = false;
+                }
                 if (s.is_check) {
                     // Emulate isCheck on Odoo 17: assert visibility, no interaction.
                     step.run = () => {};
+                } else if (typeof s.run === "string" && /^press\s+enter$/i.test(s.run.trim())) {
+                    // Finish only when the learner presses Enter in the field. The
+                    // default consume event for an input is "input", which fires on
+                    // every typed character instead.
+                    step.run = () => {};
+                    step.consumeEvent = CONSUME_EVENT;
+                    step.tr_enter = true;
+                } else if (typeof s.run === "string" && s.run.trim() === "apply-picker") {
+                    // Date/time picker: the learner picks the day and the time inside
+                    // the popup, and the step finishes when Apply is clicked (see the
+                    // validator). A click on the day alone must not finish it.
+                    step.run = () => {};
+                    step.consumeEvent = CONSUME_EVENT;
+                    step.tr_apply = true;
+                } else if (typeof s.run === "string" && s.run.trim() === "edit-any") {
+                    // Input that may already hold a value, so "change" might never
+                    // fire. Finish when the learner leaves the field (Tab or a click).
+                    step.run = () => {};
+                    step.consumeEvent = "blur";
+                } else if (typeof s.run === "string" && s.run.trim() === "select-any") {
+                    // Dropdown where any choice is fine, including the one already
+                    // selected (which fires no "change"). Finish when the field
+                    // loses focus, e.g. after the learner presses Tab.
+                    step.run = () => {};
+                    step.consumeEvent = "blur";
                 } else if (s.run) {
                     step.run = s.run;
                     // When the intended action is a click, tell the engine to
@@ -111,9 +164,14 @@ export const tourPlayerService = {
          */
         function queryWithDialogPriority(selector) {
             try {
-                const dialogs = document.querySelectorAll(".o_dialog");
-                for (let i = dialogs.length - 1; i >= 0; i--) {
-                    const el = dialogs[i].querySelector(selector);
+                // Only the frontmost dialog is interactive. With 3+ stacked
+                // wizards, matching in a lower one highlights a hidden element.
+                const dialogs = [...document.querySelectorAll(".o_dialog")].filter(
+                    (d) => d.offsetParent !== null || d.getClientRects().length
+                );
+                const top = dialogs[dialogs.length - 1];
+                if (top) {
+                    const el = top.querySelector(selector);
                     if (el) return el;
                 }
                 return document.querySelector(selector);
@@ -240,11 +298,39 @@ export const tourPlayerService = {
             }
 
             const handler = onInput;
+            // "apply-picker" steps: finish when Apply is clicked in the picker.
+            function onPickerApplyClick(ev) {
+                if (!ev.isTrusted) return;
+                const step = currentStep();
+                if (!step || !step.tr_apply) return;
+                const apply = ev.target.closest?.(".o_datetime_picker .o_apply");
+                if (!apply) return;
+                const picker = apply.closest(".o_datetime_picker");
+                // Dispatch now, while the picker (the engine's anchor) still exists.
+                picker.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
+            }
+            document.addEventListener("click", onPickerApplyClick, true);
+
+            // "press Enter" steps: finish on the Enter key inside the target field.
+            function onEnterStepKey(ev) {
+                if (ev.key !== "Enter" || !ev.isTrusted) return;
+                const step = currentStep();
+                if (!step || !step.tr_enter) return;
+                const el = resolveElement(step, ev.target);
+                if (!el || (el !== ev.target && !el.contains(ev.target))) return;
+                // Let Odoo handle the key first, then finish the step.
+                setTimeout(() => {
+                    el.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
+                }, 150);
+            }
+            document.addEventListener("keydown", onEnterStepKey, true);
             document.addEventListener("input", handler, true);
             document.addEventListener("change", handler, true);
             document.addEventListener("blur", handler, true);
 
             function teardown() {
+                document.removeEventListener("click", onPickerApplyClick, true);
+                document.removeEventListener("keydown", onEnterStepKey, true);
                 document.removeEventListener("input", handler, true);
                 document.removeEventListener("change", handler, true);
                 document.removeEventListener("blur", handler, true);
@@ -271,6 +357,14 @@ export const tourPlayerService = {
             // allowed through to the tour engine.  Any other selection is silently
             // swallowed so the step cannot advance on the wrong pick.
             let currentRequiredValue = null;
+            // True for steps that finish when the field loses focus (rich-text
+            // editors, where Tab and Enter edit the text instead of leaving it).
+            // The learner must be able to click elsewhere to blur the field.
+            let currentAllowBlur = false;
+            // True for steps finished by a custom signal (picker Apply, Enter key,
+            // validated input): a click inside the target does not end them, so it
+            // must not lock the step.
+            let currentNoLock = false;
             let rafId = null;
             let transitionTimer = null;
             // True after a click passes through to the tour engine and before the
@@ -349,7 +443,14 @@ export const tourPlayerService = {
                 // here would prevent the new wizard/page from receiving focus and
                 // initialising correctly.
                 if (!target) return;
+                // Rich-text targets finish on blur. Decide from the element itself so
+                // this does not depend on how the step's consume event was derived.
+                const blurStep = currentAllowBlur || !!target.isContentEditable
+                    || !!target.querySelector?.("[contenteditable='true']");
                 if (!target.contains(e.target)) {
+                    // Let the press go through so focus moves away and the field
+                    // blurs; the click that follows is still cancelled below.
+                    if (blurStep && e.type !== "click") return;
                     e.stopImmediatePropagation();
                     e.preventDefault();
                     return;
@@ -364,9 +465,21 @@ export const tourPlayerService = {
                 // prevent the user from re-opening it to try again after a wrong pick.
                 // The OS manages the dropdown state so the rapid-click issue that
                 // stepLocked guards against does not apply.
-                if (e.type === "click" && target.tagName !== "SELECT") {
+                if (e.type === "click" && target.tagName !== "SELECT" && !blurStep && !currentNoLock) {
                     stepLocked = true;
                     div.style.display = "none";
+                    // The tour engine only looks for the next step's trigger when
+                    // the DOM mutates. A click on a static element (a read-only card,
+                    // a column header) changes nothing, so the engine would sit on
+                    // the finished step. Poke the DOM so it re-evaluates.
+                    for (const delay of [60, 250, 800]) {
+                        setTimeout(() => {
+                            const nudge = document.createElement("span");
+                            nudge.style.display = "none";
+                            document.body.appendChild(nudge);
+                            nudge.remove();
+                        }, delay);
+                    }
                 }
             }
             document.addEventListener("click",       onCapturingPointer, true);
@@ -397,12 +510,32 @@ export const tourPlayerService = {
             }
             document.addEventListener("change", onCapturingChange, true);
 
+            // Pressing Enter in a search/autocomplete input (e.g. the "Add more
+            // items" wizard) makes Odoo pick the highlighted result and clear the
+            // field for another entry, without blurring it. No "change" event
+            // reaches the engine, so the step never advances. Fire one ourselves
+            // once Odoo has handled the key.
+            function onEnterKey(e) {
+                if (e.key !== "Enter" || !e.isTrusted || !currentTrigger) return;
+                const targetEl = getTargetEl();
+                const input = e.target;
+                if (!targetEl || !input || input.tagName !== "INPUT") return;
+                if (input !== targetEl && !targetEl.contains(input)) return;
+                if (!input.value) return;
+                setTimeout(() => {
+                    input.dispatchEvent(new Event("change", { bubbles: true }));
+                }, 250);
+            }
+            document.addEventListener("keydown", onEnterKey, true);
+
             rafId = requestAnimationFrame(tick);
 
             return {
-                setTrigger(trigger, requiredValue) {
+                setTrigger(trigger, requiredValue, allowBlur = false, noLock = false) {
                     stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
+                    currentAllowBlur = !!allowBlur;
+                    currentNoLock = !!noLock;
                     currentRequiredValue = requiredValue || null;
                     // Short CSS transition for the step-change animation.
                     // Removed after 300 ms so the RAF tracking loop stays lag-free
@@ -429,6 +562,7 @@ export const tourPlayerService = {
                     document.removeEventListener("mousedown",   onCapturingPointer, true);
                     document.removeEventListener("pointerdown", onCapturingPointer, true);
                     document.removeEventListener("change",      onCapturingChange,  true);
+                    document.removeEventListener("keydown",     onEnterKey,         true);
                     if (div.parentNode) {
                         div.parentNode.removeChild(div);
                     }
@@ -561,7 +695,7 @@ export const tourPlayerService = {
         // ---------------------------------------------------------------
         // Stop button
         //
-        // A persistent "✕ Stop" pill in the bottom-right corner that the user
+        // A persistent "✕ Stop" pill in the bottom-left corner that the user
         // can click at any time to abandon a guided play or a challenge run.
         // The spotlight's capture-phase blocker and the challenge's miss
         // detector both have explicit exemptions for this element so the button
@@ -622,7 +756,12 @@ export const tourPlayerService = {
                                 stepData.run.startsWith("select:")
                                     ? stepData.run.slice(7)
                                     : null;
-                            spotlight.setTrigger(stepData.trigger, reqVal);
+                            spotlight.setTrigger(
+                                stepData.trigger,
+                                reqVal,
+                                stepData.consumeEvent === "blur",
+                                stepData.consumeEvent === CONSUME_EVENT
+                            );
                         }
                         await orm.call("tour.recorder", "set_progress", [
                             tourId,
@@ -707,7 +846,19 @@ export const tourPlayerService = {
             const challengeMode = !!options.challenge;
             const tour = await orm.call("tour.recorder", "get_tour_for_play", [tourId, lang]);
             const tourKey = tour.tour_key;
-            const steps = tour.steps || [];
+            const rawSteps = tour.steps || [];
+            // Steps the engine runs (consume events, normalized triggers) merged
+            // with the raw fields the overlays still read (run, validation_*).
+            // The spotlight and validator must see the consume event, otherwise
+            // flags derived from it (blur, no-lock, apply-picker) are never set.
+            const builtSteps = buildSteps(rawSteps, { challenge: !!options.challenge });
+            const steps = rawSteps.map((raw, i) => ({
+                ...raw,
+                trigger: builtSteps[i].trigger,
+                consumeEvent: builtSteps[i].consumeEvent,
+                tr_enter: builtSteps[i].tr_enter,
+                tr_apply: builtSteps[i].tr_apply,
+            }));
             const total = steps.length;
             if (!total) {
                 return;
@@ -725,7 +876,7 @@ export const tourPlayerService = {
             registry.category("web_tour.tours").add(
                 tourKey,
                 {
-                    steps: () => buildSteps(steps, { challenge: challengeMode }),
+                    steps: () => buildSteps(rawSteps, { challenge: challengeMode }),
                 },
                 { force: true }
             );
@@ -745,7 +896,12 @@ export const tourPlayerService = {
                     typeof steps[0].run === "string" && steps[0].run.startsWith("select:")
                         ? steps[0].run.slice(7)
                         : null;
-                spotlight.setTrigger(steps[0].trigger, firstReqVal);
+                spotlight.setTrigger(
+                    steps[0].trigger,
+                    firstReqVal,
+                    steps[0].consumeEvent === "blur",
+                    steps[0].consumeEvent === CONSUME_EVENT
+                );
             }
 
             // Stop button — always visible during play/challenge so the user

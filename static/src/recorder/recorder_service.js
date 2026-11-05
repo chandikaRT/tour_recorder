@@ -3,7 +3,7 @@
 import { registry } from "@web/core/registry";
 import { reactive } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
-import { getCssSelector, inferRun, suggestTitle } from "./selector_utils";
+import { getCssSelector, inferRun, suggestTitle, suggestTooltip } from "./selector_utils";
 import { StepDetailsDialog } from "./step_details_dialog";
 import { TourManagerDialog } from "../manager/tour_manager_dialog";
 
@@ -91,6 +91,7 @@ export const tourRecorderService = {
             dialog.add(StepDetailsDialog, {
                 selector,
                 title: suggestTitle(target),
+                suggestedContent: suggestTooltip(target),
                 run: inferRun(target),
                 selectOptions,
                 onAdd: (step) => {
@@ -98,6 +99,7 @@ export const tourRecorderService = {
                         title: step.title,
                         trigger: selector,
                         content: step.content,
+                        description: step.description || "",
                         position: step.position,
                         run: step.run || inferRun(target),
                         is_check: step.is_check,
@@ -144,6 +146,7 @@ export const tourRecorderService = {
                 title: s.title || "",
                 trigger: s.trigger || "",
                 content: s.content || "",
+                description: s.description || "",
                 position: s.position || "bottom",
                 run: s.run || "click",
                 is_check: !!s.is_check,

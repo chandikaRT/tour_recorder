@@ -66,8 +66,13 @@ export function genManuals(tour) {
 
       out.push(`## ${step.number}. ${stepTitle}`);
       out.push("");
+      const stepDescription = tr(step.description, step.description_i18n, lang);
       if (stepContent) {
-        out.push(stepContent);
+        out.push(`**${stepContent}**`);
+        out.push("");
+      }
+      if (stepDescription) {
+        out.push(stepDescription);
         out.push("");
       }
       if (step.validation_type && step.validation_type !== "none") {

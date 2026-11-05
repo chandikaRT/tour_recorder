@@ -11,10 +11,25 @@
                            placeholder="e.g. Welcome to Sales!"/>
                 </div>
                 <div class="mb-3">
-                    <label class="fw-bold d-block mb-1">Tooltip (Instruction for User)</label>
+                    <label class="fw-bold d-block mb-1">
+                        Tooltip (Instruction for User)
+                        <span t-if="props.suggestedContent"
+                              class="badge text-bg-info ms-1 fw-normal"
+                              style="font-size:10px;"
+                              title="Pre-filled from the element's tooltip attribute">auto-suggested</span>
+                    </label>
                     <textarea class="form-control" rows="3"
                               t-model="state.content"
                               placeholder="What should the user do here?"/>
+                </div>
+                <div class="mb-3">
+                    <label class="fw-bold d-block mb-1">
+                        Step Description
+                        <span class="text-muted fw-normal small ms-1">(optional — longer context shown below the main instruction)</span>
+                    </label>
+                    <textarea class="form-control" rows="3"
+                              t-model="state.description"
+                              placeholder="Additional context or explanation for this step..."/>
                 </div>
                 <div class="row align-items-start">
                     <div class="col-6">
