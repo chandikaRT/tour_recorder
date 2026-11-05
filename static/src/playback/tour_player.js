@@ -115,13 +115,24 @@ export const tourPlayerService = {
                         step.consumeEvent = "change";
                         step.run = () => {};
                     } else if (s.run === "edit") {
-                        // Legacy: steps recorded as "edit" on a dropdown field
-                        // widget should still advance on click. Detected by
-                        // pattern-matching the field-widget class in the selector.
+                        const trig = s.trigger || "";
                         const isDropdown = /o_field_(many2one|many2many|selection|tags)/.test(
-                            s.trigger || ""
+                            trig
                         );
-                        if (isDropdown) {
+                        if (/o-autocomplete--input/.test(trig)) {
+                            // Autocomplete input the user TYPES into (e.g. a product
+                            // on an order line). Advance when they start typing — not
+                            // on "click" (which fires on focus, before any typing, and
+                            // jumps the tour ahead), and not on "change" (which never
+                            // fires until a value is committed, deadlocking a
+                            // type -> pick-from-dropdown flow). "input" lets the
+                            // following "pick the option" step become active while the
+                            // dropdown is open.
+                            step.consumeEvent = "input";
+                        } else if (isDropdown) {
+                            // Legacy: an "edit" step pointed at the field-widget
+                            // CONTAINER (not its input) means click-to-open the
+                            // dropdown, so advance on click.
                             step.consumeEvent = "click";
                         } else if (
                             /contenteditable|\bodoo-editor-editable\b|\.note-editable\b|o_field_html/.test(
