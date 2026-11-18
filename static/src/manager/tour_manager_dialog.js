@@ -41,6 +41,7 @@ export class TourManagerDialog extends Component {
             description: "",
             langs: [],
             playLang: "en_US",
+            searchQuery: "",
         });
 
         onWillStart(async () => {
@@ -66,6 +67,23 @@ export class TourManagerDialog extends Component {
 
     get recordedCount() {
         return this.steps.length;
+    }
+
+    /** Tours matching the search box (filtered by name or description). */
+    get filteredTours() {
+        const q = this.state.searchQuery.trim().toLowerCase();
+        if (!q) {
+            return this.state.tours;
+        }
+        return this.state.tours.filter(
+            (t) =>
+                (t.name || "").toLowerCase().includes(q) ||
+                (t.description || "").toLowerCase().includes(q)
+        );
+    }
+
+    clearSearch() {
+        this.state.searchQuery = "";
     }
 
     get isRecording() {

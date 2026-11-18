@@ -30,7 +30,9 @@
 
             <!-- Tours list -->
             <div class="d-flex align-items-center justify-content-between mb-2">
-                <h5 class="mb-0">Your Tours (<t t-esc="state.tours.length"/>)</h5>
+                <h5 class="mb-0">
+                    Your Tours (<t t-esc="filteredTours.length"/><t t-if="state.searchQuery.trim()"> of <t t-esc="state.tours.length"/></t>)
+                </h5>
                 <div class="d-flex align-items-center">
                     <t t-if="state.langs.length > 1">
                         <label class="small fw-bold mb-0 me-1" title="Language to play the tour in">
@@ -51,6 +53,19 @@
                 </div>
             </div>
 
+            <!-- Search / filter -->
+            <div class="input-group input-group-sm mb-2"
+                 t-if="!state.loading and state.tours.length">
+                <span class="input-group-text"><i class="fa fa-search"/></span>
+                <input type="text" class="form-control"
+                       placeholder="Search tours by name or description..."
+                       t-model="state.searchQuery"/>
+                <button class="btn btn-outline-secondary" t-if="state.searchQuery"
+                        t-on-click="clearSearch" title="Clear search">
+                    <i class="fa fa-times"/>
+                </button>
+            </div>
+
             <div t-if="state.loading" class="text-center text-muted py-4">
                 <i class="fa fa-spin fa-circle-o-notch"/> Loading...
             </div>
@@ -58,6 +73,14 @@
             <div t-elif="!state.tours.length" class="text-center text-muted py-5">
                 <i class="fa fa-film fa-2x d-block mb-2"/>
                 No tours assigned to you yet. Record one using the systray button!
+            </div>
+
+            <div t-elif="!filteredTours.length" class="text-center text-muted py-5">
+                <i class="fa fa-search fa-2x d-block mb-2"/>
+                No tours match "<t t-esc="state.searchQuery"/>".
+                <div class="mt-1">
+                    <button class="btn btn-link btn-sm p-0" t-on-click="clearSearch">Clear search</button>
+                </div>
             </div>
 
             <table t-else="" class="table o_tr_tours_table align-middle">
@@ -70,7 +93,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr t-foreach="state.tours" t-as="tour" t-key="tour.id">
+                    <tr t-foreach="filteredTours" t-as="tour" t-key="tour.id">
                         <td class="fw-bold">
                             <span t-esc="tour.name"/>
                             <span t-if="tour.verified" class="badge text-bg-success ms-1"
