@@ -46,6 +46,35 @@ action = {
         </field>
     </record>
 
+    <!-- Export ALL tours (bulk) — menu action, no selection needed -->
+    <record id="action_export_all_tours_server" model="ir.actions.server">
+        <field name="name">Export All Tours</field>
+        <field name="model_id" ref="model_tour_recorder"/>
+        <field name="state">code</field>
+        <field name="code">
+tours = env['tour.recorder'].search([])
+wizard = env['tour.recorder.export.wizard'].create({
+    'data': tours._export_json(),
+    'filename': 'tour_export_all.json',
+})
+action = {
+    'type': 'ir.actions.act_window',
+    'name': 'Export All Tours',
+    'res_model': 'tour.recorder.export.wizard',
+    'view_mode': 'form',
+    'res_id': wizard.id,
+    'target': 'new',
+}
+        </field>
+    </record>
+
+    <menuitem id="menu_tour_export_all"
+              name="Export All Tours"
+              parent="menu_tour_recorder_root"
+              action="action_export_all_tours_server"
+              groups="group_tour_manager"
+              sequence="15"/>
+
     <!-- ===================== IMPORT WIZARD ===================== -->
     <record id="view_tour_import_wizard_form" model="ir.ui.view">
         <field name="name">tour.recorder.import.wizard.form</field>
@@ -53,7 +82,9 @@ action = {
         <field name="arch" type="xml">
             <form string="Import Tours">
                 <div class="text-muted mb-2">
-                    Upload a JSON file previously exported from a Tour Recorder.
+                    Upload a <b>.json</b> file previously exported from a Tour Recorder
+                    (it may contain many tours), or a <b>.zip</b> of several such
+                    <b>.json</b> files to import them all at once.
                 </div>
                 <group>
                     <field name="data" filename="filename" required="1"/>

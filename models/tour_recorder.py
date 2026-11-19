@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import base64
+import io
 import json
+import zipfile
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
@@ -372,11 +374,53 @@ class TourRecorder(models.Model):
 
     @api.model
     def _import_json(self, b64data):
-        """Create tours from a base64-encoded JSON export. Returns created ids."""
+        """Create tours from an uploaded export. Returns the created ids.
+
+        Accepts either a single JSON export (which may itself hold many tours)
+        or a **.zip of several JSON exports** (bulk import of a whole library).
+        """
         if not b64data:
             raise UserError(_("Please select a file to import."))
         try:
             raw = base64.b64decode(b64data)
+        except Exception as exc:
+            raise UserError(_("The uploaded file could not be read:\n%s") % exc)
+
+        # A .zip starts with the "PK" local-file-header signature.
+        if raw[:2] == b"PK":
+            return self._import_zip(raw)
+        return self._import_json_bytes(raw)
+
+    @api.model
+    def _import_zip(self, raw):
+        """Import every ``*.json`` tour export inside a zip archive.
+
+        Invalid/unreadable entries are skipped so one bad file does not abort
+        the whole batch. Returns the ids created across all entries.
+        """
+        try:
+            archive = zipfile.ZipFile(io.BytesIO(raw))
+        except Exception as exc:
+            raise UserError(_("The uploaded archive is not a valid .zip file:\n%s") % exc)
+
+        created = []
+        with archive:
+            for name in archive.namelist():
+                if name.endswith("/") or not name.lower().endswith(".json"):
+                    continue
+                try:
+                    created += self._import_json_bytes(archive.read(name))
+                except Exception:
+                    # Skip this entry; keep importing the rest of the archive.
+                    continue
+        if not created:
+            raise UserError(_("The archive contains no importable .json tour files."))
+        return created
+
+    @api.model
+    def _import_json_bytes(self, raw):
+        """Core import of one decoded JSON export (bytes). Returns created ids."""
+        try:
             payload = json.loads(raw.decode("utf-8"))
         except Exception as exc:
             raise UserError(_("The uploaded file is not a valid tour export:\n%s") % exc)
