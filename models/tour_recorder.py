@@ -2,6 +2,8 @@
 import base64
 import io
 import json
+import re
+import unicodedata
 import zipfile
 
 from odoo import _, api, fields, models
@@ -371,6 +373,57 @@ class TourRecorder(models.Model):
             )
         raw = json.dumps(payload, indent=2, ensure_ascii=False).encode("utf-8")
         return base64.b64encode(raw)
+
+    @api.model
+    def _export_slug(self, name):
+        """Filesystem-safe slug from a tour name (ascii, lower, hyphenated)."""
+        base = unicodedata.normalize("NFKD", name or "")
+        base = base.encode("ascii", "ignore").decode("ascii").lower()
+        base = re.sub(r"[^a-z0-9]+", "-", base).strip("-")
+        return base
+
+    def _export_zip(self):
+        """Return base64 of a .zip holding one standalone ``<name>.json`` per
+        tour, so a multi-tour export unpacks into individual per-tour files."""
+        buf = io.BytesIO()
+        used = set()
+        with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
+            for tour in self:
+                raw = base64.b64decode(tour._export_json())  # single-tour JSON
+                name = self._export_slug(tour.name) or ("tour-%s" % tour.id)
+                fname = "%s.json" % name
+                n = 1
+                while fname in used:
+                    n += 1
+                    fname = "%s-%s.json" % (name, n)
+                used.add(fname)
+                zf.writestr(fname, raw)
+        return base64.b64encode(buf.getvalue())
+
+    def _export_download(self):
+        """Open the download wizard. One selected tour → a single ``.json``;
+        several → a ``.zip`` of individual per-tour ``.json`` files."""
+        if not self:
+            raise UserError(_("There are no tours to export."))
+        if len(self) == 1:
+            data = self._export_json()
+            filename = "%s.json" % (
+                self._export_slug(self.name) or ("tour-%s" % self.id)
+            )
+        else:
+            data = self._export_zip()
+            filename = "tours_export.zip"
+        wizard = self.env["tour.recorder.export.wizard"].create(
+            {"data": data, "filename": filename}
+        )
+        return {
+            "type": "ir.actions.act_window",
+            "name": _("Export Tours"),
+            "res_model": "tour.recorder.export.wizard",
+            "view_mode": "form",
+            "res_id": wizard.id,
+            "target": "new",
+        }
 
     @api.model
     def _import_json(self, b64data):
