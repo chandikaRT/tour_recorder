@@ -30,10 +30,14 @@ screenshots and description.
   in the recording **Step Details** dialog or in **Edit Steps**.
 - **Import / Export** (managers): back up or move guides between databases as a
   JSON file.
-  - *Export*: in **Tour Recorder → Manage Tours**, select tours → **Action →
-    Export Tours** → download the `.json` (includes all languages).
-  - *Import*: **Tour Recorder → Import Tours** → upload a previously exported
-    `.json`.
+  Each tour exports as its **own** `.json` (all languages included).
+  - *Export selected*: in **Tour Recorder → Manage Tours**, select tours →
+    **Action → Export Tours**. One tour downloads as a single `.json`; several
+    download as a `.zip` containing one `.json` per tour.
+  - *Export all* (bulk): **Tour Recorder → Export All Tours** → a `.zip` of every
+    tour's individual `.json`, no selection needed.
+  - *Import*: **Tour Recorder → Import Tours** → upload a single `.json`, **or a
+    `.zip` of several `.json` files** to bulk-import a whole library in one go.
 - **Multi-language** (English / Sinhala / Tamil): tour text (name, description,
   step titles, tooltips, validation messages) is translated per-record using
   Odoo's native field translation.
