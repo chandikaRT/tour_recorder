@@ -329,10 +329,54 @@ export const tourPlayerService = {
                 if (!step || !step.tr_enter) return;
                 const el = resolveElement(step, ev.target);
                 if (!el || (el !== ev.target && !el.contains(ev.target))) return;
-                // Let Odoo handle the key first, then finish the step.
-                setTimeout(() => {
+                const finish = () =>
                     el.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
-                }, 150);
+                // If Enter is confirming a many2one autocomplete (e.g. the top
+                // "Create 'X'" quick-create), the field value is only set once the
+                // async create/select RPC resolves. Finishing on a fixed timer can
+                // advance the tour mid-create and race the value-set, leaving the
+                // record created but the field empty. Waiting only for the dropdown
+                // to close is not enough either: on "Create" the dropdown often
+                // closes immediately while the create is still in flight. So wait
+                // until the field has actually COMMITTED a value (its record link
+                // button appears) — or, for fields without that button, until the
+                // dropdown has been closed for a short grace — then finish. A hard
+                // cap guarantees the step never hangs. Plain inputs / the search box
+                // have no autocomplete and keep the original short delay.
+                const fieldRoot = el.closest(".o_field_widget") || el.parentElement || el;
+                const hasAutocomplete = !!(
+                    fieldRoot && fieldRoot.querySelector(".o-autocomplete")
+                );
+                if (!hasAutocomplete) {
+                    setTimeout(finish, 150);
+                    return;
+                }
+                const dropdownOpen = () =>
+                    !!fieldRoot.querySelector(".o-autocomplete--dropdown-menu");
+                // A committed many2one value renders an "open record" link button.
+                const hasValue = () => !!fieldRoot.querySelector("button.o_external_button");
+                const startedAt = Date.now();
+                let dropdownClosedAt = 0;
+                const tick = () => {
+                    const now = Date.now();
+                    if (now - startedAt > 3000) {
+                        finish(); // hard cap — never hang the tour
+                        return;
+                    }
+                    if (dropdownOpen()) {
+                        setTimeout(tick, 80); // still choosing / creating
+                        return;
+                    }
+                    if (!dropdownClosedAt) dropdownClosedAt = now;
+                    if (hasValue()) {
+                        setTimeout(finish, 80); // value committed → safe to advance
+                    } else if (now - dropdownClosedAt > 1200) {
+                        finish(); // no link button on this field — grace elapsed
+                    } else {
+                        setTimeout(tick, 80);
+                    }
+                };
+                tick();
             }
             document.addEventListener("keydown", onEnterStepKey, true);
             document.addEventListener("input", handler, true);
@@ -376,6 +420,10 @@ export const tourPlayerService = {
             // validated input): a click inside the target does not end them, so it
             // must not lock the step.
             let currentNoLock = false;
+            // True for "press Enter" steps. The validator finishes those (via
+            // tr_validated) once the value commits, so the synthetic "change"
+            // below must not fire for them (see onEnterKey).
+            let currentEnterStep = false;
             let rafId = null;
             let transitionTimer = null;
             // True after a click passes through to the tour engine and before the
@@ -526,25 +574,47 @@ export const tourPlayerService = {
             // field for another entry, without blurring it. No "change" event
             // reaches the engine, so the step never advances. Fire one ourselves
             // once Odoo has handled the key.
+            //
+            // Never fire that "change" with an EMPTY many2one input: Odoo's
+            // Many2XAutocomplete.onChange treats an empty value as "clear the
+            // field" (update(false)). On a quick-create ("Create 'X'" + Enter)
+            // Odoo empties the input while the name_create RPC runs, so a change
+            // fired in that window queues a clear that lands right after the
+            // create — the record is created but the field ends up empty.
             function onEnterKey(e) {
                 if (e.key !== "Enter" || !e.isTrusted || !currentTrigger) return;
+                // "press Enter" steps are finished by the validator; the engine
+                // waits for tr_validated, so a synthetic change is useless there
+                // and only risks wiping the value being created.
+                if (currentEnterStep) return;
                 const targetEl = getTargetEl();
                 const input = e.target;
                 if (!targetEl || !input || input.tagName !== "INPUT") return;
                 if (input !== targetEl && !targetEl.contains(input)) return;
                 if (!input.value) return;
-                setTimeout(() => {
+                const isMany2one = !!input.closest(".o_field_many2one");
+                const startedAt = Date.now();
+                const fire = () => {
+                    if (!input.isConnected) return;
+                    if (isMany2one && !input.value) {
+                        // Still creating/selecting — wait for the value to
+                        // commit; give up rather than send a clearing change.
+                        if (Date.now() - startedAt < 3000) setTimeout(fire, 100);
+                        return;
+                    }
                     input.dispatchEvent(new Event("change", { bubbles: true }));
-                }, 250);
+                };
+                setTimeout(fire, 250);
             }
             document.addEventListener("keydown", onEnterKey, true);
 
             rafId = requestAnimationFrame(tick);
 
             return {
-                setTrigger(trigger, requiredValue, allowBlur = false, noLock = false) {
+                setTrigger(trigger, requiredValue, allowBlur = false, noLock = false, enterStep = false) {
                     stepLocked = false; // new step ready — re-enable interaction
                     currentTrigger = trigger;
+                    currentEnterStep = !!enterStep;
                     currentAllowBlur = !!allowBlur;
                     currentNoLock = !!noLock;
                     currentRequiredValue = requiredValue || null;
@@ -771,7 +841,8 @@ export const tourPlayerService = {
                                 stepData.trigger,
                                 reqVal,
                                 stepData.consumeEvent === "blur",
-                                stepData.consumeEvent === CONSUME_EVENT
+                                stepData.consumeEvent === CONSUME_EVENT,
+                                !!stepData.tr_enter
                             );
                         }
                         await orm.call("tour.recorder", "set_progress", [
@@ -911,7 +982,8 @@ export const tourPlayerService = {
                     steps[0].trigger,
                     firstReqVal,
                     steps[0].consumeEvent === "blur",
-                    steps[0].consumeEvent === CONSUME_EVENT
+                    steps[0].consumeEvent === CONSUME_EVENT,
+                    !!steps[0].tr_enter
                 );
             }
 

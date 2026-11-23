@@ -14,7 +14,8 @@ screenshots and description.
   element to capture a step (title, tooltip, position, "check only"), **left-click**
   to keep navigating normally. A live counter shows captured steps.
 - **Save & manage**: name/describe the guide, then manage all guides from the
-  systray **"Guides"** button — play ▶, edit steps ✎, or delete 🗑.
+  systray **"Guides"** button — play ▶, edit steps ✎, or delete 🗑. A **search
+  box** filters the list by name or description as you type.
 - **Edit Steps**: reorder steps and fine-tune CSS selectors, positions, run
   commands and tooltips.
 - **Assignment & progress**: assign guides to users; the backend **Tour Recorder**
