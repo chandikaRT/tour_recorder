@@ -333,29 +333,50 @@ export const tourPlayerService = {
                     el.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
                 // If Enter is confirming a many2one autocomplete (e.g. the top
                 // "Create 'X'" quick-create), the field value is only set once the
-                // async create/select resolves and the dropdown closes. Finishing on
-                // a fixed timer can advance the tour mid-create and race the
-                // value-set, leaving the record created but the field empty. So wait
-                // for the field's autocomplete dropdown to close first, with a safety
-                // timeout. Plain inputs / the search box have no such dropdown and
-                // keep the original short delay.
+                // async create/select RPC resolves. Finishing on a fixed timer can
+                // advance the tour mid-create and race the value-set, leaving the
+                // record created but the field empty. Waiting only for the dropdown
+                // to close is not enough either: on "Create" the dropdown often
+                // closes immediately while the create is still in flight. So wait
+                // until the field has actually COMMITTED a value (its record link
+                // button appears) — or, for fields without that button, until the
+                // dropdown has been closed for a short grace — then finish. A hard
+                // cap guarantees the step never hangs. Plain inputs / the search box
+                // have no autocomplete and keep the original short delay.
                 const fieldRoot = el.closest(".o_field_widget") || el.parentElement || el;
-                const dropdownOpen = () =>
-                    !!(fieldRoot && fieldRoot.querySelector(".o-autocomplete--dropdown-menu"));
-                if (!dropdownOpen()) {
+                const hasAutocomplete = !!(
+                    fieldRoot && fieldRoot.querySelector(".o-autocomplete")
+                );
+                if (!hasAutocomplete) {
                     setTimeout(finish, 150);
                     return;
                 }
+                const dropdownOpen = () =>
+                    !!fieldRoot.querySelector(".o-autocomplete--dropdown-menu");
+                // A committed many2one value renders an "open record" link button.
+                const hasValue = () => !!fieldRoot.querySelector("button.o_external_button");
                 const startedAt = Date.now();
-                const waitSettle = () => {
-                    if (!dropdownOpen() || Date.now() - startedAt > 2500) {
-                        // Grace for the committed value to render after close.
-                        setTimeout(finish, 120);
+                let dropdownClosedAt = 0;
+                const tick = () => {
+                    const now = Date.now();
+                    if (now - startedAt > 3000) {
+                        finish(); // hard cap — never hang the tour
+                        return;
+                    }
+                    if (dropdownOpen()) {
+                        setTimeout(tick, 80); // still choosing / creating
+                        return;
+                    }
+                    if (!dropdownClosedAt) dropdownClosedAt = now;
+                    if (hasValue()) {
+                        setTimeout(finish, 80); // value committed → safe to advance
+                    } else if (now - dropdownClosedAt > 1200) {
+                        finish(); // no link button on this field — grace elapsed
                     } else {
-                        setTimeout(waitSettle, 80);
+                        setTimeout(tick, 80);
                     }
                 };
-                waitSettle();
+                tick();
             }
             document.addEventListener("keydown", onEnterStepKey, true);
             document.addEventListener("input", handler, true);
