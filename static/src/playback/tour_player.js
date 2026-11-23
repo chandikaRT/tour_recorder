@@ -329,10 +329,33 @@ export const tourPlayerService = {
                 if (!step || !step.tr_enter) return;
                 const el = resolveElement(step, ev.target);
                 if (!el || (el !== ev.target && !el.contains(ev.target))) return;
-                // Let Odoo handle the key first, then finish the step.
-                setTimeout(() => {
+                const finish = () =>
                     el.dispatchEvent(new CustomEvent(CONSUME_EVENT, { bubbles: true }));
-                }, 150);
+                // If Enter is confirming a many2one autocomplete (e.g. the top
+                // "Create 'X'" quick-create), the field value is only set once the
+                // async create/select resolves and the dropdown closes. Finishing on
+                // a fixed timer can advance the tour mid-create and race the
+                // value-set, leaving the record created but the field empty. So wait
+                // for the field's autocomplete dropdown to close first, with a safety
+                // timeout. Plain inputs / the search box have no such dropdown and
+                // keep the original short delay.
+                const fieldRoot = el.closest(".o_field_widget") || el.parentElement || el;
+                const dropdownOpen = () =>
+                    !!(fieldRoot && fieldRoot.querySelector(".o-autocomplete--dropdown-menu"));
+                if (!dropdownOpen()) {
+                    setTimeout(finish, 150);
+                    return;
+                }
+                const startedAt = Date.now();
+                const waitSettle = () => {
+                    if (!dropdownOpen() || Date.now() - startedAt > 2500) {
+                        // Grace for the committed value to render after close.
+                        setTimeout(finish, 120);
+                    } else {
+                        setTimeout(waitSettle, 80);
+                    }
+                };
+                waitSettle();
             }
             document.addEventListener("keydown", onEnterStepKey, true);
             document.addEventListener("input", handler, true);
